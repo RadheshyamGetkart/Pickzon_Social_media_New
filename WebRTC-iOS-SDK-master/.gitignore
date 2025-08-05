@@ -1,0 +1,6 @@
+Pods/
+.DS_Store
+Podfile.lock
+Release-iphoneos.xcarchive
+Release-iphonesimulator.xcarchive
+Release*
