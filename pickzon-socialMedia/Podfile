@@ -1,0 +1,98 @@
+# Uncomment the next line to define a global platform for your project
+# platform :ios, '11.0'
+
+target 'SCIMBO' do
+  # Comment the next line if you're not using Swift and don't want to use dynamic frameworks
+  use_frameworks!
+  
+  # Pods for SCIMBO
+  #source 'https://github.com/sdk-banuba/banuba-sdk-podspecs.git'
+  
+  pod 'DeepAR'
+  pod 'Starscream'
+  pod 'Alamofire'
+  pod 'SwiftyJSON'
+  pod 'JSSAlertView'
+  pod 'Toast-Swift'
+  pod 'SWMessages'
+  pod "SWActivityIndicatorView"
+  pod 'Socket.IO-Client-Swift', '~> 15.2.0'
+  pod 'SnapKit'
+  pod 'GLNotificationBar'
+  pod "MMMaterialDesignSpinner"
+  pod 'RSKImageCropper'
+  pod "GSImageViewerController"
+  pod 'ICGVideoTrimmer'
+  pod 'DKImagePickerController'
+  pod 'ACPDownload'
+  pod 'PinCodeTextField', :git => "https://github.com/tkach/PinCodeTextField"
+  pod 'DropDown'
+  pod 'SimpleImageViewer'
+  pod 'ContentSheet'
+  pod 'SwiftKeychainWrapper'
+  pod 'SwiftyRSA'
+  pod 'ActionSheetPicker-3.0'
+  pod 'SwiftyGiphy'
+  pod 'SwiftyGif'
+  pod 'Mantis'
+  pod 'IHKeyboardAvoiding'
+  pod 'TextAttributes'
+  pod 'R.swift'
+  pod 'Firebase/Messaging'
+  pod 'Firebase/Analytics'
+  pod 'Firebase/Crashlytics'
+  pod 'Firebase/Auth'
+  pod "MKVideoCacher"
+  pod 'SwiftVideoGenerator'
+  pod 'RealmSwift', '~>10'
+  pod 'GrowingTextView'
+  #pod 'KYDrawerController'
+  pod 'RxAlamofire'
+  pod 'RxSwift'
+  pod 'FSCalendar'
+  #pod 'MediaWatermark'
+  pod 'IQKeyboardManager'
+  pod 'razorpay-pod', '~> 1.3.2'
+  pod 'IQMediaPickerController'
+  pod 'MarqueeLabel'
+  pod 'CCBottomRefreshControl'
+  pod "SwiftRater"
+  pod 'Kingfisher', '~> 7.0'
+  pod 'FittedSheets'
+  pod 'ActiveLabel'
+  pod 'SteviaLayout' #, '= 4.7.3'
+  pod 'PryntTrimmerView', '= 4.0.2'
+  pod 'OnlyPictures'
+  pod 'Firebase/DynamicLinks'
+  pod 'ShimmerView'
+  pod 'NSFWDetector'
+  pod 'GoogleSignIn'
+  pod 'SVGAPlayer'
+  
+end
+
+target 'SCIMBOEx' do
+    use_frameworks!
+    pod 'RSKImageCropper'
+    pod 'ICGVideoTrimmer'
+    pod 'JSSAlertView'
+    pod 'Alamofire'
+    pod 'SwiftyGiphy'
+    pod 'GrowingTextView'
+    pod 'Kingfisher', '~> 7.0'
+end
+
+post_install do |installer|
+installer.pods_project.targets.each do |target|
+target.build_configurations.each do |config|
+  if config.base_configuration_reference
+            xcconfig_path = config.base_configuration_reference.real_path
+            xcconfig = File.read(xcconfig_path)
+            xcconfig_mod = xcconfig.gsub(/DT_TOOLCHAIN_DIR/, "TOOLCHAIN_DIR")
+            File.open(xcconfig_path, "w") { |file| file << xcconfig_mod }
+          end
+config.build_settings['SWIFT_VERSION'] = '5.0'
+config.build_settings['IPHONEOS_DEPLOYMENT_TARGET'] = '13.0'
+end
+end
+end

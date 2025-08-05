@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="22155" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22131"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Roboto-Medium.ttf">
+            <string>Roboto-Medium</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="gTV-IL-0wX" customClass="GiftCollectionCell" customModule="PickZon" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nYS-KB-Cad">
+                        <rect key="frame" x="2.6666666666666643" y="2.6666666666666643" width="94.666666666666686" height="94.666666666666686"/>
+                        <subviews>
+                            <view alpha="0.5" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="b7e-BL-rQs">
+                                <rect key="frame" x="1" y="1" width="92.666666666666671" height="92.666666666666671"/>
+                                <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="popUp_coin" translatesAutoresizingMaskIntoConstraints="NO" id="wLs-HF-bYp">
+                                <rect key="frame" x="20" y="9.6666666666666714" width="55" height="55"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="55" id="3CX-t9-Akk"/>
+                                    <constraint firstAttribute="height" constant="55" id="yIS-MP-kjU"/>
+                                </constraints>
+                            </imageView>
+                            <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4YG-eU-iOY">
+                                <rect key="frame" x="5" y="65.666666666666657" width="84.666666666666671" height="24"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="24" id="Nd3-ap-1Ze"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Roboto-Medium" family="Roboto" pointSize="15"/>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                <state key="normal" title="0" image="coinSmall"/>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="4YG-eU-iOY" secondAttribute="bottom" constant="5" id="0eG-c7-a1V"/>
+                            <constraint firstItem="b7e-BL-rQs" firstAttribute="centerX" secondItem="wLs-HF-bYp" secondAttribute="centerX" id="B7H-m5-BRA"/>
+                            <constraint firstItem="4YG-eU-iOY" firstAttribute="top" secondItem="wLs-HF-bYp" secondAttribute="bottom" constant="1" id="GGd-i1-tKO"/>
+                            <constraint firstItem="b7e-BL-rQs" firstAttribute="leading" secondItem="nYS-KB-Cad" secondAttribute="leading" constant="1" id="Xcd-eT-ynM"/>
+                            <constraint firstItem="b7e-BL-rQs" firstAttribute="top" secondItem="nYS-KB-Cad" secondAttribute="top" constant="1" id="cZW-5o-xer"/>
+                            <constraint firstItem="4YG-eU-iOY" firstAttribute="leading" secondItem="nYS-KB-Cad" secondAttribute="leading" constant="5" id="drr-Zo-NcQ"/>
+                            <constraint firstAttribute="trailing" secondItem="4YG-eU-iOY" secondAttribute="trailing" constant="5" id="lfJ-2p-hW7"/>
+                            <constraint firstAttribute="trailing" secondItem="b7e-BL-rQs" secondAttribute="trailing" constant="1" id="lwf-pJ-FQg"/>
+                            <constraint firstAttribute="bottom" secondItem="b7e-BL-rQs" secondAttribute="bottom" constant="1" id="pv5-Rf-5tk"/>
+                        </constraints>
+                    </view>
+                </subviews>
+            </view>
+            <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstItem="nYS-KB-Cad" firstAttribute="centerY" secondItem="gTV-IL-0wX" secondAttribute="centerY" id="EAP-eg-ie4"/>
+                <constraint firstItem="nYS-KB-Cad" firstAttribute="centerX" secondItem="gTV-IL-0wX" secondAttribute="centerX" id="STL-fi-cxB"/>
+                <constraint firstItem="nYS-KB-Cad" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="2.6666666666666643" id="eEm-eH-phb"/>
+                <constraint firstItem="nYS-KB-Cad" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="2.6666666666666643" id="fhU-ii-DXI"/>
+            </constraints>
+            <size key="customSize" width="343" height="213"/>
+            <connections>
+                <outlet property="bgVw" destination="b7e-BL-rQs" id="rVo-i8-CY9"/>
+                <outlet property="btnCoin" destination="4YG-eU-iOY" id="QQ3-4m-lbB"/>
+                <outlet property="imgVwGift" destination="wLs-HF-bYp" id="yxt-pR-0zz"/>
+            </connections>
+            <point key="canvasLocation" x="293.89312977099235" y="77.112676056338032"/>
+        </collectionViewCell>
+    </objects>
+    <resources>
+        <image name="coinSmall" width="24" height="23.333333969116211"/>
+        <image name="popUp_coin" width="299" height="298"/>
+    </resources>
+</document>

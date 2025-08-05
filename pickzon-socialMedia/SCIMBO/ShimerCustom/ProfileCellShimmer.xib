@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="22155" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22155"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="ProfileCellShimmer" customModule="PickZon" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="400" height="510"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pzX-hc-fkZ" userLabel="Thumbnail View" customClass="ShimmerView" customModule="ShimmerView">
+                    <rect key="frame" x="0.0" y="0.0" width="400" height="121"/>
+                    <color key="backgroundColor" systemColor="separatorColor"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="121" id="hN3-2H-ZJP"/>
+                    </constraints>
+                </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ijl-AU-Idf" userLabel="Thumbnail View" customClass="ShimmerView" customModule="ShimmerView">
+                    <rect key="frame" x="20" y="100" width="60" height="60"/>
+                    <color key="backgroundColor" systemColor="separatorColor"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="60" id="9GF-Jn-0Ib"/>
+                        <constraint firstAttribute="width" constant="60" id="qGw-b2-EuK"/>
+                    </constraints>
+                </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wW2-Gg-xeu" userLabel="Thumbnail View" customClass="ShimmerView" customModule="ShimmerView">
+                    <rect key="frame" x="80" y="262" width="60" height="60"/>
+                    <color key="backgroundColor" systemColor="separatorColor"/>
+                    <constraints>
+                        <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="60" id="2dm-8I-U9A"/>
+                        <constraint firstAttribute="width" constant="60" id="EQD-eI-s9Y"/>
+                        <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="60" id="l1m-dI-TGf"/>
+                        <constraint firstAttribute="height" constant="60" id="yVN-3K-ucV"/>
+                    </constraints>
+                </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PPi-Jv-22F" userLabel="Thumbnail View" customClass="ShimmerView" customModule="ShimmerView">
+                    <rect key="frame" x="170" y="262" width="60" height="60"/>
+                    <color key="backgroundColor" systemColor="separatorColor"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="60" id="EA2-y8-4tS"/>
+                        <constraint firstAttribute="height" constant="60" id="eah-wg-xz3"/>
+                        <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="60" id="osj-99-H4I"/>
+                        <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="60" id="yxA-fl-L8U"/>
+                    </constraints>
+                </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="voz-dJ-8tB" userLabel="Thumbnail View" customClass="ShimmerView" customModule="ShimmerView">
+                    <rect key="frame" x="0.0" y="337" width="400" height="43"/>
+                    <color key="backgroundColor" systemColor="separatorColor"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="43" id="Xmg-jc-zou"/>
+                    </constraints>
+                </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8aZ-jw-yg4" userLabel="Thumbnail View" customClass="ShimmerView" customModule="ShimmerView">
+                    <rect key="frame" x="260" y="262" width="60" height="60"/>
+                    <color key="backgroundColor" systemColor="separatorColor"/>
+                    <constraints>
+                        <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="60" id="7ab-ec-RfZ"/>
+                        <constraint firstAttribute="width" constant="60" id="Gv2-MT-6NP"/>
+                        <constraint firstAttribute="height" constant="60" id="apn-N4-wDR"/>
+                        <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="60" id="fVp-GI-JVc"/>
+                    </constraints>
+                </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wCD-Th-ECk" userLabel="Thumbnail View" customClass="ShimmerView" customModule="ShimmerView">
+                    <rect key="frame" x="10" y="390" width="120" height="100"/>
+                    <color key="backgroundColor" systemColor="separatorColor"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="100" id="Hfr-IV-0qX"/>
+                    </constraints>
+                </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LXP-g8-xfm" userLabel="Thumbnail View" customClass="ShimmerView" customModule="ShimmerView">
+                    <rect key="frame" x="140" y="390" width="120" height="100"/>
+                    <color key="backgroundColor" systemColor="separatorColor"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="100" id="p8x-3U-iZk"/>
+                    </constraints>
+                </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="W0h-Bd-d0X" userLabel="Thumbnail View" customClass="ShimmerView" customModule="ShimmerView">
+                    <rect key="frame" x="270" y="390" width="120" height="100"/>
+                    <color key="backgroundColor" systemColor="separatorColor"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="100" id="jxC-Fj-4to"/>
+                    </constraints>
+                </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Uk4-Zg-et2" userLabel="First Line View" customClass="ShimmerView" customModule="ShimmerView">
+                    <rect key="frame" x="20" y="178" width="360" height="16"/>
+                    <color key="backgroundColor" systemColor="separatorColor"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="16" id="lGp-DH-MCb"/>
+                    </constraints>
+                </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dOz-O8-QFA" userLabel="Second Line View" customClass="ShimmerView" customModule="ShimmerView">
+                    <rect key="frame" x="20" y="202" width="360" height="16"/>
+                    <color key="backgroundColor" systemColor="separatorColor"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="16" id="B5U-TL-WsM"/>
+                    </constraints>
+                </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="N2E-9m-kaf" userLabel="Third Line View" customClass="ShimmerView" customModule="ShimmerView">
+                    <rect key="frame" x="20" y="226" width="360" height="16"/>
+                    <color key="backgroundColor" systemColor="separatorColor"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="16" id="a6v-LY-aLl"/>
+                    </constraints>
+                </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tEb-Mp-bUN" userLabel="Seperator">
+                    <rect key="frame" x="0.0" y="509" width="400" height="1"/>
+                    <color key="backgroundColor" systemColor="separatorColor"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="1" id="PAq-SL-r7x"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="W0h-Bd-d0X" secondAttribute="trailing" constant="10" id="2g4-r0-ZfM"/>
+                <constraint firstItem="wCD-Th-ECk" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="10" id="67i-fl-MnX"/>
+                <constraint firstItem="W0h-Bd-d0X" firstAttribute="width" secondItem="wCD-Th-ECk" secondAttribute="width" id="692-c4-G1I"/>
+                <constraint firstItem="8aZ-jw-yg4" firstAttribute="top" secondItem="N2E-9m-kaf" secondAttribute="bottom" constant="20" id="8Nk-x4-1KE"/>
+                <constraint firstItem="PPi-Jv-22F" firstAttribute="top" secondItem="N2E-9m-kaf" secondAttribute="bottom" constant="20" id="92Y-Mi-ma1"/>
+                <constraint firstAttribute="trailing" secondItem="Uk4-Zg-et2" secondAttribute="trailing" constant="20" id="9jh-pe-LvA"/>
+                <constraint firstItem="pzX-hc-fkZ" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="BUy-Fc-Xx0"/>
+                <constraint firstAttribute="trailing" secondItem="voz-dJ-8tB" secondAttribute="trailing" id="FHu-ca-0Ym"/>
+                <constraint firstItem="PPi-Jv-22F" firstAttribute="leading" secondItem="wW2-Gg-xeu" secondAttribute="trailing" constant="30" id="Fcu-7f-fb3"/>
+                <constraint firstItem="voz-dJ-8tB" firstAttribute="top" secondItem="wW2-Gg-xeu" secondAttribute="bottom" constant="15" id="G5f-qc-EZx"/>
+                <constraint firstItem="LXP-g8-xfm" firstAttribute="top" secondItem="voz-dJ-8tB" secondAttribute="bottom" constant="10" id="I0X-Lj-uPr"/>
+                <constraint firstItem="tEb-Mp-bUN" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="JLQ-GP-NVL"/>
+                <constraint firstItem="W0h-Bd-d0X" firstAttribute="top" secondItem="voz-dJ-8tB" secondAttribute="bottom" constant="10" id="K0e-SV-gfv"/>
+                <constraint firstItem="LXP-g8-xfm" firstAttribute="leading" secondItem="wCD-Th-ECk" secondAttribute="trailing" constant="10" id="MCt-h7-fB8"/>
+                <constraint firstItem="wCD-Th-ECk" firstAttribute="top" secondItem="voz-dJ-8tB" secondAttribute="bottom" constant="10" id="NrP-N3-ry5"/>
+                <constraint firstItem="N2E-9m-kaf" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="20" id="OGr-4J-0Qj"/>
+                <constraint firstItem="voz-dJ-8tB" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="QGC-eL-4rR"/>
+                <constraint firstItem="N2E-9m-kaf" firstAttribute="top" secondItem="dOz-O8-QFA" secondAttribute="bottom" constant="8" id="WKk-vb-LYv"/>
+                <constraint firstItem="Ijl-AU-Idf" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="20" id="YEa-E1-CS5"/>
+                <constraint firstAttribute="trailing" secondItem="dOz-O8-QFA" secondAttribute="trailing" constant="20" id="Ymb-Pz-uHL"/>
+                <constraint firstAttribute="bottom" secondItem="tEb-Mp-bUN" secondAttribute="bottom" id="cbq-wX-kXd"/>
+                <constraint firstItem="LXP-g8-xfm" firstAttribute="width" secondItem="wCD-Th-ECk" secondAttribute="width" id="dhu-gp-d8V"/>
+                <constraint firstItem="8aZ-jw-yg4" firstAttribute="leading" secondItem="PPi-Jv-22F" secondAttribute="trailing" constant="30" id="eJQ-y3-IED"/>
+                <constraint firstItem="W0h-Bd-d0X" firstAttribute="leading" secondItem="LXP-g8-xfm" secondAttribute="trailing" constant="10" id="ih1-UD-KUr"/>
+                <constraint firstItem="wW2-Gg-xeu" firstAttribute="top" secondItem="N2E-9m-kaf" secondAttribute="bottom" constant="20" id="jro-S9-RkK"/>
+                <constraint firstItem="pzX-hc-fkZ" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="keL-YQ-mRE"/>
+                <constraint firstItem="Ijl-AU-Idf" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="100" id="lK1-TD-V1Z"/>
+                <constraint firstAttribute="trailing" secondItem="tEb-Mp-bUN" secondAttribute="trailing" id="lKO-7R-NB8"/>
+                <constraint firstItem="dOz-O8-QFA" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="20" id="lcP-dw-LeE"/>
+                <constraint firstItem="PPi-Jv-22F" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="lrO-GV-hDt"/>
+                <constraint firstItem="Uk4-Zg-et2" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="20" id="nig-BR-qmE"/>
+                <constraint firstItem="dOz-O8-QFA" firstAttribute="top" secondItem="Uk4-Zg-et2" secondAttribute="bottom" constant="8" id="oWY-H1-wco"/>
+                <constraint firstItem="Uk4-Zg-et2" firstAttribute="top" secondItem="Ijl-AU-Idf" secondAttribute="bottom" constant="18" id="vjm-Tr-0X3"/>
+                <constraint firstAttribute="trailing" secondItem="N2E-9m-kaf" secondAttribute="trailing" constant="20" id="w01-Ek-1HF"/>
+                <constraint firstAttribute="trailing" secondItem="pzX-hc-fkZ" secondAttribute="trailing" id="yia-nO-bfz"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="firstLineView" destination="Uk4-Zg-et2" id="5CG-9q-AHS"/>
+                <outlet property="itemView1" destination="wCD-Th-ECk" id="D11-kz-3NR"/>
+                <outlet property="itemView2" destination="LXP-g8-xfm" id="pGV-1a-VK4"/>
+                <outlet property="itemView3" destination="W0h-Bd-d0X" id="fLz-M9-pYw"/>
+                <outlet property="secondLineView" destination="dOz-O8-QFA" id="fdN-KG-vGT"/>
+                <outlet property="thirdLineFollowCountView" destination="PPi-Jv-22F" id="5nE-dm-lE0"/>
+                <outlet property="thirdLineFollowingCountView" destination="8aZ-jw-yg4" id="UhG-oW-uWh"/>
+                <outlet property="thirdLinePostCountView" destination="wW2-Gg-xeu" id="Df7-Rm-lnb"/>
+                <outlet property="thirdLineTabView" destination="voz-dJ-8tB" id="Asv-xa-eaN"/>
+                <outlet property="thirdLineView" destination="N2E-9m-kaf" id="ug7-48-DpG"/>
+                <outlet property="thumbnailBannerView" destination="pzX-hc-fkZ" id="dqy-Nx-Ze8"/>
+                <outlet property="thumbnailView" destination="Ijl-AU-Idf" id="cHE-Sd-MgL"/>
+            </connections>
+            <point key="canvasLocation" x="15.942028985507248" y="-108.48214285714285"/>
+        </view>
+    </objects>
+    <resources>
+        <systemColor name="separatorColor">
+            <color red="0.23529411764705882" green="0.23529411764705882" blue="0.2627450980392157" alpha="0.28999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

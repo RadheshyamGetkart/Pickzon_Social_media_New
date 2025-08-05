@@ -1,0 +1,228 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="22155" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22131"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Roboto-Medium.ttf">
+            <string>Roboto-Medium</string>
+        </array>
+        <array key="Roboto-Regular.ttf">
+            <string>Roboto-Regular</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="WI3-zM-ncc" customClass="ViolatingPopupView" customModule="PickZon" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dJ3-qK-61Y">
+                    <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                    <subviews>
+                        <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tlQ-TO-viX" customClass="UIViewX" customModule="PickZon" customModuleProvider="target">
+                            <rect key="frame" x="15" y="241.00000000000003" width="363" height="369.66666666666674"/>
+                            <subviews>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Violating community guidline" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gCl-fh-rhT">
+                                    <rect key="frame" x="10" y="15" width="343" height="35"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="35" id="hoI-kV-4P5"/>
+                                    </constraints>
+                                    <fontDescription key="fontDescription" name="Roboto-Medium" family="Roboto" pointSize="22"/>
+                                    <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="caution" translatesAutoresizingMaskIntoConstraints="NO" id="d6U-BR-xXE">
+                                    <rect key="frame" x="141.66666666666666" y="70" width="80" height="80"/>
+                                    <constraints>
+                                        <constraint firstAttribute="width" constant="80" id="Mpw-na-Jtt"/>
+                                        <constraint firstAttribute="height" constant="80" id="u6w-e2-Fsk"/>
+                                    </constraints>
+                                </imageView>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fMm-hp-Qml">
+                                    <rect key="frame" x="10" y="160" width="343" height="99.666666666666686"/>
+                                    <string key="text">This is your first warning as we've noticed that yoy've violated Pickzon policy guidlines. On next attempt your account and associated content would be blocked permanently.</string>
+                                    <fontDescription key="fontDescription" name="Roboto-Medium" family="Roboto" pointSize="17"/>
+                                    <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Mcl-rm-NfN">
+                                    <rect key="frame" x="10" y="269.66666666666669" width="343" height="30"/>
+                                    <subviews>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1jd-QH-oa2">
+                                            <rect key="frame" x="0.0" y="2.3333333333333144" width="25" height="25"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="25" id="5jy-FH-zfW"/>
+                                                <constraint firstAttribute="width" constant="25" id="9cZ-y2-FFM"/>
+                                            </constraints>
+                                            <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                            <state key="normal" image="uncheck"/>
+                                            <state key="selected" image="check"/>
+                                            <connections>
+                                                <action selector="checkBoxButtonAction:" destination="WI3-zM-ncc" eventType="touchUpInside" id="wsm-hu-RbT"/>
+                                            </connections>
+                                        </button>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="I agree with Pickzon" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OsJ-5w-guS">
+                                            <rect key="frame" x="30" y="2.3333333333333144" width="140" height="25"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="140" id="QCX-AB-kop"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="15"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6nj-UF-CBx" customClass="UIButtonX" customModule="PickZon" customModuleProvider="target">
+                                            <rect key="frame" x="170" y="2.3333333333333144" width="120" height="25"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="120" id="8Lr-gQ-XId"/>
+                                            </constraints>
+                                            <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                            <state key="normal">
+                                                <attributedString key="attributedTitle">
+                                                    <fragment content="Privacy">
+                                                        <attributes>
+                                                            <color key="NSColor" red="0.0" green="0.58980089430000004" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                            <font key="NSFont" size="18" name="Helvetica"/>
+                                                            <font key="NSOriginalFont" size="18" name="Symbol"/>
+                                                            <integer key="NSUnderline" value="1"/>
+                                                        </attributes>
+                                                    </fragment>
+                                                    <fragment content=" ">
+                                                        <attributes>
+                                                            <color key="NSColor" red="0.0" green="0.58980089430000004" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                            <font key="NSFont" size="18" name="Helvetica"/>
+                                                            <integer key="NSUnderline" value="1"/>
+                                                        </attributes>
+                                                    </fragment>
+                                                    <fragment content="Policy">
+                                                        <attributes>
+                                                            <color key="NSColor" red="0.0" green="0.58980089430000004" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                            <font key="NSFont" size="18" name="Helvetica"/>
+                                                            <font key="NSOriginalFont" size="18" name="Symbol"/>
+                                                            <integer key="NSUnderline" value="1"/>
+                                                        </attributes>
+                                                    </fragment>
+                                                </attributedString>
+                                            </state>
+                                            <connections>
+                                                <action selector="privacyButtonAction:" destination="WI3-zM-ncc" eventType="touchUpInside" id="LWf-0H-jzh"/>
+                                            </connections>
+                                        </button>
+                                    </subviews>
+                                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                    <constraints>
+                                        <constraint firstItem="OsJ-5w-guS" firstAttribute="top" secondItem="Mcl-rm-NfN" secondAttribute="top" constant="2.5" id="0Kd-Ws-o7k"/>
+                                        <constraint firstAttribute="bottom" secondItem="OsJ-5w-guS" secondAttribute="bottom" constant="2.5" id="RGG-Aw-vfO"/>
+                                        <constraint firstItem="6nj-UF-CBx" firstAttribute="leading" secondItem="OsJ-5w-guS" secondAttribute="trailing" id="WDJ-cU-7vh"/>
+                                        <constraint firstItem="1jd-QH-oa2" firstAttribute="top" secondItem="Mcl-rm-NfN" secondAttribute="top" constant="2.5" id="cPy-9U-nzP"/>
+                                        <constraint firstItem="6nj-UF-CBx" firstAttribute="top" secondItem="Mcl-rm-NfN" secondAttribute="top" constant="2.5" id="dT0-rs-7yu"/>
+                                        <constraint firstItem="OsJ-5w-guS" firstAttribute="leading" secondItem="1jd-QH-oa2" secondAttribute="trailing" constant="5" id="kaN-sU-nzR"/>
+                                        <constraint firstAttribute="height" constant="30" id="nQf-Oi-PQD"/>
+                                        <constraint firstAttribute="bottom" secondItem="6nj-UF-CBx" secondAttribute="bottom" constant="2.5" id="nkb-yg-G2z"/>
+                                        <constraint firstItem="1jd-QH-oa2" firstAttribute="leading" secondItem="Mcl-rm-NfN" secondAttribute="leading" id="zFb-V2-3AR"/>
+                                        <constraint firstItem="OsJ-5w-guS" firstAttribute="top" secondItem="Mcl-rm-NfN" secondAttribute="top" constant="2.5" id="zXH-M5-mVU"/>
+                                    </constraints>
+                                </view>
+                                <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pML-SA-twx" customClass="UIButtonX" customModule="PickZon" customModuleProvider="target">
+                                    <rect key="frame" x="116.66666666666666" y="314.66666666666663" width="130" height="40"/>
+                                    <color key="backgroundColor" red="0.0" green="0.58980089430000004" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <constraints>
+                                        <constraint firstAttribute="width" constant="130" id="GPP-i0-agV"/>
+                                        <constraint firstAttribute="height" constant="40" id="cm2-F0-7Os"/>
+                                    </constraints>
+                                    <fontDescription key="fontDescription" name="Roboto-Medium" family="Roboto" pointSize="16"/>
+                                    <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                    <state key="normal" title="Submit">
+                                        <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </state>
+                                    <userDefinedRuntimeAttributes>
+                                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                            <real key="value" value="20"/>
+                                        </userDefinedRuntimeAttribute>
+                                    </userDefinedRuntimeAttributes>
+                                    <connections>
+                                        <action selector="submitButtonAction:" destination="WI3-zM-ncc" eventType="touchUpInside" id="5L7-Sp-Xe8"/>
+                                    </connections>
+                                </button>
+                            </subviews>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <constraints>
+                                <constraint firstItem="pML-SA-twx" firstAttribute="centerX" secondItem="tlQ-TO-viX" secondAttribute="centerX" id="19x-NZ-tv9"/>
+                                <constraint firstItem="d6U-BR-xXE" firstAttribute="centerX" secondItem="tlQ-TO-viX" secondAttribute="centerX" id="412-bo-FED"/>
+                                <constraint firstItem="Mcl-rm-NfN" firstAttribute="top" secondItem="fMm-hp-Qml" secondAttribute="bottom" constant="10" id="C5r-NJ-QSe"/>
+                                <constraint firstAttribute="trailing" secondItem="Mcl-rm-NfN" secondAttribute="trailing" constant="10" id="CKP-Re-uPV"/>
+                                <constraint firstItem="pML-SA-twx" firstAttribute="top" secondItem="Mcl-rm-NfN" secondAttribute="bottom" constant="15" id="Gh5-lO-HSr"/>
+                                <constraint firstItem="Mcl-rm-NfN" firstAttribute="leading" secondItem="tlQ-TO-viX" secondAttribute="leading" constant="10" id="Gpc-kp-aP5"/>
+                                <constraint firstAttribute="trailing" secondItem="fMm-hp-Qml" secondAttribute="trailing" constant="10" id="Htz-F5-RXI"/>
+                                <constraint firstItem="fMm-hp-Qml" firstAttribute="top" secondItem="d6U-BR-xXE" secondAttribute="bottom" constant="10" id="OF3-97-qd9"/>
+                                <constraint firstItem="fMm-hp-Qml" firstAttribute="leading" secondItem="tlQ-TO-viX" secondAttribute="leading" constant="10" id="Qj6-I8-S7Z"/>
+                                <constraint firstAttribute="trailing" secondItem="gCl-fh-rhT" secondAttribute="trailing" constant="10" id="bvv-AA-vfq"/>
+                                <constraint firstItem="d6U-BR-xXE" firstAttribute="top" secondItem="gCl-fh-rhT" secondAttribute="bottom" constant="20" id="g6T-su-PbP"/>
+                                <constraint firstItem="gCl-fh-rhT" firstAttribute="leading" secondItem="tlQ-TO-viX" secondAttribute="leading" constant="10" id="lcz-86-p7F"/>
+                                <constraint firstItem="gCl-fh-rhT" firstAttribute="top" secondItem="tlQ-TO-viX" secondAttribute="top" constant="15" id="nce-fL-rBl"/>
+                                <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="360" id="o0Q-Zc-xs2"/>
+                                <constraint firstAttribute="bottom" secondItem="pML-SA-twx" secondAttribute="bottom" constant="15" id="rwG-t3-iLg"/>
+                            </constraints>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                    <real key="value" value="7"/>
+                                </userDefinedRuntimeAttribute>
+                                <userDefinedRuntimeAttribute type="number" keyPath="shadowOpacity">
+                                    <real key="value" value="1"/>
+                                </userDefinedRuntimeAttribute>
+                                <userDefinedRuntimeAttribute type="color" keyPath="shadowColor">
+                                    <color key="value" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </userDefinedRuntimeAttribute>
+                            </userDefinedRuntimeAttributes>
+                        </view>
+                    </subviews>
+                    <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstAttribute="trailing" secondItem="tlQ-TO-viX" secondAttribute="trailing" constant="15" id="Dr6-bz-AuM"/>
+                        <constraint firstItem="tlQ-TO-viX" firstAttribute="leading" secondItem="dJ3-qK-61Y" secondAttribute="leading" constant="15" id="FMH-VD-Eh2"/>
+                        <constraint firstItem="tlQ-TO-viX" firstAttribute="centerY" secondItem="dJ3-qK-61Y" secondAttribute="centerY" constant="-0.33333333333337123" id="iu8-Su-yDl"/>
+                        <constraint firstItem="tlQ-TO-viX" firstAttribute="centerX" secondItem="dJ3-qK-61Y" secondAttribute="centerX" id="oST-xa-F59"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="6FT-2V-ycw"/>
+            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+            <constraints>
+                <constraint firstItem="dJ3-qK-61Y" firstAttribute="top" secondItem="6FT-2V-ycw" secondAttribute="top" constant="-59" id="5Cu-bi-NX9"/>
+                <constraint firstItem="6FT-2V-ycw" firstAttribute="bottom" secondItem="dJ3-qK-61Y" secondAttribute="bottom" constant="-34" id="692-H2-rvJ"/>
+                <constraint firstItem="6FT-2V-ycw" firstAttribute="trailing" secondItem="dJ3-qK-61Y" secondAttribute="trailing" id="Ghq-UT-RCg"/>
+                <constraint firstItem="dJ3-qK-61Y" firstAttribute="leading" secondItem="6FT-2V-ycw" secondAttribute="leading" id="cZO-TL-rf6"/>
+            </constraints>
+            <connections>
+                <outlet property="bgview" destination="dJ3-qK-61Y" id="kE3-D5-zaD"/>
+                <outlet property="btnChkBox" destination="1jd-QH-oa2" id="PWS-ES-oud"/>
+                <outlet property="btnPrivacy" destination="6nj-UF-CBx" id="2aA-fQ-6Ue"/>
+                <outlet property="lblMsg" destination="fMm-hp-Qml" id="Nw9-Vy-8oP"/>
+                <outlet property="lblTitle" destination="gCl-fh-rhT" id="MYB-vo-xc9"/>
+            </connections>
+            <point key="canvasLocation" x="533.58778625954199" y="-269.01408450704224"/>
+        </view>
+    </objects>
+    <designables>
+        <designable name="6nj-UF-CBx">
+            <size key="intrinsicContentSize" width="113" height="32.666666666666664"/>
+        </designable>
+        <designable name="pML-SA-twx">
+            <size key="intrinsicContentSize" width="51" height="31"/>
+        </designable>
+    </designables>
+    <resources>
+        <image name="caution" width="81" height="83"/>
+        <image name="check" width="18" height="18"/>
+        <image name="uncheck" width="18" height="18"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

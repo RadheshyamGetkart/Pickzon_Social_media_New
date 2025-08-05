@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="22505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22504"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Roboto-Regular.ttf">
+            <string>Roboto-Regular</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="CheerUpCollectionCell" id="gTV-IL-0wX" customClass="CheerUpCollectionCell" customModule="PickZon" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="90" height="90"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="90" height="90"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EeU-r7-6jA">
+                        <rect key="frame" x="1" y="2.6666666666666643" width="88" height="85"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="coin1" translatesAutoresizingMaskIntoConstraints="NO" id="ieJ-AF-zSO">
+                                <rect key="frame" x="14" y="0.0" width="60" height="60"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="Vaw-HH-A8L"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="60" id="gPi-XC-fpP"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1x" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="D2t-bJ-Ccx">
+                                <rect key="frame" x="5" y="62.333333333333343" width="78" height="20"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="20" id="2r0-Nq-y78"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="14"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="D2t-bJ-Ccx" firstAttribute="leading" secondItem="EeU-r7-6jA" secondAttribute="leading" constant="5" id="39W-Iw-yiJ"/>
+                            <constraint firstAttribute="bottom" secondItem="D2t-bJ-Ccx" secondAttribute="bottom" constant="2.5" id="Ahq-ph-Vdj"/>
+                            <constraint firstAttribute="trailing" secondItem="D2t-bJ-Ccx" secondAttribute="trailing" constant="5" id="Qox-FC-MnZ"/>
+                            <constraint firstItem="ieJ-AF-zSO" firstAttribute="centerX" secondItem="EeU-r7-6jA" secondAttribute="centerX" id="SxK-Oa-hJ7"/>
+                            <constraint firstItem="D2t-bJ-Ccx" firstAttribute="top" secondItem="ieJ-AF-zSO" secondAttribute="bottom" constant="2.5" id="yf6-Qk-d5W"/>
+                        </constraints>
+                    </view>
+                </subviews>
+            </view>
+            <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
+            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+            <constraints>
+                <constraint firstItem="EeU-r7-6jA" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="1" id="2Ow-jP-T0f"/>
+                <constraint firstAttribute="trailing" secondItem="EeU-r7-6jA" secondAttribute="trailing" constant="1" id="Tg2-Cj-bHv"/>
+                <constraint firstItem="EeU-r7-6jA" firstAttribute="centerX" secondItem="gTV-IL-0wX" secondAttribute="centerX" id="bCd-7R-ZPU"/>
+                <constraint firstItem="EeU-r7-6jA" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="2.5" id="cd2-LP-hpH"/>
+                <constraint firstItem="EeU-r7-6jA" firstAttribute="centerY" secondItem="gTV-IL-0wX" secondAttribute="centerY" id="ec7-yi-Xr2"/>
+            </constraints>
+            <size key="customSize" width="126" height="124"/>
+            <connections>
+                <outlet property="imgVwCoin" destination="ieJ-AF-zSO" id="SeF-t8-5hO"/>
+                <outlet property="lblCoinName" destination="D2t-bJ-Ccx" id="yOE-Ta-huh"/>
+            </connections>
+            <point key="canvasLocation" x="109.9236641221374" y="45.774647887323944"/>
+        </collectionViewCell>
+    </objects>
+    <resources>
+        <image name="coin1" width="28" height="27"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

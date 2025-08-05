@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21678"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Roboto-Medium.ttf">
+            <string>Roboto-Medium</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="h7W-bx-Xgx" customClass="CoinUpSuccessAlertView" customModule="PickZon" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <view alpha="0.5" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0BS-Cp-wnz">
+                    <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                    <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                </view>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="popUp_coin" translatesAutoresizingMaskIntoConstraints="NO" id="Lvb-5u-n4i">
+                    <rect key="frame" x="146.66666666666666" y="376" width="100" height="100"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="100" id="Fkf-ek-etc"/>
+                        <constraint firstAttribute="height" constant="100" id="Rgc-Tq-b0k"/>
+                    </constraints>
+                </imageView>
+                <label opaque="NO" userInteractionEnabled="NO" alpha="0.69999999999999996" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="CoinUp X2" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8gP-0Y-kiC">
+                    <rect key="frame" x="106.66666666666669" y="486" width="180" height="40"/>
+                    <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="180" id="2Q1-d4-3uh"/>
+                        <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="40" id="pfa-TO-WJ8"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name="Roboto-Medium" family="Roboto" pointSize="17"/>
+                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="lDm-Io-m3Y"/>
+            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+            <constraints>
+                <constraint firstItem="8gP-0Y-kiC" firstAttribute="centerX" secondItem="h7W-bx-Xgx" secondAttribute="centerX" id="2Dc-FL-Txy"/>
+                <constraint firstItem="Lvb-5u-n4i" firstAttribute="centerY" secondItem="h7W-bx-Xgx" secondAttribute="centerY" id="EIc-ex-hsJ"/>
+                <constraint firstItem="8gP-0Y-kiC" firstAttribute="top" secondItem="Lvb-5u-n4i" secondAttribute="bottom" constant="10" id="GsQ-tP-dul"/>
+                <constraint firstItem="0BS-Cp-wnz" firstAttribute="top" secondItem="h7W-bx-Xgx" secondAttribute="top" id="Tmm-BG-UkU"/>
+                <constraint firstItem="0BS-Cp-wnz" firstAttribute="leading" secondItem="lDm-Io-m3Y" secondAttribute="leading" id="Was-yM-bNR"/>
+                <constraint firstItem="0BS-Cp-wnz" firstAttribute="trailing" secondItem="lDm-Io-m3Y" secondAttribute="trailing" id="reY-fe-uuO"/>
+                <constraint firstItem="Lvb-5u-n4i" firstAttribute="centerX" secondItem="h7W-bx-Xgx" secondAttribute="centerX" id="sYJ-vy-mYT"/>
+                <constraint firstAttribute="bottom" secondItem="0BS-Cp-wnz" secondAttribute="bottom" id="wak-Bn-CQT"/>
+            </constraints>
+            <connections>
+                <outlet property="bgView" destination="0BS-Cp-wnz" id="Snk-iK-XQ5"/>
+                <outlet property="imgVwCoin" destination="Lvb-5u-n4i" id="e1u-3S-ipH"/>
+                <outlet property="lblMessage" destination="8gP-0Y-kiC" id="T2P-9y-reA"/>
+            </connections>
+            <point key="canvasLocation" x="107.63358778625954" y="20.422535211267608"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="popUp_coin" width="299" height="298"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

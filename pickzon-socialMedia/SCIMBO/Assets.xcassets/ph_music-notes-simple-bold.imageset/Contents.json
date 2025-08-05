@@ -1,0 +1,23 @@
+{
+  "images" : [
+    {
+      "filename" : "ph_music-notes-simple-bold.png",
+      "idiom" : "universal",
+      "scale" : "1x"
+    },
+    {
+      "filename" : "ph_music-notes-simple-bold@2x.png",
+      "idiom" : "universal",
+      "scale" : "2x"
+    },
+    {
+      "filename" : "ph_music-notes-simple-bold@3x.png",
+      "idiom" : "universal",
+      "scale" : "3x"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}

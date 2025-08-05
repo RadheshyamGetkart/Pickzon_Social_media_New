@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="GenderCell" rowHeight="110" id="KGk-i7-Jjw" customClass="GenderCell" customModule="PickZon" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="491" height="109"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="491" height="109"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="06j-eS-IIn">
+                        <rect key="frame" x="0.0" y="0.0" width="491" height="104"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rP7-EE-aFc">
+                                <rect key="frame" x="10" y="10" width="105" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="PST-Nd-LgC"/>
+                                    <constraint firstAttribute="width" constant="105" id="xmt-vn-2QT"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <inset key="imageEdgeInsets" minX="5" minY="5" maxX="15" maxY="5"/>
+                                <state key="normal" title="Gender" image="Gender">
+                                    <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="*" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eRr-6a-6IH">
+                                <rect key="frame" x="105" y="15" width="5" height="20"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="5" id="AuI-PJ-XgJ"/>
+                                    <constraint firstAttribute="height" constant="20" id="Vvi-jt-VQT"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <color key="textColor" systemColor="systemRedColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="m45-Mj-VoJ">
+                                <rect key="frame" x="40" y="60" width="80" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="80" id="2JB-Y7-4XR"/>
+                                    <constraint firstAttribute="height" constant="30" id="B38-W1-mx9"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="15" maxY="0.0"/>
+                                <state key="normal" title="Male" image="selectedRadio">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                            </button>
+                            <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9tT-IQ-kur">
+                                <rect key="frame" x="185.66666666666666" y="60" width="119.99999999999997" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="5bv-QH-dUl"/>
+                                    <constraint firstAttribute="width" constant="120" id="E14-SA-E5f"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="15" maxY="0.0"/>
+                                <state key="normal" title="Female" image="unselectedRadio">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                            </button>
+                            <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8zu-ID-DYt">
+                                <rect key="frame" x="371" y="60" width="80" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="OTu-3D-fgu"/>
+                                    <constraint firstAttribute="width" constant="80" id="mMd-wo-vyI"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="15" maxY="0.0"/>
+                                <state key="normal" title="Both" image="unselectedRadio">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="8zu-ID-DYt" secondAttribute="bottom" constant="14" id="0C9-AC-iuG"/>
+                            <constraint firstItem="m45-Mj-VoJ" firstAttribute="top" secondItem="rP7-EE-aFc" secondAttribute="bottom" constant="10" id="0K3-XS-qAQ"/>
+                            <constraint firstAttribute="trailing" secondItem="8zu-ID-DYt" secondAttribute="trailing" constant="40" id="3Ph-8y-zxK"/>
+                            <constraint firstAttribute="bottom" secondItem="9tT-IQ-kur" secondAttribute="bottom" constant="14" id="7ax-lS-wnz"/>
+                            <constraint firstItem="eRr-6a-6IH" firstAttribute="leading" secondItem="06j-eS-IIn" secondAttribute="leading" constant="105" id="JqW-HV-Vzn"/>
+                            <constraint firstItem="9tT-IQ-kur" firstAttribute="centerX" secondItem="06j-eS-IIn" secondAttribute="centerX" id="NeN-5L-nLm"/>
+                            <constraint firstItem="eRr-6a-6IH" firstAttribute="top" secondItem="06j-eS-IIn" secondAttribute="top" constant="15" id="NtS-jM-6R0"/>
+                            <constraint firstAttribute="bottom" secondItem="m45-Mj-VoJ" secondAttribute="bottom" constant="14" id="UEy-mG-Iw7"/>
+                            <constraint firstItem="m45-Mj-VoJ" firstAttribute="leading" secondItem="06j-eS-IIn" secondAttribute="leading" constant="40" id="WiC-rM-2rK"/>
+                            <constraint firstItem="8zu-ID-DYt" firstAttribute="top" secondItem="rP7-EE-aFc" secondAttribute="bottom" constant="10" id="agY-zJ-WVi"/>
+                            <constraint firstItem="rP7-EE-aFc" firstAttribute="top" secondItem="06j-eS-IIn" secondAttribute="top" constant="10" id="kTU-M8-sZ7"/>
+                            <constraint firstItem="9tT-IQ-kur" firstAttribute="top" secondItem="rP7-EE-aFc" secondAttribute="bottom" constant="10" id="tUg-cN-8U5"/>
+                            <constraint firstItem="rP7-EE-aFc" firstAttribute="leading" secondItem="06j-eS-IIn" secondAttribute="leading" constant="10" id="xDI-fm-Ddb"/>
+                        </constraints>
+                    </view>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="06j-eS-IIn" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="ChD-Pi-0lg"/>
+                    <constraint firstItem="06j-eS-IIn" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="Iyv-hC-bZ8"/>
+                    <constraint firstAttribute="bottom" secondItem="06j-eS-IIn" secondAttribute="bottom" constant="5" id="T5v-hc-xv4"/>
+                    <constraint firstAttribute="trailing" secondItem="06j-eS-IIn" secondAttribute="trailing" id="WUp-5K-J3a"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="btnBoth" destination="8zu-ID-DYt" id="chK-mJ-OCt"/>
+                <outlet property="btnFeMale" destination="9tT-IQ-kur" id="73i-7c-rqy"/>
+                <outlet property="btnMale" destination="m45-Mj-VoJ" id="9OA-cc-c3w"/>
+            </connections>
+            <point key="canvasLocation" x="193.12977099236642" y="42.605633802816904"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="Gender" width="30" height="30"/>
+        <image name="selectedRadio" width="34" height="34"/>
+        <image name="unselectedRadio" width="34" height="34"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemRedColor">
+            <color red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
+</document>

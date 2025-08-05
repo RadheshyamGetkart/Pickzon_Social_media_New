@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="22155" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22131"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Roboto-Medium.ttf">
+            <string>Roboto-Medium</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="EntryStyleCell" id="gTV-IL-0wX" customClass="EntryStyleCell" customModule="PickZon" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="50"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="50"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <view contentMode="scaleAspectFit" translatesAutoresizingMaskIntoConstraints="NO" id="vD4-ao-Pbb">
+                        <rect key="frame" x="1" y="5" width="318" height="40"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="defaultcover" translatesAutoresizingMaskIntoConstraints="NO" id="UaO-xu-a5J">
+                                <rect key="frame" x="90" y="0.0" width="138" height="40"/>
+                            </imageView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Selection" translatesAutoresizingMaskIntoConstraints="NO" id="HvX-0y-RVG">
+                                <rect key="frame" x="0.0" y="0.0" width="15" height="15"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="15" id="3iR-Ke-2K4"/>
+                                    <constraint firstAttribute="width" constant="15" id="aPd-Hj-R0C"/>
+                                </constraints>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sQ9-02-ChV">
+                                <rect key="frame" x="5" y="9" width="60" height="22"/>
+                                <color key="backgroundColor" red="0.088257201019999995" green="0.38106971979999998" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="60" id="hR4-uG-S3d"/>
+                                    <constraint firstAttribute="height" constant="22" id="wnZ-rK-f81"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Roboto-Medium" family="Roboto" pointSize="11"/>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                <state key="normal" title="1 Day left"/>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="UaO-xu-a5J" firstAttribute="top" secondItem="vD4-ao-Pbb" secondAttribute="top" id="0LU-DH-KSF"/>
+                            <constraint firstAttribute="trailing" secondItem="UaO-xu-a5J" secondAttribute="trailing" constant="90" id="Amu-yR-VKh"/>
+                            <constraint firstItem="UaO-xu-a5J" firstAttribute="leading" secondItem="vD4-ao-Pbb" secondAttribute="leading" constant="90" id="LmN-H7-iKK"/>
+                            <constraint firstItem="HvX-0y-RVG" firstAttribute="leading" secondItem="vD4-ao-Pbb" secondAttribute="leading" id="T6v-I0-Av7"/>
+                            <constraint firstAttribute="bottom" secondItem="UaO-xu-a5J" secondAttribute="bottom" id="Xox-Sp-3ud"/>
+                            <constraint firstItem="sQ9-02-ChV" firstAttribute="centerY" secondItem="vD4-ao-Pbb" secondAttribute="centerY" id="kCn-PY-9Qe"/>
+                            <constraint firstItem="sQ9-02-ChV" firstAttribute="leading" secondItem="vD4-ao-Pbb" secondAttribute="leading" constant="5" id="m3L-wV-8dX"/>
+                            <constraint firstItem="HvX-0y-RVG" firstAttribute="top" secondItem="vD4-ao-Pbb" secondAttribute="top" id="pXP-0l-Q2L"/>
+                        </constraints>
+                    </view>
+                </subviews>
+            </view>
+            <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
+            <constraints>
+                <constraint firstItem="vD4-ao-Pbb" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="1" id="6QT-aT-GDX"/>
+                <constraint firstAttribute="bottom" secondItem="vD4-ao-Pbb" secondAttribute="bottom" constant="5" id="8C1-7g-COv"/>
+                <constraint firstItem="vD4-ao-Pbb" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="5" id="Blj-N6-JYU"/>
+                <constraint firstAttribute="trailing" secondItem="vD4-ao-Pbb" secondAttribute="trailing" constant="1" id="WMC-a1-X1g"/>
+            </constraints>
+            <size key="customSize" width="178" height="50"/>
+            <connections>
+                <outlet property="bgVw" destination="vD4-ao-Pbb" id="Zpv-bt-s91"/>
+                <outlet property="btnDayLeft" destination="sQ9-02-ChV" id="EwA-VF-NjU"/>
+                <outlet property="imgVwFrame" destination="UaO-xu-a5J" id="E43-Zn-OTu"/>
+                <outlet property="imgVwNotch" destination="HvX-0y-RVG" id="3pQ-M2-Td5"/>
+            </connections>
+            <point key="canvasLocation" x="166.41221374045801" y="19.718309859154932"/>
+        </collectionViewCell>
+    </objects>
+    <resources>
+        <image name="Selection" width="20" height="20"/>
+        <image name="defaultcover" width="300" height="200"/>
+    </resources>
+</document>

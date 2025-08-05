@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
+    <device id="retina4_7" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="EHf-IW-A2E">
+            <objects>
+                <viewController modalPresentationStyle="fullScreen" id="01J-lp-oVM" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Llm-lL-Icb"/>
+                        <viewControllerLayoutGuide type="bottom" id="xb3-aO-Qok"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Ze5-6b-2t3">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" clearsContextBeforeDrawing="NO" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="SplashScreen" translatesAutoresizingMaskIntoConstraints="NO" id="oGV-YC-HFu">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                            </imageView>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="eH2-eC-qLB">
+                                <rect key="frame" x="172.5" y="617" width="30" height="30"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="30" id="GEd-8d-nC8"/>
+                                    <constraint firstAttribute="height" constant="30" id="QXk-SZ-eUI"/>
+                                </constraints>
+                                <color key="color" systemColor="systemBlueColor"/>
+                            </activityIndicatorView>
+                            <imageView clipsSubviews="YES" clearsContextBeforeDrawing="NO" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="applogo2White" translatesAutoresizingMaskIntoConstraints="NO" id="QfW-vE-Bta">
+                                <rect key="frame" x="82.5" y="196.5" width="200" height="60"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="200" id="Cll-Mz-WkU"/>
+                                    <constraint firstAttribute="height" constant="60" id="WOC-KE-c4x"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="xb3-aO-Qok" firstAttribute="top" secondItem="eH2-eC-qLB" secondAttribute="bottom" constant="20" id="6ub-lW-9Or"/>
+                            <constraint firstItem="oGV-YC-HFu" firstAttribute="top" secondItem="Ze5-6b-2t3" secondAttribute="top" id="AxT-yc-DDA"/>
+                            <constraint firstItem="eH2-eC-qLB" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="Cii-Jr-ABm"/>
+                            <constraint firstItem="QfW-vE-Bta" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" constant="-107" id="Olv-11-AQt"/>
+                            <constraint firstItem="QfW-vE-Bta" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" constant="-5" id="V74-cV-pBM"/>
+                            <constraint firstItem="oGV-YC-HFu" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leading" id="WO5-6W-KjU"/>
+                            <constraint firstAttribute="trailing" secondItem="oGV-YC-HFu" secondAttribute="trailing" id="ard-Wb-Bc7"/>
+                            <constraint firstAttribute="bottom" secondItem="oGV-YC-HFu" secondAttribute="bottom" id="mNT-qD-pcc"/>
+                        </constraints>
+                    </view>
+                    <nil key="simulatedTopBarMetrics"/>
+                    <nil key="simulatedBottomBarMetrics"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="iYj-Kq-Ea1" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-65" y="-22"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="SplashScreen" width="376" height="668"/>
+        <image name="applogo2White" width="119" height="30.5"/>
+        <systemColor name="systemBlueColor">
+            <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
+</document>

@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="22155" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22131"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="GiftTblCell" rowHeight="173" id="KGk-i7-Jjw" customClass="GiftTblCell" customModule="PickZon" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="173"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="173"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rMq-iZ-Met">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="0.33333333333333331"/>
+                        <color key="backgroundColor" systemColor="groupTableViewBackgroundColor"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="0.20000000000000001" id="UVI-zz-Yan"/>
+                        </constraints>
+                    </view>
+                    <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="V3h-bo-aZ8">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="173"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="cZA-pl-eCs">
+                            <size key="itemSize" width="90" height="90"/>
+                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                        </collectionViewFlowLayout>
+                    </collectionView>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dJC-Xs-L11">
+                        <rect key="frame" x="0.0" y="172.66666666666666" width="320" height="0.33333333333334281"/>
+                        <color key="backgroundColor" systemColor="groupTableViewBackgroundColor"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="0.20000000000000001" id="SSR-hK-SAW"/>
+                        </constraints>
+                    </view>
+                </subviews>
+                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                <constraints>
+                    <constraint firstItem="rMq-iZ-Met" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="0XO-LD-Hf4"/>
+                    <constraint firstAttribute="bottom" secondItem="V3h-bo-aZ8" secondAttribute="bottom" id="5ev-pD-dBJ"/>
+                    <constraint firstItem="V3h-bo-aZ8" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="6kY-ND-MAb"/>
+                    <constraint firstAttribute="bottom" secondItem="dJC-Xs-L11" secondAttribute="bottom" id="BLA-qx-940"/>
+                    <constraint firstItem="rMq-iZ-Met" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="Ca6-Dn-7Cu"/>
+                    <constraint firstAttribute="trailing" secondItem="rMq-iZ-Met" secondAttribute="trailing" id="Z8E-XQ-5Uw"/>
+                    <constraint firstItem="V3h-bo-aZ8" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="peM-W7-887"/>
+                    <constraint firstItem="dJC-Xs-L11" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="poa-MD-43P"/>
+                    <constraint firstAttribute="trailing" secondItem="dJC-Xs-L11" secondAttribute="trailing" id="r1g-zq-kPo"/>
+                    <constraint firstAttribute="trailing" secondItem="V3h-bo-aZ8" secondAttribute="trailing" id="sGO-5D-T4B"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <connections>
+                <outlet property="collectionVw" destination="V3h-bo-aZ8" id="cQa-fp-J0D"/>
+            </connections>
+            <point key="canvasLocation" x="68.702290076335871" y="65.140845070422543"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <systemColor name="groupTableViewBackgroundColor">
+            <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
+</document>

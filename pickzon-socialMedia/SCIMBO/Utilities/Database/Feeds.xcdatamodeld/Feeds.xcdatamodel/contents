@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="18154" systemVersion="20G95" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="FeedsModel" representedClassName="FeedsModel" syncable="YES" codeGenerationType="class">
+        <attribute name="feedsDataArray" optional="YES" attributeType="Binary"/>
+    </entity>
+    <entity name="StoryDataModel" representedClassName="StoryDataModel" syncable="YES" codeGenerationType="class">
+        <attribute name="stortyDataArray" optional="YES" attributeType="Binary"/>
+    </entity>
+    <elements>
+        <element name="FeedsModel" positionX="-63" positionY="-18" width="128" height="44"/>
+        <element name="StoryDataModel" positionX="-54" positionY="9" width="128" height="44"/>
+    </elements>
+</model>

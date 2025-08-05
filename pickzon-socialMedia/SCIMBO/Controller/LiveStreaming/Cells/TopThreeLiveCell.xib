@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="22155" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22131"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Roboto-Regular.ttf">
+            <string>Roboto-Regular</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="TopThreeLiveCell" id="gTV-IL-0wX" customClass="TopThreeLiveCell" customModule="PickZon" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="116" height="187"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="116" height="187"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="dummy" translatesAutoresizingMaskIntoConstraints="NO" id="GAq-ze-jbc" customClass="UIImageViewX" customModule="PickZon" customModuleProvider="target">
+                        <rect key="frame" x="2.6666666666666643" y="5" width="111" height="139.66666666666666"/>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                <real key="value" value="10"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                <color key="value" red="1" green="0.84313725490196079" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                <real key="value" value="2"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                    </imageView>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pickzon_verify_Gold" translatesAutoresizingMaskIntoConstraints="NO" id="ih8-93-jWg">
+                        <rect key="frame" x="68.333333333333329" y="12" width="15" height="15"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="15" id="5xR-TE-Kkv"/>
+                            <constraint firstAttribute="width" constant="15" id="gTk-32-YyO"/>
+                        </constraints>
+                    </imageView>
+                    <stackView opaque="NO" contentMode="scaleToFill" spacing="2.5" translatesAutoresizingMaskIntoConstraints="NO" id="oG2-Vd-lID">
+                        <rect key="frame" x="18" y="114" width="80.333333333333329" height="25"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BSS-Ak-xkV">
+                                <rect key="frame" x="0.0" y="0.0" width="25" height="25"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="25" id="Kpe-ue-ZY7"/>
+                                    <constraint firstAttribute="height" constant="25" id="yPO-tC-KTq"/>
+                                </constraints>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                <state key="normal" image="avatar"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xYD-Yf-gOh">
+                                <rect key="frame" x="27.666666666666664" y="0.0" width="25" height="25"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="25" id="aEx-uq-efk"/>
+                                    <constraint firstAttribute="height" constant="25" id="j5T-R6-4W0"/>
+                                </constraints>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                <state key="normal" image="avatar"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NTG-gQ-3SQ">
+                                <rect key="frame" x="55.333333333333329" y="0.0" width="25" height="25"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="25" id="1CD-lp-NsS"/>
+                                    <constraint firstAttribute="height" constant="25" id="eYM-Yl-xbf"/>
+                                </constraints>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                <state key="normal" image="avatar"/>
+                            </button>
+                        </subviews>
+                    </stackView>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="n4j-iP-ERg" customClass="UIViewX" customModule="PickZon" customModuleProvider="target">
+                        <rect key="frame" x="5" y="147" width="106" height="35"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MCr-6P-VsD">
+                                <rect key="frame" x="5" y="5.9999999999999982" width="96" height="23.333333333333329"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="23.329999999999998" id="EKv-4o-zfx"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="15"/>
+                                <inset key="titleEdgeInsets" minX="5" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                <state key="normal" title="0" image="coinSmall"/>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBlueColor"/>
+                        <constraints>
+                            <constraint firstItem="MCr-6P-VsD" firstAttribute="centerY" secondItem="n4j-iP-ERg" secondAttribute="centerY" id="7Ti-XX-Pz2"/>
+                            <constraint firstItem="MCr-6P-VsD" firstAttribute="leading" secondItem="n4j-iP-ERg" secondAttribute="leading" constant="5" id="bMr-Ol-BRT"/>
+                            <constraint firstAttribute="trailing" secondItem="MCr-6P-VsD" secondAttribute="trailing" constant="5" id="dwe-Cf-ZaW"/>
+                            <constraint firstAttribute="height" constant="35" id="m8J-jQ-UZ8"/>
+                        </constraints>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                <real key="value" value="10"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="color" keyPath="firstColor">
+                                <color key="value" red="0.18823529411764706" green="0.48627450980392156" blue="0.96470588235294119" alpha="1" colorSpace="calibratedRGB"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="color" keyPath="secondColor">
+                                <color key="value" red="0.098039215686274508" green="0.23921568627450979" blue="0.60392156862745094" alpha="1" colorSpace="calibratedRGB"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="boolean" keyPath="addBlur" value="NO"/>
+                            <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                <color key="value" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="boolean" keyPath="horizontalGradient" value="YES"/>
+                        </userDefinedRuntimeAttributes>
+                    </view>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Loading.." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UIe-mD-Tf7">
+                        <rect key="frame" x="10.000000000000004" y="10" width="53.333333333333343" height="20"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="20" id="dxc-qE-ZwX"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="13"/>
+                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+            </view>
+            <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="GAq-ze-jbc" secondAttribute="trailing" constant="2.5" id="1hp-tn-Pfb"/>
+                <constraint firstItem="n4j-iP-ERg" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="5" id="4Iv-85-osw"/>
+                <constraint firstAttribute="bottom" secondItem="n4j-iP-ERg" secondAttribute="bottom" constant="5" id="5YU-Q3-09C"/>
+                <constraint firstAttribute="trailing" secondItem="n4j-iP-ERg" secondAttribute="trailing" constant="5" id="8q4-xr-Ft3"/>
+                <constraint firstItem="ih8-93-jWg" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="12" id="Fhb-eT-Xqr"/>
+                <constraint firstItem="UIe-mD-Tf7" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="10" id="Hdu-eo-utH"/>
+                <constraint firstItem="n4j-iP-ERg" firstAttribute="top" secondItem="GAq-ze-jbc" secondAttribute="bottom" constant="2.5" id="KxC-sZ-E1U"/>
+                <constraint firstItem="GAq-ze-jbc" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="2.5" id="PPH-Uu-j2S"/>
+                <constraint firstItem="n4j-iP-ERg" firstAttribute="top" secondItem="oG2-Vd-lID" secondAttribute="bottom" constant="8" id="Udc-jL-zuR"/>
+                <constraint firstItem="ih8-93-jWg" firstAttribute="leading" secondItem="UIe-mD-Tf7" secondAttribute="trailing" constant="5" id="X5e-Ve-k8p"/>
+                <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="ih8-93-jWg" secondAttribute="trailing" constant="10" id="ZCM-qq-EMA"/>
+                <constraint firstItem="UIe-mD-Tf7" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="10" id="jWI-FQ-Hvy"/>
+                <constraint firstItem="GAq-ze-jbc" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="5" id="kgZ-Bv-ioe"/>
+                <constraint firstItem="oG2-Vd-lID" firstAttribute="centerX" secondItem="gTV-IL-0wX" secondAttribute="centerX" id="kv4-7b-Ag7"/>
+            </constraints>
+            <size key="customSize" width="116" height="187"/>
+            <connections>
+                <outlet property="btnCoin" destination="MCr-6P-VsD" id="SkP-f2-7ow"/>
+                <outlet property="btnFirstGifter" destination="BSS-Ak-xkV" id="iiX-CP-J2b"/>
+                <outlet property="btnSecondGifter" destination="xYD-Yf-gOh" id="GDm-3H-RBI"/>
+                <outlet property="btnThreeGifter" destination="NTG-gQ-3SQ" id="oed-sO-gn1"/>
+                <outlet property="imgVwCelebrity" destination="ih8-93-jWg" id="a9z-bO-vy7"/>
+                <outlet property="imgVwUser" destination="GAq-ze-jbc" id="s17-gE-2B1"/>
+                <outlet property="lblName" destination="UIe-mD-Tf7" id="LpA-Z9-RtK"/>
+            </connections>
+            <point key="canvasLocation" x="130" y="-31"/>
+        </collectionViewCell>
+    </objects>
+    <designables>
+        <designable name="GAq-ze-jbc">
+            <size key="intrinsicContentSize" width="266.66666666666669" height="195"/>
+        </designable>
+    </designables>
+    <resources>
+        <image name="avatar" width="101" height="101"/>
+        <image name="coinSmall" width="24" height="23.333333969116211"/>
+        <image name="dummy" width="266.66665649414062" height="195"/>
+        <image name="pickzon_verify_Gold" width="24.333333969116211" height="24.333333969116211"/>
+        <systemColor name="systemBlueColor">
+            <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
+</document>

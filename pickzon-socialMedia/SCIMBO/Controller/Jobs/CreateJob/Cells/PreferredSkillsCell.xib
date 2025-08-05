@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="PreferredSkillsCell" rowHeight="120" id="KGk-i7-Jjw" customClass="PreferredSkillsCell" customModule="PickZon" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="397" height="120"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="397" height="120"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="job_skills" translatesAutoresizingMaskIntoConstraints="NO" id="BUe-rp-lga">
+                        <rect key="frame" x="10" y="10" width="20" height="20"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="20" id="CDL-an-bJI"/>
+                            <constraint firstAttribute="width" constant="20" id="lzs-2x-OmE"/>
+                        </constraints>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Preferred Skills" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2Zv-ct-lEo">
+                        <rect key="frame" x="40" y="10" width="92" height="20"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="20" id="JLV-9z-1dO"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                        <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="*" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bAD-ix-qMB">
+                        <rect key="frame" x="142" y="10" width="8" height="20"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="20" id="2Za-9q-T81"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <color key="textColor" systemColor="systemRedColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="+ Add Skills" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oUi-Uv-Q4e">
+                        <rect key="frame" x="40" y="35" width="347" height="35"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="35" id="Elc-DA-Fk7"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                        <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="006-EL-hdp">
+                        <rect key="frame" x="30" y="76" width="361" height="39"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="39" id="ZwD-61-5Hn"/>
+                        </constraints>
+                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="esy-ma-z2I">
+                            <size key="itemSize" width="128" height="128"/>
+                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                        </collectionViewFlowLayout>
+                        <connections>
+                            <outlet property="dataSource" destination="KGk-i7-Jjw" id="CnN-J6-bJA"/>
+                            <outlet property="delegate" destination="KGk-i7-Jjw" id="b0p-Nv-PAO"/>
+                        </connections>
+                    </collectionView>
+                </subviews>
+                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                <constraints>
+                    <constraint firstItem="006-EL-hdp" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="30" id="17m-R2-0hM"/>
+                    <constraint firstItem="bAD-ix-qMB" firstAttribute="leading" secondItem="2Zv-ct-lEo" secondAttribute="trailing" constant="10" id="2dT-dZ-OcR"/>
+                    <constraint firstItem="2Zv-ct-lEo" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="8mG-li-NJE"/>
+                    <constraint firstAttribute="trailing" secondItem="006-EL-hdp" secondAttribute="trailing" constant="6" id="9Sq-AD-f8M"/>
+                    <constraint firstItem="bAD-ix-qMB" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="Z6o-ru-4af"/>
+                    <constraint firstItem="2Zv-ct-lEo" firstAttribute="leading" secondItem="BUe-rp-lga" secondAttribute="trailing" constant="10" id="e7q-yP-8fv"/>
+                    <constraint firstItem="BUe-rp-lga" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="gxi-c4-OA8"/>
+                    <constraint firstAttribute="bottom" secondItem="006-EL-hdp" secondAttribute="bottom" constant="5" id="lzh-kY-X4L"/>
+                    <constraint firstItem="oUi-Uv-Q4e" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="40" id="ovZ-YN-sOt"/>
+                    <constraint firstItem="BUe-rp-lga" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="s4G-9o-3Mt"/>
+                    <constraint firstItem="oUi-Uv-Q4e" firstAttribute="top" secondItem="2Zv-ct-lEo" secondAttribute="bottom" constant="5" id="vw5-Nk-xEO"/>
+                    <constraint firstItem="006-EL-hdp" firstAttribute="top" secondItem="oUi-Uv-Q4e" secondAttribute="bottom" constant="6" id="xYP-C1-X0w"/>
+                    <constraint firstAttribute="trailing" secondItem="oUi-Uv-Q4e" secondAttribute="trailing" constant="10" id="zWq-TQ-2pa"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="clnHeight" destination="ZwD-61-5Hn" id="jAB-ew-zXg"/>
+                <outlet property="clnSkillsSuggestion" destination="006-EL-hdp" id="Tx4-5H-rgk"/>
+            </connections>
+            <point key="canvasLocation" x="95.419847328244273" y="42.253521126760567"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="job_skills" width="24" height="24"/>
+        <systemColor name="systemRedColor">
+            <color red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
+</document>

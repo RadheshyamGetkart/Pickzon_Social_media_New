@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="22522" systemVersion="23A344" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="Chat_one_one" representedClassName="Chat_one_one" syncable="YES" codeGenerationType="class">
+        <attribute name="chat_type" optional="YES" attributeType="String"/>
+        <attribute name="contactmsisdn" optional="YES" attributeType="String"/>
+        <attribute name="convId" optional="YES" attributeType="String"/>
+        <attribute name="created_by" optional="YES" attributeType="String"/>
+        <attribute name="date" optional="YES" attributeType="String"/>
+        <attribute name="delivered_msg_time" optional="YES" attributeType="String"/>
+        <attribute name="doc_id" optional="YES" attributeType="String"/>
+        <attribute name="filesize" optional="YES" attributeType="String"/>
+        <attribute name="from" optional="YES" attributeType="String"/>
+        <attribute name="height" optional="YES" attributeType="String"/>
+        <attribute name="id" optional="YES" attributeType="String"/>
+        <attribute name="info_type" optional="YES" attributeType="String"/>
+        <attribute name="is_deleted" optional="YES" attributeType="String"/>
+        <attribute name="is_forward" optional="YES" attributeType="String"/>
+        <attribute name="is_reply" optional="YES" attributeType="String"/>
+        <attribute name="isStar" optional="YES" attributeType="String"/>
+        <attribute name="message_from" optional="YES" attributeType="String"/>
+        <attribute name="message_status" optional="YES" attributeType="String"/>
+        <attribute name="msgId" optional="YES" attributeType="String"/>
+        <attribute name="msgrecordId" optional="YES" attributeType="String"/>
+        <attribute name="msgType" optional="YES" attributeType="String"/>
+        <attribute name="name" optional="YES" attributeType="String"/>
+        <attribute name="payload" optional="YES" attributeType="String"/>
+        <attribute name="read_msg_time" optional="YES" attributeType="String"/>
+        <attribute name="recordId" optional="YES" attributeType="String"/>
+        <attribute name="reply_type" optional="YES" attributeType="String"/>
+        <attribute name="secret_msg_id" optional="YES" attributeType="String"/>
+        <attribute name="secret_timestamp" optional="YES" attributeType="String"/>
+        <attribute name="thumbnail" optional="YES" attributeType="String"/>
+        <attribute name="timestamp" optional="YES" attributeType="String"/>
+        <attribute name="to" optional="YES" attributeType="String"/>
+        <attribute name="type" optional="YES" attributeType="String"/>
+        <attribute name="user_common_id" optional="YES" attributeType="String"/>
+        <attribute name="while_blocked" optional="YES" attributeType="String"/>
+        <attribute name="width" optional="YES" attributeType="String"/>
+    </entity>
+    <entity name="Contact_add" representedClassName="Contact_add" syncable="YES" codeGenerationType="class">
+        <attribute name="contact_details" optional="YES" attributeType="String"/>
+        <attribute name="contact_id" optional="YES" attributeType="String"/>
+        <attribute name="contact_mobilenum" optional="YES" attributeType="String"/>
+        <attribute name="contact_name" optional="YES" attributeType="String"/>
+        <attribute name="contact_original" optional="YES" attributeType="String"/>
+        <attribute name="is_changed" optional="YES" attributeType="String"/>
+        <attribute name="is_fav" optional="YES" attributeType="String"/>
+    </entity>
+    <entity name="Contact_details" representedClassName="Contact_details" syncable="YES" codeGenerationType="class">
+        <attribute name="contact_details" optional="YES" attributeType="String"/>
+        <attribute name="contact_id" optional="YES" attributeType="String"/>
+        <attribute name="contact_name" optional="YES" attributeType="String"/>
+        <attribute name="contact_phone" optional="YES" attributeType="String"/>
+        <attribute name="contact_profile" optional="YES" attributeType="String"/>
+        <attribute name="doc_id" optional="YES" attributeType="String"/>
+    </entity>
+    <entity name="Favourite_Contact" representedClassName="Favourite_Contact" syncable="YES" codeGenerationType="class">
+        <attribute name="contact_details" optional="YES" attributeType="String"/>
+        <attribute name="contact_id" optional="YES" attributeType="String"/>
+        <attribute name="contactUserList" optional="YES" attributeType="Transformable"/>
+        <attribute name="conv_id" optional="YES" attributeType="String"/>
+        <attribute name="countrycode" optional="YES" attributeType="String"/>
+        <attribute name="encrypt_password" optional="YES" attributeType="String"/>
+        <attribute name="formatted" optional="YES" attributeType="String"/>
+        <attribute name="id" optional="YES" attributeType="String"/>
+        <attribute name="is_add" optional="YES" attributeType="String"/>
+        <attribute name="is_fav" optional="YES" attributeType="String"/>
+        <attribute name="is_locked" optional="YES" attributeType="String"/>
+        <attribute name="is_mute" optional="YES" attributeType="String"/>
+        <attribute name="is_online" optional="YES" attributeType="String"/>
+        <attribute name="last_seen" optional="YES" attributeType="String"/>
+        <attribute name="msisdn" optional="YES" attributeType="String"/>
+        <attribute name="mute_timestamp" optional="YES" attributeType="String"/>
+        <attribute name="name" optional="YES" attributeType="String"/>
+        <attribute name="password" optional="YES" attributeType="String"/>
+        <attribute name="phnumber" optional="YES" attributeType="String"/>
+        <attribute name="profile_photo" optional="YES" attributeType="String"/>
+        <attribute name="profilepic" optional="YES" attributeType="String"/>
+        <attribute name="secret_timer" optional="YES" attributeType="String"/>
+        <attribute name="security_code" optional="YES" attributeType="String"/>
+        <attribute name="show_status" optional="YES" attributeType="String"/>
+        <attribute name="status" optional="YES" attributeType="String"/>
+        <attribute name="time_stamp" optional="YES" attributeType="String"/>
+        <attribute name="user_id" optional="YES" attributeType="String"/>
+    </entity>
+    <entity name="Login_details" representedClassName="Login_details" syncable="YES" codeGenerationType="class">
+        <attribute name="is_updated" optional="YES" attributeType="String"/>
+        <attribute name="login_key" optional="YES" attributeType="String"/>
+        <attribute name="user_id" optional="YES" attributeType="String"/>
+    </entity>
+    <entity name="Reply_detail" representedClassName="Reply_detail" syncable="YES" codeGenerationType="class">
+        <attribute name="compressed_data" optional="YES" attributeType="String"/>
+        <attribute name="contactmsisdn" optional="YES" attributeType="String"/>
+        <attribute name="doc_id" optional="YES" attributeType="String"/>
+        <attribute name="from_id" optional="YES" attributeType="String"/>
+        <attribute name="message_type" optional="YES" attributeType="String"/>
+        <attribute name="payload" optional="YES" attributeType="String"/>
+        <attribute name="recordId" optional="YES" attributeType="String"/>
+    </entity>
+    <entity name="Status_Upload_Details" representedClassName="Status_Upload_Details" syncable="YES" codeGenerationType="class">
+        <attribute name="compressed_data" optional="YES" attributeType="String"/>
+        <attribute name="data_count" optional="YES" attributeType="String"/>
+        <attribute name="doc_name" optional="YES" attributeType="String"/>
+        <attribute name="doc_pagecount" optional="YES" attributeType="String"/>
+        <attribute name="doc_type" optional="YES" attributeType="String"/>
+        <attribute name="download_status" optional="YES" attributeType="String"/>
+        <attribute name="failure_status" optional="YES" attributeType="String"/>
+        <attribute name="height" optional="YES" attributeType="String"/>
+        <attribute name="is_uploaded" optional="YES" attributeType="String"/>
+        <attribute name="message_status" optional="YES" attributeType="String"/>
+        <attribute name="serverpath" optional="YES" attributeType="String"/>
+        <attribute name="timestamp" optional="YES" attributeType="String"/>
+        <attribute name="to_id" optional="YES" attributeType="String"/>
+        <attribute name="total_byte_count" optional="YES" attributeType="String"/>
+        <attribute name="total_data_count" optional="YES" attributeType="String"/>
+        <attribute name="upload_byte_count" optional="YES" attributeType="String"/>
+        <attribute name="upload_count" optional="YES" attributeType="String"/>
+        <attribute name="upload_data_id" optional="YES" attributeType="String"/>
+        <attribute name="upload_Path" optional="YES" attributeType="String"/>
+        <attribute name="upload_paused" optional="YES" attributeType="String"/>
+        <attribute name="upload_status" optional="YES" attributeType="String"/>
+        <attribute name="upload_type" optional="YES" attributeType="String"/>
+        <attribute name="user_common_id" optional="YES" attributeType="String"/>
+        <attribute name="user_id" optional="YES" attributeType="String"/>
+        <attribute name="video_thumbnail" optional="YES" attributeType="Binary" allowsExternalBinaryDataStorage="YES"/>
+        <attribute name="width" optional="YES" attributeType="String"/>
+    </entity>
+    <entity name="Upload_Details" representedClassName="Upload_Details" syncable="YES" codeGenerationType="class">
+        <attribute name="compressed_data" optional="YES" attributeType="String"/>
+        <attribute name="data_count" optional="YES" attributeType="String"/>
+        <attribute name="doc_name" optional="YES" attributeType="String"/>
+        <attribute name="doc_pagecount" optional="YES" attributeType="String"/>
+        <attribute name="doc_type" optional="YES" attributeType="String"/>
+        <attribute name="download_status" optional="YES" attributeType="String"/>
+        <attribute name="failure_status" optional="YES" attributeType="String"/>
+        <attribute name="height" optional="YES" attributeType="String"/>
+        <attribute name="is_uploaded" optional="YES" attributeType="String"/>
+        <attribute name="message_status" optional="YES" attributeType="String"/>
+        <attribute name="serverpath" optional="YES" attributeType="String"/>
+        <attribute name="timestamp" optional="YES" attributeType="String"/>
+        <attribute name="to_id" optional="YES" attributeType="String"/>
+        <attribute name="total_byte_count" optional="YES" attributeType="String"/>
+        <attribute name="total_data_count" optional="YES" attributeType="String"/>
+        <attribute name="upload_byte_count" optional="YES" attributeType="String"/>
+        <attribute name="upload_count" optional="YES" attributeType="String"/>
+        <attribute name="upload_data_id" optional="YES" attributeType="String"/>
+        <attribute name="upload_Path" optional="YES" attributeType="String"/>
+        <attribute name="upload_paused" optional="YES" attributeType="String"/>
+        <attribute name="upload_status" optional="YES" attributeType="String"/>
+        <attribute name="upload_type" optional="YES" attributeType="String"/>
+        <attribute name="user_common_id" optional="YES" attributeType="String"/>
+        <attribute name="user_id" optional="YES" attributeType="String"/>
+        <attribute name="video_thumbnail" optional="YES" attributeType="Binary" allowsExternalBinaryDataStorage="YES"/>
+        <attribute name="width" optional="YES" attributeType="String"/>
+    </entity>
+    <entity name="User_detail" representedClassName="User_detail" syncable="YES" codeGenerationType="class">
+        <attribute name="call_id" optional="YES" attributeType="String"/>
+        <attribute name="contact_us" optional="YES" attributeType="String"/>
+        <attribute name="current_call_status" optional="YES" attributeType="String"/>
+        <attribute name="email" optional="YES" attributeType="String"/>
+        <attribute name="full_clear_timestamp" optional="YES" attributeType="String"/>
+        <attribute name="isSavetocameraRoll" optional="YES" attributeType="String"/>
+        <attribute name="last_clear_timestamp" optional="YES" attributeType="String"/>
+        <attribute name="last_seen" optional="YES" attributeType="String"/>
+        <attribute name="mobilenumber" optional="YES" attributeType="String"/>
+        <attribute name="name" optional="YES" attributeType="String"/>
+        <attribute name="otp" optional="YES" attributeType="String"/>
+        <attribute name="profile_photo" optional="YES" attributeType="String"/>
+        <attribute name="profilepic" optional="YES" attributeType="String"/>
+        <attribute name="recovery_email" optional="YES" attributeType="String"/>
+        <attribute name="recovery_phone" optional="YES" attributeType="String"/>
+        <attribute name="serverDiff" optional="YES" attributeType="String"/>
+        <attribute name="serverTime" optional="YES" attributeType="String"/>
+        <attribute name="show_status" optional="YES" attributeType="String"/>
+        <attribute name="status" optional="YES" attributeType="String"/>
+        <attribute name="status_except" optional="YES" attributeType="Transformable"/>
+        <attribute name="status_only_with" optional="YES" attributeType="Transformable"/>
+        <attribute name="status_privacy" optional="YES" attributeType="String"/>
+        <attribute name="user_id" optional="YES" attributeType="String"/>
+        <attribute name="wallpaper" optional="YES" attributeType="String"/>
+        <attribute name="wallpaper_type" optional="YES" attributeType="String"/>
+    </entity>
+</model>

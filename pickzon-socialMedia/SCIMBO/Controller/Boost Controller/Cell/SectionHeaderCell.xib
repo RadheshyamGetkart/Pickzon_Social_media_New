@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="22155" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22131"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Roboto-Medium.ttf">
+            <string>Roboto-Medium</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="SectionHeaderCell" id="KGk-i7-Jjw" customClass="SectionHeaderCell" customModule="PickZon" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cgA-1w-JDh">
+                        <rect key="frame" x="15" y="1" width="290" height="2"/>
+                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="2" id="7q6-EH-5hR"/>
+                        </constraints>
+                    </view>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gbr-SN-pV6">
+                        <rect key="frame" x="15" y="12" width="225" height="27"/>
+                        <fontDescription key="fontDescription" name="Roboto-Medium" family="Roboto" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5Cp-Rf-Soe">
+                        <rect key="frame" x="245" y="15.666666666666664" width="60" height="20"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="60" id="4Qw-hf-FML"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" name="Roboto-Medium" family="Roboto" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="5Cp-Rf-Soe" firstAttribute="leading" secondItem="Gbr-SN-pV6" secondAttribute="trailing" constant="5" id="BKd-06-Ra1"/>
+                    <constraint firstItem="5Cp-Rf-Soe" firstAttribute="centerY" secondItem="Gbr-SN-pV6" secondAttribute="centerY" id="Fvp-cP-RLg"/>
+                    <constraint firstAttribute="bottom" secondItem="Gbr-SN-pV6" secondAttribute="bottom" constant="5" id="Gdr-T4-lT5"/>
+                    <constraint firstAttribute="trailing" secondItem="5Cp-Rf-Soe" secondAttribute="trailing" constant="15" id="Sft-fu-ZLZ"/>
+                    <constraint firstItem="Gbr-SN-pV6" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="15" id="V5P-Sm-Lny"/>
+                    <constraint firstAttribute="trailing" secondItem="cgA-1w-JDh" secondAttribute="trailing" constant="15" id="mdS-zo-zcf"/>
+                    <constraint firstItem="cgA-1w-JDh" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="15" id="oeb-Zd-KrN"/>
+                    <constraint firstItem="cgA-1w-JDh" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="1" id="roa-hH-2Dh"/>
+                    <constraint firstItem="Gbr-SN-pV6" firstAttribute="top" secondItem="cgA-1w-JDh" secondAttribute="bottom" constant="9" id="xQX-Dk-5vC"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="lblCount" destination="5Cp-Rf-Soe" id="xjN-8H-asJ"/>
+                <outlet property="lblTitle" destination="Gbr-SN-pV6" id="zPZ-VJ-Huz"/>
+                <outlet property="seperatorVw" destination="cgA-1w-JDh" id="mbP-fO-Qek"/>
+            </connections>
+            <point key="canvasLocation" x="100.76335877862596" y="19.718309859154932"/>
+        </tableViewCell>
+    </objects>
+</document>
