@@ -112,7 +112,7 @@ extension AgencyRechargeVC :CheerCoinDelegate {
                 objConiSelected = obj
                 objConiSelected.isSelected = true
                 coinOfferArray[index] = objConiSelected
-                btnRechargeNow.setBackgroundColor(UIColor.systemBlue, forState: .normal)
+                btnRechargeNow.setBackgroundColor(CustomColor.sharedInstance.newThemeColor, forState: .normal)
                 for index1 in 0..<coinOfferArray.count {
                     if index1 == index {
                         coinOfferArray[index1].isSelected = true
@@ -198,7 +198,7 @@ extension AgencyRechargeVC: UITableViewDelegate, UITableViewDataSource {
                 cell.btnCheck.setImage(nil, for: .normal)
                 if indexPath.section == 1 {
                     cell.btnCheck.setTitle("", for: .normal)
-                    cell.btnCheck.setTitleColor(.systemBlue, for: .normal)
+                    cell.btnCheck.setTitleColor(CustomColor.sharedInstance.newThemeColor, for: .normal)
                 }else {
                     cell.btnCheck.setTitle("", for: .normal)
                 }

@@ -44,11 +44,15 @@ class FeedsViewController: UIViewController, UITableViewDelegate, UITableViewDat
     
     @IBOutlet weak var tblFeeds:UITableView!
     @IBOutlet weak var btnChat:MIBadgeButton!
-    @IBOutlet weak var btnNotification:MIBadgeButton!
+    @IBOutlet weak var btnMenu:MIBadgeButton!
     @IBOutlet weak var btnSearch:UIButton!
     @IBOutlet weak var btnLogo:UIButton!
     @IBOutlet weak var imgVwLogo:UIImageView!
     
+    @IBOutlet weak var bgViewBtnChat:UIView!
+    @IBOutlet weak var bgViewBtnMenu:UIView!
+
+
     var wallStatusArray:Array<WallStatus> = Array<WallStatus>()
     var arrwallPost:Array<Any> = Array<Any>()
     var indexFriendSuggestion = -1
@@ -87,6 +91,15 @@ class FeedsViewController: UIViewController, UITableViewDelegate, UITableViewDat
         tblFeeds.estimatedRowHeight = UITableView.automaticDimension
         tblFeeds.allowsSelection = false
         imgVwLogo.setImageViewTintColor(color: UIColor.label)
+        
+        bgViewBtnChat.backgroundColor = Themes.sharedInstance.colorWithHexString(hex: "#ccf2ef")
+        bgViewBtnChat.layer.cornerRadius = bgViewBtnChat.frame.height/2.0
+        bgViewBtnChat.clipsToBounds = true
+        
+        
+        bgViewBtnMenu.backgroundColor = Themes.sharedInstance.colorWithHexString(hex: "#ccf2ef")
+        bgViewBtnMenu.layer.cornerRadius = bgViewBtnMenu.frame.height/2.0
+        bgViewBtnMenu.clipsToBounds = true
     }
     
     
@@ -693,7 +706,7 @@ class FeedsViewController: UIViewController, UITableViewDelegate, UITableViewDat
     }
     
     
-    @IBAction func notificationBtnAction(_ sender: Any) {
+    @IBAction func menuBtnAction(_ sender: Any) {
         //Menu button action
         let moreVC:MoreSettingVC = StoryBoard.main.instantiateViewController(withIdentifier: "MoreSettingVC") as! MoreSettingVC
         self.pushView(moreVC, animated: true)
@@ -702,9 +715,15 @@ class FeedsViewController: UIViewController, UITableViewDelegate, UITableViewDat
     
     @IBAction func messageBtnAction(_ sender: Any) {
         //Message button action
-        Themes.sharedInstance.isChatListRefresh = 0
-        let viewController:ChatListVC = StoryBoard.chat.instantiateViewController(withIdentifier: "ChatListVC") as! ChatListVC
-        self.navigationController?.pushView(viewController, animated: true)
+//        Themes.sharedInstance.isChatListRefresh = 0
+//        let viewController:ChatListVC = StoryBoard.chat.instantiateViewController(withIdentifier: "ChatListVC") as! ChatListVC
+//        self.navigationController?.pushView(viewController, animated: true)
+//        
+        if let viewController:FeedsNotificationVC = StoryBoard.main.instantiateViewController(withIdentifier: "FeedsNotificationVC") as? FeedsNotificationVC {
+ //             viewController.wallStatusArray = wallStatusArray
+ //             viewController.availableStatus = availableStatus
+              self.navigationController?.pushView(viewController, animated: true)
+          }
     }
     
     

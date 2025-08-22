@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="22155" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="23504" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22131"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="23506"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -29,11 +29,11 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="L6v-PJ-izy">
                                 <rect key="frame" x="0.0" y="0.0" width="393" height="90"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HMk-OL-b8P">
-                                        <rect key="frame" x="10" y="44" width="35" height="35"/>
+                                    <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HMk-OL-b8P">
+                                        <rect key="frame" x="10" y="44" width="0.0" height="35"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="35" id="HGs-cI-gYa"/>
-                                            <constraint firstAttribute="width" constant="35" id="Qlg-c8-rSd"/>
+                                            <constraint firstAttribute="width" id="Qlg-c8-rSd"/>
                                         </constraints>
                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                         <state key="normal" image="back"/>
@@ -52,7 +52,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Chat" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ILL-ZB-wZM">
-                                        <rect key="frame" x="55" y="44" width="278" height="35"/>
+                                        <rect key="frame" x="20" y="44" width="313" height="35"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="35" id="EHS-Xc-7hK"/>
                                         </constraints>
@@ -152,17 +152,17 @@
                                 </constraints>
                             </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="FNn-Yz-VCy">
-                                <rect key="frame" x="0.0" y="145" width="393" height="673"/>
+                                <rect key="frame" x="0.0" y="90" width="393" height="728"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <connections>
                                     <outlet property="dataSource" destination="Y6W-OH-hqX" id="nRv-Wm-wTN"/>
                                     <outlet property="delegate" destination="Y6W-OH-hqX" id="ihF-1E-pdf"/>
                                 </connections>
                             </tableView>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="90a-DX-Nqb">
+                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="90a-DX-Nqb">
                                 <rect key="frame" x="0.0" y="90" width="393" height="55"/>
                                 <subviews>
-                                    <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nUM-3X-rLC" customClass="UIViewX" customModule="PickZon" customModuleProvider="target">
+                                    <view hidden="YES" clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nUM-3X-rLC" customClass="UIViewX" customModule="PickZon" customModuleProvider="target">
                                         <rect key="frame" x="10" y="5" width="373" height="45"/>
                                         <subviews>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="notiIcon" translatesAutoresizingMaskIntoConstraints="NO" id="snJ-pB-kTX">
@@ -272,7 +272,7 @@
                         <constraints>
                             <constraint firstItem="L6v-PJ-izy" firstAttribute="top" secondItem="5EZ-qb-Rvc" secondAttribute="top" id="1uM-OZ-IGV"/>
                             <constraint firstItem="90a-DX-Nqb" firstAttribute="trailing" secondItem="vDu-zF-Fre" secondAttribute="trailing" id="2q5-CO-hMJ"/>
-                            <constraint firstItem="FNn-Yz-VCy" firstAttribute="top" secondItem="L6v-PJ-izy" secondAttribute="bottom" constant="55" id="8K2-cU-bL6"/>
+                            <constraint firstItem="FNn-Yz-VCy" firstAttribute="top" secondItem="L6v-PJ-izy" secondAttribute="bottom" id="8K2-cU-bL6"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="bAx-6e-5sc" secondAttribute="trailing" constant="16" id="G2m-xU-lEm"/>
                             <constraint firstItem="L6v-PJ-izy" firstAttribute="trailing" secondItem="vDu-zF-Fre" secondAttribute="trailing" id="IBi-dt-VKT"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="FNn-Yz-VCy" secondAttribute="trailing" id="WSa-jl-TsZ"/>
@@ -676,7 +676,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GRA-dc-JaK">
-                                        <rect key="frame" x="10" y="110" width="373" height="18.666666666666657"/>
+                                        <rect key="frame" x="10" y="110" width="373" height="19"/>
                                         <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="16"/>
                                         <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
@@ -1205,40 +1205,20 @@
             <point key="canvasLocation" x="2878.6259541984732" y="-58.450704225352112"/>
         </scene>
     </scenes>
-    <designables>
-        <designable name="B1g-yp-0t6">
-            <size key="intrinsicContentSize" width="48" height="30"/>
-        </designable>
-        <designable name="HAy-cT-iWS">
-            <size key="intrinsicContentSize" width="43" height="30"/>
-        </designable>
-        <designable name="YQd-MC-bo6">
-            <size key="intrinsicContentSize" width="54" height="15.666666666666666"/>
-        </designable>
-        <designable name="bAx-6e-5sc">
-            <size key="intrinsicContentSize" width="50" height="50"/>
-        </designable>
-        <designable name="nzJ-TD-r1F">
-            <size key="intrinsicContentSize" width="3.6666666666666665" height="22"/>
-        </designable>
-        <designable name="yG7-F5-2Vv">
-            <size key="intrinsicContentSize" width="39" height="30"/>
-        </designable>
-    </designables>
     <resources>
         <image name="Shareicon" width="23.666666030883789" height="23.666666030883789"/>
         <image name="back" width="30" height="30"/>
-        <image name="backward" catalog="system" width="128" height="77"/>
+        <image name="backward" catalog="system" width="128" height="76"/>
         <image name="chat background" width="320" height="461"/>
         <image name="close-5 1" width="16" height="16"/>
         <image name="crossIcon" width="15" height="15"/>
         <image name="follow" width="15" height="15.666666984558105"/>
-        <image name="forward" catalog="system" width="128" height="77"/>
+        <image name="forward" catalog="system" width="128" height="76"/>
         <image name="green_badge_1" width="25" height="25"/>
         <image name="more1" width="3.6666667461395264" height="16"/>
         <image name="no-entry 1" width="20" height="20"/>
         <image name="notiIcon" width="21" height="24"/>
-        <image name="pause.fill" catalog="system" width="117" height="128"/>
+        <image name="pause.fill" catalog="system" width="114" height="128"/>
         <image name="plusRound" width="50" height="50"/>
         <image name="search2" width="25" height="25.666666030883789"/>
         <image name="searchFeed" width="24" height="24"/>

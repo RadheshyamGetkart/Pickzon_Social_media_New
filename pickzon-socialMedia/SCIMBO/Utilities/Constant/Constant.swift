@@ -14,15 +14,15 @@ enum DevEnvironment {
     case live
 }
 
-var ISDEBUG = true
-var devEnvironment: DevEnvironment = .live
+var ISDEBUG = false
+var devEnvironment: DevEnvironment = .staging
 
 var BaseURLArray :Array<String> {
     get {
         if devEnvironment == .live {
             return ["https://app.pickzon.com"]
         }else if devEnvironment == .staging {
-            return ["https://getkart.ca"]
+            return  ["https://app.gupsup.com"]//["https://getkart.ca"]
         }else{
             //Development Base URL
             return ["https://apps.getkart.com"]
@@ -43,7 +43,7 @@ var NewBaseUrl : String {
         if devEnvironment == .live {
             return "https://apps.pickzon.com"
         }else if devEnvironment == .staging {
-            return "https://getkart.ca"
+            return   "https://app.gupsup.com" //"https://getkart.ca"
         }else {
             //Development
             return "https://apps.getkart.com"
@@ -62,7 +62,7 @@ var SocketCreateRoomUrl : String {
         if devEnvironment == .live {
             return "https://chat.pickzon.com"
         }else if devEnvironment == .staging {
-            return "https://chat.getkart.ca"
+            return  "https://app-chat.gupsup.com" //"https://chat.getkart.ca"
         }else  {
             //Development
             return "https://chat.getkart.com"

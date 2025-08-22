@@ -238,6 +238,8 @@
 		2941087C2A42C2CB002A73AE /* WithdrawCoinModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2941087B2A42C2CB002A73AE /* WithdrawCoinModel.swift */; };
 		2941087F2A42FF3C002A73AE /* BtnCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2941087D2A42FF3C002A73AE /* BtnCollectionCell.swift */; };
 		294108802A42FF3C002A73AE /* BtnCollectionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2941087E2A42FF3C002A73AE /* BtnCollectionCell.xib */; };
+		2941C5C82E5471CB00722C1D /* CodeVerificationVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2941C5C72E5471CB00722C1D /* CodeVerificationVC.swift */; };
+		2941C5CA2E547B7200722C1D /* CreateNewPasswordVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2941C5C92E547B7200722C1D /* CreateNewPasswordVC.swift */; };
 		294255632A010F1B00FF405D /* FileUploadProgressTblCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 294255612A010F1B00FF405D /* FileUploadProgressTblCell.swift */; };
 		294255642A010F1B00FF405D /* FileUploadProgressTblCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 294255622A010F1B00FF405D /* FileUploadProgressTblCell.xib */; };
 		2945E05526A5A037008854D4 /* CreateWallStatusVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2945E05426A5A037008854D4 /* CreateWallStatusVC.swift */; };
@@ -372,6 +374,11 @@
 		29BD263B2952E9A800B5A4F1 /* TabCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29BD26392952E9A800B5A4F1 /* TabCollectionCell.swift */; };
 		29BD263C2952E9A800B5A4F1 /* TabCollectionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 29BD263A2952E9A800B5A4F1 /* TabCollectionCell.xib */; };
 		29BF43A728C7478700C1F513 /* iCarousel.m in Sources */ = {isa = PBXBuildFile; fileRef = 29BF43A428C7478700C1F513 /* iCarousel.m */; };
+		29BF70EB2E55A76E00B0E6B8 /* SignupVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29BF70EA2E55A76E00B0E6B8 /* SignupVC.swift */; };
+		29BF70EE2E55A87600B0E6B8 /* SegmentTblCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 29BF70ED2E55A87600B0E6B8 /* SegmentTblCell.xib */; };
+		29BF70EF2E55A87600B0E6B8 /* SegmentTblCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29BF70EC2E55A87600B0E6B8 /* SegmentTblCell.swift */; };
+		29BF70F22E55A8A000B0E6B8 /* InputFieldTblCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 29BF70F12E55A8A000B0E6B8 /* InputFieldTblCell.xib */; };
+		29BF70F32E55A8A000B0E6B8 /* InputFieldTblCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29BF70F02E55A8A000B0E6B8 /* InputFieldTblCell.swift */; };
 		29BFBA7C2AB857B500ACD28C /* LiveUsersFeedTblCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29BFBA7A2AB857B500ACD28C /* LiveUsersFeedTblCell.swift */; };
 		29BFBA7D2AB857B500ACD28C /* LiveUsersFeedTblCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 29BFBA7B2AB857B500ACD28C /* LiveUsersFeedTblCell.xib */; };
 		29BFBA802AB85E9200ACD28C /* LiveUserCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29BFBA7E2AB85E9200ACD28C /* LiveUserCell.swift */; };
@@ -1603,6 +1610,8 @@
 		2941087B2A42C2CB002A73AE /* WithdrawCoinModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WithdrawCoinModel.swift; sourceTree = "<group>"; };
 		2941087D2A42FF3C002A73AE /* BtnCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BtnCollectionCell.swift; sourceTree = "<group>"; };
 		2941087E2A42FF3C002A73AE /* BtnCollectionCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BtnCollectionCell.xib; sourceTree = "<group>"; };
+		2941C5C72E5471CB00722C1D /* CodeVerificationVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodeVerificationVC.swift; sourceTree = "<group>"; };
+		2941C5C92E547B7200722C1D /* CreateNewPasswordVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateNewPasswordVC.swift; sourceTree = "<group>"; };
 		294255612A010F1B00FF405D /* FileUploadProgressTblCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileUploadProgressTblCell.swift; sourceTree = "<group>"; };
 		294255622A010F1B00FF405D /* FileUploadProgressTblCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FileUploadProgressTblCell.xib; sourceTree = "<group>"; };
 		2945E05426A5A037008854D4 /* CreateWallStatusVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateWallStatusVC.swift; sourceTree = "<group>"; };
@@ -1747,6 +1756,11 @@
 		29BD263A2952E9A800B5A4F1 /* TabCollectionCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TabCollectionCell.xib; sourceTree = "<group>"; };
 		29BF43A428C7478700C1F513 /* iCarousel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iCarousel.m; sourceTree = "<group>"; };
 		29BF43A528C7478700C1F513 /* iCarousel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iCarousel.h; sourceTree = "<group>"; };
+		29BF70EA2E55A76E00B0E6B8 /* SignupVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupVC.swift; sourceTree = "<group>"; };
+		29BF70EC2E55A87600B0E6B8 /* SegmentTblCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SegmentTblCell.swift; sourceTree = "<group>"; };
+		29BF70ED2E55A87600B0E6B8 /* SegmentTblCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SegmentTblCell.xib; sourceTree = "<group>"; };
+		29BF70F02E55A8A000B0E6B8 /* InputFieldTblCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputFieldTblCell.swift; sourceTree = "<group>"; };
+		29BF70F12E55A8A000B0E6B8 /* InputFieldTblCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = InputFieldTblCell.xib; sourceTree = "<group>"; };
 		29BFBA7A2AB857B500ACD28C /* LiveUsersFeedTblCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LiveUsersFeedTblCell.swift; sourceTree = "<group>"; };
 		29BFBA7B2AB857B500ACD28C /* LiveUsersFeedTblCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LiveUsersFeedTblCell.xib; sourceTree = "<group>"; };
 		29BFBA7E2AB85E9200ACD28C /* LiveUserCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LiveUserCell.swift; sourceTree = "<group>"; };
@@ -3750,6 +3764,18 @@
 			path = iCarousel;
 			sourceTree = "<group>";
 		};
+		29BF70E92E55A74900B0E6B8 /* Signup */ = {
+			isa = PBXGroup;
+			children = (
+				29BF70EA2E55A76E00B0E6B8 /* SignupVC.swift */,
+				29BF70EC2E55A87600B0E6B8 /* SegmentTblCell.swift */,
+				29BF70ED2E55A87600B0E6B8 /* SegmentTblCell.xib */,
+				29BF70F02E55A8A000B0E6B8 /* InputFieldTblCell.swift */,
+				29BF70F12E55A8A000B0E6B8 /* InputFieldTblCell.xib */,
+			);
+			path = Signup;
+			sourceTree = "<group>";
+		};
 		29C5C3EA293490EA0042FFB1 /* FeedChat */ = {
 			isa = PBXGroup;
 			children = (
@@ -4619,6 +4645,7 @@
 		C5328A8B1E07E3EF000572F2 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				29BF70E92E55A74900B0E6B8 /* Signup */,
 				291CF3332C3D12D400537E8B /* PGTController */,
 				2974D0562C0D899800287CE7 /* Boost Controller */,
 				F0EC1F3827F2D0B100C398EB /* BusinessPages */,
@@ -7104,6 +7131,8 @@
 				F0498F732BDA6DDF00BB51D5 /* PhoneEmailSignUpVC.swift */,
 				F0ED686A2BEE1C7300B08BC5 /* VerifyEmailAndPhone.swift */,
 				F0ED686C2BEE1D7A00B08BC5 /* OTPViewController.swift */,
+				2941C5C72E5471CB00722C1D /* CodeVerificationVC.swift */,
+				2941C5C92E547B7200722C1D /* CreateNewPasswordVC.swift */,
 			);
 			path = LoginNew;
 			sourceTree = "<group>";
@@ -7299,7 +7328,6 @@
 					};
 					C5FBE3AC221ADDBC006DC947 = {
 						CreatedOnToolsVersion = 10.1;
-						DevelopmentTeam = NHBQDLLJN4;
 						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
 							com.apple.ApplicationGroups.iOS = {
@@ -7473,6 +7501,7 @@
 				4391C7F720FDBCAE00E10132 /* TextTableViewCell.xib in Resources */,
 				29388FE12B7DE32600379ED2 /* frameBG.jpg in Resources */,
 				2938FB7C2A53FFD200AFD79D /* ParticipantTblCell.xib in Resources */,
+				29BF70F22E55A8A000B0E6B8 /* InputFieldTblCell.xib in Resources */,
 				C52BF0C21E090BBA005B76AB /* ChatsTableViewCell.xib in Resources */,
 				187DF3EB2493A8F700E095CF /* GoogleService-Info.plist in Resources */,
 				C56141182110760100F1BBBD /* sha384.js in Resources */,
@@ -7492,6 +7521,7 @@
 				29D0BBD429D7EF36005D3D90 /* ViolatingPopupView.xib in Resources */,
 				C5AD3E9422CB987600867BB4 /* CountryList.xib in Resources */,
 				F0B518F329B716EF005D641B /* PreferredSkillsCell.xib in Resources */,
+				29BF70EE2E55A87600B0E6B8 /* SegmentTblCell.xib in Resources */,
 				C50B1FEB2078031600F76AEC /* LinkIcon.pdf in Resources */,
 				F09F272F29B2FE9400FB7225 /* GenderCell.xib in Resources */,
 				294AF6D8278968E90063F4FF /* SuggestionListTblCell.xib in Resources */,
@@ -7931,6 +7961,7 @@
 				F0B7CE192AAB2F18006F6EF1 /* LoginVCNew.swift in Sources */,
 				18234F9F25920DBA00307910 /* VideoRepoImp.swift in Sources */,
 				29BFF1762A2AFB0F0098E8DC /* FollowersModel.swift in Sources */,
+				29BF70EF2E55A87600B0E6B8 /* SegmentTblCell.swift in Sources */,
 				2914D4502B72481D00D67B66 /* ClipAudioVC.swift in Sources */,
 				290F4D1E2BAAE0C000D79A8F /* SettingTblCell.swift in Sources */,
 				29BC58952A987558007FB4D4 /* TimeSelectionTblCell.swift in Sources */,
@@ -7963,6 +7994,7 @@
 				F09EEC3027E1F86100E5FFD9 /* YPAssetViewContainer.swift in Sources */,
 				C561D0561F8BA81300B8511F /* Call.swift in Sources */,
 				F01B41872C3E461B0010D992 /* LFVideoEdit.m in Sources */,
+				2941C5CA2E547B7200722C1D /* CreateNewPasswordVC.swift in Sources */,
 				29E0EB5B2A05154A006054DE /* FileManager+TempDirectory.swift in Sources */,
 				18B4648A25064BF6006FC6C0 /* Schedulers.swift in Sources */,
 				18B464BC25064ED2006FC6C0 /* Validator.swift in Sources */,
@@ -8196,6 +8228,7 @@
 				C54C057A1E3B59A800E1BE7D /* UUMessageContentButton.m in Sources */,
 				291B4AD42A3320BE0096D881 /* VideoPlayerView.swift in Sources */,
 				F08A3BB92A3D7BE500304346 /* PremiumPlanCell.swift in Sources */,
+				29BF70F32E55A8A000B0E6B8 /* InputFieldTblCell.swift in Sources */,
 				F01B419A2C3E461B0010D992 /* LFGridView.m in Sources */,
 				C590421C1E6D4FCC00B9046D /* QRCode.swift in Sources */,
 				F01B41992C3E461B0010D992 /* LFResizeControl.m in Sources */,
@@ -8253,6 +8286,7 @@
 				29664DE52BD17B2D005F0963 /* RangePickerCell.m in Sources */,
 				291B4AD62A3320BE0096D881 /* VideoFullscreenPlayerView.swift in Sources */,
 				F02CE3C22C41452F007C07EC /* HXCustomCameraViewController.m in Sources */,
+				29BF70EB2E55A76E00B0E6B8 /* SignupVC.swift in Sources */,
 				4391C7E920FDBCAE00E10132 /* ImageTableViewCell.swift in Sources */,
 				293898EF2B986CEC00CE1CD4 /* EntryStyleSelectionVC.swift in Sources */,
 				2930AEB82A9CA01300696C8D /* TitleDetailTblCell.swift in Sources */,
@@ -8644,6 +8678,7 @@
 				29D40587295DF58B003B0B9E /* ListViewCell.swift in Sources */,
 				187F9AFC25342A7C000B76A1 /* CountryVM.swift in Sources */,
 				4391C7E420FDBCAE00E10132 /* ContactTableViewCell.swift in Sources */,
+				2941C5C82E5471CB00722C1D /* CodeVerificationVC.swift in Sources */,
 				29D7D5B02A25B9590036DCC0 /* StoryModal.swift in Sources */,
 				299EB6F827F4222F003AB6E9 /* TagListView.swift in Sources */,
 				29ADE80A295EC43C00D3F686 /* ProfileCellShimmer.swift in Sources */,
@@ -9137,7 +9172,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1.79;
+				CURRENT_PROJECT_VERSION = 1.91;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				DEVELOPMENT_TEAM = NHBQDLLJN4;
 				ENABLE_BITCODE = NO;
@@ -9173,7 +9208,7 @@
 					"$(PROJECT_DIR)/SCIMBO/Utilities/OtherResources/VoiceLib",
 					"${SDKROOT}/usr/include/libxml2",
 				);
-				MARKETING_VERSION = 1.79;
+				MARKETING_VERSION = 1.91;
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-ObjC",
@@ -9410,7 +9445,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1.79;
+				CURRENT_PROJECT_VERSION = 1.91;
 				DEVELOPMENT_TEAM = NHBQDLLJN4;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -9447,7 +9482,7 @@
 					"$(PROJECT_DIR)/SCIMBO/Utilities/OtherResources/VoiceLib",
 					"${SDKROOT}/usr/include/libxml2",
 				);
-				MARKETING_VERSION = 1.79;
+				MARKETING_VERSION = 1.91;
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-ObjC",

@@ -102,7 +102,7 @@ class FilterBoostVC: UIViewController {
         calendar.appearance.titleFont = UIFont(name: "Roboto-Regular", size: 16)
         calendar.weekdayHeight = 30
         calendar.swipeToChooseGesture.isEnabled = true
-        self.calendar?.appearance.eventDefaultColor = UIColor.systemBlue
+        self.calendar?.appearance.eventDefaultColor = CustomColor.sharedInstance.newThemeColor
         self.calendar?.appearance.weekdayTextColor = .black
         self.calendar?.appearance.weekdayFont = UIFont(name: "Roboto-Medium", size: 18)
       //  calendar.today = nil; // Hide the today circle

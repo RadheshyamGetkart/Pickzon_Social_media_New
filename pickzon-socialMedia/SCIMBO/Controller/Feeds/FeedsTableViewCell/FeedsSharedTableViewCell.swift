@@ -20,8 +20,9 @@ class FeedsSharedTableViewCell: FeedsCell, UICollectionViewDelegate, UICollectio
 
         self.cvFeedsPost.layer.cornerRadius = 0.0
         self.cvFeedsPost.clipsToBounds = true
-        
+        btnFolow.backgroundColor = CustomColor.sharedInstance.newThemeColor
         btnFolow.layer.cornerRadius = 5.0
+        btnSharedFollow.backgroundColor = CustomColor.sharedInstance.newThemeColor
         btnSharedFollow.layer.cornerRadius = 5.0
         self.lblMediaCount.layer.cornerRadius = lblMediaCount.frame.size.height/2.0
         lblMediaCount.clipsToBounds = true
@@ -40,6 +41,12 @@ class FeedsSharedTableViewCell: FeedsCell, UICollectionViewDelegate, UICollectio
         self.pageControl.hidesForSinglePage = true
         btnSavePost.layer.cornerRadius = btnSavePost.frame.height / 2.0
         btnSavePost.backgroundColor = UIColor.white
+        
+        self.cvFeedsPost.layer.cornerRadius = 8.0
+        self.cvFeedsPost.clipsToBounds = true
+        
+        self.bgViewCell.layer.cornerRadius = 17.0
+        self.bgViewCell.clipsToBounds = true
         
         lblDescription.numberOfLines = 3
         lblDescription.collapsed = true

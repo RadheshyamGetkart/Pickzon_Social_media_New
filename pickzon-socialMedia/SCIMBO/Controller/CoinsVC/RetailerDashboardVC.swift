@@ -260,7 +260,7 @@ class RetailerDashboardVC: UIViewController {
                             self.isVerified = true
                             self.txtFdPickzonId.isEnabled = false
                             if (self.txtFdCoin.text?.trimmingLeadingAndTrailingSpaces().length ?? 0) > 0{
-                                self.btnTransferCoins.backgroundColor = .systemBlue
+                                self.btnTransferCoins.backgroundColor = CustomColor.sharedInstance.newThemeColor
                             }else{
                                 self.btnTransferCoins.backgroundColor = .darkGray
                             }
@@ -365,7 +365,7 @@ extension RetailerDashboardVC:UITableViewDelegate,UITableViewDataSource,UITextFi
                 return false
             }
             if isVerified == true && updatedText.length > 0{
-                self.btnTransferCoins.backgroundColor = .systemBlue
+                self.btnTransferCoins.backgroundColor = CustomColor.sharedInstance.newThemeColor
             }else{
                 self.btnTransferCoins.backgroundColor = .darkGray
             }
@@ -379,7 +379,7 @@ extension RetailerDashboardVC:UITableViewDelegate,UITableViewDataSource,UITextFi
         if textField == txtFdCoin{
             
             if isVerified == true && (textField.text?.trimmingLeadingAndTrailingSpaces().length ?? 0) > 0{
-                self.btnTransferCoins.backgroundColor = .systemBlue
+                self.btnTransferCoins.backgroundColor = CustomColor.sharedInstance.newThemeColor
             }else{
                 self.btnTransferCoins.backgroundColor = .darkGray
             }

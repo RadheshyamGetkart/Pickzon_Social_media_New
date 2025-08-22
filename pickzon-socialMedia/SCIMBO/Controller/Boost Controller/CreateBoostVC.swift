@@ -281,7 +281,7 @@ extension  CreateBoostVC : UITableViewDelegate,UITableViewDataSource,WalletDeleg
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "BoostPackTblCell", for: indexPath) as! BoostPackTblCell
         cell.bgView.layer.cornerRadius = 8.0
-        cell.bgView.layer.borderColor = UIColor.systemBlue.cgColor
+        cell.bgView.layer.borderColor = CustomColor.sharedInstance.newThemeColor.cgColor
         cell.bgView.layer.borderWidth = 1.0
         cell.bgView.clipsToBounds = true
       
@@ -313,7 +313,7 @@ extension  CreateBoostVC : UITableViewDelegate,UITableViewDataSource,WalletDeleg
                
                 cell.lblRecommended.isHidden = false
                 cell.lblRecommended.text = "Recommended"
-                cell.lblRecommended.backgroundColor = .systemBlue
+                cell.lblRecommended.backgroundColor = CustomColor.sharedInstance.newThemeColor
                 
             }else if listArray[indexPath.row].isRecommended == 2{
                 cell.lblRecommended.isHidden = false

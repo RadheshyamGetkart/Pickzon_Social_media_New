@@ -464,7 +464,9 @@ private extension VideoPlayerView {
                             do{
                                 try VideoCacheManager.removeCachedFile(fileName: self.playerURL?.lastPathComponent ?? "")
                             }catch {
-                                print("File could not be removed:\(self.playerURL)")
+                                if ISDEBUG{
+                                    print("File could not be removed:\(self.playerURL)")
+                                }
                             }
                             self.setURLToPlay(for: self.playerURL!)
                         }

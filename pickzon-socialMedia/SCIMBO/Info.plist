@@ -2,8 +2,6 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>NSBluetoothAlwaysUsageDescription</key>
-	<string>Enable your bluetooth to use microphone.</string>
 	<key>BGTaskSchedulerPermittedIdentifiers</key>
 	<array>
 		<string>com.PickZon</string>
@@ -11,7 +9,7 @@
 	<key>CFBundleDevelopmentRegion</key>
 	<string>en</string>
 	<key>CFBundleDisplayName</key>
-	<string>PickZon</string>
+	<string>Pickzon</string>
 	<key>CFBundleExecutable</key>
 	<string>$(EXECUTABLE_NAME)</string>
 	<key>CFBundleIdentifier</key>
@@ -37,6 +35,8 @@
 		<dict>
 			<key>CFBundleTypeRole</key>
 			<string>Editor</string>
+			<key>CFBundleURLName</key>
+			<string>com.apps.pickzon</string>
 			<key>CFBundleURLSchemes</key>
 			<array>
 				<string>com.googleusercontent.apps.531803338654-snn153cm7patvj9mhvuvh3chupfles7u</string>
@@ -126,12 +126,14 @@
 	</dict>
 	<key>NSAppleMusicUsageDescription</key>
 	<string>This lets you send Voice Messages and recorded audios.</string>
+	<key>NSBluetoothAlwaysUsageDescription</key>
+	<string>Enable your bluetooth to use microphone.</string>
 	<key>NSCalendarsUsageDescription</key>
 	<string>This lets you add events and some calendar events.</string>
 	<key>NSCameraUsageDescription</key>
 	<string>Enable your camera access to take pictures and videos to be uploaded in Feeds and Clips etc.</string>
 	<key>NSContactsUsageDescription</key>
-	<string>Sync your contacts to connect conveniently with your friends. Your contacts will be securely stored on Pickzon&apos;s servers.</string>
+	<string>Sync your contacts to connect conveniently with your friends. Your contacts will be securely stored on Pickzon's servers.</string>
 	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
 	<string>Enable your location to get the best results based on your location.</string>
 	<key>NSLocationAlwaysUsageDescription</key>

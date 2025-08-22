@@ -25,6 +25,9 @@ class ProfileInfoViewController: UIViewController,SocketIOManagerDelegate{
     
     @IBOutlet weak var enterchat_view: UIView!
     @IBOutlet weak var imageBtn: UIButton!
+    @IBOutlet weak var btnBannerCamera: UIButton!
+    @IBOutlet weak var btnBack: UIButton!
+
     @IBOutlet weak var go_btn: UIButton!
     @IBOutlet weak var Entername_field: UITextField!
     @IBOutlet weak var HeightConstraint: NSLayoutConstraint!
@@ -75,15 +78,22 @@ class ProfileInfoViewController: UIViewController,SocketIOManagerDelegate{
     var isEmailMobileVerified = false
 
     
+    private var isToShowPassword = true
+    private var isToShowConfirmPassword = true
+    
+    
     //MARK: Controller life cycle methods
   
     override func viewDidLoad() {
         super.viewDidLoad()
         
         print("UIViewController: ProfileInfoViewController")
-        
+     
         //Referal Code is enable for India only
          countryCode = Themes.sharedInstance.getMobileCode()
+        
+        
+        
         
       /*  if  Themes.sharedInstance.getIsReferAvailable() as? Int ?? 0 == 1 {
         iconArray = NSMutableArray(objects:"FullName","headlineIcon","Position","LivesIn","Gender","DOB","ReferIcon")
@@ -98,12 +108,15 @@ class ProfileInfoViewController: UIViewController,SocketIOManagerDelegate{
                           forCellReuseIdentifier: "PasswordCell")
         tblView.register(UINib(nibName: "EmailCell", bundle: nil),
                           forCellReuseIdentifier: "EmailCell")
+        tblView.register(UINib(nibName: "InputFieldTblCell", bundle: nil),
+                          forCellReuseIdentifier: "InputFieldTblCell")
+        
         
         
         if  Themes.sharedInstance.getIsCoinReferAvailable() as? Int ?? 0 == 1 || Themes.sharedInstance.getIsReferAvailable() as? Int ?? 0 == 1   {
             if  socialId.length == 0{
-                iconArray = NSMutableArray(objects:"FullName", "Gender","DOB", "ReferIcon","chat_lock")
-               titleArray = NSArray(objects: "Full Name",  "Gender","Date Of Birth", "Referal Code","Enter Password")
+                iconArray = NSMutableArray(objects:"FullName", "Gender","DOB", "ReferIcon","chat_lock","chat_lock")
+               titleArray = NSArray(objects: "Full Name",  "Gender","Date Of Birth", "Referal Code","Password","Confirm Password")
             }else{
                 iconArray = NSMutableArray(objects:"FullName","Gender","DOB", "ReferIcon")
                titleArray = NSArray(objects: "Full Name", "Gender","Date Of Birth", "Referal Code")
@@ -112,8 +125,8 @@ class ProfileInfoViewController: UIViewController,SocketIOManagerDelegate{
         }else {
             if  socialId.length == 0{
                 
-                iconArray = NSMutableArray(objects:"FullName", "Gender","DOB","chat_lock")
-                titleArray = NSArray(objects: "Full Name","Gender","Date Of Birth", "Enter Password")
+                iconArray = NSMutableArray(objects:"FullName", "Gender","DOB","chat_lock","chat_lock")
+                titleArray = NSArray(objects: "Full Name","Gender","Date Of Birth", "Password","Confirm Password")
             }else{
                 iconArray = NSMutableArray(objects:"FullName", "Gender","DOB")
                 titleArray = NSArray(objects: "Full Name","Gender","Date Of Birth")
@@ -160,6 +173,11 @@ class ProfileInfoViewController: UIViewController,SocketIOManagerDelegate{
         user_image.layer.borderColor = UIColor.white.cgColor
         imageBtn.layer.cornerRadius=imageBtn.frame.size.width/2
         imageBtn.clipsToBounds=true
+        
+        btnBack.layer.cornerRadius=btnBack.frame.size.width/2
+        btnBack.backgroundColor = CustomColor.sharedInstance.newThemeColor
+        btnBack.clipsToBounds=true
+        
         updateDetail()
     }
     
@@ -851,13 +869,13 @@ class ProfileInfoViewController: UIViewController,SocketIOManagerDelegate{
                         SocketIOManager.sharedInstance.socket.disconnect()
                     }
                         
-                let alertview = JSSAlertView().show(self,title: "Pickzon",text: message ,buttonText: "Ok",cancelButtonText: nil ,color: CustomColor.sharedInstance.newThemeColor)
-                alertview.addAction {
+//                let alertview = JSSAlertView().show(self,title: "Pickzon",text: message ,buttonText: "Ok",cancelButtonText: nil ,color: CustomColor.sharedInstance.newThemeColor)
+//                alertview.addAction {
                    
                     UserDefaults.standard.setValue(true, forKey: Constant.sharedinstance.isProfileInfoAvailable)
                     UserDefaults.standard.synchronize()
                     (UIApplication.shared.delegate as! AppDelegate).MovetoRooVC()
-                }
+                //}
                 }
                 else
                 {
@@ -908,14 +926,110 @@ extension ProfileInfoViewController:UITableViewDelegate,UITableViewDataSource,UI
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        if  indexPath.row ==  (titleArray?.count ?? 0) - 1 && socialId.length == 0{
+        
+        return 95
+       /* if  indexPath.row ==  (titleArray?.count ?? 0) - 1 && socialId.length == 0{
             return 115
         }else {
             return 65
-        }
+        }*/
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+        let cell = tableView.dequeueReusableCell(withIdentifier: "InputFieldTblCell") as! InputFieldTblCell
+        cell.lblTitle.text = "" // titleArray?[indexPath.row] as? String ?? ""
+        cell.btnDD.isHidden = true
+        cell.btnRight.isHidden = true
+        cell.btnInfo.isHidden = true
+        cell.bgViewSegmentControl.isHidden = true
+        cell.txtFieldName.tag = indexPath.row
+        cell.btnRight.tag = indexPath.row
+        cell.txtFieldName.isSecureTextEntry = false
+        cell.txtFieldName.delegate = self
+        
+        switch indexPath.row{
+
+        case 0:
+            cell.lblTitle.setAttributedText(firstText: titleArray?[indexPath.row] as? String ?? "", firstcolor: UIColor.label, seconText: "*", secondColor: UIColor.red)
+            cell.txtFieldName.autocapitalizationType = .words
+            cell.txtFieldName.text = userObject.fullName
+            break
+        case 1:
+            cell.lblTitle.setAttributedText(firstText: titleArray?[indexPath.row] as? String ?? "", firstcolor: UIColor.label, seconText: "", secondColor: UIColor.red)
+
+            cell.txtFieldName.text = userObject.gender
+            cell.bgViewSegmentControl.isHidden = false
+            cell.segmentControl.addTarget(self, action: #selector(indexChanged(_:)), for: .valueChanged)
+            
+            if userObject.gender.lowercased() == "male"{
+                cell.segmentControl.selectedSegmentIndex = 0
+            }else if userObject.gender.lowercased() == "female"{
+                cell.segmentControl.selectedSegmentIndex = 1
+            }else if userObject.gender.lowercased() == "others"{
+                cell.segmentControl.selectedSegmentIndex = 2
+            }
+            break
+        case 2:
+            cell.lblTitle.setAttributedText(firstText: titleArray?[indexPath.row] as? String ?? "", firstcolor: UIColor.label, seconText: "", secondColor: UIColor.red)
+
+            cell.btnInfo.addTarget(self, action: #selector(dobInfoButtonAction), for: .touchUpInside)
+            cell.btnInfo.isHidden = false
+            cell.txtFieldName.text = userObject.dob
+            cell.btnRight.isHidden = false
+            cell.btnRight.setImage(UIImage(named: "calendarDob"), for: .normal)
+        
+            break
+        case 3:
+                    
+            if  socialId.length == 0{
+                cell.lblTitle.setAttributedText(firstText: titleArray?[indexPath.row] as? String ?? "", firstcolor: UIColor.label, seconText: "*", secondColor: UIColor.red)
+
+                cell.txtFieldName.text = userObject.password
+                cell.btnRight.isHidden = false
+                cell.btnRight.addTarget(self, action: #selector(hideUnhidePassword(_ :)), for: .touchUpInside)
+                if  isToShowPassword {
+                    cell.btnRight.setImage(PZImages.hideEye, for: .normal)
+                    cell.txtFieldName.isSecureTextEntry = true
+                }else {
+                    cell.btnRight.setImage(PZImages.showEye, for: .normal)
+                    cell.txtFieldName.isSecureTextEntry = false
+                }
+            }else{
+                cell.lblTitle.setAttributedText(firstText: titleArray?[indexPath.row] as? String ?? "", firstcolor: UIColor.label, seconText: "", secondColor: UIColor.red)
+
+                //is referal code
+                cell.txtFieldName.text = userObject.referalCode
+            }
+                   
+            break
+        case 4:
+            cell.lblTitle.setAttributedText(firstText: titleArray?[indexPath.row] as? String ?? "", firstcolor: UIColor.label, seconText: "*", secondColor: UIColor.red)
+
+            cell.txtFieldName.text = userObject.confirmPassword
+            cell.btnRight.isHidden = false
+            cell.btnRight.addTarget(self, action: #selector(hideUnhidePassword(_ :)), for: .touchUpInside)
+
+            if  isToShowConfirmPassword {
+                cell.btnRight.setImage(PZImages.hideEye, for: .normal)
+                cell.txtFieldName.isSecureTextEntry = true
+            }else {
+                cell.btnRight.setImage(PZImages.showEye, for: .normal)
+                cell.txtFieldName.isSecureTextEntry = false
+            }
+     
+            break
+        case 5:
+            cell.txtFieldName.text = userObject.referalCode
+            break
+
+        default:
+            break
+        }
+        
+        
+        return cell
+        
         //Email Verify
         /*if indexPath.row == 1 {
             let ddCell = tableView.dequeueReusableCell(withIdentifier: "EmailCell") as! EmailCell
@@ -946,7 +1060,9 @@ extension ProfileInfoViewController:UITableViewDelegate,UITableViewDataSource,UI
             
             
             return ddCell
-        }else*/ if indexPath.row == 1{
+        }else*/
+        /*
+        if indexPath.row == 1{
             let genderCell = tableView.dequeueReusableCell(withIdentifier: "GenderTblCell") as! GenderTblCell
             genderCell.backgroundColor = .systemBackground
             genderCell.segmentedcontrol.layer.borderColor = UIColor.lightGray.cgColor
@@ -967,6 +1083,8 @@ extension ProfileInfoViewController:UITableViewDelegate,UITableViewDataSource,UI
             }
             return genderCell
         }else if  indexPath.row ==  (titleArray?.count ?? 0) - 1 && socialId.length == 0{
+            
+            
             
             
             let ddCell = tableView.dequeueReusableCell(withIdentifier: "PasswordCell") as! PasswordCell
@@ -995,6 +1113,11 @@ extension ProfileInfoViewController:UITableViewDelegate,UITableViewDataSource,UI
             ddCell.txtConfirmPassword.iconColor = UIColor.lightGray
             
             return ddCell
+            
+            
+            
+            
+            
             
         }
 
@@ -1047,6 +1170,8 @@ extension ProfileInfoViewController:UITableViewDelegate,UITableViewDataSource,UI
         }
         
         return ddCell
+        
+        */
     }
     
     
@@ -1173,27 +1298,20 @@ extension ProfileInfoViewController:UITableViewDelegate,UITableViewDataSource,UI
             textField.text = textField.text?.condenseWhitespace()
             userObject.fullName = textField.text ?? ""
             break
-//        case 1:
-//            userObject.headline = textField.text ?? ""
-//            break
-//        case 2:
-//            userObject.position = textField.text ?? ""
-//            break
-            
-        /*case 1:
-            userObject.email = textField.text ?? ""
-            
-            break
-         */
+
         case 3:
-            userObject.referalCode = textField.text ?? ""
+            if socialId.length == 0{
+                userObject.password = textField.text ?? ""
+            }else{
+                userObject.referalCode = textField.text ?? ""
+            }
             break
             
-        case 100:
-            userObject.password = textField.text ?? ""
-            break
-        case 101:
+        case 4:
             userObject.confirmPassword = textField.text ?? ""
+            break
+        case 5:
+            userObject.referalCode = textField.text ?? ""
             break
             
         default:
@@ -1233,6 +1351,17 @@ extension ProfileInfoViewController:UITableViewDelegate,UITableViewDataSource,UI
             userObject.gender = "Others"
         }
         self.tblView.reloadRows(at: [IndexPath(row: 1, section: 0)], with: .none)
+
+    }
+    
+    @objc func hideUnhidePassword(_ sender : UIButton){
+        
+        if sender.tag == 3{
+            isToShowPassword.toggle()
+        }else if sender.tag == 4{
+            isToShowConfirmPassword.toggle()
+        }
+        tblView.reloadRows(at: [IndexPath(row: sender.tag, section: 0)], with: .none)
 
     }
     
@@ -1469,7 +1598,7 @@ extension ProfileInfoViewController:UIImagePickerControllerDelegate,UINavigation
     }
    
     func CheckNudityforImage(image:UIImage) {
-        NSFWDetector.shared.check(image: image) { result in
+       /* NSFWDetector.shared.check(image: image) { result in
             switch result {
             case .error:
                 print("Detection failed")
@@ -1480,7 +1609,7 @@ extension ProfileInfoViewController:UIImagePickerControllerDelegate,UINavigation
                             self.showAlertForNudity()
                     }
                     
-                }else {
+                }else {*/
                     if self.isProfileSelected == true {
                         self.user_image.image = image
                         self.uploadImage(image: image)
@@ -1490,9 +1619,9 @@ extension ProfileInfoViewController:UIImagePickerControllerDelegate,UINavigation
                         
                     }
                      
-                }
+               /* }
             }
-        }
+        }*/
     }
 }
 

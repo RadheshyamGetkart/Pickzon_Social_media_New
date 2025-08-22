@@ -26,6 +26,7 @@ class FollowingTableViewCell: UITableViewCell {
         // Initialization code
        // imgUser.layer.cornerRadius = imgUser.frame.height / 2.0
         //btnProfile.layer.cornerRadius = btnProfile.frame.height / 2.0
+        btnUnfollow.backgroundColor = CustomColor.sharedInstance.newThemeColor
         profilePicView.initializeView()
     }
 

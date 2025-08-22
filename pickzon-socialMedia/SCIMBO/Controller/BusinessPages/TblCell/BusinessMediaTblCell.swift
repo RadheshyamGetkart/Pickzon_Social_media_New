@@ -158,7 +158,7 @@ extension BusinessMediaTblCell:UICollectionViewDelegate,UICollectionViewDataSour
         cell.imgVideoThumb.contentMode = .scaleAspectFill
         cell.imgVideoThumb.backgroundColor = UIColor.black
         cell.lblDesc.isHidden = true
-        cell.lblDesc.backgroundColor = UIColor.systemBlue
+        cell.lblDesc.backgroundColor = CustomColor.sharedInstance.newThemeColor
         cell.imgVwVideoIcon.isHidden = true
         cell.eye.isHidden = true
         cell.lblViewCount.isHidden = true

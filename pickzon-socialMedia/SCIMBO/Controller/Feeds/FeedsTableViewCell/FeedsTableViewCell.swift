@@ -29,6 +29,7 @@ class FeedsTableViewCell: FeedsCell, UICollectionViewDelegate, UICollectionViewD
         self.cvFeedsPost.clipsToBounds = true
         self.lblMediaCount.layer.cornerRadius = lblMediaCount.frame.size.height/2.0
         self.lblMediaCount.clipsToBounds = true
+        btnFolow.backgroundColor = CustomColor.sharedInstance.newThemeColor
         btnFolow.layer.cornerRadius = 5.0
         btnPromote.layer.cornerRadius = 5.0
         self.separatorInset = .zero
@@ -53,6 +54,13 @@ class FeedsTableViewCell: FeedsCell, UICollectionViewDelegate, UICollectionViewD
         
         self.btnBoost.layer.cornerRadius = 5.0
         self.btnBoost.clipsToBounds = true
+        
+        self.cvFeedsPost.layer.cornerRadius = 8.0
+        self.cvFeedsPost.clipsToBounds = true
+        
+        self.bgViewCell.layer.cornerRadius = 17.0
+        self.bgViewCell.clipsToBounds = true
+        
     }
 
     override func prepareForReuse() {

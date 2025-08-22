@@ -22,6 +22,7 @@ class SuggestionCollectionCell: UICollectionViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+        btnFollow.backgroundColor = CustomColor.sharedInstance.newThemeColor
         btnFollow.layer.cornerRadius = 5.0
         profileImgView.initializeView()
     }

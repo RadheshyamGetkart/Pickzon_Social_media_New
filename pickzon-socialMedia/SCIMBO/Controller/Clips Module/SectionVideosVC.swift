@@ -162,7 +162,7 @@ extension SectionVideosVC:UICollectionViewDelegate,UICollectionViewDataSource,UI
         let cell = dataCollection.dequeueReusableCell(withReuseIdentifier: "ProfileMediaCellId", for: indexPath) as! ProfileMediaCell
         cell.imgVideoThumb.contentMode = .scaleAspectFill
         cell.imgVideoThumb.backgroundColor = UIColor.black
-        cell.lblDesc.backgroundColor = UIColor.systemBlue
+        cell.lblDesc.backgroundColor = CustomColor.sharedInstance.newThemeColor
         cell.imgVwVideoIcon.isHidden = true
         cell.lblDesc.isHidden = true
         cell.btnEditVideo.isHidden = true

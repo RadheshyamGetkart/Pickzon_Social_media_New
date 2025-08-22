@@ -10,16 +10,21 @@ import UIKit
 import AuthenticationServices
 import JSSAlertView
 import GoogleSignIn
+import Security
+
+
+
 
 class LoginVCNew: UIViewController {
     
     @IBOutlet weak var lblCountrycode: UILabel!
-    @IBOutlet weak var viewEmail:UIViewX!
+    @IBOutlet weak var viewEmail:UIView!
     @IBOutlet weak var txtEmail: UITextField!
-    @IBOutlet weak var viewMobile:UIViewX!
+    @IBOutlet weak var viewMobile:UIView!
+    @IBOutlet weak var viewPassword:UIView!
+
     @IBOutlet weak var viewMCountryCode:UIView!
     @IBOutlet weak var txtMobile: UITextField!
-    @IBOutlet weak var lblPasswordForget: UILabel!
     @IBOutlet weak var txtPassword: UITextField!
     @IBOutlet weak var btnShowPassword:UIButton!
     @IBOutlet weak var btnLogin:UIButton!
@@ -27,7 +32,13 @@ class LoginVCNew: UIViewController {
     @IBOutlet weak var btnGmailLogin:UIButton!
     @IBOutlet weak var btnSignUp:UIButton!
     @IBOutlet weak var segmentControl:UISegmentedControl!
-     
+    
+    @IBOutlet weak var btnPrivacyPolicy:UIButton!
+
+    @IBOutlet weak var bgViewSegmentControl:UIView!
+    @IBOutlet weak var imgVwDDIcon:UIImageView!
+    @IBOutlet weak var btnForgotPassword:UIButton!
+
     var country_Code = String()
     var randomNumber: Int64 = 0
     var socialUser = ""
@@ -35,91 +46,128 @@ class LoginVCNew: UIViewController {
     var socialEmail = ""
     var socialProfilePicUrl = ""
     
+   
     //MARK: Controller Life cycle methods
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        viewMCountryCode.layer.borderColor = UIColor.label.cgColor
-        viewMCountryCode.layer.borderWidth = 0.5
-        viewMCountryCode.layer.cornerRadius = 5.0
-        viewMCountryCode.clipsToBounds = true
+        imgVwDDIcon.setImageColor(color: .black)
+        txtEmail.setAttributedPlaceHolder(text: "Enter Email/PickZon Id", color: .lightGray)
+        txtMobile.setAttributedPlaceHolder(text: "Your Mobile Number", color: .lightGray)
+        txtPassword.setAttributedPlaceHolder(text: "Password", color: .lightGray)
+
+        viewEmail.backgroundColor = CustomColor.sharedInstance.txtFdBgColor
+        viewEmail.layer.cornerRadius = 20.0
+        viewEmail.clipsToBounds = true
+        viewMobile.backgroundColor = CustomColor.sharedInstance.txtFdBgColor
+        viewMobile.layer.cornerRadius = 20.0
+        viewMobile.clipsToBounds = true
+        viewPassword.backgroundColor = CustomColor.sharedInstance.txtFdBgColor
+        viewPassword.layer.cornerRadius = 20.0
+        viewPassword.clipsToBounds = true
         
-        btnAppleLogin.layer.borderColor = UIColor.lightGray.cgColor
-        btnAppleLogin.layer.borderWidth = 1.0
-        btnAppleLogin.layer.cornerRadius = 5.0
+//        viewMCountryCode.layer.borderColor = UIColor.label.cgColor
+//        viewMCountryCode.layer.borderWidth = 0.5
+       // viewMCountryCode.layer.cornerRadius = 5.0
+      //  viewMCountryCode.clipsToBounds = true
+        
+//        btnAppleLogin.layer.borderColor = UIColor.lightGray.cgColor
+//        btnAppleLogin.layer.borderWidth = 1.0
+        btnAppleLogin.backgroundColor = CustomColor.sharedInstance.txtFdBgColor
+        btnAppleLogin.layer.cornerRadius = 20.0
         btnAppleLogin.clipsToBounds = true
         
         btnAppleLogin.setImageTintColor(.black)
         
-        btnGmailLogin.layer.borderColor = UIColor.lightGray.cgColor
-        btnGmailLogin.layer.borderWidth = 1.0
-        btnGmailLogin.layer.cornerRadius = 5.0
+//        btnGmailLogin.layer.borderColor = UIColor.lightGray.cgColor
+//        btnGmailLogin.layer.borderWidth = 1.0
+        btnGmailLogin.backgroundColor = CustomColor.sharedInstance.txtFdBgColor
+        btnGmailLogin.layer.cornerRadius = 20.0
         btnGmailLogin.clipsToBounds = true
 
-        btnLogin.backgroundColor = Themes.sharedInstance.colorWithHexString(hex: "007BFF")
-        btnLogin.layer.cornerRadius = 5.0
-        
-        
-        btnSignUp.backgroundColor = Themes.sharedInstance.colorWithHexString(hex: "007BFF")
-        btnSignUp.layer.cornerRadius = 5.0
-        btnSignUp.clipsToBounds = true
+        btnLogin.backgroundColor = CustomColor.sharedInstance.newThemeColor
+        btnLogin.layer.cornerRadius = 20.0
+        btnLogin.clipsToBounds = true
 
-         
+        btnSignUp.setTitleColor(CustomColor.sharedInstance.newThemeColor, for: .normal)
+        
+        
+         btnPrivacyPolicy.setTitle("Terms and Privacy Policy", for: .normal)
+           
+           // Create an attributed string for the button title
+           let attributedString = NSMutableAttributedString(string: "Terms and Privacy Policy")
+           
+           // Define the attributes, including the underline style
+           let underlineAttributes: [NSAttributedString.Key: Any] = [
+               .underlineStyle: NSUnderlineStyle.single.rawValue,
+               .foregroundColor: UIColor.label // Optional: set text color
+           ]
+           
+           // Apply the attributes to the entire string
+           attributedString.addAttributes(underlineAttributes, range: NSRange(location: 0, length: attributedString.length))
+           
+           // Set the attributed title for the button
+         btnPrivacyPolicy.setAttributedTitle(attributedString, for: .normal)
+
         Themes.sharedInstance.setCountryCode(self.lblCountrycode, nil)
         country_Code = self.lblCountrycode.text!
-        setTextInLabel()
         AppDelegate.sharedInstance.rootUSerApi()
         
         txtMobile.addTarget(self, action: #selector(textFiedDidChange(_:)), for: .editingChanged)
-
+    
+        segmentControl.backgroundColor = CustomColor.sharedInstance.txtFdBgColor
+        segmentControl.selectedSegmentTintColor = CustomColor.sharedInstance.newThemeColor
+        bgViewSegmentControl.layer.borderColor = CustomColor.sharedInstance.txtFdBgColor.cgColor
+        bgViewSegmentControl.layer.cornerRadius = bgViewSegmentControl.bounds.height / 2.0
+        bgViewSegmentControl.clipsToBounds = true
+        segmentControl.applyCapsuleStyle()
     }
     
-    
 
     
-    
     @objc func textFiedDidChange(_ sender: Any) {
-            var prefix = self.country_Code
+        var prefix = self.country_Code
+        if  txtMobile.text!.hasPrefix(prefix) == true {
+            if txtMobile.text!.length > prefix.length {
+                txtMobile.text  = String(txtMobile.text!.dropFirst(prefix.count).trimmingCharacters(in: .whitespacesAndNewlines))
+            }
+        }else {
+            prefix =  prefix.hasPrefix("+") ? String(prefix.dropFirst(1)): prefix
             if  txtMobile.text!.hasPrefix(prefix) == true {
                 if txtMobile.text!.length > prefix.length {
                     txtMobile.text  = String(txtMobile.text!.dropFirst(prefix.count).trimmingCharacters(in: .whitespacesAndNewlines))
                 }
-            }else {
-                prefix =  prefix.hasPrefix("+") ? String(prefix.dropFirst(1)): prefix
-                if  txtMobile.text!.hasPrefix(prefix) == true {
-                    if txtMobile.text!.length > prefix.length {
-                        txtMobile.text  = String(txtMobile.text!.dropFirst(prefix.count).trimmingCharacters(in: .whitespacesAndNewlines))
-                    }
-                }
             }
-            
-           
-    }
-    
-   
-
-    
-    
-    //MARK: INitial Setup Methods
-    func setTextInLabel(){
-        
-        let underlineAttribute = [NSAttributedString.Key.font : UIFont.systemFont(ofSize: 15) as Any,NSAttributedString.Key.foregroundColor : UIColor.darkGray] as [NSAttributedString.Key : Any]
-        
-        let underlineAttribute1 = [NSAttributedString.Key.underlineStyle: NSUnderlineStyle.single.rawValue,NSAttributedString.Key.font : UIFont.systemFont(ofSize: 15) as Any,NSAttributedString.Key.foregroundColor : UIColor.label] as [NSAttributedString.Key : Any]
-        
-        let attributedString = NSMutableAttributedString(string: "", attributes: underlineAttribute)
-        let underlineAttributedString1 = NSAttributedString(string: "Create/Forgot Password", attributes: underlineAttribute1)
-        attributedString.append(underlineAttributedString1)
-        self.lblPasswordForget.attributedText = attributedString
-        self.lblPasswordForget.addRangeGesture(stringRange: "Create/Forgot Password") {
-            // Do anything here
-            let forgotPasswordVC = StoryBoard.prelogin.instantiateViewController(withIdentifier:"ForgotPasswordVC" ) as! ForgotPasswordVC
-            self.navigationController?.pushViewController(forgotPasswordVC, animated: true)
         }
     }
     
+    
+    //MARK: INitial Setup Methods
+//    func setTextInLabel(){
+//        
+//        let underlineAttribute = [NSAttributedString.Key.font : UIFont.systemFont(ofSize: 15) as Any,NSAttributedString.Key.foregroundColor :CustomColor.sharedInstance.newThemeColor] as [NSAttributedString.Key : Any]
+//        
+//        let underlineAttribute1 = [NSAttributedString.Key.underlineStyle: NSUnderlineStyle.single.rawValue,NSAttributedString.Key.font : UIFont.systemFont(ofSize: 15) as Any,NSAttributedString.Key.foregroundColor :CustomColor.sharedInstance.newThemeColor] as [NSAttributedString.Key : Any]
+//        
+//        let attributedString = NSMutableAttributedString(string: "", attributes: underlineAttribute)
+//        let underlineAttributedString1 = NSAttributedString(string: "Forgot Password", attributes: underlineAttribute1)
+//        attributedString.append(underlineAttributedString1)
+//        self.lblPasswordForget.attributedText = attributedString
+//        self.lblPasswordForget.addRangeGesture(stringRange: "Forgot Password") {
+//            // Do anything here
+//            let forgotPasswordVC = StoryBoard.prelogin.instantiateViewController(withIdentifier:"ForgotPasswordVC" ) as! ForgotPasswordVC
+//            self.navigationController?.pushViewController(forgotPasswordVC, animated: true)
+//        }
+//    }
+    
     //MARK: UIBUtton Action Methods
     
+    
+    @IBAction func forgotPasswordBtnAction(){
+        let forgotPasswordVC = StoryBoard.prelogin.instantiateViewController(withIdentifier:"ForgotPasswordVC" ) as! ForgotPasswordVC
+        self.navigationController?.pushViewController(forgotPasswordVC, animated: true)
+    }
+
     @IBAction func segmentChanged(_ sender: UISegmentedControl) {
         self.view.endEditing(true)
         txtEmail.text = ""
@@ -132,6 +180,9 @@ class LoginVCNew: UIViewController {
             self.viewEmail.isHidden = false
             self.viewMobile.isHidden = true
         }
+        
+       // segmentControl.makeCapsule()
+
     }
     
     
@@ -178,6 +229,8 @@ class LoginVCNew: UIViewController {
         
         let signInConfig = GIDConfiguration.init(clientID: "531803338654-snn153cm7patvj9mhvuvh3chupfles7u.apps.googleusercontent.com")
         GIDSignIn.sharedInstance.signIn(with: signInConfig, presenting: self) { user, error in
+            
+            
             if error == nil {
                 if let user = user {
                     let userID = user.userID ?? ""
@@ -233,7 +286,6 @@ class LoginVCNew: UIViewController {
     
     func hashingCreatorApi(){
       
-        
         let dictParams:NSDictionary = ["deviceId" : "\(Themes.sharedInstance.getDeviceUUIDString())","OS" : "ios","modelName" : "\(UIDevice.current.model)","manufacturerId" : [17, 3, 52,64, 92, 87, 22], "version":"\(Themes.sharedInstance.osVersion)"]
         
         let url = "\(Constant.sharedinstance.hashingCreator)".addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? ""
@@ -530,6 +582,7 @@ extension LoginVCNew: ASAuthorizationControllerDelegate, ASAuthorizationControll
     
     func authorizationController(controller: ASAuthorizationController, didCompleteWithError error: Error) {
         // Handle error.
+        print(error.localizedDescription)
     }
     
     
@@ -616,3 +669,62 @@ extension String {
    }
 }
 
+
+
+import UIKit
+
+extension UISegmentedControl {
+    func applyCapsuleStyle() {
+        let radius = bounds.height / 2
+
+        // Whole control rounded
+        layer.cornerRadius = radius
+        clipsToBounds = true
+
+        // Normal background (clear capsule)
+        let normalImage = UIImage.capsule(color:CustomColor.sharedInstance.txtFdBgColor, radius: radius)
+        setBackgroundImage(normalImage, for: .normal, barMetrics: .default)
+
+        // Selected background (teal capsule)
+        let selectedImage = UIImage.capsule(color: CustomColor.sharedInstance.newThemeColor, radius: radius)
+        setBackgroundImage(selectedImage, for: .selected, barMetrics: .default)
+
+        // Divider hidden
+        setDividerImage(UIImage(), forLeftSegmentState: .normal, rightSegmentState: .normal, barMetrics: .default)
+
+        // Text colors
+        let normalAttrs: [NSAttributedString.Key: Any] = [.foregroundColor: UIColor.label]
+        let selectedAttrs: [NSAttributedString.Key: Any] = [.foregroundColor: UIColor.black]
+        setTitleTextAttributes(normalAttrs, for: .normal)
+        setTitleTextAttributes(selectedAttrs, for: .selected)
+    }
+}
+
+extension UIImage {
+    static func capsule(color: UIColor, radius: CGFloat) -> UIImage {
+        let size = CGSize(width: 2 * radius + 1, height: 2 * radius + 1)
+        let rect = CGRect(origin: .zero, size: size)
+
+        UIGraphicsBeginImageContextWithOptions(size, false, 0)
+        let path = UIBezierPath(roundedRect: rect, cornerRadius: radius)
+        color.setFill()
+        path.fill()
+        let img = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+
+        return img!.resizableImage(withCapInsets: UIEdgeInsets(top: radius, left: radius, bottom: radius, right: radius))
+    }
+}
+
+
+
+extension UITextField{
+    
+    func setplaceholderColorWithText(placeholderText:String,color:UIColor){
+        let attributes: [NSAttributedString.Key: Any] = [
+            .foregroundColor: color // Set placeholder color to black
+        ]
+        self.attributedPlaceholder = NSAttributedString(string: placeholderText, attributes: attributes)
+    }
+}
+    

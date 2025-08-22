@@ -11,55 +11,57 @@ import UIKit
 class ForgotPasswordVC: UIViewController {
 
     @IBOutlet weak var lblCountrycode: UILabel!
-    
-    @IBOutlet weak var viewEmail:UIViewX!
+    @IBOutlet weak var viewEmail:UIView!
     @IBOutlet weak var txtEmail: UITextField!
-    
     @IBOutlet weak var viewMobile:UIView!
     @IBOutlet weak var viewMCountryCode:UIView!
     @IBOutlet weak var txtMobile: UITextField!
-    
-    @IBOutlet weak var viewOtp:UIView!
-    @IBOutlet weak var txtOTP: UITextField!
-    
-    @IBOutlet weak var viewPassword:UIView!
-    @IBOutlet weak var txtPassword: UITextField!
-    @IBOutlet weak var btnShowHidePassword:UIButton!
-    
-    @IBOutlet weak var viewConfirmPassword:UIView!
-    @IBOutlet weak var txtConfirmPassword: UITextField!
-    @IBOutlet weak var btnShowHideConfirmPassword:UIButton!
-    
-    @IBOutlet weak var btnShowHideEmail:UIButton!
     @IBOutlet weak var segmentControl:UISegmentedControl!
-    
-    @IBOutlet weak var btnUpdatePassword:CustomButton!
-    
-    var country_Code = String()
-    
-    var isEmail = false
-    var uid = ""
-    
+  //  @IBOutlet weak var btnUpdatePassword:CustomButton!
+    @IBOutlet weak var bgViewSegmentControl:UIView!
     @IBOutlet weak var btnSendOtp: UIButton!
     @IBOutlet weak var lblTimer:UILabel!
+    @IBOutlet weak var imgVwDDIcon:UIImageView!
+
     var seconds:Int = 0
     var timer:Timer = Timer()
+    var isEmail = false
+    var country_Code = ""
+    var uid = ""
     
-    
+    //MARK: Controller life cycle methods
     override func viewDidLoad() {
-        
         super.viewDidLoad()
         
-        viewMCountryCode.layer.borderColor = UIColor.lightGray.cgColor
-        viewMCountryCode.layer.borderWidth = 0.5
-        viewMCountryCode.layer.cornerRadius = 5.0
-        viewMCountryCode.clipsToBounds = true
+        //viewMCountryCode.layer.borderColor = UIColor.lightGray.cgColor
+        
+        viewEmail.backgroundColor = CustomColor.sharedInstance.txtFdBgColor
+        viewEmail.layer.cornerRadius = 20.0
+        viewEmail.clipsToBounds = true
+        viewMobile.backgroundColor = CustomColor.sharedInstance.txtFdBgColor
+        viewMobile.layer.cornerRadius = 20.0
+        viewMobile.clipsToBounds = true
+        imgVwDDIcon.setImageColor(color: .black)
+
+        txtEmail.setAttributedPlaceHolder(text: "Enter Email/PickZon Id", color: .lightGray)
+        txtMobile.setAttributedPlaceHolder(text: "Your Mobile Number", color: .lightGray)
+        
+        btnSendOtp.setBackgroundColor(CustomColor.sharedInstance.newThemeColor, forState: .normal)
+        btnSendOtp.layer.cornerRadius = 20.0
+        btnSendOtp.clipsToBounds = true
         
         Themes.sharedInstance.setCountryCode(self.lblCountrycode, nil)
         country_Code = self.lblCountrycode.text!
-        btnUpdatePassword.backgroundColor = Themes.sharedInstance.colorWithHexString(hex: "007BFF")
+//        btnUpdatePassword.backgroundColor = CustomColor.sharedInstance.newThemeColor
         txtMobile.addTarget(self, action: #selector(textFiedDidChange(_:)), for: .editingChanged)
         
+        // Background & tint
+        segmentControl.backgroundColor = CustomColor.sharedInstance.txtFdBgColor
+        segmentControl.selectedSegmentTintColor = CustomColor.sharedInstance.newThemeColor
+        bgViewSegmentControl.layer.borderColor = CustomColor.sharedInstance.txtFdBgColor.cgColor
+        bgViewSegmentControl.layer.cornerRadius = bgViewSegmentControl.bounds.height / 2.0
+        bgViewSegmentControl.clipsToBounds = true
+        segmentControl.applyCapsuleStyle()
     }
     
    
@@ -118,10 +120,10 @@ class ForgotPasswordVC: UIViewController {
             isEmail = true
         }
         
-        txtOTP.text = ""
-        viewOtp.isHidden = true
-        viewPassword.isHidden = true
-        viewConfirmPassword.isHidden = true
+//        txtOTP.text = ""
+//        viewOtp.isHidden = true
+//        viewPassword.isHidden = true
+//        viewConfirmPassword.isHidden = true
     }
     
     @IBAction func backButtonAction()
@@ -131,30 +133,31 @@ class ForgotPasswordVC: UIViewController {
 
     @IBAction func showHidePasswordAction(){
         
-        if btnShowHidePassword.currentImage == UIImage(named: "eye-5 1") {
+        /*if btnShowHidePassword.currentImage == UIImage(named: "eye-5 1") {
             btnShowHidePassword.setImage(UIImage(named: "eye-4 1"), for: .normal)
             txtPassword.isSecureTextEntry = false
         }else {
             btnShowHidePassword.setImage(UIImage(named: "eye-5 1"), for: .normal)
             txtPassword.isSecureTextEntry = true
-        }
+        }*/
     }
     @IBAction func showHideConfirmPasswordAction(){
         
-        if btnShowHideConfirmPassword.currentImage == UIImage(named: "eye-5 1") {
+       /* if btnShowHideConfirmPassword.currentImage == UIImage(named: "eye-5 1") {
             btnShowHideConfirmPassword.setImage(UIImage(named: "eye-4 1"), for: .normal)
             txtConfirmPassword.isSecureTextEntry = false
         }else {
             btnShowHideConfirmPassword.setImage(UIImage(named: "eye-5 1"), for: .normal)
             txtConfirmPassword.isSecureTextEntry = true
         }
+        */
     }
     
         // Do any additional setup after loading the view.
     @IBAction func showHideEmailBtnAction(_ sender:UIButton) {
         self.view.endEditing(true)
 
-        if viewEmail.isHidden == false {
+      /*  if viewEmail.isHidden == false {
             isEmail = false
             viewEmail.isHidden = true
             viewMobile.isHidden = false
@@ -171,26 +174,23 @@ class ForgotPasswordVC: UIViewController {
         viewOtp.isHidden = true
         viewPassword.isHidden = true
         viewConfirmPassword.isHidden = true
+        */
     }
     
     @IBAction func sendOTPAction(_ sender:UIButton) {
         self.view.endEditing(true)
-
-    
-            while (txtMobile.text?.hasPrefix("0"))! {
-                txtMobile.text = txtMobile.text?.substring(from: 1)
-            }
-    
-            if (txtMobile.text?.hasPrefix("+"))! {
-                txtMobile.text = txtMobile.text?.substring(from: country_Code.length)
-            }
+        
+        while (txtMobile.text?.hasPrefix("0"))! {
+            txtMobile.text = txtMobile.text?.substring(from: 1)
+        }
+        
+        if (txtMobile.text?.hasPrefix("+"))! {
+            txtMobile.text = txtMobile.text?.substring(from: country_Code.length)
+        }
         
         if (txtEmail.text?.length ?? 0) > 0 {
             txtEmail.text = txtEmail.text?.trimmingCharacters(in: .whitespaces)
         }
-    
-            print(txtMobile.text)
-        print(txtEmail.text)
         
         if isEmail == false && txtMobile.text?.length == 0 {
             self.view.makeToast(message: "Mobile number cannot be left blank" , duration: 3, position: HRToastActivityPositionDefault)
@@ -243,22 +243,28 @@ class ForgotPasswordVC: UIViewController {
                             Themes.sharedInstance.saveSecurityAuthToken(securityAuthToken: securityAuthToken)
                         }
                         
-                        self.viewOtp.isHidden = false
-                        self.viewPassword.isHidden = true
-                        self.viewConfirmPassword.isHidden = true
+                        // self.viewOtp.isHidden = false
+                        // self.viewPassword.isHidden = true
+                        //  self.viewConfirmPassword.isHidden = true
                         self.view.makeToast(message: message as! String , duration: 3, position: HRToastActivityPositionDefault)
                         
-                        if type == 0 {
-                            
-                           
-                            
-                            self.btnSendOtp.setTitle("Resend OTP", for: .normal)
-                            self.btnSendOtp.setTitleColor(UIColor.lightGray, for:.normal)
-                            self.btnSendOtp.isUserInteractionEnabled = false
-                            self.seconds = 60
-                            self.lblTimer.isHidden = false
-                            self.timer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector:  #selector(self.updateTimerLabel), userInfo: nil, repeats: true)
-                        }
+                        let forgotPasswordVC = StoryBoard.prelogin.instantiateViewController(withIdentifier:"CodeVerificationVC" ) as! CodeVerificationVC
+                        forgotPasswordVC.uid = self.uid
+                        forgotPasswordVC.emailOrMobile = username
+                        forgotPasswordVC.isEmail = self.isEmail
+                        self.navigationController?.pushViewController(forgotPasswordVC, animated: true)
+                        /*
+                         if type == 0 {
+                         
+                         
+                         
+                         self.btnSendOtp.setTitle("Resend OTP", for: .normal)
+                         self.btnSendOtp.setTitleColor(UIColor.lightGray, for:.normal)
+                         self.btnSendOtp.isUserInteractionEnabled = false
+                         self.seconds = 60
+                         self.lblTimer.isHidden = false
+                         self.timer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector:  #selector(self.updateTimerLabel), userInfo: nil, repeats: true)
+                         }*/
                     }else{
                         self.view.makeToast(message: message as! String , duration: 3, position: HRToastActivityPositionDefault)
                         
@@ -267,11 +273,11 @@ class ForgotPasswordVC: UIViewController {
                 }
             }
         }
-        }
+    }
     
     @IBAction func verifyOTPAction(_ sender:UIButton) {
         self.view.endEditing(true)
-
+/*
     var type = 1
     var username = ""
     if isEmail == true {
@@ -335,12 +341,14 @@ class ForgotPasswordVC: UIViewController {
 
                      }
         }
+        
+        */
     }
     
     
         @IBAction func updatePasswordAction(_ sender:UIButton) {
             self.view.endEditing(true)
-
+/*
             if (txtPassword.text?.length ?? 0) > 0 {
                 txtPassword.text = txtPassword.text?.trimmingCharacters(in: .whitespaces)
             }
@@ -397,6 +405,7 @@ class ForgotPasswordVC: UIViewController {
                     }
                 }
             }
+            */
         }
         
         @IBAction func countrycodeBtnAction(_ sender:UIButton) {

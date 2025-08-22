@@ -350,7 +350,7 @@ extension ChatUserListVC:UITableViewDelegate,UITableViewDataSource {
         if arrSelectedUser.count == 0{
             self.btnDone.tintColor = .lightGray
         }else{
-            self.btnDone.tintColor = .blue
+            self.btnDone.tintColor = CustomColor.sharedInstance.newThemeColor
         }
         tblView.reloadData()
     }

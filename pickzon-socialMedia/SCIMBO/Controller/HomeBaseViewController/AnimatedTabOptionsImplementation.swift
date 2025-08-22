@@ -107,22 +107,22 @@ class DefaultAnimatedTabOptions: NSVAnimatedTabOptions {
     var tabHeight: CGFloat = 0
     var tabInsets: UIEdgeInsets = .zero
     var tabBackgroundColor: UIColor = .systemBackground
-    var selectedItemColor: UIColor = .black
-    var unselectedItemColor: UIColor = .systemBlue
+    var selectedItemColor: UIColor = .label
+    var unselectedItemColor: UIColor = .lightGray
     var cornerRadius: CGFloat = 5
     var corners: [RadiusCorners] = [.topLeft, .topRight]
     var shadowInfo: ShadowInfo? = ShadowInfo(shadowRadius: 5, shadowOpacity: 0.05, shadowColor: .black, shadowOffset: .init(width: 0, height: -5))
    
      var options: [NSVTabItemOptions] = [
-        DefaultTabItemOptions(title: "", image: UIImage(named: "feed"),selectedImage: UIImage(named: "FeedBlue"), itemInsets: .init(top: 20, left: 5, bottom: 0, right: 5)),
-        DefaultTabItemOptions(title: "", image: UIImage(named: "goLiveTab")!,selectedImage: UIImage(named: "goLiveTabSel"), itemInsets: .init(top: 20, left: -5, bottom: 0, right: 15)),
+        DefaultTabItemOptions(title: "Home", image: UIImage(named: "home"),selectedImage: UIImage(named: "homeSel"), itemInsets: .init(top: 5, left: 5, bottom: 0, right: 5)),
+        DefaultTabItemOptions(title: "Go Live", image: UIImage(named: "goLiveTab")!,selectedImage: UIImage(named: "goLiveTabSel"), itemInsets: .init(top: 5, left: -5, bottom: 0, right: 15)),
 
        /* DefaultTabItemOptions(title: "Pages", image: UIImage(named: "PagesUnselect")!,selectedImage: UIImage(named: "pagesSelect"), itemInsets: .init(top: 8, left: 5, bottom: 5, right: 5)),*/
-    DefaultTabItemOptions(title: "", image: UIImage(named: "clipIcon"),selectedImage: UIImage(named: "clipSelColor"), itemInsets: .init(top: 20, left: 15, bottom: 0, right: -5)),
+    DefaultTabItemOptions(title: "Chat", image: UIImage(named: "chat"),selectedImage: UIImage(named: "chatSel"), itemInsets: .init(top: 5, left: 15, bottom: 0, right: -5)),
         /*  DefaultTabItemOptions(title: "Notification", image: UIImage(named: "notificationUnSelect")!,selectedImage: UIImage(named: "notificationSelect"), itemInsets: .init(top: 8, left: 0, bottom: 5, right: 0)),*/
      /* DefaultTabItemOptions(title: "Jobs", image: UIImage(named: "uim_bag")!,selectedImage: UIImage(named: "uim_bag_selected"), itemInsets: .init(top: 8, left: 0, bottom: 5, right: 0)),*/
        // DefaultTabItemOptions(title: "More", image: UIImage(named: "moreGreen")!.imageWithColor(color1: .systemBlue),selectedImage: UIImage(named: "MoreBlue"), itemInsets: .init(top: 5, left: 5, bottom: 5, right: 5))
-        DefaultTabItemOptions(title: "", image: UIImage(named: "searchTab"),selectedImage: UIImage(named: "searchTabSelected"), itemInsets: .init(top: 20, left: 5, bottom: 0, right: 5))
+        DefaultTabItemOptions(title: "Search", image: UIImage(named: "search"),selectedImage: UIImage(named: "searchSel"), itemInsets: .init(top: 5, left: 5, bottom: 0, right: 5))
     ]
     var animationOptions: NSVTabAnimationOptions = DefaultTabAnimationOptions()
     var centerItemOptions: NSVCenterItemOptions = DefaultCenterItemOptions()

@@ -25,6 +25,8 @@ import Realm
 import RealmSwift
 import AVFoundation
 import Kingfisher
+import FirebaseCore
+import FirebaseAnalytics
 
 var languageHandler = Languagehandler()
 var filter_ContactRec = NSMutableArray()
@@ -143,6 +145,8 @@ var backgroundTask: UIBackgroundTaskIdentifier = UIBackgroundTaskIdentifier.inva
         SwiftRater.debugMode = false
         SwiftRater.appLaunched()
         
+        
+
         /*for family: String in UIFont.familyNames
         {
             print(family)
@@ -898,7 +902,7 @@ var backgroundTask: UIBackgroundTaskIdentifier = UIBackgroundTaskIdentifier.inva
     }
     
     func updateLatestAppearance() {
-        var enumVal = UserDefaults.standard.value(forKey: darkModeSettings) as? Int ?? 0
+        var enumVal = UserDefaults.standard.value(forKey: darkModeSettings) as? Int ??  2 //0
         //First time if there is no theme selected than select dark theme by default
         if enumVal == 0 {
             enumVal = 1
@@ -1347,7 +1351,9 @@ extension AppDelegate : ATAppUpdaterDelegate{
             logoutApi()
         }
         //update the appearance setting to dark
-        UserDefaults.standard.setValue(1, forKey: darkModeSettings)
+//        UserDefaults.standard.setValue(1, forKey: darkModeSettings)
+        UserDefaults.standard.setValue(2, forKey: darkModeSettings)
+
         self.updateLatestAppearance()
         
         Constant.sharedinstance.feedChatCount = 0

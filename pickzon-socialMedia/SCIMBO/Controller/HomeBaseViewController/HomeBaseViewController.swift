@@ -166,7 +166,7 @@ func badgeCountUpdateInTabBar(){
         }else  if index == 2 {
           
             
-            let vc =
+           /* let vc =
             StoryBoard.feeds.instantiateViewController(withIdentifier: "FeedsVideoViewController") as! FeedsVideoViewController
             vc.videoType = .feed
             vc.isRandomVideos = true
@@ -174,7 +174,11 @@ func badgeCountUpdateInTabBar(){
             vc.isTohideBackButton = true
             
             return vc
-                        
+            */
+            
+            let vc:ChatListVC = StoryBoard.chat.instantiateViewController(withIdentifier: "ChatListVC") as! ChatListVC
+            return vc
+
         }else  if index == 3 {
         
              let vc = StoryBoard.main.instantiateViewController(withIdentifier: "SearchHomeVC") as! SearchHomeVC

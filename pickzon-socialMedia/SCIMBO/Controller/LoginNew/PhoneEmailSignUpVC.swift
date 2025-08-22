@@ -11,43 +11,57 @@ import UIKit
 class PhoneEmailSignUpVC: UIViewController {
 
     @IBOutlet weak var lblCountrycode: UILabel!
-    @IBOutlet weak var viewEmail:UIViewX!
+    @IBOutlet weak var viewEmail:UIView!
     @IBOutlet weak var txtEmail: UITextField!
-    
     @IBOutlet weak var viewMobile:UIView!
     @IBOutlet weak var viewMCountryCode:UIView!
     @IBOutlet weak var txtMobile: UITextField!
     @IBOutlet weak var segmentControl:UISegmentedControl!
     @IBOutlet weak var btnSendOtp: UIButton!
-     
+    @IBOutlet weak var bgViewSegmentControl:UIView!
+    @IBOutlet weak var imgVwDDIcon:UIImageView!
+
     var country_Code = String()
     var isEmail = false
     var randomNumber: Int64 = 0
     var isFirebaseUsed = false
    
+    //MARK: Controller life cycle methods
     override func viewDidLoad() {
-        
         super.viewDidLoad()
+       // viewEmail.layer.borderColor = UIColor.label.cgColor
+       // viewEmail.layer.borderWidth = 0.5
+        viewEmail.backgroundColor = CustomColor.sharedInstance.txtFdBgColor
+        viewEmail.layer.cornerRadius = 20.0
+        viewEmail.clipsToBounds = true
         
-        viewMCountryCode.layer.borderColor = UIColor.label.cgColor
-        viewMCountryCode.layer.borderWidth = 0.5
-        viewMCountryCode.layer.cornerRadius = 5.0
-        viewMCountryCode.clipsToBounds = true
-        
+//        viewMobile.layer.borderColor = UIColor.label.cgColor
+//        viewMobile.layer.borderWidth = 0.5
+        viewMobile.backgroundColor = CustomColor.sharedInstance.txtFdBgColor
+        viewMobile.layer.cornerRadius = 20.0
+        viewMobile.clipsToBounds = true
+        imgVwDDIcon.setImageColor(color: .black)
+
         Themes.sharedInstance.setCountryCode(self.lblCountrycode, nil)
         country_Code = self.lblCountrycode.text!
 
-        btnSendOtp.backgroundColor = Themes.sharedInstance.colorWithHexString(hex: "007BFF")
-        btnSendOtp.layer.cornerRadius = 5.0
-        
+        btnSendOtp.backgroundColor = CustomColor.sharedInstance.newThemeColor
+        btnSendOtp.layer.cornerRadius = 20.0
+        btnSendOtp.clipsToBounds = true
+
         txtMobile.addTarget(self, action: #selector(textFiedDidChange(_:)), for: .editingChanged)
         
+        
+        segmentControl.backgroundColor = CustomColor.sharedInstance.txtFdBgColor
+        segmentControl.selectedSegmentTintColor = CustomColor.sharedInstance.newThemeColor
+        bgViewSegmentControl.layer.borderColor = CustomColor.sharedInstance.txtFdBgColor.cgColor
+        bgViewSegmentControl.layer.cornerRadius = bgViewSegmentControl.bounds.height / 2.0
+        bgViewSegmentControl.clipsToBounds = true
+        segmentControl.applyCapsuleStyle()
+    
+        txtEmail.setAttributedPlaceHolder(text: "Enter Email/PickZon Id", color: .lightGray)
+        txtMobile.setAttributedPlaceHolder(text: "Your Mobile Number", color: .lightGray)
     }
-    
-   
-    
-    
-    
     
     
     @objc func textFiedDidChange(_ sender: Any) {
@@ -85,18 +99,17 @@ class PhoneEmailSignUpVC: UIViewController {
             self.viewMobile.isHidden = true
             isEmail = true
         }
-        
-        
     }
+    
     
     @IBAction func backButtonAction()
     {
         self.navigationController?.popViewController(animated: true)
     }
 
+    
     func hashingCreatorApi(){
       
-        
         let dictParams:NSDictionary = ["deviceId" : "\(Themes.sharedInstance.getDeviceUUIDString())","OS" : "ios","modelName" : "\(UIDevice.current.model)","manufacturerId" : [17, 3, 52,64, 92, 87, 22], "version":"\(Themes.sharedInstance.osVersion)"]
         
         let url = "\(Constant.sharedinstance.hashingCreator)".addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? ""
@@ -120,7 +133,6 @@ class PhoneEmailSignUpVC: UIViewController {
                         self.randomNumber = payload["randomNumber"] as? Int64 ?? 0
                         self.callsendEmailMobileOtpAPI()
                     }
-                                    
                 }
                 else
                 {
@@ -144,9 +156,7 @@ class PhoneEmailSignUpVC: UIViewController {
         if (txtEmail.text?.length ?? 0) > 0 {
             txtEmail.text = txtEmail.text?.trimmingCharacters(in: .whitespaces)
         }
-        
-        
-        
+                
         if isEmail == false && txtMobile.text?.length == 0 {
             self.view.makeToast(message: "Mobile number cannot be left blank" , duration: 3, position: HRToastActivityPositionDefault)
         }else if isEmail == true && txtEmail.text?.length == 0 {
@@ -160,13 +170,11 @@ class PhoneEmailSignUpVC: UIViewController {
     }
     
     func callsendEmailMobileOtpAPI (){
-        var param:NSDictionary = [:]
-        param = ["email":"\(txtEmail.text ?? "")",  "countryCode":country_Code,"mobileNumber":"\(txtMobile.text ?? "")", "randomNumber": self.randomNumber, "otpHashcode":""]
+        
+        let param:NSDictionary = ["email":"\(txtEmail.text ?? "")",  "countryCode":country_Code,"mobileNumber":"\(txtMobile.text ?? "")", "randomNumber": self.randomNumber, "otpHashcode":""]
         
         Themes.sharedInstance.activityView(View: self.view)
-        
-        
-        
+                
         URLhandler.sharedinstance.makePostAPICall(url: Constant.sharedinstance.sendEmailMobileOtpURL, param: param) { (responseObject, error) -> () in
             Themes.sharedInstance.RemoveactivityView(View: self.view)
             //self.NextButton.isUserInteractionEnabled = true
@@ -203,7 +211,6 @@ class PhoneEmailSignUpVC: UIViewController {
                     self.navigateToVerifyOTPVC()
                 }else{
                     self.view.makeToast(message: message as! String , duration: 3, position: HRToastActivityPositionDefault)
-                    
                 }
                 
             }
@@ -216,7 +223,7 @@ class PhoneEmailSignUpVC: UIViewController {
             Themes.sharedInstance.saveMobileCode(self.country_Code)
         }
         
-        let otpVC = StoryBoard.prelogin.instantiateViewController(withIdentifier: "OTPViewController") as!  OTPViewController
+     /*   let otpVC = StoryBoard.prelogin.instantiateViewController(withIdentifier: "OTPViewController") as!  OTPViewController
         //otpVC.mssidn_No = "\(self.country_Code)\(self.MobileTextField.text!)"
         //otpVC.User_id =  self.signUp.user_Id
         
@@ -233,6 +240,19 @@ class PhoneEmailSignUpVC: UIViewController {
         otpVC.randomNumber = self.randomNumber
         otpVC.isFirebaseUsed = self.isFirebaseUsed
         self.pushView(otpVC, animated: true)
+        
+        */
+        
+        let otpVC = StoryBoard.prelogin.instantiateViewController(withIdentifier:"CodeVerificationVC" ) as! CodeVerificationVC
+        otpVC.emailOrMobile =  ( isEmail == true ) ? self.txtEmail.text! : "\(self.country_Code)\(self.txtMobile.text!)"
+        otpVC.emailId = self.txtEmail.text!
+        otpVC.mobile = self.txtMobile.text!
+        otpVC.countryCode = self.country_Code
+        otpVC.isEmail = self.isEmail
+        otpVC.isFromSignup = true
+        otpVC.randomNumber = self.randomNumber
+        self.pushView(otpVC, animated: true)
+
     }
     
     
@@ -248,19 +268,18 @@ class PhoneEmailSignUpVC: UIViewController {
     
     }
 
-    extension PhoneEmailSignUpVC: MICountryPickerDelegate,UITextFieldDelegate {
+extension PhoneEmailSignUpVC: MICountryPickerDelegate,UITextFieldDelegate {
+    
+    func countryPicker(_ picker: MICountryPicker, didSelectCountryWithName name: String, code: String) {
         
-        func countryPicker(_ picker: MICountryPicker, didSelectCountryWithName name: String, code: String) {
-            
-        }
-        
-        func countryPicker(_ picker: MICountryPicker, didSelectCountryWithName name: String, code: String, dialCode: String,countryFlagImage:UIImage){
-            lblCountrycode.text = "\(dialCode)"
-            country_Code = dialCode
-            Themes.sharedInstance.saveMobileCode(dialCode)
-            
-            picker.navigationController?.popViewController(animated: true)
-            picker.navigationController?.isNavigationBarHidden = true
-        }
-
+    }
+    
+    func countryPicker(_ picker: MICountryPicker, didSelectCountryWithName name: String, code: String, dialCode: String,countryFlagImage:UIImage){
+        lblCountrycode.text = "\(dialCode)"
+        country_Code = dialCode
+        Themes.sharedInstance.saveMobileCode(dialCode)
+        picker.navigationController?.popViewController(animated: true)
+        picker.navigationController?.isNavigationBarHidden = true
+    }
+    
 }

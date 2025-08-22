@@ -71,6 +71,9 @@ class FeedsCell: UITableViewCell, OptionDelegate {
     @IBOutlet weak var lblViewCount: UILabel!
     @IBOutlet weak var btnViewsCount:UIButton!
     
+    @IBOutlet weak var bgViewCell:UIView!
+
+    
     var urlArray:Array<String> = Array<String>()
     var thumbArray:Array<String> = Array<String>()
     var mediaArr:Array<String> = Array<String>()
@@ -81,7 +84,6 @@ class FeedsCell: UITableViewCell, OptionDelegate {
     var controllerType:PostType = .isFromPost
     var hashTag = ""
 
-    
     
     override class func awakeFromNib() {
         super.awakeFromNib()

@@ -105,7 +105,7 @@ class AccountInfoVC: UIViewController {
         }
         actionSheetController.addAction(cancel)
         
-        actionSheetController.view.tintColor = UIColor.systemBlue
+        actionSheetController.view.tintColor = CustomColor.sharedInstance.newThemeColor
         self.presentView(actionSheetController, animated: true, completion: nil)
         
     }

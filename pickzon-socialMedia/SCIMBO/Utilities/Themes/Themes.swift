@@ -438,8 +438,7 @@ import Kingfisher
         return dict as (NSDictionary)
     }
     
-    func returnupdatedSecrettimestamp(incognito_timer_mode:String)->String
-    {
+    func returnupdatedSecrettimestamp(incognito_timer_mode:String)->String {
         let calendar = Calendar.current
         var newDate:Date = Date()
         if(incognito_timer_mode == "5 seconds"){

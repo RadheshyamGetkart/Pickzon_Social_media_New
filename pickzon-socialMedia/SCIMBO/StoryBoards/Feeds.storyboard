@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="22155" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="23504" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="dark"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22131"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="23506"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -441,7 +441,7 @@
                                                 </connections>
                                             </collectionView>
                                             <pageControl hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="Z09-jv-rgR">
-                                                <rect key="frame" x="149" y="229" width="116.5" height="26"/>
+                                                <rect key="frame" x="170" y="229" width="74" height="26"/>
                                             </pageControl>
                                             <tableView hidden="YES" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="sYC-wT-cJ0">
                                                 <rect key="frame" x="80" y="117" width="145" height="110"/>
@@ -1550,7 +1550,7 @@
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="AjR-Rn-RVi">
+                                            <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="AjR-Rn-RVi">
                                                 <rect key="frame" x="0.0" y="112" width="414" height="115"/>
                                                 <subviews>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="n7e-GG-9IS" customClass="ImageWithFrameImgView" customModule="PickZon" customModuleProvider="target">
@@ -1619,7 +1619,7 @@
                                                             <action selector="feedCommentOptionsAction" destination="Y6W-OH-hqX" eventType="touchUpInside" id="s3e-5S-6cV"/>
                                                         </connections>
                                                     </button>
-                                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Lorem ipsum dolor sit er elit " textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="kpH-UR-OkH" customClass="GrowingTextView" customModule="GrowingTextView">
+                                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" text="Lorem ipsum dolor sit er elit " textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="kpH-UR-OkH" customClass="GrowingTextView" customModule="GrowingTextView">
                                                         <rect key="frame" x="10" y="65" width="394" height="45"/>
                                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                         <color key="textColor" systemColor="labelColor"/>
@@ -1634,7 +1634,7 @@
                                                             </userDefinedRuntimeAttribute>
                                                         </userDefinedRuntimeAttributes>
                                                     </textView>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8Pv-PA-Rgd">
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8Pv-PA-Rgd">
                                                         <rect key="frame" x="10" y="115" width="394" height="0.0"/>
                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <constraints>
@@ -1664,7 +1664,7 @@
                                                     <constraint firstAttribute="bottom" secondItem="8Pv-PA-Rgd" secondAttribute="bottom" id="yOI-aI-AH9"/>
                                                 </constraints>
                                             </view>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="E0B-ck-wCx">
+                                            <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="E0B-ck-wCx">
                                                 <rect key="frame" x="0.0" y="227" width="414" height="1296"/>
                                                 <subviews>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="a2i-2k-rpH" customClass="ImageWithFrameImgView" customModule="PickZon" customModuleProvider="target">
@@ -1711,7 +1711,7 @@
                                                         </cells>
                                                     </collectionView>
                                                     <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="DZx-Na-tVq">
-                                                        <rect key="frame" x="149" y="118" width="116.5" height="26"/>
+                                                        <rect key="frame" x="170" y="118" width="74" height="26"/>
                                                     </pageControl>
                                                 </subviews>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -5582,7 +5582,7 @@
                                 <viewLayoutGuide key="frameLayoutGuide" id="ccX-tJ-dX9"/>
                             </scrollView>
                             <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="jBD-dv-epS">
-                                <rect key="frame" x="149" y="803" width="116" height="26"/>
+                                <rect key="frame" x="170" y="803" width="74" height="26"/>
                             </pageControl>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="G1M-Ew-0sn"/>
@@ -7632,26 +7632,13 @@
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" separatorInsetReference="fromAutomaticInsets" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="1" sectionFooterHeight="1" translatesAutoresizingMaskIntoConstraints="NO" id="PFH-Lq-vw6">
                                 <rect key="frame" x="0.0" y="102" width="414" height="760"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                <color key="separatorColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="separatorColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 <connections>
                                     <outlet property="dataSource" destination="blD-e1-ko3" id="a3t-Iy-fF4"/>
                                     <outlet property="delegate" destination="blD-e1-ko3" id="yGg-w0-acd"/>
                                 </connections>
                             </tableView>
-                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RRp-9r-gyt">
-                                <rect key="frame" x="319" y="63" width="0.0" height="30"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" id="Rb1-KF-kG2"/>
-                                    <constraint firstAttribute="height" constant="30" id="SZv-aR-bWb"/>
-                                </constraints>
-                                <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <state key="normal" image="searchFeed"/>
-                                <connections>
-                                    <action selector="searchBtnAction:" destination="blD-e1-ko3" eventType="touchUpInside" id="1qp-x0-aS1"/>
-                                </connections>
-                            </button>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pickzonLogoBlue" translatesAutoresizingMaskIntoConstraints="NO" id="ve0-cJ-PIh">
                                 <rect key="frame" x="50" y="56" width="130" height="40"/>
                                 <constraints>
@@ -7670,83 +7657,102 @@
                                     <action selector="logoBtnAction:" destination="blD-e1-ko3" eventType="touchUpInside" id="ecQ-QR-zRR"/>
                                 </connections>
                             </button>
-                            <button contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IKI-Hn-9HY" customClass="MIBadgeButton" customModule="PickZon" customModuleProvider="target">
-                                <rect key="frame" x="329" y="63" width="30" height="30"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="g8Q-gm-hx6">
+                                <rect key="frame" x="314" y="54" width="40" height="40"/>
+                                <subviews>
+                                    <button contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IKI-Hn-9HY" customClass="MIBadgeButton" customModule="PickZon" customModuleProvider="target">
+                                        <rect key="frame" x="10" y="10" width="20" height="20"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="5"/>
+                                        <color key="tintColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <state key="normal" image="msgNotification">
+                                            <color key="titleShadowColor" systemColor="labelColor"/>
+                                        </state>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="badgeTextColor">
+                                                <color key="value" red="1" green="0.0" blue="0.050980392156862744" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="badgeBackgroundColor">
+                                                <color key="value" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="messageBtnAction:" destination="blD-e1-ko3" eventType="touchUpInside" id="A29-FJ-sX0"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" red="0.0" green="0.74117647060000003" blue="0.69019607839999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="30" id="AQh-oZ-sIl"/>
-                                    <constraint firstAttribute="height" constant="30" id="l2E-Tr-s7w"/>
+                                    <constraint firstAttribute="height" constant="40" id="HIa-aW-112"/>
+                                    <constraint firstItem="IKI-Hn-9HY" firstAttribute="leading" secondItem="g8Q-gm-hx6" secondAttribute="leading" constant="10" id="LpX-cG-xN9"/>
+                                    <constraint firstAttribute="trailing" secondItem="IKI-Hn-9HY" secondAttribute="trailing" constant="10" id="gwY-a7-mlV"/>
+                                    <constraint firstAttribute="width" constant="40" id="pqw-Eg-sS2"/>
+                                    <constraint firstItem="IKI-Hn-9HY" firstAttribute="top" secondItem="g8Q-gm-hx6" secondAttribute="top" constant="10" id="wCA-6i-MP2"/>
+                                    <constraint firstAttribute="bottom" secondItem="IKI-Hn-9HY" secondAttribute="bottom" constant="10" id="wg8-w1-o0k"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="5"/>
-                                <color key="tintColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <state key="normal" image="msgNotification">
-                                    <color key="titleShadowColor" systemColor="labelColor"/>
-                                </state>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="color" keyPath="badgeTextColor">
-                                        <color key="value" red="1" green="0.0" blue="0.050980392156862744" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="color" keyPath="badgeBackgroundColor">
-                                        <color key="value" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
-                                <connections>
-                                    <action selector="messageBtnAction:" destination="blD-e1-ko3" eventType="touchUpInside" id="A29-FJ-sX0"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Pn3-pA-dx6" customClass="MIBadgeButton" customModule="PickZon" customModuleProvider="target">
-                                <rect key="frame" x="369" y="63" width="30" height="30"/>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eoe-Cu-6jt">
+                                <rect key="frame" x="364" y="54" width="40" height="40"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Pn3-pA-dx6" customClass="MIBadgeButton" customModule="PickZon" customModuleProvider="target">
+                                        <rect key="frame" x="10" y="10" width="20" height="20"/>
+                                        <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <state key="normal" image="hamburger"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="badgeBackgroundColor">
+                                                <color key="value" systemColor="systemRedColor"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="badgeTextColor">
+                                                <color key="value" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="edgeInsetLeft">
+                                                <real key="value" value="1"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="edgeInsetRight">
+                                                <real key="value" value="5"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="menuBtnAction:" destination="blD-e1-ko3" eventType="touchUpInside" id="Jbc-un-NWQ"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" red="0.0" green="0.74117647060000003" blue="0.69019607839999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="30" id="ciG-k1-Hi4"/>
-                                    <constraint firstAttribute="width" constant="30" id="xkr-sY-n8S"/>
+                                    <constraint firstAttribute="height" constant="40" id="4cN-qU-rOJ"/>
+                                    <constraint firstAttribute="width" constant="40" id="83X-dK-Dxk"/>
+                                    <constraint firstAttribute="trailing" secondItem="Pn3-pA-dx6" secondAttribute="trailing" constant="10" id="Hbq-Jv-PNY"/>
+                                    <constraint firstAttribute="bottom" secondItem="Pn3-pA-dx6" secondAttribute="bottom" constant="10" id="XWa-gu-bzS"/>
+                                    <constraint firstItem="Pn3-pA-dx6" firstAttribute="leading" secondItem="eoe-Cu-6jt" secondAttribute="leading" constant="10" id="e9V-r1-fDT"/>
+                                    <constraint firstItem="Pn3-pA-dx6" firstAttribute="top" secondItem="eoe-Cu-6jt" secondAttribute="top" constant="10" id="eMw-5a-fNF"/>
                                 </constraints>
-                                <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <state key="normal" image="hamburger"/>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="color" keyPath="badgeBackgroundColor">
-                                        <color key="value" systemColor="systemRedColor"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="color" keyPath="badgeTextColor">
-                                        <color key="value" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="edgeInsetLeft">
-                                        <real key="value" value="1"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="edgeInsetRight">
-                                        <real key="value" value="5"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
-                                <connections>
-                                    <action selector="notificationBtnAction:" destination="blD-e1-ko3" eventType="touchUpInside" id="0Ix-bp-QZE"/>
-                                </connections>
-                            </button>
+                            </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="bIZ-eO-4lH"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="PFH-Lq-vw6" firstAttribute="top" secondItem="eIT-hA-WTe" secondAttribute="bottom" constant="7" id="0ei-Az-AB1"/>
                             <constraint firstItem="HTs-7O-zGt" firstAttribute="top" secondItem="BWR-Q8-JRF" secondAttribute="bottom" constant="11" id="2HD-NM-hwE"/>
+                            <constraint firstItem="g8Q-gm-hx6" firstAttribute="centerY" secondItem="Pn3-pA-dx6" secondAttribute="centerY" id="5ux-3R-uyU"/>
+                            <constraint firstItem="bIZ-eO-4lH" firstAttribute="trailing" secondItem="eoe-Cu-6jt" secondAttribute="trailing" constant="10" id="7Ow-Rs-kZW"/>
                             <constraint firstItem="ve0-cJ-PIh" firstAttribute="leading" secondItem="eIT-hA-WTe" secondAttribute="trailing" id="DRW-cx-yVw"/>
                             <constraint firstItem="HTs-7O-zGt" firstAttribute="leading" secondItem="eIT-hA-WTe" secondAttribute="trailing" constant="5" id="EN3-lJ-juo"/>
-                            <constraint firstAttribute="trailing" secondItem="Pn3-pA-dx6" secondAttribute="trailing" constant="15" id="Hqp-b5-zrt"/>
-                            <constraint firstItem="Pn3-pA-dx6" firstAttribute="top" secondItem="BWR-Q8-JRF" secondAttribute="bottom" constant="15" id="NBw-Av-XK8"/>
-                            <constraint firstItem="IKI-Hn-9HY" firstAttribute="top" secondItem="BWR-Q8-JRF" secondAttribute="bottom" constant="15" id="Sc9-lq-13W"/>
-                            <constraint firstItem="RRp-9r-gyt" firstAttribute="top" secondItem="BWR-Q8-JRF" secondAttribute="bottom" constant="15" id="SdZ-Uj-EiY"/>
+                            <constraint firstItem="eoe-Cu-6jt" firstAttribute="top" secondItem="bIZ-eO-4lH" secondAttribute="top" constant="6" id="H0M-xn-RlY"/>
                             <constraint firstItem="PFH-Lq-vw6" firstAttribute="top" secondItem="ve0-cJ-PIh" secondAttribute="bottom" constant="6" id="W4P-LE-ixt"/>
+                            <constraint firstItem="eoe-Cu-6jt" firstAttribute="leading" secondItem="g8Q-gm-hx6" secondAttribute="trailing" constant="10" id="Z20-3J-mZy"/>
                             <constraint firstItem="PFH-Lq-vw6" firstAttribute="leading" secondItem="1pD-gd-C3R" secondAttribute="leading" id="Z26-rX-uOo"/>
                             <constraint firstItem="eIT-hA-WTe" firstAttribute="leading" secondItem="bIZ-eO-4lH" secondAttribute="leading" constant="10" id="a4R-bY-gZT"/>
                             <constraint firstAttribute="trailing" secondItem="PFH-Lq-vw6" secondAttribute="trailing" id="bxd-85-Qq9"/>
-                            <constraint firstItem="IKI-Hn-9HY" firstAttribute="leading" secondItem="RRp-9r-gyt" secondAttribute="trailing" constant="10" id="mR3-sf-XzH"/>
                             <constraint firstItem="bCI-3W-CNC" firstAttribute="top" secondItem="PFH-Lq-vw6" secondAttribute="bottom" id="nym-Q5-fqX"/>
-                            <constraint firstItem="Pn3-pA-dx6" firstAttribute="leading" secondItem="IKI-Hn-9HY" secondAttribute="trailing" constant="10" id="oiT-lK-I1e"/>
                             <constraint firstItem="eIT-hA-WTe" firstAttribute="top" secondItem="bIZ-eO-4lH" secondAttribute="top" constant="7" id="qSR-pu-Hbw"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="bgViewBtnChat" destination="g8Q-gm-hx6" id="lYw-48-s3p"/>
+                        <outlet property="bgViewBtnMenu" destination="eoe-Cu-6jt" id="ewN-mW-CXz"/>
                         <outlet property="btnChat" destination="IKI-Hn-9HY" id="EgO-vK-OZ4"/>
                         <outlet property="btnLogo" destination="HTs-7O-zGt" id="agA-Je-q12"/>
-                        <outlet property="btnNotification" destination="Pn3-pA-dx6" id="Ehr-le-mgT"/>
-                        <outlet property="btnSearch" destination="RRp-9r-gyt" id="Lwy-fB-aiM"/>
+                        <outlet property="btnMenu" destination="Pn3-pA-dx6" id="LDn-Aq-eMW"/>
                         <outlet property="imgVwLogo" destination="ve0-cJ-PIh" id="adg-Qp-6VK"/>
                         <outlet property="profilePicView" destination="eIT-hA-WTe" id="kPt-Qh-hGq"/>
                         <outlet property="tblFeeds" destination="PFH-Lq-vw6" id="gu1-lz-Lz7"/>
@@ -9523,110 +9529,6 @@
             <point key="canvasLocation" x="698" y="467"/>
         </scene>
     </scenes>
-    <designables>
-        <designable name="05K-Jg-Znz">
-            <size key="intrinsicContentSize" width="364" height="39.220703125"/>
-        </designable>
-        <designable name="1Zt-OR-fvw">
-            <size key="intrinsicContentSize" width="364" height="39.220703125"/>
-        </designable>
-        <designable name="2KD-SX-u4t">
-            <size key="intrinsicContentSize" width="364" height="39.220703125"/>
-        </designable>
-        <designable name="2nR-cw-8Yd">
-            <size key="intrinsicContentSize" width="374" height="39.220703125"/>
-        </designable>
-        <designable name="3Tu-ol-Bre">
-            <size key="intrinsicContentSize" width="364" height="39.220703125"/>
-        </designable>
-        <designable name="3bS-M2-u02">
-            <size key="intrinsicContentSize" width="374" height="41.607421875"/>
-        </designable>
-        <designable name="4DT-oB-Qwf">
-            <size key="intrinsicContentSize" width="30" height="30"/>
-        </designable>
-        <designable name="612-LZ-8AV">
-            <size key="intrinsicContentSize" width="364" height="39.220703125"/>
-        </designable>
-        <designable name="6Ab-8s-vxr">
-            <size key="intrinsicContentSize" width="30" height="30"/>
-        </designable>
-        <designable name="AHr-hW-hLk">
-            <size key="intrinsicContentSize" width="20" height="20"/>
-        </designable>
-        <designable name="FqN-Lj-Bfb">
-            <size key="intrinsicContentSize" width="143.5" height="34.5"/>
-        </designable>
-        <designable name="IKI-Hn-9HY">
-            <size key="intrinsicContentSize" width="22" height="22"/>
-        </designable>
-        <designable name="IlP-R4-HQ1">
-            <size key="intrinsicContentSize" width="-1" height="30"/>
-        </designable>
-        <designable name="LKH-kd-5CB">
-            <size key="intrinsicContentSize" width="294" height="39.220703125"/>
-        </designable>
-        <designable name="LX1-M1-XtT">
-            <size key="intrinsicContentSize" width="81" height="31"/>
-        </designable>
-        <designable name="Od1-TS-EE1">
-            <size key="intrinsicContentSize" width="30" height="30"/>
-        </designable>
-        <designable name="Oo3-U3-IjG">
-            <size key="intrinsicContentSize" width="58" height="34"/>
-        </designable>
-        <designable name="PHD-tJ-cru">
-            <size key="intrinsicContentSize" width="354" height="41.607421875"/>
-        </designable>
-        <designable name="Pn3-pA-dx6">
-            <size key="intrinsicContentSize" width="24" height="24"/>
-        </designable>
-        <designable name="QY6-5V-Kq9">
-            <size key="intrinsicContentSize" width="66" height="14.5"/>
-        </designable>
-        <designable name="ac7-4N-GNk">
-            <size key="intrinsicContentSize" width="167.5" height="20.5"/>
-        </designable>
-        <designable name="bhv-u2-63p">
-            <size key="intrinsicContentSize" width="168" height="34.5"/>
-        </designable>
-        <designable name="bmY-oa-KuP">
-            <size key="intrinsicContentSize" width="364" height="39.220703125"/>
-        </designable>
-        <designable name="dnz-Gf-05e">
-            <size key="intrinsicContentSize" width="364" height="39.220703125"/>
-        </designable>
-        <designable name="e5w-Ac-Xnz">
-            <size key="intrinsicContentSize" width="374" height="43.607421875"/>
-        </designable>
-        <designable name="e9K-4o-HI6">
-            <size key="intrinsicContentSize" width="24" height="24"/>
-        </designable>
-        <designable name="g2V-lV-dUh">
-            <size key="intrinsicContentSize" width="30" height="30"/>
-        </designable>
-        <designable name="kpH-UR-OkH">
-            <size key="intrinsicContentSize" width="-1" height="30"/>
-        </designable>
-        <designable name="mCC-UZ-0eT">
-            <size key="intrinsicContentSize" width="374" height="39.220703125"/>
-        </designable>
-        <designable name="nm5-v7-4l7">
-            <size key="intrinsicContentSize" width="30" height="30"/>
-        </designable>
-        <designable name="pXg-a7-3f9">
-            <size key="intrinsicContentSize" width="374" height="39.220703125"/>
-        </designable>
-        <designable name="qad-fN-WDO">
-            <size key="intrinsicContentSize" width="364" height="39.220703125"/>
-        </designable>
-        <designable name="tAw-On-W70">
-            <size key="intrinsicContentSize" width="81" height="31"/>
-        </designable>
-        <designable name="wer-L8-CFS">
-            <size key="intrinsicContentSize" width="42" height="22"/>
-        </designable>
-    </designables>
     <resources>
         <image name="Back_White" width="30" height="30"/>
         <image name="CameraIcon" width="30" height="30"/>
@@ -9680,7 +9582,7 @@
         <image name="job_info_outline_rounded" width="24" height="24"/>
         <image name="lucide_download" width="24" height="24"/>
         <image name="material-symbols_settings" width="24.5" height="24.5"/>
-        <image name="msgNotification" width="22" height="22"/>
+        <image name="msgNotification" width="24" height="24"/>
         <image name="next-arrow" width="16" height="16"/>
         <image name="octicon_info-16" width="18" height="18"/>
         <image name="paypal" width="85" height="21"/>
@@ -9690,7 +9592,6 @@
         <image name="pymntSuccessfull" width="281" height="323"/>
         <image name="ri_qr-scan-2-line" width="24.5" height="24.5"/>
         <image name="search2" width="25" height="25.5"/>
-        <image name="searchFeed" width="24" height="24"/>
         <image name="share_profile" width="24.5" height="24.5"/>
         <image name="sharing" width="16" height="16"/>
         <image name="sparklers" width="278" height="161.5"/>
@@ -9708,40 +9609,40 @@
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
         <systemColor name="linkColor">
-            <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="opaqueSeparatorColor">
-            <color red="0.77647058823529413" green="0.77647058823529413" blue="0.78431372549019607" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.77647058820000003" green="0.77647058820000003" blue="0.7843137255" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="secondaryLabelColor">
-            <color red="0.23529411764705882" green="0.23529411764705882" blue="0.2627450980392157" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.23529411759999999" green="0.23529411759999999" blue="0.26274509800000001" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="secondarySystemBackgroundColor">
-            <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.94901960780000005" green="0.94901960780000005" blue="0.96862745100000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="separatorColor">
-            <color red="0.23529411764705882" green="0.23529411764705882" blue="0.2627450980392157" alpha="0.28999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.23529411759999999" green="0.23529411759999999" blue="0.26274509800000001" alpha="0.28999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
         <systemColor name="systemBlueColor">
-            <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemGray5Color">
-            <color red="0.89803921568627454" green="0.89803921568627454" blue="0.91764705882352937" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.8980392157" green="0.8980392157" blue="0.91764705879999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemGroupedBackgroundColor">
-            <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.94901960780000005" green="0.94901960780000005" blue="0.96862745100000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemRedColor">
-            <color red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemYellowColor">
             <color red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="tintColor">
-            <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
