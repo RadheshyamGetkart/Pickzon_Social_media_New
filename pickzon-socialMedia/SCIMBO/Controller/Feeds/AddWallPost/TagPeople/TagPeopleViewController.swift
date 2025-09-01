@@ -37,7 +37,6 @@ class TagPeopleViewController: UIViewController, UITableViewDelegate, UITableVie
     // MARK: - ViewController Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        cnstrntNavBarHeight.constant = self.getNavBarHt
         emptyView = EmptyList(frame: CGRect(x: 0, y: -64, width: tblPeople.frame.size.width, height: tblPeople.frame.size.height))
         emptyView?.imageView?.image = PZImages.noData
         emptyView?.lblMsg?.text = "Not following anyone"
@@ -48,6 +47,11 @@ class TagPeopleViewController: UIViewController, UITableViewDelegate, UITableVie
         tblPeople.separatorColor = UIColor.clear
         self.getFriendsListAPI()
         sbSearchBar.delegate = self
+    }
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        cnstrntNavBarHeight.constant = self.getNavBarHt
     }
     
     //MARK: UIBUtton Action Methods

@@ -47,7 +47,6 @@ class AllLiveUserListVC: UIViewController {
         super.viewDidLoad()
         self.cnstrntHtStatusLiveBgVw.constant = 0
         self.collectionVw.refreshControl = self.topRefreshControl
-        self.cnstrntHtNavigationVw.constant = self.getNavBarHt
         btnBack.isHidden = true
         DispatchQueue.main.async{
             self.emptyView = EmptyList(frame: CGRect(x: 0, y: -64, width:  self.collectionVw.frame.size.width, height:  self.collectionVw.frame.size.height + 120))
@@ -59,12 +58,16 @@ class AllLiveUserListVC: UIViewController {
         registerCell()
         addObservers()
         self.bgVwSearch.isHidden = true
-        self.imgVwGif.setGifImage(UIImage(gifName: "liveIcon.gif"), loopCount: -1)
-        self.imgVwGif.startAnimating()
+        //        self.imgVwGif.setGifImage(UIImage(gifName: "liveIcon.gif"), loopCount: -1)
+        //        self.imgVwGif.startAnimating()
         getLivelistApi()
         emit_sio_get_followers_live_list()
     }
     
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        self.cnstrntHtNavigationVw.constant = self.getNavBarHt
+    }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -418,7 +421,7 @@ extension AllLiveUserListVC:UITextFieldDelegate,UICollectionViewDelegate, UIColl
                 return 0
             }
         }else{
-            return 3
+            return  2 //3
         }
     }
     
@@ -427,11 +430,19 @@ extension AllLiveUserListVC:UITextFieldDelegate,UICollectionViewDelegate, UIColl
         if collectionView == followersCollectionVw{
             return  followersLiveArray.count
         }else if collectionView == collectionVw{
-            if section == 0 {
+          /*  if section == 0 {
                 return (topThreeLiveArray.count > 0) ? 1 : 0
             }else  if section == 1 {
                 return   otherLiveListArray.count
             }else  if section == 2{
+                return  (isDataMoreAvailable && otherLiveListArray.count > 10) ? 1 : 0
+            }else {
+                return 0
+            }*/
+            
+            if section == 0 {
+                return   otherLiveListArray.count
+            }else  if section == 1{
                 return  (isDataMoreAvailable && otherLiveListArray.count > 10) ? 1 : 0
             }else {
                 return 0
@@ -464,8 +475,8 @@ extension AllLiveUserListVC:UITextFieldDelegate,UICollectionViewDelegate, UIColl
             cell.btnUserImage.contentVerticalAlignment = .fill
             cell.btnUserImage.imageView?.contentMode = .scaleAspectFill
             cell.btnAdd.isHidden = true
-            cell.viewBack.defaultStatusColour =  .systemRed
-            cell.viewBack.viewedStatusColour =  .systemRed
+            cell.viewBack.defaultStatusColour =  UIColor(named: "themeColor") ?? .label
+            cell.viewBack.viewedStatusColour =  UIColor(named: "themeColor") ?? .label
             cell.viewBack.numberOfStatus = 1
             cell.btnUserImage.kf.setImage(with: URL(string: self.followersLiveArray[indexPath.row].profilePic), for: .normal , placeholder: PZImages.avatar, options: [.processor(DownsamplingImageProcessor(size:  cell.btnUserImage.frame.size)),                                                                                       .scaleFactor(UIScreen.main.scale)])
             cell.btnUserName.setTitle(self.followersLiveArray[indexPath.row].pickzonId, for: .normal)
@@ -484,7 +495,7 @@ extension AllLiveUserListVC:UITextFieldDelegate,UICollectionViewDelegate, UIColl
             
             switch indexPath.section{
                 
-            case 0:
+           /* case 0:
                 do{
                     
                     let cell1 = collectionView.dequeueReusableCell(withReuseIdentifier: "WeeklyLeaderboardHeaderCell", for: indexPath) as! WeeklyLeaderboardHeaderCell
@@ -569,7 +580,8 @@ extension AllLiveUserListVC:UITextFieldDelegate,UICollectionViewDelegate, UIColl
                     return cell1
                     
                 }
-            case 2:
+                */
+            case  1: //2:
                 let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "LoadingCell", for: indexPath) as! LoadingCell
                 return cell
                 
@@ -577,19 +589,22 @@ extension AllLiveUserListVC:UITextFieldDelegate,UICollectionViewDelegate, UIColl
             default:
                 do{
                     let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "LiveUsersCell", for: indexPath) as! LiveUsersCell
-                    cell.bgVwJoinCount.isHidden = true
+                  //  cell.bgVwJoinCount.isHidden = true
                     
                     cell.lblName.text = otherLiveListArray[indexPath.row].name.count>0 ? otherLiveListArray[indexPath.row].name : otherLiveListArray[indexPath.row].pickzonId
                     cell.imgVwUser.kf.setImage(with: URL(string: self.otherLiveListArray[indexPath.row].profilePic), placeholder: PZImages.dummyCover , options: nil, progressBlock: nil, completionHandler: { response in  })
+                    
+                    cell.imgVwProfile.kf.setImage(with: URL(string: self.otherLiveListArray[indexPath.row].profilePic), placeholder: PZImages.dummyCover , options: nil, progressBlock: nil, completionHandler: { response in  })
+                    
                     cell.lblCoinCount.text =  "\(self.otherLiveListArray[indexPath.row].coins)"
                     
                     //  "isLivePK": 0, // 0= is not playing PK, 1= is Playing PK
                     if otherLiveListArray[indexPath.row].isLivePK == 1{
                         cell.imgVwPk.isHidden = false
-                        cell.cnstntWidthPkIcon.constant = 25
+                       // cell.cnstntWidthPkIcon.constant = 25
                     }else{
                         cell.imgVwPk.isHidden = true
-                        cell.cnstntWidthPkIcon.constant = 0
+                        //cell.cnstntWidthPkIcon.constant = 0
                     }
                     
                     cell.lblViewCount.text = otherLiveListArray[indexPath.row].joinUserCount
@@ -696,11 +711,18 @@ extension AllLiveUserListVC:UITextFieldDelegate,UICollectionViewDelegate, UIColl
             
         }else if collectionView == collectionVw{
            
-            if indexPath.section == 0{
+           /* if indexPath.section == 0{
                 return  CGSize(width:((self.collectionVw.frame.size.width)), height: (self.collectionVw.frame.size.width * 0.87))
                 
             }else if indexPath.section == 1{
                 return CGSize(width:((self.collectionVw.frame.size.width/2.0)-1.0), height: self.collectionVw.frame.size.width/2.0 + 70)
+            }else {
+                return  CGSize(width:((self.collectionVw.frame.size.width)), height: 65)
+            }*/
+            if indexPath.section == 0{
+                
+                return CGSize(width:((self.collectionVw.frame.size.width/2.0)-1.0), height: self.collectionVw.frame.size.width/2.0 + 50)
+
             }else {
                 return  CGSize(width:((self.collectionVw.frame.size.width)), height: 65)
             }
@@ -722,7 +744,8 @@ extension AllLiveUserListVC:UITextFieldDelegate,UICollectionViewDelegate, UIColl
 
         }else{
             // destVc.leftRoomId = (indexPath.section == 0) ? topThreeLiveArray[indexPath.row].userId : otherLiveListArray[indexPath.row].userId
-            if indexPath.section == 1{
+            
+            if indexPath.section ==  0 { //1{
                 destVc.leftRoomId =  otherLiveListArray[indexPath.row].userId
                 self.navigationController?.pushView(destVc, animated: true)
             }
@@ -732,7 +755,8 @@ extension AllLiveUserListVC:UITextFieldDelegate,UICollectionViewDelegate, UIColl
     
     func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
         
-        if (indexPath.section == 2 && collectionView == collectionVw) &&  otherLiveListArray.count > 10 && isDataMoreAvailable == true  { //}&& (otherLiveListArray.count == indexPath.item + 1) {
+//        if (indexPath.section == 2 && collectionView == collectionVw) &&  otherLiveListArray.count > 10 && isDataMoreAvailable == true  {
+        if (indexPath.section == 1 && collectionView == collectionVw) &&  otherLiveListArray.count > 10 && isDataMoreAvailable == true  {
             if !(URLhandler.sharedinstance.isConnectedToNetwork()){
                 
                 self.view.makeToast(message: "No network connection" , duration: 2, position: HRToastActivityPositionDefault)

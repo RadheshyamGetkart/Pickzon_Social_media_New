@@ -13,9 +13,9 @@ class EncryptionTableViewCell: UITableViewCell {
     @IBOutlet weak var msgLbl: UILabel!
     override func awakeFromNib() {
         super.awakeFromNib()
-        wrapperview.layer.cornerRadius = 5.0
+        wrapperview.layer.cornerRadius = 8.0
         wrapperview.clipsToBounds = true
-        msgLbl.backgroundColor = Themes.sharedInstance.UIColorFromHex(0xF4FD81)
+      //  msgLbl.backgroundColor = Themes.sharedInstance.UIColorFromHex(0xF4FD81)
         // Initialization code
     }
     

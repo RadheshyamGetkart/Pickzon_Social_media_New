@@ -112,7 +112,6 @@ class CreateWallPostViewController: UIViewController,GrowingTextViewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
         profilePicView.initializeView()
         initialSetupMethods()
         //imgUser.setProfilePic(Themes.sharedInstance.Getuser_id(), "single")
@@ -374,6 +373,17 @@ class CreateWallPostViewController: UIViewController,GrowingTextViewDelegate {
     
     func updateColorBack(){
         
+        btnPost.setBackgroundColor(CustomColor.sharedInstance.newThemeColor, forState: .normal)
+        btnPost.layer.cornerRadius = 5.0
+        btnPost.clipsToBounds = true
+        btnPost.setTitleColor(UIColor.white, for: .normal)
+
+        btnSaveDraft.setBackgroundColor(CustomColor.sharedInstance.newThemeColor, forState: .normal)
+        btnSaveDraft.layer.cornerRadius = 5.0
+        btnSaveDraft.clipsToBounds = true
+        btnPost.setTitleColor(UIColor.white, for: .normal)
+
+        /*
         let colorLeft = UIColor(red: 13.0/255.0, green: 107.0/255.0, blue: 255.0/255.0, alpha: 1.0).cgColor
         let colorRight = UIColor(red: 21.0/255.0, green: 178.0/255.0, blue: 254.0/255.0, alpha: 1.0).cgColor
         
@@ -398,6 +408,7 @@ class CreateWallPostViewController: UIViewController,GrowingTextViewDelegate {
         btnSaveDraft.clipsToBounds = true
         btnSaveDraft.layer.insertSublayer(gradientLayerColor5, at:0)
         btnSaveDraft.setTitleColor(UIColor.white, for: .normal)
+         */
         
     }
     

@@ -182,6 +182,8 @@ struct WallPostModel {
     var isShare = 1
     var isDownload = 1
     var boost = 0
+    // Cache for image size
+      var cachedSize: CGSize?
     /*
      boost: { type: Number }
       

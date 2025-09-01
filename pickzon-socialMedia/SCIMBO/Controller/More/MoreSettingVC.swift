@@ -23,9 +23,13 @@ class MoreSettingVC: UIViewController {
     private var isToRefreshApi = false
      
     //MARK: Controller life cycle methods
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        cnstrntHtNavBar.constant = self.getNavBarHt
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
-        cnstrntHtNavBar.constant = self.getNavBarHt
         self.settingTblView.register(UINib(nibName: "SettingTblCell", bundle: nil), forCellReuseIdentifier: "SettingTblCell")
         listArray = ["My Wallet","Profile","Professional Dashboard","Create an Ad","Ads Dashboard","Notifications Settings","Dark Mode","Saved Posts","Share Profile","Blocked User List","Friend Request List","Privacy & Terms","Contact Us","Share App"]
         listImgArray = ["wallet1","mProfile","professionalDashboard","adIconBlack","adsDashboard","notiIcon","dark-mode","saveIcon","share_profile","blockUser","friendRequest","privacyTerms","contactus24*7","mShare"]

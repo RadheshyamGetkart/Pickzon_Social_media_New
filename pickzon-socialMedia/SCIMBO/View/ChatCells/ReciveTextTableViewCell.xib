@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="22505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="23504" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22504"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="23506"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -23,31 +23,31 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="59r-fZ-bLd">
-                        <rect key="frame" x="55" y="20" width="121.5" height="66"/>
+                        <rect key="frame" x="55" y="20" width="122" height="66"/>
                     </imageView>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Cbk-mU-qER">
-                        <rect key="frame" x="60" y="10" width="110.5" height="73"/>
+                        <rect key="frame" x="60" y="10" width="111" height="73"/>
                         <subviews>
                             <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="this is a test " textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="none" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="plj-KG-mrO">
-                                <rect key="frame" x="10" y="35" width="90.5" height="33"/>
-                                <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="16"/>
+                                <rect key="frame" x="10" y="35" width="91" height="33"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                 <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iIf-zp-TvB">
-                                <rect key="frame" x="10" y="43" width="62" height="30"/>
-                                <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="13"/>
+                                <rect key="frame" x="10" y="45" width="62" height="28"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                 <state key="normal" title="Readmore"/>
                                 <connections>
                                     <action selector="didClickReadMore:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="dSF-Kg-NFJ"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ramayan" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0Yh-xT-XFa">
-                                <rect key="frame" x="10" y="5" width="90.5" height="25"/>
+                                <rect key="frame" x="10" y="5" width="91" height="25"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="25" id="Tbe-Ef-5c8"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="16"/>
+                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="16"/>
                                 <color key="textColor" red="1" green="0.42745098040000001" blue="0.25490196079999999" alpha="0.95537243149999995" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -80,10 +80,9 @@
                         </constraints>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" 11:08 AM" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PUS-Kp-W97">
-                        <rect key="frame" x="100.5" y="88" width="68" height="20"/>
+                        <rect key="frame" x="60" y="88" width="54.5" height="20"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="20" id="2Lm-3X-dYg"/>
-                            <constraint firstAttribute="width" constant="68" id="VID-7V-jlf"/>
                         </constraints>
                         <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="12"/>
                         <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -107,9 +106,9 @@
                     <constraint firstItem="Cbk-mU-qER" firstAttribute="leading" secondItem="JqA-LH-D59" secondAttribute="trailing" id="1Zh-4h-O7d"/>
                     <constraint firstItem="vHV-tc-1UF" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="5" id="2Zb-Ju-91T"/>
                     <constraint firstItem="59r-fZ-bLd" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="55" id="4Kd-Yr-bWP"/>
-                    <constraint firstItem="PUS-Kp-W97" firstAttribute="leading" secondItem="Cbk-mU-qER" secondAttribute="trailing" constant="-70" id="JNK-F2-Eeg"/>
                     <constraint firstAttribute="bottom" secondItem="PUS-Kp-W97" secondAttribute="bottom" constant="5" id="JNy-ep-DqQ"/>
                     <constraint firstItem="vHV-tc-1UF" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="LNt-x7-n7R"/>
+                    <constraint firstItem="PUS-Kp-W97" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="60" id="MPE-jb-6Qu"/>
                     <constraint firstItem="JqA-LH-D59" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="60" id="RmV-IX-Gmp"/>
                     <constraint firstItem="59r-fZ-bLd" firstAttribute="bottom" secondItem="Cbk-mU-qER" secondAttribute="bottom" constant="3" id="aqX-Ld-9JY"/>
                     <constraint firstItem="59r-fZ-bLd" firstAttribute="trailing" secondItem="Cbk-mU-qER" secondAttribute="trailing" constant="6" id="m9o-d0-jDo"/>
@@ -138,11 +137,6 @@
             <point key="canvasLocation" x="48" y="156.5"/>
         </tableViewCell>
     </objects>
-    <designables>
-        <designable name="vHV-tc-1UF">
-            <size key="intrinsicContentSize" width="101" height="101.5"/>
-        </designable>
-    </designables>
     <resources>
         <image name="avatar" width="101" height="101.5"/>
     </resources>

@@ -32,7 +32,6 @@ class CodeVerificationVC: UIViewController {
     //MARK: Controller life cycle methods
     override func viewDidLoad() {
         super.viewDidLoad()
-        cnstrntHtNavBar.constant = self.getNavBarHt
         btnVerifyOtp.setBackgroundColor(CustomColor.sharedInstance.newThemeColor, forState: .normal)
         btnVerifyOtp.layer.cornerRadius = 20.0
         btnVerifyOtp.clipsToBounds = true
@@ -70,6 +69,10 @@ class CodeVerificationVC: UIViewController {
 
     }
     
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        cnstrntHtNavBar.constant = self.getNavBarHt
+    }
     //MARK: UIButton Methods
 
     @IBAction func backBtnAction(_ sender : UIButton){

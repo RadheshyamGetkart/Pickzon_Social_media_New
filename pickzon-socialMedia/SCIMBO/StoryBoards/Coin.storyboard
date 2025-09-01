@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="22155" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="23504" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_12" orientation="portrait" appearance="dark"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22131"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="23506"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -1333,7 +1334,7 @@
                                     <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="jzZ-nB-g7g">
                                         <rect key="frame" x="214" y="38" width="200" height="2"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <color key="backgroundColor" systemColor="linkColor"/>
+                                        <color key="backgroundColor" name="themeColor"/>
                                     </view>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -1581,38 +1582,9 @@
             <point key="canvasLocation" x="2597.709923664122" y="344.36619718309862"/>
         </scene>
     </scenes>
-    <designables>
-        <designable name="0ZL-kL-W0k">
-            <size key="intrinsicContentSize" width="101" height="101"/>
-        </designable>
-        <designable name="3Hw-48-yrP">
-            <size key="intrinsicContentSize" width="38" height="31"/>
-        </designable>
-        <designable name="FB8-42-EYl">
-            <size key="intrinsicContentSize" width="30" height="30"/>
-        </designable>
-        <designable name="G0c-0o-ei9">
-            <size key="intrinsicContentSize" width="15" height="22"/>
-        </designable>
-        <designable name="KBP-jC-bKA">
-            <size key="intrinsicContentSize" width="43" height="33"/>
-        </designable>
-        <designable name="O5N-17-1t6">
-            <size key="intrinsicContentSize" width="101" height="101"/>
-        </designable>
-        <designable name="RYI-bk-9Oz">
-            <size key="intrinsicContentSize" width="38" height="31"/>
-        </designable>
-        <designable name="VI4-aL-n2m">
-            <size key="intrinsicContentSize" width="61" height="32"/>
-        </designable>
-        <designable name="yeh-Zj-tL4">
-            <size key="intrinsicContentSize" width="20" height="20"/>
-        </designable>
-    </designables>
     <resources>
         <image name="avatar" width="101" height="101"/>
-        <image name="back" width="30" height="30"/>
+        <image name="back" width="24" height="24"/>
         <image name="checkMark" width="20" height="20"/>
         <image name="close-5 1" width="16" height="16"/>
         <image name="coinSmall" width="24" height="23.333333969116211"/>
@@ -1621,6 +1593,9 @@
         <image name="pickzon_verify_Gold" width="376.33334350585938" height="358"/>
         <image name="tick" width="30" height="30"/>
         <image name="whatsApp" width="24" height="24"/>
+        <namedColor name="themeColor">
+            <color red="0.0" green="0.74117647058823533" blue="0.69019607843137254" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <systemColor name="darkTextColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
@@ -1628,19 +1603,19 @@
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
         <systemColor name="linkColor">
-            <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="opaqueSeparatorColor">
-            <color red="0.77647058823529413" green="0.77647058823529413" blue="0.78431372549019607" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.77647058820000003" green="0.77647058820000003" blue="0.7843137255" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="secondarySystemBackgroundColor">
-            <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.94901960780000005" green="0.94901960780000005" blue="0.96862745100000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
         <systemColor name="systemBlueColor">
-            <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

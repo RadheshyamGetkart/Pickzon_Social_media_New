@@ -32,7 +32,6 @@ class SPTrackVC: UIViewController,UITableViewDelegate, UITableViewDataSource {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        cnstrntHtNavBar.constant = self.getNavBarHt
         btnUseSong.layer.cornerRadius = 5.0
         btnUseSong.layer.borderColor = UIColor.lightGray.cgColor
         btnUseSong.layer.borderWidth = 1.0
@@ -45,6 +44,10 @@ class SPTrackVC: UIViewController,UITableViewDelegate, UITableViewDataSource {
         self.fetchsTracklist()
     }
     
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        cnstrntHtNavBar.constant = self.getNavBarHt
+    }
     
     @IBAction func backButtonAction(){
         PlayerHelper.shared.pausePlayer()

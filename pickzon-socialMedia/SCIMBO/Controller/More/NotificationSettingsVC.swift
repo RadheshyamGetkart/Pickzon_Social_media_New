@@ -14,9 +14,13 @@ class NotificationSettingsVC: UIViewController {
     @IBOutlet weak var tblNotifications:UITableView!
     var arrOptions:Array<Dictionary<String,Any>> = Array()
     
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        cntrntHt_NavBar.constant = self.getNavBarHt
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
-        cntrntHt_NavBar.constant = self.getNavBarHt
         tblNotifications.register(UINib(nibName: "NotificationCell", bundle: nil), forCellReuseIdentifier: "NotificationCell")
         tblNotifications.separatorColor = UIColor.clear
         self.getNotificationSettings()

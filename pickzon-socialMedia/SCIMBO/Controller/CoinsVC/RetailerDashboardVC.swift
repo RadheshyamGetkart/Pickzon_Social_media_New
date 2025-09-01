@@ -35,12 +35,16 @@ class RetailerDashboardVC: UIViewController {
     //MARK: Controller Life cycle methods
     override func viewDidLoad() {
         super.viewDidLoad()
-        cnstrntHtNavbar.constant = self.getNavBarHt
         tblView.register(UINib(nibName: "BenefitsTblCell", bundle: nil), forCellReuseIdentifier: "BenefitsTblCell")
         btnTransferCoins.layer.cornerRadius = 5.0
         btnTransferCoins.clipsToBounds = true
         getRetailerDetails()
         userBgview.isHidden = true
+    }
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        cnstrntHtNavbar.constant = self.getNavBarHt
     }
    
     override func viewWillAppear(_ animated: Bool) {

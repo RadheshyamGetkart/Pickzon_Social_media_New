@@ -29,7 +29,6 @@ class AgencyTransactionHistoryVC: UIViewController {
     //MARK: Controller Life Cycle Methods
     override func viewDidLoad() {
         super.viewDidLoad()
-        cnstrntHtNavbar.constant = self.getNavBarHt
         emptyView = EmptyList(frame: CGRect(x: 0, y: -64, width: self.view.frame.size.width, height: tblView.frame.size.height))
         emptyView?.imageView?.image = UIImage(named: "pymntSuccessfull")
         self.tblView.addSubview(emptyView!)
@@ -40,6 +39,12 @@ class AgencyTransactionHistoryVC: UIViewController {
     }
  
     
+    
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        cnstrntHtNavbar.constant = self.getNavBarHt
+    }
     func registerTableviewCell(){
         tblView.register(UINib(nibName: "CoinHistoryTblCell", bundle: nil), forCellReuseIdentifier: "CoinHistoryTblCell")
         tblView.register(UINib(nibName: "LoadMoreTblCell", bundle: nil), forCellReuseIdentifier: "LoadMoreTblCell")

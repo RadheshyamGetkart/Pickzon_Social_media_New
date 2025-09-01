@@ -32,7 +32,6 @@ class AgencyOrderViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        cnstrntHtNavbar.constant = self.getNavBarHt
         bgViewPopup.isHidden = true
         btnConfirmPopuup.layer.cornerRadius = 5.0
         btnConfirmPopuup.clipsToBounds = true
@@ -51,6 +50,11 @@ class AgencyOrderViewController: UIViewController {
         
         
         tblView.separatorColor = UIColor.clear
+    }
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        cnstrntHtNavbar.constant = self.getNavBarHt
     }
     
     //MARK UIButton Action Methods

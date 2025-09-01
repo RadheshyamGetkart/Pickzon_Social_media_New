@@ -6,9 +6,9 @@
 //
 
 //public var outgoingBubbleColour: UIColor = UIColor(red: 221/255, green: 255/255, blue: 192/255, alpha: 1.0)
-public var outgoingBubbleColour: UIColor = Themes.sharedInstance.colorWithHexString(hex: "#338AFD")  //UIColor(red: 208/255, green: 230/255, blue: 254/255, alpha: 1.0)
+public var outgoingBubbleColour: UIColor = Themes.sharedInstance.colorWithHexString(hex: "#00BDB0")  //UIColor(red: 208/255, green: 230/255, blue: 254/255, alpha: 1.0)
 public var incommingBubbleColour: UIColor =   Themes.sharedInstance.colorWithHexString(hex: "#f2f2f2")// UIColor(red: 250/255, green: 250/255, blue: 250/255, alpha: 1.0)
-public var outgoingHighlightColour: UIColor =  Themes.sharedInstance.colorWithHexString(hex: "#0068f1") // UIColor(red: 200/255, green: 229/255, blue: 177/255, alpha: 1.0)
+public var outgoingHighlightColour: UIColor =  Themes.sharedInstance.colorWithHexString(hex: "#00BDB0") // UIColor(red: 200/255, green: 229/255, blue: 177/255, alpha: 1.0)
 public var incommingHighlightColour: UIColor = Themes.sharedInstance.colorWithHexString(hex: "#cdcdcd") // UIColor(red: 241/255, green: 241/255, blue: 241/255, alpha: 1.0)
 
 import UIKit

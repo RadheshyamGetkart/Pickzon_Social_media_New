@@ -10,41 +10,58 @@ import UIKit
 import Kingfisher
 
 class SearchHomeVC: UIViewController {
-   
+    
     @IBOutlet weak var searchBtnWidth :NSLayoutConstraint!
     @IBOutlet weak var searchTf :UITextField!
     @IBOutlet weak var searchtbl :UITableView!
     
-    var pageNumber = 1
+   var pageNumber = 1
     var bannerArray = [BannerModel]()
     var arrTrendingHashTags = [TrendingHashTags]()
     var arrTrendingLeaderBoard = [TrendingLeaderBoard]()
     var isDataLoading = false
     
-    lazy var topRefreshControl: UIRefreshControl = {
-        let refreshControl = UIRefreshControl()
-        refreshControl.addTarget(self, action:
-                                    #selector(handlePullDownRefresh(_:)),
-                                 for: .valueChanged)
-        refreshControl.tintColor = UIColor.systemBlue
-        return refreshControl
-    }()
-    
+//    lazy var topRefreshControl: UIRefreshControl = {
+//        let refreshControl = UIRefreshControl()
+//        refreshControl.addTarget(self, action:
+//                                    #selector(handlePullDownRefresh(_:)),
+//                                 for: .valueChanged)
+//        refreshControl.tintColor = UIColor.systemBlue
+//        return refreshControl
+//    }()
+//   
     
     //MARK: Controller Life cycle methods
     override func viewDidLoad() {
         super.viewDidLoad()
+       
         self.registerTabeviewCell()
         searchTf.delegate = self
         searchtbl.estimatedRowHeight = 250
         searchtbl.rowHeight = UITableView.automaticDimension
-        searchtbl.refreshControl = topRefreshControl
-        self.fetchHashTagData()
-        self.fetchGetBannerAPI()
-        self.fetchTopCreatorsAPI()
-    }
+        
+        
+        let vc = StoryBoard.main.instantiateViewController(withIdentifier: "SearchFeedUSerListVC") as! SearchFeedUSerListVC
+        
+        self.navigationController?.pushViewController(vc, animated: true)
+        
+        
+        
+        /*   self.registerTabeviewCell()
+         searchTf.delegate = self
+         searchtbl.estimatedRowHeight = 250
+         searchtbl.rowHeight = UITableView.automaticDimension
+         searchtbl.refreshControl = topRefreshControl
+         self.fetchHashTagData()
+         self.fetchGetBannerAPI()
+         self.fetchTopCreatorsAPI()*/
+        
+        
+        
     
-    override func viewWillAppear(_ animated: Bool) {
+}
+ 
+  /*  override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
 
         if let cell = searchtbl.cellForRow(at: IndexPath(row: 0, section: 0)) as? FeedsBannerCell{
@@ -59,7 +76,7 @@ class SearchHomeVC: UIViewController {
             cell.stopTimer()
         }
     }
-    
+    */
     
     //MARK: Other helpful methods
     
@@ -76,7 +93,7 @@ class SearchHomeVC: UIViewController {
                            forCellReuseIdentifier: "TrendingLeaderBoardTVCell")
     }
     
-    
+/*
     //MARK: Pull to refresh
     @objc func handlePullDownRefresh(_ refreshControl: UIRefreshControl){
         if !isDataLoading{
@@ -261,9 +278,9 @@ class SearchHomeVC: UIViewController {
         }
     }
     
-   
+ */
 }
-
+   
 extension SearchHomeVC:UITextFieldDelegate{
     
     func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
@@ -280,12 +297,13 @@ extension SearchHomeVC : UITableViewDelegate, UITableViewDataSource, BusinessMed
   
     //MARK: UITableview Delegate & Datasource methods
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 3
+        return  1 //3
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        switch section{
+        return 0
+      /*  switch section{
             
         case 0:
             return (self.bannerArray.count > 0) ? 1 : 0
@@ -298,7 +316,7 @@ extension SearchHomeVC : UITableViewDelegate, UITableViewDataSource, BusinessMed
        
         default:
             return 0
-        }
+        }*/
     }
 
     func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -353,7 +371,7 @@ extension SearchHomeVC : UITableViewDelegate, UITableViewDataSource, BusinessMed
             }
             if !isDataLoading {
                 isDataLoading = true
-                self.fetchHashTagData()
+               // self.fetchHashTagData()
             }
         }
     }

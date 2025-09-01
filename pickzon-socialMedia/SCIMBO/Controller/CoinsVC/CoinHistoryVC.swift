@@ -38,7 +38,6 @@ class CoinHistoryVC: UIViewController {
     //MARK: Controller Life Cycle Methods
     override func viewDidLoad() {
         super.viewDidLoad()
-        cnstrntHtNavbar.constant = self.getNavBarHt
         tblView.register(UINib(nibName: "CoinHistoryTblCell", bundle: nil), forCellReuseIdentifier: "CoinHistoryTblCell")
         tblView.register(UINib(nibName: "LoadMoreTblCell", bundle: nil), forCellReuseIdentifier: "LoadMoreTblCell")
         tblView.register(UINib(nibName: "PurchaseHistTblCell", bundle: nil), forCellReuseIdentifier: "PurchaseHistTblCell")
@@ -65,6 +64,12 @@ class CoinHistoryVC: UIViewController {
         tblView.rowHeight = UITableView.automaticDimension
     }
     
+    
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        cnstrntHtNavbar.constant = self.getNavBarHt
+    }
     //MARK: Common Button Actions
     @IBAction func backButonAction(_ sender:UIButton){
         self.navigationController?.popViewController(animated: true)

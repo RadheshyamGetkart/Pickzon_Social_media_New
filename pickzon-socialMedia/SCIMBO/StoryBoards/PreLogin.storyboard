@@ -57,7 +57,7 @@
                                                             <segment title="Mobile"/>
                                                             <segment title="Email"/>
                                                         </segments>
-                                                        <color key="selectedSegmentTintColor" red="0.0" green="0.74117647058823533" blue="0.69019607843137254" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        <color key="selectedSegmentTintColor" name="themeColor"/>
                                                         <connections>
                                                             <action selector="segmentChanged:" destination="Y6W-OH-hqX" eventType="valueChanged" id="xFH-2G-bTP"/>
                                                         </connections>
@@ -265,7 +265,7 @@
                                                         <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <inset key="imageEdgeInsets" minX="10" minY="10" maxX="10" maxY="10"/>
                                                         <state key="normal" title="Forgot Password">
-                                                            <color key="titleColor" red="0.0" green="0.74117647060000003" blue="0.69019607839999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                            <color key="titleColor" name="themeColor"/>
                                                         </state>
                                                         <userDefinedRuntimeAttributes>
                                                             <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
@@ -278,7 +278,7 @@
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rLj-AK-uCe">
                                                         <rect key="frame" x="20" y="190" width="353" height="50"/>
-                                                        <color key="backgroundColor" red="0.0" green="0.74117647060000003" blue="0.69019607839999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        <color key="backgroundColor" name="themeColor"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="50" id="oIH-MN-znW"/>
                                                         </constraints>
@@ -391,7 +391,7 @@
                                                                         <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                                                         <state key="normal" title="Create new account">
-                                                                            <color key="titleColor" red="0.0" green="0.74117647060000003" blue="0.69019607839999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                            <color key="titleColor" name="themeColor"/>
                                                                         </state>
                                                                         <userDefinedRuntimeAttributes>
                                                                             <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
@@ -656,7 +656,7 @@
                                                     </stackView>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fp5-SM-PAA" customClass="CustomButton" customModule="PickZon" customModuleProvider="target">
                                                         <rect key="frame" x="20" y="488" width="353" height="50"/>
-                                                        <color key="backgroundColor" red="0.0" green="0.4823529412" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        <color key="backgroundColor" name="themeColor"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="50" id="Quf-Tj-RzO"/>
                                                         </constraints>
@@ -712,7 +712,7 @@
                                                             <segment title="Mobile"/>
                                                             <segment title="Email"/>
                                                         </segments>
-                                                        <color key="selectedSegmentTintColor" systemColor="linkColor"/>
+                                                        <color key="selectedSegmentTintColor" name="themeColor"/>
                                                         <connections>
                                                             <action selector="segmentChanged:" destination="fv3-gZ-DTc" eventType="valueChanged" id="4qO-Yw-sRi"/>
                                                         </connections>
@@ -907,7 +907,7 @@
                                                 </imageView>
                                                 <button opaque="NO" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="l0C-9a-D5z" customClass="UIButtonX" customModule="PickZon" customModuleProvider="target">
                                                     <rect key="frame" x="348" y="10" width="35" height="35"/>
-                                                    <color key="backgroundColor" red="0.0" green="0.74117647060000003" blue="0.69019607839999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <color key="backgroundColor" name="themeColor"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="35" id="FpR-yG-Yvk"/>
                                                         <constraint firstAttribute="height" constant="35" id="MPR-tO-EUZ"/>
@@ -958,7 +958,7 @@
                                         </imageView>
                                         <button opaque="NO" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9at-x0-Nu6">
                                             <rect key="frame" x="237.66666666666666" y="176" width="34.999999999999972" height="35"/>
-                                            <color key="backgroundColor" red="0.0" green="0.74117647060000003" blue="0.69019607839999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <color key="backgroundColor" name="themeColor"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="35" id="8UR-AM-00z"/>
                                                 <constraint firstAttribute="width" constant="35" id="nY2-3o-ezi"/>
@@ -1036,7 +1036,7 @@
                                                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                     <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                                     <state key="normal" title="Terms of Service">
-                                                        <color key="titleColor" red="0.0" green="0.74117647060000003" blue="0.69019607839999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        <color key="titleColor" name="themeColor"/>
                                                     </state>
                                                     <connections>
                                                         <action selector="DidclickTermsandcondition:" destination="I1p-xo-F6x" eventType="touchUpInside" id="sor-Ng-QYH"/>
@@ -1050,7 +1050,7 @@
                                                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                     <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                                     <state key="normal" title="Privacy Policy">
-                                                        <color key="titleColor" red="0.0" green="0.74117647060000003" blue="0.69019607839999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        <color key="titleColor" name="themeColor"/>
                                                     </state>
                                                     <connections>
                                                         <action selector="didClickPrivacy:" destination="I1p-xo-F6x" eventType="touchUpInside" id="k1p-16-StF"/>
@@ -1089,7 +1089,7 @@
                                         </view>
                                         <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qTo-YM-Sf0" customClass="UIButtonX" customModule="PickZon" customModuleProvider="target">
                                             <rect key="frame" x="15" y="85" width="363" height="50"/>
-                                            <color key="backgroundColor" red="0.0" green="0.74117647060000003" blue="0.69019607839999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <color key="backgroundColor" name="themeColor"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="50" id="do0-YI-W35"/>
                                             </constraints>
@@ -1244,7 +1244,7 @@
                                                                 <segment title="Female"/>
                                                                 <segment title="Other"/>
                                                             </segments>
-                                                            <color key="selectedSegmentTintColor" red="0.0" green="0.74117647060000003" blue="0.69019607839999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                            <color key="selectedSegmentTintColor" name="themeColor"/>
                                                         </segmentedControl>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gNb-JY-yxE">
                                                             <rect key="frame" x="5" y="52" width="363" height="1"/>
@@ -1293,7 +1293,7 @@
                             </tableView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="l6y-8y-qQ7">
                                 <rect key="frame" x="10" y="69" width="35" height="35"/>
-                                <color key="backgroundColor" red="0.0" green="0.74117647060000003" blue="0.69019607839999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" name="themeColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="35" id="36I-Po-Yp7"/>
                                     <constraint firstAttribute="width" constant="35" id="Lys-l2-Oln"/>
@@ -1459,7 +1459,7 @@
                                                                                 </connections>
                                                                             </button>
                                                                         </subviews>
-                                                                        <color key="backgroundColor" red="0.0" green="0.4823529412" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                        <color key="backgroundColor" name="themeColor"/>
                                                                         <constraints>
                                                                             <constraint firstAttribute="width" constant="80" id="5XX-sa-e01"/>
                                                                             <constraint firstAttribute="trailing" secondItem="fgX-ZT-DKd" secondAttribute="trailing" id="DUx-D0-LxX"/>
@@ -1489,7 +1489,7 @@
                                                                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="12"/>
                                                                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                                                                 <state key="normal" title="Send OTP">
-                                                                                    <color key="titleColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                                    <color key="titleColor" name="themeColor"/>
                                                                                 </state>
                                                                                 <connections>
                                                                                     <action selector="sendOTPAction:" destination="fPl-iH-rHT" eventType="touchUpInside" id="SUM-BG-maa"/>
@@ -1554,7 +1554,7 @@
                                                                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="12"/>
                                                                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                                                                 <state key="normal" title="Send OTP">
-                                                                                    <color key="titleColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                                    <color key="titleColor" name="themeColor"/>
                                                                                 </state>
                                                                                 <connections>
                                                                                     <action selector="sendOTPAction:" destination="fPl-iH-rHT" eventType="touchUpInside" id="dEa-sG-s7i"/>
@@ -1621,7 +1621,7 @@
                                                                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="12"/>
                                                                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                                                                 <state key="normal" title="Verify OTP">
-                                                                                    <color key="titleColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                                    <color key="titleColor" name="themeColor"/>
                                                                                 </state>
                                                                                 <connections>
                                                                                     <action selector="verifyOTPAction:" destination="fPl-iH-rHT" eventType="touchUpInside" id="qPa-Vc-Aot"/>
@@ -1813,7 +1813,7 @@
                                                                                 <fontDescription key="fontDescription" name="Roboto-Bold" family="Roboto" pointSize="13"/>
                                                                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                                                                 <state key="normal" title="Send OTP">
-                                                                                    <color key="titleColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                                    <color key="titleColor" name="themeColor"/>
                                                                                 </state>
                                                                                 <connections>
                                                                                     <action selector="sendOTPAction:" destination="maJ-cW-q12" eventType="touchUpInside" id="Ha0-Ra-g1M"/>
@@ -1879,7 +1879,7 @@
                                                                                 <fontDescription key="fontDescription" name="Roboto-Bold" family="Roboto" pointSize="13"/>
                                                                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                                                                 <state key="normal" title="Verify OTP">
-                                                                                    <color key="titleColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                                    <color key="titleColor" name="themeColor"/>
                                                                                 </state>
                                                                                 <connections>
                                                                                     <action selector="verifyOTPAction:" destination="maJ-cW-q12" eventType="touchUpInside" id="5wl-lT-jlJ"/>
@@ -2177,7 +2177,7 @@
                                                     </stackView>
                                                     <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5Xv-jh-pkh" customClass="CustomButton" customModule="PickZon" customModuleProvider="target">
                                                         <rect key="frame" x="25" y="445" width="343" height="45"/>
-                                                        <color key="backgroundColor" red="0.0" green="0.4823529412" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        <color key="backgroundColor" name="themeColor"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="45" id="9Wo-aL-MZE"/>
                                                         </constraints>
@@ -2440,7 +2440,7 @@
                                                     </stackView>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hdE-w4-0Pi">
                                                         <rect key="frame" x="20" y="488" width="353" height="50"/>
-                                                        <color key="backgroundColor" systemColor="linkColor"/>
+                                                        <color key="backgroundColor" name="themeColor"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="50" id="Leg-pD-VKj"/>
                                                         </constraints>
@@ -2480,7 +2480,7 @@
                                                             <segment title="Mobile"/>
                                                             <segment title="Email"/>
                                                         </segments>
-                                                        <color key="selectedSegmentTintColor" systemColor="linkColor"/>
+                                                        <color key="selectedSegmentTintColor" name="themeColor"/>
                                                         <connections>
                                                             <action selector="segmentChanged:" destination="NxB-Sc-oQ3" eventType="valueChanged" id="pR1-hf-N8G"/>
                                                         </connections>
@@ -3578,7 +3578,7 @@
                                                             <constraint firstAttribute="height" constant="40" id="YtI-o8-ElQ"/>
                                                             <constraint firstAttribute="width" constant="40" id="Z1n-hp-40D"/>
                                                         </constraints>
-                                                        <color key="color" red="0.0" green="0.74117647060000003" blue="0.69019607839999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        <color key="color" name="themeColor"/>
                                                     </activityIndicatorView>
                                                 </subviews>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -3666,28 +3666,28 @@
         <image name="resetPassSuccess" width="310" height="104"/>
         <image name="verify" width="160" height="160"/>
         <namedColor name="themeColor">
-            <color red="0.098039215686274508" green="0.71764705882352942" blue="0.32941176470588235" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.0" green="0.74117647058823533" blue="0.69019607843137254" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <systemColor name="labelColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
         <systemColor name="linkColor">
-            <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="opaqueSeparatorColor">
-            <color red="0.77647058823529413" green="0.77647058823529413" blue="0.78431372549019607" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.77647058820000003" green="0.77647058820000003" blue="0.7843137255" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="secondarySystemBackgroundColor">
-            <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.94901960780000005" green="0.94901960780000005" blue="0.96862745100000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="separatorColor">
-            <color red="0.23529411764705882" green="0.23529411764705882" blue="0.2627450980392157" alpha="0.28999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.23529411759999999" green="0.23529411759999999" blue="0.26274509800000001" alpha="0.28999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
         <systemColor name="systemGrayColor">
-            <color red="0.55686274509803924" green="0.55686274509803924" blue="0.57647058823529407" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.5568627451" green="0.5568627451" blue="0.57647058819999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

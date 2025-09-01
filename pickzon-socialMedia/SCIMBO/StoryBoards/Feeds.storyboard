@@ -321,11 +321,11 @@
                                                 </connections>
                                             </button>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Create Post" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9xP-Ft-0NW">
-                                                <rect key="frame" x="48" y="21" width="83.5" height="32"/>
+                                                <rect key="frame" x="48" y="21" width="85" height="32"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="32" id="9yR-5i-DSX"/>
                                                 </constraints>
-                                                <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="16"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
@@ -350,7 +350,7 @@
                                                     </imageView>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xej-fz-WwK">
                                                         <rect key="frame" x="43" y="5" width="59" height="25"/>
-                                                        <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="16"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                         <state key="normal" title="Public">
                                                             <color key="titleColor" systemColor="labelColor"/>
                                                         </state>
@@ -493,7 +493,7 @@
                                                     <constraint firstAttribute="width" constant="80" id="cXo-7f-s3B"/>
                                                     <constraint firstAttribute="height" constant="30" id="fVw-st-cga"/>
                                                 </constraints>
-                                                <fontDescription key="fontDescription" name="Roboto-Bold" family="Roboto" pointSize="16"/>
+                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
                                                 <state key="normal" title="Post">
                                                     <color key="titleColor" systemColor="labelColor"/>
                                                 </state>
@@ -522,7 +522,7 @@
                                                             <constraint firstAttribute="height" constant="30" id="fsO-jb-thA"/>
                                                             <constraint firstAttribute="width" constant="90" id="yd3-mM-bk2"/>
                                                         </constraints>
-                                                        <fontDescription key="fontDescription" name="Roboto-Bold" family="Roboto" pointSize="16"/>
+                                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
                                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                                         <state key="normal" title="Save Draft"/>
                                                         <connections>
@@ -1216,7 +1216,7 @@
                                     </view>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6fK-LQ-EeH">
                                         <rect key="frame" x="127" y="375" width="140" height="40"/>
-                                        <color key="backgroundColor" red="0.090196078430000007" green="0.3803921569" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="backgroundColor" name="themeColor"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="140" id="RwI-0H-do0"/>
                                             <constraint firstAttribute="height" constant="40" id="fZd-BU-yY5"/>
@@ -1410,7 +1410,7 @@
                                                             <constraint firstAttribute="width" constant="40" id="jv2-bB-u9a"/>
                                                             <constraint firstAttribute="height" constant="31" id="wzk-Az-1IJ"/>
                                                         </constraints>
-                                                        <color key="onTintColor" systemColor="linkColor"/>
+                                                        <color key="onTintColor" name="themeColor"/>
                                                     </switch>
                                                 </subviews>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -1451,7 +1451,7 @@
                                                             <constraint firstAttribute="width" constant="40" id="7XT-Xw-voa"/>
                                                             <constraint firstAttribute="height" constant="31" id="VhO-RJ-ZL0"/>
                                                         </constraints>
-                                                        <color key="onTintColor" systemColor="linkColor"/>
+                                                        <color key="onTintColor" name="themeColor"/>
                                                         <connections>
                                                             <action selector="storyAddWithSender:" destination="5cO-uf-yUV" eventType="valueChanged" id="ugb-fg-xWT"/>
                                                         </connections>
@@ -2145,7 +2145,7 @@
                                     <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2sP-Q8-2HQ">
                                         <rect key="frame" x="214" y="38" width="200" height="2"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <color key="backgroundColor" systemColor="linkColor"/>
+                                        <color key="backgroundColor" name="themeColor"/>
                                     </view>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -2396,7 +2396,9 @@
                                                     <constraint firstAttribute="height" constant="40" id="9lo-aW-Hx8"/>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                <state key="normal" title="Select Front Image"/>
+                                                <state key="normal" title="Select Front Image">
+                                                    <color key="titleColor" name="themeColor"/>
+                                                </state>
                                                 <connections>
                                                     <action selector="chooseFileAction" destination="gxW-he-ddL" eventType="touchUpInside" id="URx-wT-eGx"/>
                                                 </connections>
@@ -2407,7 +2409,9 @@
                                                     <constraint firstAttribute="height" constant="40" id="fQH-wY-lxW"/>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                <state key="normal" title="Select Back Image"/>
+                                                <state key="normal" title="Select Back Image">
+                                                    <color key="titleColor" name="themeColor"/>
+                                                </state>
                                                 <connections>
                                                     <action selector="btnChooseBackFileAction" destination="gxW-he-ddL" eventType="touchUpInside" id="aUn-zd-Xre"/>
                                                 </connections>
@@ -2455,7 +2459,7 @@
                                                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                                         <state key="normal" title="Verify">
-                                                            <color key="titleColor" systemColor="linkColor"/>
+                                                            <color key="titleColor" name="themeColor"/>
                                                         </state>
                                                         <connections>
                                                             <action selector="verifyPhoneAction" destination="gxW-he-ddL" eventType="touchUpInside" id="DRC-xH-7n6"/>
@@ -2504,7 +2508,7 @@
                                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                                 <state key="normal" title="Verify">
-                                                    <color key="titleColor" systemColor="systemBlueColor"/>
+                                                    <color key="titleColor" name="themeColor"/>
                                                 </state>
                                                 <connections>
                                                     <action selector="verifyEmailButtonAction" destination="gxW-he-ddL" eventType="touchUpInside" id="SQm-rs-4WI"/>
@@ -2543,7 +2547,7 @@
                                             </textField>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Nlt-Jk-Sha">
                                                 <rect key="frame" x="127" y="933" width="160" height="40"/>
-                                                <color key="backgroundColor" red="0.0" green="0.4823529412" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <color key="backgroundColor" name="themeColor"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="160" id="8zf-Vh-pAG"/>
                                                     <constraint firstAttribute="height" constant="40" id="pOq-GB-9lU"/>
@@ -2565,7 +2569,7 @@
                                                 </constraints>
                                                 <state key="normal" title="Button"/>
                                                 <buttonConfiguration key="configuration" style="plain" title="Need help ?">
-                                                    <color key="baseForegroundColor" systemColor="linkColor"/>
+                                                    <color key="baseForegroundColor" name="themeColor"/>
                                                 </buttonConfiguration>
                                                 <connections>
                                                     <action selector="needHelpButtonAction" destination="gxW-he-ddL" eventType="touchUpInside" id="wC6-1H-tcE"/>
@@ -2922,7 +2926,7 @@
                                             </textView>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2qO-us-E3a">
                                                 <rect key="frame" x="50" y="729.5" width="314" height="50"/>
-                                                <color key="backgroundColor" red="0.0" green="0.4823529412" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <color key="backgroundColor" name="themeColor"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="50" id="s8v-mu-5Ll"/>
                                                 </constraints>
@@ -2991,7 +2995,7 @@
                                                 <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="17"/>
                                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                                 <state key="normal" title="Choose File">
-                                                    <color key="titleColor" systemColor="linkColor"/>
+                                                    <color key="titleColor" name="themeColor"/>
                                                 </state>
                                                 <connections>
                                                     <action selector="uploadimageAction" destination="1dv-Uu-tPV" eventType="touchUpInside" id="cS1-UF-WDI"/>
@@ -3110,11 +3114,11 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Friends Suggestions" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2qw-Ux-382">
-                                <rect key="frame" x="50" y="54" width="146.5" height="40"/>
+                                <rect key="frame" x="50" y="54" width="145" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="9YE-dU-ZIB"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="Roboto-Medium" family="Roboto" pointSize="16"/>
+                                <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="16"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CjA-LR-U44">
@@ -3344,13 +3348,13 @@
                                         </view>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="g2V-lV-dUh" customClass="UIButtonX" customModule="PickZon" customModuleProvider="target">
                                             <rect key="frame" x="247.5" y="161" width="30" height="30"/>
-                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <color key="backgroundColor" name="themeColor"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="30" id="hIy-1W-Teq"/>
                                                 <constraint firstAttribute="height" constant="30" id="hUG-6f-9dG"/>
                                             </constraints>
                                             <inset key="imageEdgeInsets" minX="5" minY="5" maxX="5" maxY="5"/>
-                                            <state key="normal" image="CameraIcon"/>
+                                            <state key="normal" image="camera-filled"/>
                                             <userDefinedRuntimeAttributes>
                                                 <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
                                                     <real key="value" value="15"/>
@@ -3362,13 +3366,13 @@
                                         </button>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nm5-v7-4l7" customClass="UIButtonX" customModule="PickZon" customModuleProvider="target">
                                             <rect key="frame" x="369" y="10" width="35" height="35"/>
-                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <color key="backgroundColor" name="themeColor"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="35" id="7pP-fi-DFG"/>
                                                 <constraint firstAttribute="width" constant="35" id="Y9s-gc-cb4"/>
                                             </constraints>
                                             <inset key="imageEdgeInsets" minX="8" minY="8" maxX="8" maxY="8"/>
-                                            <state key="normal" image="CameraIcon"/>
+                                            <state key="normal" image="camera-filled"/>
                                             <userDefinedRuntimeAttributes>
                                                 <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
                                                     <real key="value" value="17.5"/>
@@ -3486,7 +3490,7 @@
                                                 </label>
                                                 <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="W2j-GF-b38">
                                                     <rect key="frame" x="321" y="29.5" width="51" height="31"/>
-                                                    <color key="onTintColor" red="0.0" green="0.4823529412" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <color key="onTintColor" name="themeColor"/>
                                                     <connections>
                                                         <action selector="switchAction:" destination="4al-li-N1h" eventType="valueChanged" id="gTp-HS-ORG"/>
                                                     </connections>
@@ -3518,11 +3522,11 @@
                                         </view>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Oo3-U3-IjG" customClass="UIButtonX" customModule="PickZon" customModuleProvider="target">
                                             <rect key="frame" x="15" y="220" width="384" height="45"/>
-                                            <color key="backgroundColor" red="0.0" green="0.4823529412" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <color key="backgroundColor" name="themeColor"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="45" id="T6E-xW-ffc"/>
                                             </constraints>
-                                            <fontDescription key="fontDescription" name="Roboto-Bold" family="Roboto" pointSize="18"/>
+                                            <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="18"/>
                                             <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                             <state key="normal" title="Update"/>
                                             <userDefinedRuntimeAttributes>
@@ -3590,7 +3594,7 @@
                                                                 <constraint firstAttribute="height" constant="30" id="2n6-s0-LGP"/>
                                                                 <constraint firstAttribute="width" constant="40" id="x24-yB-JTl"/>
                                                             </constraints>
-                                                            <color key="onTintColor" red="0.0" green="0.4823529412" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                            <color key="onTintColor" name="themeColor"/>
                                                         </switch>
                                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="down-arrow" translatesAutoresizingMaskIntoConstraints="NO" id="YuZ-uQ-pDx">
                                                             <rect key="frame" x="354" y="14" width="25" height="25"/>
@@ -3678,7 +3682,7 @@
                                                                 <segment title="Female"/>
                                                                 <segment title="Other"/>
                                                             </segments>
-                                                            <color key="selectedSegmentTintColor" red="0.0" green="0.4823529412" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                            <color key="selectedSegmentTintColor" name="themeColor"/>
                                                         </segmentedControl>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bPG-44-GeN">
                                                             <rect key="frame" x="10" y="52" width="374" height="1"/>
@@ -3790,7 +3794,7 @@
                                         <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="18"/>
                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                         <state key="normal" title="Done">
-                                            <color key="titleColor" red="0.0" green="0.4823529412" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <color key="titleColor" name="themeColor"/>
                                         </state>
                                         <connections>
                                             <action selector="donePickzonIdBtnAction:" destination="0UA-Y1-cek" eventType="touchUpInside" id="GDT-NA-1d5"/>
@@ -4113,7 +4117,7 @@
                                                 <color key="tintColor" systemColor="systemBlueColor"/>
                                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="10" maxY="0.0"/>
                                                 <state key="normal" title="Add Account" image="plus" catalog="system">
-                                                    <color key="titleColor" systemColor="systemBlueColor"/>
+                                                    <color key="titleColor" name="themeColor"/>
                                                 </state>
                                                 <connections>
                                                     <action selector="AddAccountButtonAction" destination="So3-Ob-CQK" eventType="touchUpInside" id="oUc-aw-6OD"/>
@@ -4197,7 +4201,7 @@
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="18f-ir-zdu">
                                 <rect key="frame" x="20" y="794" width="374" height="50"/>
-                                <color key="backgroundColor" systemColor="linkColor"/>
+                                <color key="backgroundColor" name="themeColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="eKA-VD-7c5"/>
                                 </constraints>
@@ -4571,7 +4575,7 @@
                             </scrollView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GRq-q7-ff4">
                                 <rect key="frame" x="20" y="802" width="374" height="50"/>
-                                <color key="backgroundColor" systemColor="systemBlueColor"/>
+                                <color key="backgroundColor" name="themeColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="CU7-Oy-gcQ"/>
                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="50" id="HE8-Ju-TEO"/>
@@ -4753,7 +4757,7 @@
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bhv-u2-63p" customClass="UIButtonX" customModule="PickZon" customModuleProvider="target">
                                 <rect key="frame" x="26" y="810" width="354" height="45"/>
-                                <color key="backgroundColor" systemColor="systemBlueColor"/>
+                                <color key="backgroundColor" name="themeColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="45" id="dCB-sJ-xc2"/>
                                 </constraints>
@@ -5025,7 +5029,7 @@
                             </tableView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FqN-Lj-Bfb" customClass="UIButtonX" customModule="PickZon" customModuleProvider="target">
                                 <rect key="frame" x="30" y="810" width="354" height="45"/>
-                                <color key="backgroundColor" systemColor="systemBlueColor"/>
+                                <color key="backgroundColor" name="themeColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="45" id="Lmq-A8-8ek"/>
                                 </constraints>
@@ -6222,7 +6226,7 @@
                                     <subviews>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FyC-iN-0SZ">
                                             <rect key="frame" x="10" y="185" width="394" height="50"/>
-                                            <color key="backgroundColor" systemColor="linkColor"/>
+                                            <color key="backgroundColor" name="themeColor"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="50" id="pFA-Gm-F6W"/>
                                             </constraints>
@@ -6407,7 +6411,7 @@
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zhY-2s-J3i">
                                         <rect key="frame" x="15" y="250" width="364" height="50"/>
-                                        <color key="backgroundColor" systemColor="systemBlueColor"/>
+                                        <color key="backgroundColor" name="themeColor"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="50" id="GcF-gx-6la"/>
                                         </constraints>
@@ -6747,7 +6751,7 @@
                                         </view>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Iec-9m-DZZ">
                                             <rect key="frame" x="10" y="510" width="394" height="50"/>
-                                            <color key="backgroundColor" systemColor="systemBlueColor"/>
+                                            <color key="backgroundColor" name="themeColor"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="50" id="X9Y-ne-5Gx"/>
                                             </constraints>
@@ -6945,7 +6949,7 @@
                                     <constraint firstAttribute="height" constant="50" id="NfP-jT-6ex"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="Roboto-Bold" family="Roboto" pointSize="20"/>
-                                <color key="textColor" systemColor="systemBlueColor"/>
+                                <color key="textColor" name="themeColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4RQ-ip-cdA" customClass="UIViewX" customModule="PickZon" customModuleProvider="target">
@@ -6961,12 +6965,13 @@
                                                 <real key="value" value="5"/>
                                             </userDefinedRuntimeAttribute>
                                             <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
-                                                <color key="value" systemColor="systemBlueColor"/>
+                                                <color key="value" name="themeColor"/>
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                     </imageView>
                                 </subviews>
                                 <color key="backgroundColor" red="0.89865934849999995" green="0.94429320100000003" blue="0.9960858226" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <color key="tintColor" name="themeColor"/>
                                 <constraints>
                                     <constraint firstAttribute="trailing" secondItem="AHr-hW-hLk" secondAttribute="trailing" constant="10" id="30y-Sy-or2"/>
                                     <constraint firstItem="AHr-hW-hLk" firstAttribute="leading" secondItem="4RQ-ip-cdA" secondAttribute="leading" constant="10" id="Dyb-xD-3rp"/>
@@ -6992,7 +6997,7 @@
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mFW-3m-15n">
                                 <rect key="frame" x="10" y="792" width="394" height="50"/>
-                                <color key="backgroundColor" systemColor="systemBlueColor"/>
+                                <color key="backgroundColor" name="themeColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="IE8-GT-wCt"/>
                                 </constraints>
@@ -7544,7 +7549,7 @@
                                     <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="EYC-6U-64E">
                                         <rect key="frame" x="214" y="38" width="200" height="2"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <color key="backgroundColor" systemColor="linkColor"/>
+                                        <color key="backgroundColor" name="themeColor"/>
                                     </view>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -7621,17 +7626,9 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eIT-hA-WTe" customClass="ImageWithFrameImgView" customModule="PickZon" customModuleProvider="target">
-                                <rect key="frame" x="10" y="55" width="40" height="40"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="40" id="Nnp-8o-HVX"/>
-                                    <constraint firstAttribute="width" constant="40" id="nzw-Oc-IFc"/>
-                                </constraints>
-                            </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" separatorInsetReference="fromAutomaticInsets" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="1" sectionFooterHeight="1" translatesAutoresizingMaskIntoConstraints="NO" id="PFH-Lq-vw6">
-                                <rect key="frame" x="0.0" y="102" width="414" height="760"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <rect key="frame" x="0.0" y="90" width="414" height="772"/>
+                                <color key="backgroundColor" name="backgroundColor"/>
                                 <color key="separatorColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 <connections>
@@ -7639,112 +7636,140 @@
                                     <outlet property="delegate" destination="blD-e1-ko3" id="yGg-w0-acd"/>
                                 </connections>
                             </tableView>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pickzonLogoBlue" translatesAutoresizingMaskIntoConstraints="NO" id="ve0-cJ-PIh">
-                                <rect key="frame" x="50" y="56" width="130" height="40"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="40" id="Aqv-DD-mky"/>
-                                    <constraint firstAttribute="width" constant="130" id="ROC-t3-D6t"/>
-                                </constraints>
-                            </imageView>
-                            <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HTs-7O-zGt">
-                                <rect key="frame" x="55" y="59" width="130" height="35"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="35" id="24r-hv-Jf2"/>
-                                    <constraint firstAttribute="width" constant="130" id="uUz-2I-aEF"/>
-                                </constraints>
-                                <connections>
-                                    <action selector="logoBtnAction:" destination="blD-e1-ko3" eventType="touchUpInside" id="ecQ-QR-zRR"/>
-                                </connections>
-                            </button>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="g8Q-gm-hx6">
-                                <rect key="frame" x="314" y="54" width="40" height="40"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zxH-JD-UyS">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="90"/>
                                 <subviews>
-                                    <button contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IKI-Hn-9HY" customClass="MIBadgeButton" customModule="PickZon" customModuleProvider="target">
-                                        <rect key="frame" x="10" y="10" width="20" height="20"/>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eIT-hA-WTe" customClass="ImageWithFrameImgView" customModule="PickZon" customModuleProvider="target">
+                                        <rect key="frame" x="10" y="35" width="50" height="50"/>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="50" id="Nnp-8o-HVX"/>
+                                            <constraint firstAttribute="width" constant="50" id="nzw-Oc-IFc"/>
+                                        </constraints>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NJL-Yb-rwf">
+                                        <rect key="frame" x="65" y="40" width="130" height="40"/>
+                                        <subviews>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pickzonLogoBlue" translatesAutoresizingMaskIntoConstraints="NO" id="ve0-cJ-PIh">
+                                                <rect key="frame" x="0.0" y="0.0" width="130" height="40"/>
+                                            </imageView>
+                                            <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HTs-7O-zGt">
+                                                <rect key="frame" x="0.0" y="0.0" width="130" height="40"/>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <connections>
+                                                    <action selector="logoBtnAction:" destination="blD-e1-ko3" eventType="touchUpInside" id="ecQ-QR-zRR"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="5"/>
-                                        <color key="tintColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <state key="normal" image="msgNotification">
-                                            <color key="titleShadowColor" systemColor="labelColor"/>
-                                        </state>
-                                        <userDefinedRuntimeAttributes>
-                                            <userDefinedRuntimeAttribute type="color" keyPath="badgeTextColor">
-                                                <color key="value" red="1" green="0.0" blue="0.050980392156862744" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                            </userDefinedRuntimeAttribute>
-                                            <userDefinedRuntimeAttribute type="color" keyPath="badgeBackgroundColor">
-                                                <color key="value" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                            </userDefinedRuntimeAttribute>
-                                        </userDefinedRuntimeAttributes>
-                                        <connections>
-                                            <action selector="messageBtnAction:" destination="blD-e1-ko3" eventType="touchUpInside" id="A29-FJ-sX0"/>
-                                        </connections>
-                                    </button>
+                                        <constraints>
+                                            <constraint firstAttribute="bottom" secondItem="ve0-cJ-PIh" secondAttribute="bottom" id="ARL-wH-CXX"/>
+                                            <constraint firstAttribute="bottom" secondItem="HTs-7O-zGt" secondAttribute="bottom" id="CkN-Hi-530"/>
+                                            <constraint firstAttribute="width" constant="130" id="NZb-eG-SLr"/>
+                                            <constraint firstItem="ve0-cJ-PIh" firstAttribute="leading" secondItem="NJL-Yb-rwf" secondAttribute="leading" id="P3y-cv-7Qk"/>
+                                            <constraint firstAttribute="trailing" secondItem="HTs-7O-zGt" secondAttribute="trailing" id="Rcl-r6-hAY"/>
+                                            <constraint firstItem="HTs-7O-zGt" firstAttribute="leading" secondItem="NJL-Yb-rwf" secondAttribute="leading" id="dib-m5-FR3"/>
+                                            <constraint firstItem="HTs-7O-zGt" firstAttribute="top" secondItem="NJL-Yb-rwf" secondAttribute="top" id="gJR-x4-PWO"/>
+                                            <constraint firstItem="ve0-cJ-PIh" firstAttribute="top" secondItem="NJL-Yb-rwf" secondAttribute="top" id="qm5-Ie-5rd"/>
+                                            <constraint firstAttribute="trailing" secondItem="ve0-cJ-PIh" secondAttribute="trailing" id="y95-Yw-DyT"/>
+                                            <constraint firstAttribute="height" constant="40" id="ym9-aL-Qyn"/>
+                                        </constraints>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="g8Q-gm-hx6">
+                                        <rect key="frame" x="314" y="45" width="40" height="40"/>
+                                        <subviews>
+                                            <button contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IKI-Hn-9HY" customClass="MIBadgeButton" customModule="PickZon" customModuleProvider="target">
+                                                <rect key="frame" x="10" y="10" width="20" height="20"/>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="5"/>
+                                                <color key="tintColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <state key="normal" image="msgNotification">
+                                                    <color key="titleShadowColor" systemColor="labelColor"/>
+                                                </state>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="badgeTextColor">
+                                                        <color key="value" red="1" green="0.0" blue="0.050980392156862744" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="badgeBackgroundColor">
+                                                        <color key="value" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <action selector="messageBtnAction:" destination="blD-e1-ko3" eventType="touchUpInside" id="A29-FJ-sX0"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                        <color key="backgroundColor" red="0.0" green="0.74117647060000003" blue="0.69019607839999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="40" id="HIa-aW-112"/>
+                                            <constraint firstItem="IKI-Hn-9HY" firstAttribute="leading" secondItem="g8Q-gm-hx6" secondAttribute="leading" constant="10" id="LpX-cG-xN9"/>
+                                            <constraint firstAttribute="trailing" secondItem="IKI-Hn-9HY" secondAttribute="trailing" constant="10" id="gwY-a7-mlV"/>
+                                            <constraint firstAttribute="width" constant="40" id="pqw-Eg-sS2"/>
+                                            <constraint firstItem="IKI-Hn-9HY" firstAttribute="top" secondItem="g8Q-gm-hx6" secondAttribute="top" constant="10" id="wCA-6i-MP2"/>
+                                            <constraint firstAttribute="bottom" secondItem="IKI-Hn-9HY" secondAttribute="bottom" constant="10" id="wg8-w1-o0k"/>
+                                        </constraints>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eoe-Cu-6jt">
+                                        <rect key="frame" x="364" y="45" width="40" height="40"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Pn3-pA-dx6" customClass="MIBadgeButton" customModule="PickZon" customModuleProvider="target">
+                                                <rect key="frame" x="10" y="10" width="20" height="20"/>
+                                                <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <state key="normal" image="hamburger"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="badgeBackgroundColor">
+                                                        <color key="value" systemColor="systemRedColor"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="badgeTextColor">
+                                                        <color key="value" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="edgeInsetLeft">
+                                                        <real key="value" value="1"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="edgeInsetRight">
+                                                        <real key="value" value="5"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <action selector="menuBtnAction:" destination="blD-e1-ko3" eventType="touchUpInside" id="Jbc-un-NWQ"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                        <color key="backgroundColor" red="0.0" green="0.74117647060000003" blue="0.69019607839999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="40" id="4cN-qU-rOJ"/>
+                                            <constraint firstAttribute="width" constant="40" id="83X-dK-Dxk"/>
+                                            <constraint firstAttribute="trailing" secondItem="Pn3-pA-dx6" secondAttribute="trailing" constant="10" id="Hbq-Jv-PNY"/>
+                                            <constraint firstAttribute="bottom" secondItem="Pn3-pA-dx6" secondAttribute="bottom" constant="10" id="XWa-gu-bzS"/>
+                                            <constraint firstItem="Pn3-pA-dx6" firstAttribute="leading" secondItem="eoe-Cu-6jt" secondAttribute="leading" constant="10" id="e9V-r1-fDT"/>
+                                            <constraint firstItem="Pn3-pA-dx6" firstAttribute="top" secondItem="eoe-Cu-6jt" secondAttribute="top" constant="10" id="eMw-5a-fNF"/>
+                                        </constraints>
+                                    </view>
                                 </subviews>
-                                <color key="backgroundColor" red="0.0" green="0.74117647060000003" blue="0.69019607839999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" name="postBgColor"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="40" id="HIa-aW-112"/>
-                                    <constraint firstItem="IKI-Hn-9HY" firstAttribute="leading" secondItem="g8Q-gm-hx6" secondAttribute="leading" constant="10" id="LpX-cG-xN9"/>
-                                    <constraint firstAttribute="trailing" secondItem="IKI-Hn-9HY" secondAttribute="trailing" constant="10" id="gwY-a7-mlV"/>
-                                    <constraint firstAttribute="width" constant="40" id="pqw-Eg-sS2"/>
-                                    <constraint firstItem="IKI-Hn-9HY" firstAttribute="top" secondItem="g8Q-gm-hx6" secondAttribute="top" constant="10" id="wCA-6i-MP2"/>
-                                    <constraint firstAttribute="bottom" secondItem="IKI-Hn-9HY" secondAttribute="bottom" constant="10" id="wg8-w1-o0k"/>
-                                </constraints>
-                            </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eoe-Cu-6jt">
-                                <rect key="frame" x="364" y="54" width="40" height="40"/>
-                                <subviews>
-                                    <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Pn3-pA-dx6" customClass="MIBadgeButton" customModule="PickZon" customModuleProvider="target">
-                                        <rect key="frame" x="10" y="10" width="20" height="20"/>
-                                        <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <state key="normal" image="hamburger"/>
-                                        <userDefinedRuntimeAttributes>
-                                            <userDefinedRuntimeAttribute type="color" keyPath="badgeBackgroundColor">
-                                                <color key="value" systemColor="systemRedColor"/>
-                                            </userDefinedRuntimeAttribute>
-                                            <userDefinedRuntimeAttribute type="color" keyPath="badgeTextColor">
-                                                <color key="value" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                            </userDefinedRuntimeAttribute>
-                                            <userDefinedRuntimeAttribute type="number" keyPath="edgeInsetLeft">
-                                                <real key="value" value="1"/>
-                                            </userDefinedRuntimeAttribute>
-                                            <userDefinedRuntimeAttribute type="number" keyPath="edgeInsetRight">
-                                                <real key="value" value="5"/>
-                                            </userDefinedRuntimeAttribute>
-                                        </userDefinedRuntimeAttributes>
-                                        <connections>
-                                            <action selector="menuBtnAction:" destination="blD-e1-ko3" eventType="touchUpInside" id="Jbc-un-NWQ"/>
-                                        </connections>
-                                    </button>
-                                </subviews>
-                                <color key="backgroundColor" red="0.0" green="0.74117647060000003" blue="0.69019607839999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="40" id="4cN-qU-rOJ"/>
-                                    <constraint firstAttribute="width" constant="40" id="83X-dK-Dxk"/>
-                                    <constraint firstAttribute="trailing" secondItem="Pn3-pA-dx6" secondAttribute="trailing" constant="10" id="Hbq-Jv-PNY"/>
-                                    <constraint firstAttribute="bottom" secondItem="Pn3-pA-dx6" secondAttribute="bottom" constant="10" id="XWa-gu-bzS"/>
-                                    <constraint firstItem="Pn3-pA-dx6" firstAttribute="leading" secondItem="eoe-Cu-6jt" secondAttribute="leading" constant="10" id="e9V-r1-fDT"/>
-                                    <constraint firstItem="Pn3-pA-dx6" firstAttribute="top" secondItem="eoe-Cu-6jt" secondAttribute="top" constant="10" id="eMw-5a-fNF"/>
+                                    <constraint firstItem="eIT-hA-WTe" firstAttribute="leading" secondItem="zxH-JD-UyS" secondAttribute="leading" constant="10" id="5Ad-wn-mAb"/>
+                                    <constraint firstItem="g8Q-gm-hx6" firstAttribute="centerY" secondItem="Pn3-pA-dx6" secondAttribute="centerY" id="8jj-Oa-yxF"/>
+                                    <constraint firstAttribute="bottom" secondItem="eIT-hA-WTe" secondAttribute="bottom" constant="5" id="ECG-dU-Zb0"/>
+                                    <constraint firstItem="NJL-Yb-rwf" firstAttribute="leading" secondItem="eIT-hA-WTe" secondAttribute="trailing" constant="5" id="OHP-A6-J9R"/>
+                                    <constraint firstItem="eoe-Cu-6jt" firstAttribute="leading" secondItem="g8Q-gm-hx6" secondAttribute="trailing" constant="10" id="WnS-ji-w08"/>
+                                    <constraint firstAttribute="height" constant="90" id="fBj-bR-ITc"/>
+                                    <constraint firstAttribute="trailing" secondItem="eoe-Cu-6jt" secondAttribute="trailing" constant="10" id="l7u-s1-PfG"/>
+                                    <constraint firstItem="NJL-Yb-rwf" firstAttribute="centerY" secondItem="eIT-hA-WTe" secondAttribute="centerY" id="rgt-jj-kCb"/>
+                                    <constraint firstAttribute="bottom" secondItem="eoe-Cu-6jt" secondAttribute="bottom" constant="5" id="u5t-2o-bJv"/>
                                 </constraints>
                             </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="bIZ-eO-4lH"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" name="backgroundColor"/>
                         <constraints>
-                            <constraint firstItem="PFH-Lq-vw6" firstAttribute="top" secondItem="eIT-hA-WTe" secondAttribute="bottom" constant="7" id="0ei-Az-AB1"/>
-                            <constraint firstItem="HTs-7O-zGt" firstAttribute="top" secondItem="BWR-Q8-JRF" secondAttribute="bottom" constant="11" id="2HD-NM-hwE"/>
-                            <constraint firstItem="g8Q-gm-hx6" firstAttribute="centerY" secondItem="Pn3-pA-dx6" secondAttribute="centerY" id="5ux-3R-uyU"/>
-                            <constraint firstItem="bIZ-eO-4lH" firstAttribute="trailing" secondItem="eoe-Cu-6jt" secondAttribute="trailing" constant="10" id="7Ow-Rs-kZW"/>
-                            <constraint firstItem="ve0-cJ-PIh" firstAttribute="leading" secondItem="eIT-hA-WTe" secondAttribute="trailing" id="DRW-cx-yVw"/>
-                            <constraint firstItem="HTs-7O-zGt" firstAttribute="leading" secondItem="eIT-hA-WTe" secondAttribute="trailing" constant="5" id="EN3-lJ-juo"/>
-                            <constraint firstItem="eoe-Cu-6jt" firstAttribute="top" secondItem="bIZ-eO-4lH" secondAttribute="top" constant="6" id="H0M-xn-RlY"/>
-                            <constraint firstItem="PFH-Lq-vw6" firstAttribute="top" secondItem="ve0-cJ-PIh" secondAttribute="bottom" constant="6" id="W4P-LE-ixt"/>
-                            <constraint firstItem="eoe-Cu-6jt" firstAttribute="leading" secondItem="g8Q-gm-hx6" secondAttribute="trailing" constant="10" id="Z20-3J-mZy"/>
+                            <constraint firstAttribute="trailing" secondItem="zxH-JD-UyS" secondAttribute="trailing" id="CgX-43-ZFc"/>
+                            <constraint firstItem="zxH-JD-UyS" firstAttribute="top" secondItem="1pD-gd-C3R" secondAttribute="top" id="Dpx-sw-erP"/>
+                            <constraint firstItem="zxH-JD-UyS" firstAttribute="leading" secondItem="1pD-gd-C3R" secondAttribute="leading" id="Eoo-EN-mYT"/>
                             <constraint firstItem="PFH-Lq-vw6" firstAttribute="leading" secondItem="1pD-gd-C3R" secondAttribute="leading" id="Z26-rX-uOo"/>
-                            <constraint firstItem="eIT-hA-WTe" firstAttribute="leading" secondItem="bIZ-eO-4lH" secondAttribute="leading" constant="10" id="a4R-bY-gZT"/>
                             <constraint firstAttribute="trailing" secondItem="PFH-Lq-vw6" secondAttribute="trailing" id="bxd-85-Qq9"/>
+                            <constraint firstItem="PFH-Lq-vw6" firstAttribute="top" secondItem="zxH-JD-UyS" secondAttribute="bottom" id="l3m-Oi-EZ1"/>
                             <constraint firstItem="bCI-3W-CNC" firstAttribute="top" secondItem="PFH-Lq-vw6" secondAttribute="bottom" id="nym-Q5-fqX"/>
-                            <constraint firstItem="eIT-hA-WTe" firstAttribute="top" secondItem="bIZ-eO-4lH" secondAttribute="top" constant="7" id="qSR-pu-Hbw"/>
                         </constraints>
                     </view>
                     <connections>
@@ -7753,6 +7778,7 @@
                         <outlet property="btnChat" destination="IKI-Hn-9HY" id="EgO-vK-OZ4"/>
                         <outlet property="btnLogo" destination="HTs-7O-zGt" id="agA-Je-q12"/>
                         <outlet property="btnMenu" destination="Pn3-pA-dx6" id="LDn-Aq-eMW"/>
+                        <outlet property="cnstrntHtNavBar" destination="fBj-bR-ITc" id="DRk-NP-GrA"/>
                         <outlet property="imgVwLogo" destination="ve0-cJ-PIh" id="adg-Qp-6VK"/>
                         <outlet property="profilePicView" destination="eIT-hA-WTe" id="kPt-Qh-hGq"/>
                         <outlet property="tblFeeds" destination="PFH-Lq-vw6" id="gu1-lz-Lz7"/>
@@ -7760,7 +7786,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="svz-qV-zmy" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2952" y="5745"/>
+            <point key="canvasLocation" x="-2952.1739130434785" y="5744.8660714285716"/>
         </scene>
         <!--EntryStyleSelectionVC-->
         <scene sceneID="mcQ-FY-9id">
@@ -9252,7 +9278,7 @@
                                                     </connections>
                                                 </button>
                                             </subviews>
-                                            <color key="backgroundColor" systemColor="systemBlueColor"/>
+                                            <color key="backgroundColor" name="themeColor"/>
                                             <constraints>
                                                 <constraint firstAttribute="bottom" secondItem="RPK-3x-Eai" secondAttribute="bottom" id="1v4-1a-iPm"/>
                                                 <constraint firstAttribute="trailing" secondItem="RPK-3x-Eai" secondAttribute="trailing" id="DvJ-tS-I2g"/>
@@ -9391,7 +9417,7 @@
                                         <fontDescription key="fontDescription" name="Roboto-Medium" family="Roboto" pointSize="16"/>
                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                         <state key="normal" title=" Download" image="DownloadVideo">
-                                            <color key="titleColor" red="0.088257201019999995" green="0.38106971979999998" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                            <color key="titleColor" name="themeColor"/>
                                         </state>
                                         <connections>
                                             <action selector="downloadCertificateButtonActionMethod" destination="jUQ-bD-dYG" eventType="touchUpInside" id="0aF-nM-sv1"/>
@@ -9531,7 +9557,6 @@
     </scenes>
     <resources>
         <image name="Back_White" width="30" height="30"/>
-        <image name="CameraIcon" width="30" height="30"/>
         <image name="Contactus" width="280" height="220"/>
         <image name="CreatePost" width="25" height="25"/>
         <image name="DownloadVideo" width="24.5" height="24.5"/>
@@ -9552,9 +9577,10 @@
         <image name="arrowtriangle.down.fill" catalog="system" width="128" height="120"/>
         <image name="avatar" width="101" height="101.5"/>
         <image name="avatarframenameplate" width="221" height="44.5"/>
-        <image name="back" width="30" height="30"/>
+        <image name="back" width="24" height="24"/>
         <image name="bi_qr-code" width="47" height="47"/>
         <image name="blue_bank" width="40" height="40"/>
+        <image name="camera-filled" width="24" height="24"/>
         <image name="cameraaction" width="14" height="12.5"/>
         <image name="cameraw" width="23" height="20.5"/>
         <image name="checkMark" width="20" height="20"/>
@@ -9571,10 +9597,10 @@
         <image name="fluent_copy-20-filled 1" width="50" height="50"/>
         <image name="frameBG.jpg" width="750" height="1624"/>
         <image name="gauge" width="90" height="72"/>
-        <image name="gift_coin" width="48" height="48"/>
+        <image name="gift_coin" width="20" height="20"/>
         <image name="globe" width="9.5" height="9.5"/>
         <image name="gotalent2.OAwardsNight" width="309.5" height="54.5"/>
-        <image name="hamburger" width="24" height="24"/>
+        <image name="hamburger" width="23.5" height="23.5"/>
         <image name="heart_blank" width="24" height="24"/>
         <image name="ic_round-check-box" width="18" height="18"/>
         <image name="info" width="18" height="18.5"/>
@@ -9602,8 +9628,14 @@
         <image name="upi" width="75" height="28.5"/>
         <image name="user 1" width="20" height="20"/>
         <image name="withdraw" width="40" height="40"/>
+        <namedColor name="backgroundColor">
+            <color red="0.9686274528503418" green="0.97254902124404907" blue="0.98039215803146362" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="postBgColor">
+            <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <namedColor name="themeColor">
-            <color red="0.098039215686274508" green="0.71764705882352942" blue="0.32941176470588235" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.0" green="0.74117647058823533" blue="0.69019607843137254" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <systemColor name="labelColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

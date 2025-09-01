@@ -330,18 +330,18 @@ public final class YPVideoFiltersVC: UIViewController, IsMediaFilterVC {
         stopPlaybackTimeChecker()
         videoView.stop()
     }
-    
+    //MARK : Here is the color
     @objc private func editVideo() {
         DispatchQueue.main.async {
         let lfVideoEditVC = LFVideoEditingController()
         lfVideoEditVC.delegate = self;
         lfVideoEditVC.minClippingDuration = 5.0;
-        lfVideoEditVC.menuBackColor = UIColor.systemBackground
-        lfVideoEditVC.headerBackColor = UIColor.systemBackground
-        lfVideoEditVC.cancelButtonTitleColorNormal = UIColor.white
-        lfVideoEditVC.oKButtonTitleColorNormal = UIColor.white
+            lfVideoEditVC.menuBackColor = CustomColor.sharedInstance.newThemeColor //systemBackground
+        lfVideoEditVC.headerBackColor = CustomColor.sharedInstance.newThemeColor //UIColor.systemBackground
+        lfVideoEditVC.cancelButtonTitleColorNormal = UIColor.label
+            lfVideoEditVC.oKButtonTitleColorNormal = UIColor.label
         lfVideoEditVC.headerTitle = "Video Editing"
-        lfVideoEditVC.titleTextColor = UIColor.white
+        lfVideoEditVC.titleTextColor = UIColor.label
         //lfVideoEditVC.hedaderFont =  [UIFont fontWithName:FONT_BOLD size:18];
             lfVideoEditVC.setVideoURL(self.inputVideo.url, placeholderImage: self.inputVideo.thumbnail)
 

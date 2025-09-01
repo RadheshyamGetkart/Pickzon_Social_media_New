@@ -22,9 +22,13 @@ class RequestGoLiveVC: UIViewController {
     var name = ""
 
     //MARK: Controller Life cycle methods
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        cnstrntHtNavBar.constant = self.getNavBarHt
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
-        cnstrntHtNavBar.constant = self.getNavBarHt
         tblView.register(UINib(nibName: "InputTblCell", bundle: nil), forCellReuseIdentifier: "InputTblCell")
         guard let realm = DBManager.openRealm() else {
             return

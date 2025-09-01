@@ -181,7 +181,7 @@ var backgroundTask: UIBackgroundTaskIdentifier = UIBackgroundTaskIdentifier.inva
         IQKeyboardManager.shared().isEnableAutoToolbar = false
         IQKeyboardManager.shared().shouldShowToolbarPlaceholder = false
         IQKeyboardManager.shared().shouldResignOnTouchOutside = true
-      
+        IQKeyboardManager.shared().toolbarTintColor = CustomColor.sharedInstance.newThemeColor
         FirebaseApp.configure()
         
     /*  

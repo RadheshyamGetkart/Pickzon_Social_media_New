@@ -22,9 +22,13 @@ class ShareReferallCodeVC: UIViewController {
     var strReferralCode = ""
     
     //MARK: Controller life cycle methods
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        cnstrntHtNavBar.constant = self.getNavBarHt
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
-        cnstrntHtNavBar.constant = self.getNavBarHt
         bgViewReferalCode.addDashBorder(color: UIColor.white)
         btnShare.layer.cornerRadius = btnShare.frame.size.height/2.0
         btnShare.clipsToBounds = true

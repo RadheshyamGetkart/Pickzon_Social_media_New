@@ -90,8 +90,9 @@ extension TabHeaderTblCell:UICollectionViewDelegate,UICollectionViewDataSource,U
         cell.btnTitle.setTitleColor(UIColor.darkGray, for: .normal)
         
         if selectedTab == indexPath.item{
-            cell.btnTitle.setBackgroundColor(UIColor.init(hexString: "#e7f3ff"), forState: .normal)
-            cell.btnTitle.setTitleColor(UIColor.systemBlue, for: .normal)
+           
+            cell.btnTitle.setBackgroundColor(UIColor(named: "lightTheme") ?? .label, forState: .normal)
+            cell.btnTitle.setTitleColor(CustomColor.sharedInstance.newThemeColor, for: .normal)
         }
         cell.btnTitle.addTarget(self, action: #selector(tabButtonAction(_ : )), for: .touchUpInside)
         

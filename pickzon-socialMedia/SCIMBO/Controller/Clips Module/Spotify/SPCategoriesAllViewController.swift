@@ -31,12 +31,17 @@ class SPCategoriesAllViewController: UIViewController, UICollectionViewDelegate,
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        cnstntHtNavBar.constant = self.getNavBarHt
         self.lblTitle.text = "All Categories"
         clnView.register(UINib(nibName: "SpotifyCategoriesCell", bundle: nil), forCellWithReuseIdentifier: "SpotifyCategoriesCell")
         
         // Do any additional setup after loading the view.
         self.fetchSpotifyCategories()
+    }
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        cnstntHtNavBar.constant = self.getNavBarHt
+
     }
     
     

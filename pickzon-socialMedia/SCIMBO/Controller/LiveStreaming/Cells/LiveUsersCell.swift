@@ -18,11 +18,25 @@ class LiveUsersCell: UICollectionViewCell {
     @IBOutlet weak var bgVwJoinCount:UIView!
     @IBOutlet weak var bgViewCoin:UIView!
     @IBOutlet weak var lblCoinCount:UILabel!
-    @IBOutlet weak var cnstntWidthPkIcon:NSLayoutConstraint!
+    @IBOutlet weak var imgVwProfile:UIImageView!
+    @IBOutlet weak var bgView:UIView!
+
 
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+        imgVwProfile.layer.cornerRadius = imgVwProfile.frame.height/2.0
+        imgVwProfile.clipsToBounds = true
+        
+        
+        
+        imgVwUser.layer.cornerRadius = 10.0
+        imgVwUser.clipsToBounds = true
+        
+        bgView.layer.cornerRadius = 16.0
+        bgView.layer.borderColor = CustomColor.sharedInstance.newThemeColor.cgColor
+        bgView.layer.borderWidth = 1.0
+        bgView.clipsToBounds = true
     }
 
 }

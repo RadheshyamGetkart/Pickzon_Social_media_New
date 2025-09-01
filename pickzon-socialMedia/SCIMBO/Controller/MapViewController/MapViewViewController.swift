@@ -69,13 +69,24 @@ class MapViewViewController: UIViewController,MKMapViewDelegate,CLLocationManage
     //let selectedLabel:UILabel = UILabel.init(frame:CGRect(x:0, y: 0, width: 140, height: 38))
     //var annotationView = MKAnnotationView()
     var custmCall = CustomCalloutView()
+    var originalRegion: MKCoordinateRegion!
+    @IBOutlet weak var locate: UIButton!
+    @IBOutlet weak var show_image: UIImageView!
+    @IBOutlet weak var navigate: UIButton!
+    @IBOutlet weak var tab_bottom: NSLayoutConstraint!
+    @IBOutlet weak var top_table: NSLayoutConstraint!
+    var show:Bool = true
+    @IBOutlet weak var hideS: UIButton!
+    @IBOutlet weak var height_tab: NSLayoutConstraint!
+  
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        if UIDevice().hasNotch {
-            topViewHeightConstraint.constant = Constant.sharedinstance.NavigationBarHeight_iPhoneX
-        } else {
-            topViewHeightConstraint.constant = Constant.sharedinstance.NavigationBarHeight
-        }
+//        if UIDevice().hasNotch {
+//            topViewHeightConstraint.constant = Constant.sharedinstance.NavigationBarHeight_iPhoneX
+//        } else {
+//            topViewHeightConstraint.constant = Constant.sharedinstance.NavigationBarHeight
+//        }
         setUI_Properties()
         dis_Text = ""
         sub_Title = ""
@@ -210,9 +221,13 @@ class MapViewViewController: UIViewController,MKMapViewDelegate,CLLocationManage
         self.configureView()
     }
     
-    var originalRegion: MKCoordinateRegion!
     
     
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        topViewHeightConstraint.constant = self.getNavBarHt
+    }
     func configureView() {
         self.mapKit_View.isZoomEnabled = false
         self.registerZoomGesture()
@@ -300,18 +315,7 @@ class MapViewViewController: UIViewController,MKMapViewDelegate,CLLocationManage
         
     }
     
-    @IBOutlet weak var locate: UIButton!
-    @IBOutlet weak var show_image: UIImageView!
-    
-    
-    @IBOutlet weak var navigate: UIButton!
-    
-    @IBOutlet weak var tab_bottom: NSLayoutConstraint!
-    @IBOutlet weak var top_table: NSLayoutConstraint!
-    var show:Bool = true
-    
-    @IBOutlet weak var hideS: UIButton!
-    @IBOutlet weak var height_tab: NSLayoutConstraint!
+ 
     
     @IBAction func passLocation(_ sender: UIButton) {
         
@@ -322,7 +326,6 @@ class MapViewViewController: UIViewController,MKMapViewDelegate,CLLocationManage
             self.pop(animated: true)
             
         }
-        
         
     }
     

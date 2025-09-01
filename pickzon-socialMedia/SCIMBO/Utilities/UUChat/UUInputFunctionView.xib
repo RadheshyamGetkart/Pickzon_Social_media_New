@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="22505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="23504" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22504"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="23506"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -15,46 +16,92 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="50"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="0Eh-VB-ZVv" customClass="HPGrowingTextView">
-                    <rect key="frame" x="38" y="8" width="286" height="34"/>
-                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                    <viewLayoutGuide key="safeArea" id="QIt-Cp-Otd"/>
-                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cI7-cB-mQQ">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="50"/>
+                    <subviews>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0Eh-VB-ZVv" customClass="HPGrowingTextView">
+                            <rect key="frame" x="40" y="5" width="285" height="40"/>
+                            <viewLayoutGuide key="safeArea" id="QIt-Cp-Otd"/>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <constraints>
+                                <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="40" id="29Z-gd-iJr"/>
+                            </constraints>
+                        </view>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PBG-nM-P16">
+                            <rect key="frame" x="10" y="12.5" width="25" height="25"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="25" id="96c-dk-VYL"/>
+                                <constraint firstAttribute="height" constant="25" id="lXT-so-WZZ"/>
+                            </constraints>
+                            <color key="tintColor" name="themeColor"/>
+                            <state key="normal" image="plus_option">
+                                <color key="titleColor" name="themeColor"/>
+                            </state>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="72J-fx-cqm">
+                            <rect key="frame" x="10" y="12.5" width="25" height="25"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="25" id="Nmw-cD-Vzf"/>
+                                <constraint firstAttribute="height" constant="25" id="S7M-Tg-9KQ"/>
+                            </constraints>
+                            <color key="tintColor" name="themeColor"/>
+                            <inset key="imageEdgeInsets" minX="5" minY="5" maxX="5" maxY="5"/>
+                            <state key="normal" image="record"/>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cYn-QD-X0R">
+                            <rect key="frame" x="330" y="8" width="35" height="34"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="35" id="dwj-rQ-2bb"/>
+                                <constraint firstAttribute="height" constant="34" id="uHi-dB-78E"/>
+                            </constraints>
+                            <state key="normal" image="send"/>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BWa-Cf-hpK">
+                            <rect key="frame" x="330" y="8" width="35" height="34"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="34" id="Dez-XY-8Qd"/>
+                                <constraint firstAttribute="width" constant="35" id="fqH-sc-pVR"/>
+                            </constraints>
+                            <color key="tintColor" name="themeColor"/>
+                            <state key="normal" image="icon _mic"/>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rEW-1x-Lof">
+                            <rect key="frame" x="35" y="8" width="290" height="34"/>
+                            <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="16"/>
+                            <state key="normal">
+                                <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </state>
+                        </button>
+                    </subviews>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    <constraints>
+                        <constraint firstAttribute="bottom" secondItem="0Eh-VB-ZVv" secondAttribute="bottom" constant="5" id="0Pb-zd-1BF"/>
+                        <constraint firstItem="rEW-1x-Lof" firstAttribute="leading" secondItem="PBG-nM-P16" secondAttribute="trailing" id="0XE-Nf-PjM"/>
+                        <constraint firstAttribute="trailing" secondItem="cYn-QD-X0R" secondAttribute="trailing" constant="10" id="1zp-Vf-Wab"/>
+                        <constraint firstItem="BWa-Cf-hpK" firstAttribute="centerY" secondItem="cYn-QD-X0R" secondAttribute="centerY" id="5cp-SZ-MT1"/>
+                        <constraint firstItem="72J-fx-cqm" firstAttribute="leading" secondItem="cI7-cB-mQQ" secondAttribute="leading" constant="10" id="AMj-gc-PhE"/>
+                        <constraint firstItem="PBG-nM-P16" firstAttribute="centerY" secondItem="cI7-cB-mQQ" secondAttribute="centerY" id="Kuq-qP-qBD"/>
+                        <constraint firstItem="0Eh-VB-ZVv" firstAttribute="top" secondItem="cI7-cB-mQQ" secondAttribute="top" constant="5" id="RUj-Ny-jgD"/>
+                        <constraint firstItem="cYn-QD-X0R" firstAttribute="centerY" secondItem="cI7-cB-mQQ" secondAttribute="centerY" id="SEc-RQ-wAQ"/>
+                        <constraint firstItem="0Eh-VB-ZVv" firstAttribute="leading" secondItem="72J-fx-cqm" secondAttribute="trailing" constant="5" id="W2N-fY-qGz"/>
+                        <constraint firstItem="BWa-Cf-hpK" firstAttribute="centerX" secondItem="cYn-QD-X0R" secondAttribute="centerX" id="XS2-It-hBM"/>
+                        <constraint firstAttribute="bottom" secondItem="rEW-1x-Lof" secondAttribute="bottom" constant="8" id="aKa-Nd-tvz"/>
+                        <constraint firstItem="cYn-QD-X0R" firstAttribute="leading" secondItem="0Eh-VB-ZVv" secondAttribute="trailing" constant="5" id="ddy-od-mYB"/>
+                        <constraint firstItem="rEW-1x-Lof" firstAttribute="top" secondItem="cI7-cB-mQQ" secondAttribute="top" constant="8" id="iSs-pT-P3t"/>
+                        <constraint firstItem="72J-fx-cqm" firstAttribute="centerY" secondItem="cI7-cB-mQQ" secondAttribute="centerY" id="inl-wn-VNg"/>
+                        <constraint firstItem="PBG-nM-P16" firstAttribute="leading" secondItem="cI7-cB-mQQ" secondAttribute="leading" constant="10" id="ldJ-QT-aG6"/>
+                        <constraint firstItem="cYn-QD-X0R" firstAttribute="leading" secondItem="rEW-1x-Lof" secondAttribute="trailing" constant="5" id="yxa-Dh-6jo"/>
+                    </constraints>
                 </view>
-                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PBG-nM-P16">
-                    <rect key="frame" x="5" y="13" width="25" height="24"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <color key="tintColor" systemColor="linkColor"/>
-                    <state key="normal" image="plus_option"/>
-                </button>
-                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="72J-fx-cqm">
-                    <rect key="frame" x="5" y="8" width="35" height="34"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <inset key="imageEdgeInsets" minX="5" minY="5" maxX="5" maxY="5"/>
-                    <state key="normal" image="record"/>
-                </button>
-                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cYn-QD-X0R">
-                    <rect key="frame" x="332" y="8" width="35" height="34"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
-                    <state key="normal" image="send"/>
-                </button>
-                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BWa-Cf-hpK">
-                    <rect key="frame" x="332" y="8" width="35" height="34"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
-                    <color key="tintColor" systemColor="linkColor"/>
-                    <state key="normal" image="icon _mic"/>
-                </button>
-                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rEW-1x-Lof">
-                    <rect key="frame" x="38" y="8" width="286" height="34"/>
-                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
-                    <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="16"/>
-                    <state key="normal">
-                        <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                    </state>
-                </button>
             </subviews>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
             <color key="backgroundColor" red="0.96470588235294119" green="0.96470588235294119" blue="0.96470588235294119" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="cI7-cB-mQQ" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="6pS-bm-yw1"/>
+                <constraint firstItem="cI7-cB-mQQ" firstAttribute="trailing" secondItem="vUN-kp-3ea" secondAttribute="trailing" id="PSC-8a-7OQ"/>
+                <constraint firstAttribute="bottom" secondItem="cI7-cB-mQQ" secondAttribute="bottom" id="Qn1-O9-ghz"/>
+                <constraint firstItem="cI7-cB-mQQ" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="g9e-1h-404"/>
+            </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <connections>
                 <outlet property="RecordBtn" destination="72J-fx-cqm" id="Agn-Hz-BIw"/>
@@ -64,16 +111,19 @@
                 <outlet property="plusBtn" destination="PBG-nM-P16" id="eAU-Uo-ORH"/>
                 <outlet property="textView" destination="0Eh-VB-ZVv" id="cdF-1J-vmf"/>
             </connections>
-            <point key="canvasLocation" x="79.5" y="264"/>
+            <point key="canvasLocation" x="79.200000000000003" y="263.56821589205401"/>
         </view>
     </objects>
     <resources>
-        <image name="icon _mic" width="17" height="24"/>
+        <image name="icon _mic" width="24" height="24"/>
         <image name="plus_option" width="24" height="24"/>
         <image name="record" width="75" height="75"/>
-        <image name="send" width="50" height="50"/>
-        <systemColor name="linkColor">
-            <color red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        <image name="send" width="34" height="34"/>
+        <namedColor name="themeColor">
+            <color red="0.0" green="0.74117647058823533" blue="0.69019607843137254" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
     </resources>
 </document>

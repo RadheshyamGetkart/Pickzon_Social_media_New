@@ -9,7 +9,7 @@ import UIKit
 
 
 class DefaultTabAnimationOptions: NSVTabAnimationOptions {
-
+        
 
     var mainAnimationDuration: Double = 0.5
     var options: UIView.AnimationOptions = [.curveEaseInOut, .allowUserInteraction]
@@ -21,13 +21,11 @@ class DefaultTabAnimationOptions: NSVTabAnimationOptions {
     var subOptionsAnimationtype: SubOptionsAnimationType = .basic//.movingByOne(duration: 0.3, withScaling: true)
     var tabSelectionAnimationType: TabSelectionAnimationType = .none // .custom(duration: 0.3, animation: [.transitionFlipFromLeft])
     var shouldAnimateScreenChanges: Bool = false
-     
 }
 
 class DefaultTabItemOptions: NSVTabItemOptions {
     var badgeString: String?
     
-
     var title: String?
     var image: UIImage?
     var selectedImage: UIImage?
@@ -35,7 +33,7 @@ class DefaultTabItemOptions: NSVTabItemOptions {
     var spacing: CGFloat?
     var font: UIFont?
 
-    init(title: String?, image: UIImage?, selectedImage: UIImage? = nil, itemInsets: UIEdgeInsets = .init(top: 3, left: 3, bottom: 3, right: 3), spacing: CGFloat? = 2, font: UIFont? = UIFont.systemFont(ofSize: 13)) {
+    init(title: String?, image: UIImage?, selectedImage: UIImage? = nil, itemInsets: UIEdgeInsets = .init(top: 3, left: 3, bottom: 3, right: 3), spacing: CGFloat? = 2, font: UIFont? = UIFont.systemFont(ofSize: 13,weight: .medium)) {
         self.title = title
         self.image = image
         self.selectedImage = selectedImage ?? image
@@ -44,7 +42,7 @@ class DefaultTabItemOptions: NSVTabItemOptions {
         self.font = font
     }
 }
-
+/*
 class DefaultCenterItemOptions: NSVCenterItemOptions {
 
     var size: CGSize = .init(width: 35, height: 35)
@@ -86,6 +84,52 @@ class DefaultCenterItemOptions: NSVCenterItemOptions {
     }
 
 }
+*/
+
+class DefaultCenterItemOptions: NSVCenterItemOptions {
+    var size: CGSize = .init(width: 64, height: 64)
+    var subOptionsSize: CGSize = .init(width: 45, height: 45)
+
+    // required
+    var insets: UIEdgeInsets = .init(top: 0, left: 0, bottom: 0, right: 0)
+
+    var options: NSVTabItemOptions = DefaultTabItemOptions(
+        title: nil,
+        image: UIImage(named: "centrePlus"),
+        selectedImage: UIImage(named: "centrePlus"),
+        itemInsets: .init(top: 0, left: 0, bottom: 0, right: 0),
+        spacing: 0,
+        font: nil
+    )
+
+    var subOptions: [NSCenterItemSubOptions] = []
+
+    // required
+    var itemInsets: UIEdgeInsets = .init(top: 0, left: 0, bottom: 0, right: 0)
+
+    var backgroundColor: UIColor = CustomColor.sharedInstance.newThemeColor // .systemTeal
+    var cornerRadius: CGFloat = 32.0
+
+    var shadowInfo: ShadowInfo? = ShadowInfo(
+        shadowRadius: 6,
+        shadowOpacity: 0.25,
+        shadowColor: CustomColor.sharedInstance.newThemeColor , //UIColor.black,
+        shadowOffset: CGSize(width: 0, height: 4)
+    )
+
+    
+    var distributionType: SubOptionsDistributionType =
+        .custom(itemsSpacing: 0, minYOffset: 0, maxYOffset: 0)
+
+    var curveType: CurveType = .top
+    
+    func updateSizeToSize(){
+        self.size = .init(width: 64, height: 64)
+        self.subOptionsSize = .init(width: 45, height: 45)
+       // self.cornerRadius = 27.5
+        self.cornerRadius = 32.0
+    }
+}
 
 class DefaultCenterItemSubOptions: NSCenterItemSubOptions {
     
@@ -93,7 +137,7 @@ class DefaultCenterItemSubOptions: NSCenterItemSubOptions {
     var backgroundColor: UIColor
     var cornerRadius: CGFloat
     var shadowInfo: ShadowInfo? = ShadowInfo(shadowRadius: 1, shadowOpacity: 1, shadowColor: UIColor.black.withAlphaComponent(0.15), shadowOffset: .zero)
-
+    
     public init(image: UIImage, backgroundColor: UIColor, cornerRadius: CGFloat) {
         self.image = image
         self.backgroundColor = backgroundColor
@@ -112,17 +156,12 @@ class DefaultAnimatedTabOptions: NSVAnimatedTabOptions {
     var cornerRadius: CGFloat = 5
     var corners: [RadiusCorners] = [.topLeft, .topRight]
     var shadowInfo: ShadowInfo? = ShadowInfo(shadowRadius: 5, shadowOpacity: 0.05, shadowColor: .black, shadowOffset: .init(width: 0, height: -5))
-   
-     var options: [NSVTabItemOptions] = [
-        DefaultTabItemOptions(title: "Home", image: UIImage(named: "home"),selectedImage: UIImage(named: "homeSel"), itemInsets: .init(top: 5, left: 5, bottom: 0, right: 5)),
-        DefaultTabItemOptions(title: "Go Live", image: UIImage(named: "goLiveTab")!,selectedImage: UIImage(named: "goLiveTabSel"), itemInsets: .init(top: 5, left: -5, bottom: 0, right: 15)),
-
-       /* DefaultTabItemOptions(title: "Pages", image: UIImage(named: "PagesUnselect")!,selectedImage: UIImage(named: "pagesSelect"), itemInsets: .init(top: 8, left: 5, bottom: 5, right: 5)),*/
-    DefaultTabItemOptions(title: "Chat", image: UIImage(named: "chat"),selectedImage: UIImage(named: "chatSel"), itemInsets: .init(top: 5, left: 15, bottom: 0, right: -5)),
-        /*  DefaultTabItemOptions(title: "Notification", image: UIImage(named: "notificationUnSelect")!,selectedImage: UIImage(named: "notificationSelect"), itemInsets: .init(top: 8, left: 0, bottom: 5, right: 0)),*/
-     /* DefaultTabItemOptions(title: "Jobs", image: UIImage(named: "uim_bag")!,selectedImage: UIImage(named: "uim_bag_selected"), itemInsets: .init(top: 8, left: 0, bottom: 5, right: 0)),*/
-       // DefaultTabItemOptions(title: "More", image: UIImage(named: "moreGreen")!.imageWithColor(color1: .systemBlue),selectedImage: UIImage(named: "MoreBlue"), itemInsets: .init(top: 5, left: 5, bottom: 5, right: 5))
-        DefaultTabItemOptions(title: "Search", image: UIImage(named: "search"),selectedImage: UIImage(named: "searchSel"), itemInsets: .init(top: 5, left: 5, bottom: 0, right: 5))
+    
+    var options: [NSVTabItemOptions] = [
+        DefaultTabItemOptions(title: "Home", image: UIImage(named: "home"),selectedImage: UIImage(named: "homeSel"), itemInsets: .init(top: 8, left: 5, bottom: 0, right: 5)),
+        DefaultTabItemOptions(title: "Go Live", image: UIImage(named: "goLiveTab")!,selectedImage: UIImage(named: "goLiveTabSel"), itemInsets: .init(top: 8, left: -5, bottom: 0, right: 15)),
+        DefaultTabItemOptions(title: "Chat", image: UIImage(named: "chat"),selectedImage: UIImage(named: "chatSel"), itemInsets: .init(top: 8, left: 15, bottom: 0, right: -5)),
+        DefaultTabItemOptions(title: "Search", image: UIImage(named: "search"),selectedImage: UIImage(named: "searchSel"), itemInsets: .init(top: 8, left: 5, bottom: 0, right: 5))
     ]
     var animationOptions: NSVTabAnimationOptions = DefaultTabAnimationOptions()
     var centerItemOptions: NSVCenterItemOptions = DefaultCenterItemOptions()
@@ -135,17 +174,6 @@ class DefaultAnimatedTabOptions: NSVAnimatedTabOptions {
             (self.centerItemOptions as! DefaultCenterItemOptions).updateSizeToSize()
         }
     }
-     
-     
-//     func updateCenterTo(isSmall:Bool = false){
-//         
-//         if isSmall{
-//             (self.centerItemOptions as! DefaultCenterItemOptions).updateSizeToSmaller()
-//         }else{
-//             (self.centerItemOptions as! DefaultCenterItemOptions).updateSizeToSize()
-//         }
-//     }
-    
 }
 
 extension UIImage {

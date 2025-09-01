@@ -38,7 +38,7 @@ class PGTClipsVC: UIViewController {
     //MARK: Controller life cycle methods
     override func viewDidLoad() {
         super.viewDidLoad()
-        cnstrntHtNavBar.constant = self.getNavBarHt
+        //cnstrntHtNavBar.constant = self.getNavBarHt
         registerCell()
         btnCreateVideo.layer.cornerRadius = btnCreateVideo.frame.size.height/2.0
         btnCreateVideo.clipsToBounds = true
@@ -49,6 +49,11 @@ class PGTClipsVC: UIViewController {
         getHashTagVideosApi()
     }
     
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        
+        cnstrntHtNavBar.constant = self.getNavBarHt
+    }
     //MARKK: Other Helpful Methods
     func registerCell(){
         tblView.register(UINib(nibName: "BusinessMediaTblCell", bundle: nil), forCellReuseIdentifier: "BusinessMediaTblCell")

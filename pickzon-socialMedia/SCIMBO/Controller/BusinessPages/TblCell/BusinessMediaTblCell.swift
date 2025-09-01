@@ -40,7 +40,6 @@ extension BusinessMediaDelegate{
 }
 
 
-
 class BusinessMediaTblCell: UITableViewCell {
 
     @IBOutlet weak var cllctnVw:UICollectionView!

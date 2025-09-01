@@ -45,7 +45,7 @@ class EditVideoVC: SwiftBaseViewController, ICGVideoTrimmerDelegate {
         super.viewDidLoad()
         print("ViewController: EditVideoVC")
         self.ConfigureVideo(videoURl: self.ObjMultimedia.assetpathname,ObjRecord:self.ObjMultimedia)
-        self.btnBack.setImageTintColor(UIColor.white)
+        self.btnBack.setImageTintColor(CustomColor.sharedInstance.newThemeColor)
     }
     
     deinit {

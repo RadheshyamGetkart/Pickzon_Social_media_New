@@ -26,12 +26,18 @@ class SectionVideosVC: UIViewController,UITextFieldDelegate {
     //MARK: Controller Life Cycle Methods
     override func viewDidLoad(){
         super.viewDidLoad()
-        cnstrntHtNavBAr.constant = self.getNavBarHt
         registerCell()
         titleLbl.text = "#" + hashtagKeyword.replacingOccurrences(of: "#", with: "")
         dataCollection.dataSource = self
         registerObjservers()
         getHashtagClipsApi(showLoader: true)
+    }
+    
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        cnstrntHtNavBAr.constant = self.getNavBarHt
+
     }
     
     deinit{

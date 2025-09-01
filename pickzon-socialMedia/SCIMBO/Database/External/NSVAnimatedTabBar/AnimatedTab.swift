@@ -115,6 +115,116 @@ class AnimatedTab: UIView {
         layer.insertSublayer(shapeLayer, at: 0)
     }
 
+    
+    private func createPath() -> CGPath {
+        guard let options = options else {
+            return UIBezierPath().cgPath
+        }
+        let centerItemOptions = options.centerItemOptions
+
+        let centerItemIncludedHeight: CGFloat = frame.height - centerItemOptions.insets.bottom
+        let lineHeight: CGFloat = centerItemIncludedHeight - centerItemOptions.cornerRadius
+
+        let path = UIBezierPath()
+        let centerWidth = self.frame.width / 2
+
+        let minWidth = (centerWidth - centerItemOptions.size.width/2 - centerItemOptions.insets.left)
+        let maxWidth = (centerWidth + centerItemOptions.size.width/2 + centerItemOptions.insets.left)
+
+        if options.corners.contains(.topLeft) {
+            path.move(to: CGPoint(x: 0, y: options.cornerRadius))
+            path.addArc(withCenter: CGPoint(x: options.cornerRadius, y: options.cornerRadius),
+                        radius: options.cornerRadius,
+                        startAngle: CGFloat(Double.pi/2),
+                        endAngle: CGFloat(3*Double.pi/2),
+                        clockwise: true)
+        } else {
+            path.move(to: CGPoint(x: 0, y: 0))
+        }
+
+        // --- curve handling ---
+        if centerItemOptions.curveType == .bottom {
+            // your existing concave dip (leave as-is)
+            var widthOffset: CGFloat = lineHeight
+            if widthOffset < 0 { widthOffset = 0 }
+            path.addLine(to: CGPoint(x: minWidth - widthOffset, y: 0))
+            path.addQuadCurve(to: CGPoint(x: minWidth, y: widthOffset < 0 ? 0 : widthOffset),
+                              controlPoint: CGPoint(x: minWidth, y: 0))
+            path.addLine(to: CGPoint(x: minWidth, y: widthOffset))
+            var curve = minWidth + centerItemOptions.cornerRadius + centerItemOptions.insets.left
+            path.addArc(withCenter: CGPoint(x: curve, y: lineHeight),
+                        radius: centerItemOptions.cornerRadius + centerItemOptions.insets.left,
+                        startAngle: angle(between: CGPoint(x: curve, y: lineHeight), ending: CGPoint(x: minWidth, y: widthOffset)),
+                        endAngle: CGFloat(Double.pi/2),
+                        clockwise: false)
+            curve += centerItemOptions.size.width - 2*centerItemOptions.cornerRadius
+            path.addLine(to: CGPoint(x: curve, y: centerItemIncludedHeight + centerItemOptions.insets.left))
+            path.addArc(withCenter: CGPoint(x: curve, y: lineHeight),
+                        radius: centerItemOptions.cornerRadius + centerItemOptions.insets.left,
+                        startAngle: CGFloat(Double.pi/2),
+                        endAngle: angle(between: CGPoint(x: curve, y: lineHeight), ending: CGPoint(x: maxWidth, y: widthOffset)),
+                        clockwise: false)
+            path.addQuadCurve(to: CGPoint(x: maxWidth + widthOffset, y: 0),
+                              controlPoint: CGPoint(x: maxWidth, y: 0))
+       
+        }else if centerItemOptions.curveType == .top {
+            
+            let curveDepth: CGFloat = 45   // how tall the dip is
+            let arcWidth: CGFloat = 90    // how wide the dip is
+            
+            let leftPoint = CGPoint(x: centerWidth - arcWidth / 2, y: 0)
+            let rightPoint = CGPoint(x: centerWidth + arcWidth / 2, y: 0)
+            let controlPoint1 = CGPoint(x: centerWidth - arcWidth / 4, y: -curveDepth)
+            let controlPoint2 = CGPoint(x: centerWidth + arcWidth / 4, y: -curveDepth)
+            
+            // move to left edge of curve
+            path.addLine(to: leftPoint)
+            
+            // smooth U-shaped curve
+            path.addCurve(to: rightPoint,
+                          controlPoint1: controlPoint1,
+                          controlPoint2: controlPoint2)
+        }
+        
+        // --- end curve handling ---
+
+        if options.corners.contains(.topRight) {
+            path.addLine(to: CGPoint(x: frame.width - options.cornerRadius, y: 0))
+            path.addArc(withCenter: CGPoint(x: frame.width - options.cornerRadius, y: options.cornerRadius),
+                        radius: options.cornerRadius,
+                        startAngle: CGFloat(-Double.pi/2),
+                        endAngle: 0,
+                        clockwise: true)
+        } else {
+            path.addLine(to: CGPoint(x: frame.width, y: 0))
+        }
+
+        if options.corners.contains(.bottomRight) {
+            path.addLine(to: CGPoint(x: frame.width, y: frame.height - options.cornerRadius))
+            path.addArc(withCenter: CGPoint(x: frame.width - options.cornerRadius, y: frame.height - options.cornerRadius),
+                        radius: options.cornerRadius,
+                        startAngle: 0,
+                        endAngle: CGFloat(Double.pi/2),
+                        clockwise: true)
+        } else {
+            path.addLine(to: CGPoint(x: frame.width, y: frame.height))
+        }
+
+        if options.corners.contains(.bottomLeft) {
+            path.addLine(to: CGPoint(x: options.cornerRadius, y: frame.height))
+            path.addArc(withCenter: CGPoint(x: options.cornerRadius, y: frame.height - options.cornerRadius),
+                        radius: options.cornerRadius,
+                        startAngle: CGFloat(Double.pi/2),
+                        endAngle: CGFloat(Double.pi),
+                        clockwise: true)
+        } else {
+            path.addLine(to: CGPoint(x: 0, y: frame.height))
+        }
+        path.close()
+        return path.cgPath
+    }
+
+    /*
     private func createPath() -> CGPath {
         guard let options = options else {
             return UIBezierPath().cgPath
@@ -187,9 +297,16 @@ class AnimatedTab: UIView {
         return path.cgPath
     }
 
+    */
     private func angle(between starting: CGPoint, ending: CGPoint) -> CGFloat {
         let center = CGPoint(x: ending.x - starting.x, y: ending.y - starting.y)
         let radians = atan2(center.y, center.x)
         return radians
     }
 }
+
+
+
+/*
+ else if centerItemOptions.curveType == .top { // 👇 NEW convex arc upwards let curveDepth: CGFloat = 65 // how high to bulge let arcWidth: CGFloat = 50 // how wide to spread path.addLine(to: CGPoint(x: centerWidth - arcWidth, y: 0)) path.addQuadCurve(to: CGPoint(x: centerWidth + arcWidth, y: 0), controlPoint: CGPoint(x: centerWidth, y: -curveDepth)) // negative Y → upwards }
+ */

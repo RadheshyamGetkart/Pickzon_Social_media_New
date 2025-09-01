@@ -28,9 +28,14 @@ class SearchLocationVC: UIViewController {
     var searchResults = [MKLocalSearchCompletion]()
     var delegate:SearchLocationDelegate?
     
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        cnstrnt_HtNavBar.constant = self.getNavBarHt
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        cnstrnt_HtNavBar.constant = self.getNavBarHt
         searchResultsTable?.delegate = self
         searchResultsTable?.dataSource = self
         searchCompleter.delegate = self

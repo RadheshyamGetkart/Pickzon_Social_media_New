@@ -92,7 +92,7 @@ class URLhandler: NSObject
     }
     
     
-    func makeCall(url: String,param:NSDictionary,methodType: HTTPMethod = .post, completionHandler: @escaping (_ responseObject: NSDictionary?,_ error:NSError?  ) -> ()?)
+    func makeCall(url: String,param:NSDictionary?=nil,methodType: HTTPMethod = .post, completionHandler: @escaping (_ responseObject: NSDictionary?,_ error:NSError?  ) -> ()?)
     {
         if Themes.sharedInstance.getAuthToken().length == 0  && Themes.sharedInstance.Getuser_id().length > 0{
             AlertView.sharedManager.displayMessageWithAlert(title: "Your session is expired!", msg: "Please login again.")

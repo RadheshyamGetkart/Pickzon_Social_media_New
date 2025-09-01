@@ -25,9 +25,13 @@ class CreateNewPasswordVC: UIViewController {
     private var isConfirmPasswordHide = true
     
     //MARK: Controller life cycle methods
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        cnstrntHtNavBar.constant = self.getNavBarHt
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
-        cnstrntHtNavBar.constant = self.getNavBarHt
         btnContinue.setBackgroundColor(CustomColor.sharedInstance.newThemeColor, forState: .normal)
         btnContinue.layer.cornerRadius = 20.0
         btnContinue.clipsToBounds = true

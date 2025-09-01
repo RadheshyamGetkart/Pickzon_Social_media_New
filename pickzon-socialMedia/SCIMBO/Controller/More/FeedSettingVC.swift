@@ -22,9 +22,13 @@ class FeedSettingVC: UIViewController {
 
     
     //MARK: Controller life cycle methods
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        cnstrntHtNavBar.constant = self.getNavBarHt
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
-        cnstrntHtNavBar.constant = self.getNavBarHt
         self.tblView.separatorStyle = .none
         self.tblView.register(UINib(nibName: "SettingTblCell", bundle: nil), forCellReuseIdentifier: "SettingTblCell")
         tblView.sectionHeaderHeight = 0

@@ -37,10 +37,14 @@ class FollowingListViewController: UIViewController,UITableViewDelegate, UITable
     var isDataMoreAvailable = true
     
     //MARK: - Controller life cycle methods
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        cnstntTopNavBarr.constant = self.getNavBarHt
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        cnstntTopNavBarr.constant = self.getNavBarHt
         bgVwSearch.isHidden = true
         txtFdSearch.attributedPlaceholder = NSAttributedString(string:"Search by name", attributes: [NSAttributedString.Key.foregroundColor: UIColor.lightGray])
         emptyView = EmptyList(frame: CGRect(x: 0, y: -64, width: tblUserList.frame.size.width, height: tblUserList.frame.size.height))

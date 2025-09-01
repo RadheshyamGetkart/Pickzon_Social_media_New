@@ -30,11 +30,16 @@ class AgencyOrderPreviewVC: UIViewController {
         btnWhatsApp.clipsToBounds = true
         
         
-        cnstrntHtNavbar.constant = self.getNavBarHt
         tblView.register(UINib(nibName: "TitleDetailTblCell", bundle: nil), forCellReuseIdentifier: "TitleDetailTblCell")
         
         self.lblAgencyName.text =  objCoinDetail.agencyName
         self.imgVwLogo.kf.setImage(with: URL(string: objCoinDetail.profilePic), placeholder: PZImages.avatar, options:  nil, progressBlock: nil) { response in }
+    }
+    
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        cnstrntHtNavbar.constant = self.getNavBarHt
     }
     
     //MARK: UIButton Action Method name

@@ -24,7 +24,6 @@ class WebviewVC: UIViewController,WKNavigationDelegate, WKUIDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        cnstrntHtNavBar.constant = self.getNavBarHt
         self.lblTitle.text = strTitle
         print("urlString == \(urlString)")
         if isFromAvtar == true {
@@ -51,6 +50,11 @@ class WebviewVC: UIViewController,WKNavigationDelegate, WKUIDelegate {
        
     }
     
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        cnstrntHtNavBar.constant = self.getNavBarHt
+    }
 
     @IBAction func backBtnAction(_ sender : UIButton){
         

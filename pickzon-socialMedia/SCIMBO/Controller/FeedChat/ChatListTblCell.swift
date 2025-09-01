@@ -19,12 +19,20 @@ class ChatListTblCell: UITableViewCell {
     @IBOutlet weak var lblDesc:UILabel!
     @IBOutlet weak var celebrityImgVw:UIImageView!
     @IBOutlet weak var lblDate:UILabel!
+    @IBOutlet weak var bgView:UIView!
+
 
     override func awakeFromNib() {
         super.awakeFromNib()
         lblChatCount.layer.cornerRadius = lblChatCount.frame.size.height/2.0
         lblChatCount.clipsToBounds = true
         profileImgView.initializeView()
+        
+        
+        bgView.layer.cornerRadius = 15.0
+        bgView.layer.borderColor = CustomColor.sharedInstance.newThemeColor.cgColor
+        bgView.layer.borderWidth = 0.5
+        bgView.clipsToBounds = true
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

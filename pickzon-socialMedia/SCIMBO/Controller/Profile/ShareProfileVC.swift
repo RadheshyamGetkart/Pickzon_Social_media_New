@@ -23,10 +23,15 @@ class ShareProfileVC: UIViewController {
     var userId = ""
 
     //MARK: Controller Life Cycle Methods
+    
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        cnstrntHtNavBar.constant = self.getNavBarHt
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
         bgViewScanneer.isHidden = true
-        cnstrntHtNavBar.constant = self.getNavBarHt
         addBorderColor()
         
         self.lblPickzonId.text = "@" + pickzonId

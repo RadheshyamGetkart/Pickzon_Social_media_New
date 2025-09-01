@@ -30,7 +30,6 @@ class BoostPostVC: UIViewController {
     //MARK: Controller life cycle methods
     override func viewDidLoad() {
         super.viewDidLoad()
-        cnstrntHtNavBar.constant = self.getNavBarHt
         
         // Array to keep track of controllers in page menu
         var controllerArray : [UIViewController] = []
@@ -78,6 +77,12 @@ class BoostPostVC: UIViewController {
         super.viewWillDisappear(animated)
         print("viewWillDisappear BoostPostVC")
 
+    }
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        
+        cnstrntHtNavBar.constant = self.getNavBarHt
     }
     
     //MARK: UIButton Action Methods

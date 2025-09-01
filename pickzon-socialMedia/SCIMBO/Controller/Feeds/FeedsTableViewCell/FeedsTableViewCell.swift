@@ -30,8 +30,9 @@ class FeedsTableViewCell: FeedsCell, UICollectionViewDelegate, UICollectionViewD
         self.lblMediaCount.layer.cornerRadius = lblMediaCount.frame.size.height/2.0
         self.lblMediaCount.clipsToBounds = true
         btnFolow.backgroundColor = CustomColor.sharedInstance.newThemeColor
-        btnFolow.layer.cornerRadius = 5.0
-        btnPromote.layer.cornerRadius = 5.0
+        btnFolow.layer.cornerRadius = btnFolow.frame.size.height/2.0
+        btnPromote.layer.cornerRadius = btnPromote.frame.size.height/2.0
+        btnPromote.backgroundColor = CustomColor.sharedInstance.newThemeColor
         self.separatorInset = .zero
         self.preservesSuperviewLayoutMargins = false
         self.layoutMargins = .zero
@@ -52,7 +53,7 @@ class FeedsTableViewCell: FeedsCell, UICollectionViewDelegate, UICollectionViewD
         lblDescription.collapsedAttributedLink = NSAttributedString(string: " Read more" ,attributes:  [.foregroundColor:UIColor.systemBlue])
         
         
-        self.btnBoost.layer.cornerRadius = 5.0
+        self.btnBoost.layer.cornerRadius = self.btnBoost.frame.height/2.0
         self.btnBoost.clipsToBounds = true
         
         self.cvFeedsPost.layer.cornerRadius = 8.0

@@ -16,27 +16,23 @@ protocol FeelingActivityDelegate: AnyObject {
 
 class FeelingActivityTabViewController: UIViewController, UISearchBarDelegate, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout{
     
-    
     @IBOutlet weak var cnstrntHtNavBar:NSLayoutConstraint!
-
     @IBOutlet weak var btnFeeling:UIButton!
     @IBOutlet weak var viewFeelingSub:UIView!
-    
     @IBOutlet weak var btnActivity:UIButton!
     @IBOutlet weak var viewActivitySub:UIView!
-    
     @IBOutlet weak var cvFeelingActivity:UICollectionView!
     @IBOutlet weak var searchBar:UISearchBar!
-    var isFeeling = true
-    var arrFeelings = Array<Dictionary<String, Any>>()
-    var arrActivities = Array<Dictionary<String, Any>>()
-    var arrSearched = Array<Dictionary<String, Any>>()
-    
+    private var isFeeling = true
+    private var arrFeelings = Array<Dictionary<String, Any>>()
+    private var arrActivities = Array<Dictionary<String, Any>>()
+    private var arrSearched = Array<Dictionary<String, Any>>()
     var feelingActivityDelegate:FeelingActivityDelegate!
+    
+    
     // MARK: - View Controller Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        cnstrntHtNavBar.constant = self.getNavBarHt
         cvFeelingActivity.register(UINib(nibName: "FeelingActivityCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "FeelingActivityCollectionViewCell")
         cvFeelingActivity.layoutSubviews()
         
@@ -46,14 +42,22 @@ class FeelingActivityTabViewController: UIViewController, UISearchBarDelegate, U
         
     }
     
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        cnstrntHtNavBar.constant = self.getNavBarHt
+    }
+    
     @IBAction func backBtnAction() {
         self.navigationController?.popViewController(animated: true)
     }
    
     @IBAction func feelingBtnAction() {
         isFeeling = true
-        btnFeeling.setTitleColor(UIColor(red: 30.0/255.0, green: 110.0/255.0, blue: 222.0/255.0, alpha: 1.0), for: .normal)
-        viewFeelingSub.backgroundColor = UIColor(red: 30.0/255.0, green: 110.0/255.0, blue: 222.0/255.0, alpha: 1.0)
+//        btnFeeling.setTitleColor(UIColor(red: 30.0/255.0, green: 110.0/255.0, blue: 222.0/255.0, alpha: 1.0), for: .normal)
+//        viewFeelingSub.backgroundColor = UIColor(red: 30.0/255.0, green: 110.0/255.0, blue: 222.0/255.0, alpha: 1.0)
+        
+        btnFeeling.setTitleColor(CustomColor.sharedInstance.newThemeColor, for: .normal)
+        viewFeelingSub.backgroundColor = CustomColor.sharedInstance.newThemeColor
         
         btnActivity.setTitleColor(UIColor.lightGray, for: .normal)
         viewActivitySub.backgroundColor = UIColor.white
@@ -69,8 +73,12 @@ class FeelingActivityTabViewController: UIViewController, UISearchBarDelegate, U
         btnFeeling.setTitleColor(UIColor.lightGray, for: .normal)
         viewFeelingSub.backgroundColor = UIColor.white
         
-        btnActivity.setTitleColor(UIColor(red: 30.0/255.0, green: 110.0/255.0, blue: 222.0/255.0, alpha: 1.0), for: .normal)
-        viewActivitySub.backgroundColor = UIColor(red: 30.0/255.0, green: 110.0/255.0, blue: 222.0/255.0, alpha: 1.0)
+//        btnActivity.setTitleColor(UIColor(red: 30.0/255.0, green: 110.0/255.0, blue: 222.0/255.0, alpha: 1.0), for: .normal)
+//        viewActivitySub.backgroundColor = UIColor(red: 30.0/255.0, green: 110.0/255.0, blue: 222.0/255.0, alpha: 1.0)
+        
+        btnActivity.setTitleColor(CustomColor.sharedInstance.newThemeColor, for: .normal)
+        viewActivitySub.backgroundColor = CustomColor.sharedInstance.newThemeColor
+        
         if arrActivities.count == 0{
             self.getActivitiesListAPI()
         }else {

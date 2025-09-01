@@ -15,9 +15,13 @@ class PrivacyTermsVC: UIViewController {
     var listArray = [String]()
     
     //MARK: Controller life cycle methods
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        cnstrntHtNavBar.constant = self.getNavBarHt
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
-        cnstrntHtNavBar.constant = self.getNavBarHt
         self.tblView.register(UINib(nibName: "SettingTblCell", bundle: nil), forCellReuseIdentifier: "SettingTblCell")
         listArray = ["User Verification Policy","Privacy Policy","Terms & Conditions","FAQ"]   
     }

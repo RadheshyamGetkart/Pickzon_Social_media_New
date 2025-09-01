@@ -18,6 +18,9 @@ class FeedsCell: UITableViewCell, OptionDelegate {
     @IBOutlet weak var bgVwBoost:UIView!
     @IBOutlet weak var btnBoost:UIButton!
     
+    @IBOutlet weak var bgVwSendGift:UIView!
+
+    
     @IBOutlet weak var profilePicView:ImageWithFrameImgView!
     @IBOutlet weak var profilePicViewShared:ImageWithFrameImgView!
 
@@ -96,9 +99,12 @@ class FeedsCell: UITableViewCell, OptionDelegate {
         if objWallPost.urlArray.count == 0 {
             self.btnCoinUp.isHidden = true
             self.btnCoinUpText.isHidden = true
+            self.bgVwSendGift.isHidden = true
         }else{
             self.btnCoinUp.isHidden = false
             self.btnCoinUpText.isHidden = false
+            self.bgVwSendGift.isHidden = false
+
         }
         
         if objWallPost.userInfo?.id == Themes.sharedInstance.Getuser_id() {
@@ -239,7 +245,7 @@ class FeedsCell: UITableViewCell, OptionDelegate {
         self.btnSavePost.isHidden = (objWallPost.clnViewHeight > 0.0) ? false : true
       
         self.btnViewsCount.setTitle(objWallPost.viewCount > 0 ? objWallPost.viewCount.asFormatted_k_String : "0", for: .normal)
-        self.bgVwViewCount.isHidden = (objWallPost.isCoinUp == 0 || Themes.sharedInstance.Getuser_id() == objWallPost.userInfo?.id ?? "") ? true : false
+        self.bgVwViewCount.isHidden =  true //(objWallPost.isCoinUp == 0 || Themes.sharedInstance.Getuser_id() == objWallPost.userInfo?.id ?? "") ? true : false
         self.updatedCommentLikeAndShareCount(objwallpost: objWallPost)
         self.lblDescription.textReplacementType = .word
         self.lblDescription.shouldCollapse = objWallPost.isExpanded
@@ -253,6 +259,7 @@ class FeedsCell: UITableViewCell, OptionDelegate {
         self.btnShare.tag = indexPath.row
         self.btnSavePost.tag = indexPath.row
         self.btnCoinUp.tag = indexPath.row
+        self.bgVwSendGift.tag = indexPath.row
         self.btnComment.tag = indexPath.row
         self.btnOption.tag = indexPath.row
         self.btnLikedCount.tag = indexPath.row
@@ -267,6 +274,7 @@ class FeedsCell: UITableViewCell, OptionDelegate {
         self.btnCoinUp.isHidden = true
         self.btnCoinUpText.isHidden = true
         self.btnLike.sparkView.stop()
+        self.bgVwSendGift.isHidden = true
         
         var txtFeeling = ""
         
@@ -419,7 +427,7 @@ class FeedsCell: UITableViewCell, OptionDelegate {
         self.lblDescription.shouldCollapse = objWallPost.isExpanded
         self.lblDescription.numberOfLines = 4
         self.btnViewsCount.setTitle(objWallPost.viewCount > 0 ? objWallPost.viewCount.asFormatted_k_String : "0", for: .normal)
-        self.bgVwViewCount.isHidden = (objWallPost.isCoinUp == 0 || Themes.sharedInstance.Getuser_id() == objWallPost.userInfo?.id ?? "") ? true : false
+        self.bgVwViewCount.isHidden = true // (objWallPost.isCoinUp == 0 || Themes.sharedInstance.Getuser_id() == objWallPost.userInfo?.id ?? "") ? true : false
         
         self.updatedCommentLikeAndShareCount(objwallpost: objWallPost)
         
@@ -809,10 +817,13 @@ class FeedsCell: UITableViewCell, OptionDelegate {
                         if urlArrayCount > 0 {
                             let visibleRect = CGRect(origin: self.cvFeedsPost.contentOffset, size: self.cvFeedsPost.bounds.size)
                             let visiblePoint = CGPoint(x: visibleRect.midX, y: visibleRect.midY)
-                            let visibleIndexPath = self.cvFeedsPost.indexPathForItem(at: visiblePoint)
-                            if let cell = self.cvFeedsPost.cellForItem(at: visibleIndexPath!) as? FeedsCollectionViewCell {
-                                cell.objWallPost = self.objWallPost
+                            if  let visibleIndexPath = self.cvFeedsPost.indexPathForItem(at: visiblePoint){
+                                
+                                if let cell = self.cvFeedsPost.cellForItem(at: visibleIndexPath) as? FeedsCollectionViewCell {
+                                    cell.objWallPost = self.objWallPost
+                                }
                             }
+                            
                         }
                                             
                         let objDict = ["feedId":self.objWallPost.id, "isLike":isLike, "likeCount":self.objWallPost.totalLike] as [String : Any]

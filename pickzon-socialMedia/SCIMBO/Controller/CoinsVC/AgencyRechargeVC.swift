@@ -22,7 +22,6 @@ class AgencyRechargeVC: UIViewController {
     var objConiSelected :CoinOfferModel = CoinOfferModel(respDict: [:])
     override func viewDidLoad() {
         super.viewDidLoad()
-        cnstrntHtNavbar.constant = self.getNavBarHt
         
         self.btnRechargeNow.layer.cornerRadius = 5.0
         self.btnRechargeNow.clipsToBounds = true
@@ -34,6 +33,11 @@ class AgencyRechargeVC: UIViewController {
         tblView.separatorColor = UIColor.clear
         tblView.isHidden = true
         self.getAgencyPlanOffersApi()
+    }
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        cnstrntHtNavbar.constant = self.getNavBarHt
     }
     
     @IBAction func backButonAction(_ sender:UIButton){

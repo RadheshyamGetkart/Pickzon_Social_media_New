@@ -39,7 +39,6 @@ class PostInsightsVC: UIViewController {
     //MARK: Controller life cycle methods
     override func viewDidLoad() {
         super.viewDidLoad()
-        cnstrntHtNavBar.constant = self.getNavBarHt
         tblView.register(UINib(nibName: "BoostPackTblCell", bundle: nil), forCellReuseIdentifier: "BoostPackTblCell")
         tblView.register(UINib(nibName: "SectionHeaderCell", bundle: nil), forCellReuseIdentifier: "SectionHeaderCell")
         imgVwPost.layer.cornerRadius = 10.0
@@ -58,6 +57,12 @@ class PostInsightsVC: UIViewController {
 //        self.lblPostBoostedDate.text = objPost?.boostDate ?? ""
     }
     
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        cnstrntHtNavBar.constant = self.getNavBarHt
+
+    }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)

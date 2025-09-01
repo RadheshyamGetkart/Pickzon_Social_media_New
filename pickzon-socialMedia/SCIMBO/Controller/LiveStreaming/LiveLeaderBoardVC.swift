@@ -33,7 +33,6 @@ class LiveLeaderBoardVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         btnBack.setImageTintColor(.white)
-        cnstrntHtNavbar.constant = self.getNavBarHt
         tblView.register(UINib(nibName: "ParticipantTblCell", bundle: nil), forCellReuseIdentifier: "ParticipantTblCell")
         tblView.register(UINib(nibName: "LiveParticipantTopTblCell", bundle: nil),
                          forHeaderFooterViewReuseIdentifier: "LiveParticipantTopTblCell")
@@ -59,6 +58,10 @@ class LiveLeaderBoardVC: UIViewController {
         tblView.addGestureRecognizer(swipeRight)
     }
     
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        cnstrntHtNavbar.constant = self.getNavBarHt
+    }
     
     deinit{
         print("Leaderboard deinit")

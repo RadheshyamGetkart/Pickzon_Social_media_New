@@ -63,7 +63,6 @@ class LeaderboardGiftVC: UIViewController {
         super.viewDidLoad()
         profilePicWithSvga.initializeView()
         gifterProfilePic.initializeView()
-        self.cnstrntHtNavbar.constant = self.getNavBarHt
         self.lblNavTitle.text = titleStr
         tblView.refreshControl = topRefreshControl
         self.updateBannerViewWithData()
@@ -74,6 +73,11 @@ class LeaderboardGiftVC: UIViewController {
         //375*233nimage size of banner it should be
          self.cnstrntHtTopView.constant = 0.6 * self.view.frame.size.width
         
+    }
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        self.cnstrntHtNavbar.constant = self.getNavBarHt
     }
     
     //MARK: Other Helpful Methods

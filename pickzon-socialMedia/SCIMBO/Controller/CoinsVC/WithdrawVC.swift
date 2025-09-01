@@ -28,13 +28,17 @@ class WithdrawVC: UIViewController {
     //MARK: Controller life Cycle Methods
     override func viewDidLoad() {
         super.viewDidLoad()
-        cnstrntHtNavbar.constant = self.getNavBarHt
         btnWithdraw.layer.cornerRadius = 5.0
         btnWithdraw.clipsToBounds = true
         tblView.register(UINib(nibName: "AccountInfoTblCell", bundle: nil), forCellReuseIdentifier: "AccountInfoTblCell")
         updateData()
     }
     
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        cnstrntHtNavbar.constant = self.getNavBarHt
+    }
     func updateData(){
         lblName.text = accountInfo.acccountHolderName
         lblAccountNo.text = accountInfo.accountNo

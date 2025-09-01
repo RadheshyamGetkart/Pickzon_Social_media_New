@@ -133,7 +133,7 @@
 	<key>NSCameraUsageDescription</key>
 	<string>Enable your camera access to take pictures and videos to be uploaded in Feeds and Clips etc.</string>
 	<key>NSContactsUsageDescription</key>
-	<string>Sync your contacts to connect conveniently with your friends. Your contacts will be securely stored on Pickzon's servers.</string>
+	<string>Sync your contacts to connect conveniently with your friends. Your contacts will be securely stored on Pickzon&apos;s servers.</string>
 	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
 	<string>Enable your location to get the best results based on your location.</string>
 	<key>NSLocationAlwaysUsageDescription</key>
@@ -193,6 +193,14 @@
 		<string>Amaranth-Italic.ttf</string>
 		<string>Amaranth-Regular.ttf</string>
 		<string>STOREB__.TTF</string>
+		<string>Inter-Regular</string>
+		<string>Inter-Medium</string>
+		<string>Inter-SemiBold</string>
+		<string>Inter-Thin-BETA</string>
+		<string>Inter-Bold</string>
+		<string>Inter-Black</string>
+		<string>Inter-ExtraBold</string>
+		<string>Inter-ExtraLight-BETA</string>
 	</array>
 	<key>UIBackgroundModes</key>
 	<array>

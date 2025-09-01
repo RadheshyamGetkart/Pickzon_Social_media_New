@@ -34,7 +34,6 @@ class AgencyPkVC: UIViewController {
     //MARK: Controller life Cycle Methods
     override func viewDidLoad() {
         super.viewDidLoad()
-        cntrntHtNavBar.constant = self.getNavBarHt
         registerCell()
         self.tblView.refreshControl = self.topRefreshControl
         
@@ -46,6 +45,11 @@ class AgencyPkVC: UIViewController {
         getAgencyPkListApi()
     }
     
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        cntrntHtNavBar.constant = self.getNavBarHt
+    }
     
     func registerCell(){
         tblView.register(UINib(nibName: "AgencyPkTblCell", bundle: nil), forCellReuseIdentifier: "AgencyPkTblCell")

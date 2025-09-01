@@ -44,7 +44,7 @@ class StoriesTableViewCell: UITableViewCell, UICollectionViewDelegate, UICollect
     
     
     var optionArray = ["Post","Clip","Pages","Groups","Saved"] //"Go Live" ,"Camera"
-    var optionImgArray = ["addPost","reels-1","CreatePage","CreateGroup","feedsSavePostRed"] //,"Camera"
+    var optionImgArray = ["addStory","reels-1","CreatePage","CreateGroup","feedsSavePostRed"] //,"Camera"
 
     var statusArray:Array<WallStatus> = Array<WallStatus>()
     var delegate:StoriesDelegate?
@@ -68,7 +68,7 @@ class StoriesTableViewCell: UITableViewCell, UICollectionViewDelegate, UICollect
         // Configure the view for the selected state
         cvStories.register(UINib(nibName: "StoryCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "StoryCollectionViewCell")
         
-        cvOption.register(UINib(nibName: "OptionCollectionCell", bundle: nil), forCellWithReuseIdentifier: "OptionCollectionCell")
+//        cvOption.register(UINib(nibName: "OptionCollectionCell", bundle: nil), forCellWithReuseIdentifier: "OptionCollectionCell")
 
 //        cvOption.delegate = self
 //        cvOption.dataSource = self
@@ -169,7 +169,7 @@ class StoriesTableViewCell: UITableViewCell, UICollectionViewDelegate, UICollect
                     URLhandler.sharedinstance.getThumbnailImageFromVideoUrlToButton(videoUrlString: strUrl, btn: cell.btnUserImage, placeholderImage: PZImages.avatar ?? UIImage())
                 }
                 cell.viewBack.viewedStatusColour = .lightGray
-                cell.viewBack.defaultStatusColour =  .systemBlue
+                cell.viewBack.defaultStatusColour =  CustomColor.sharedInstance.newThemeColor
                 cell.viewBack.numberOfStatus = CGFloat((obj.statusArray.count))
                 cell.viewBack.viewedStatusCount = CGFloat(self.countOfStatus(statusObj: obj))
             }
@@ -192,7 +192,7 @@ class StoriesTableViewCell: UITableViewCell, UICollectionViewDelegate, UICollect
                 
                 cell.btnUserImage.setImage(nil, for: .normal)
                 cell.viewBack.viewedStatusColour =  .lightGray
-                cell.viewBack.defaultStatusColour =  .systemBlue//CustomColor.sharedInstance.themeColor
+                cell.viewBack.defaultStatusColour =   CustomColor.sharedInstance.newThemeColor
                 cell.btnUserName.setTitle(obj.userInfo?.pickzonId ?? "", for: .normal)
                 cell.viewBack.numberOfStatus = CGFloat((obj.statusArray.count))
                 

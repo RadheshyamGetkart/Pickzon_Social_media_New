@@ -39,7 +39,6 @@ class ClipAudioVC: UIViewController {
     //MARK: Controller Life cycle methods
     override func viewDidLoad() {
         super.viewDidLoad()
-        cnstrntHtNavBar.constant = self.getNavBarHt
         registerCell()
         updateData()
         getClipsBySongIdApi(showLoader: true)
@@ -53,6 +52,12 @@ class ClipAudioVC: UIViewController {
         super.viewWillDisappear(animated)
         player?.pause()
         btnPlay.setImage(UIImage(named: "play_triangle"), for: .normal)
+
+    }
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        cnstrntHtNavBar.constant = self.getNavBarHt
 
     }
     

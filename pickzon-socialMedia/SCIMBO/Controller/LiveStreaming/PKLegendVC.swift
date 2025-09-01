@@ -31,12 +31,15 @@ class PKLegendVC: UIViewController {
     //MARK: Controller life cycle methods
     override func viewDidLoad() {
         super.viewDidLoad()
-        cnstrntHtNavBar.constant = self.getNavBarHt
         registerCell()
         getLegendApi()
         tblView.refreshControl = topRefreshControl
     }
     
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        cnstrntHtNavBar.constant = self.getNavBarHt
+    }
     //MARKK: Other Helpful Methods
     func registerCell(){
         tblView.register(UINib(nibName: "PKLegendTblCell", bundle: nil), forCellReuseIdentifier: "PKLegendTblCell")

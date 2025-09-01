@@ -29,7 +29,6 @@ class MessageRequestListVC: UIViewController {
     //MARK: Controller life cycle Methods
     override func viewDidLoad() {
         super.viewDidLoad()
-        cnstrntHtNavBar.constant = self.getNavBarHt
         self.tblView.contentInset = UIEdgeInsets(top: -10, left: 0, bottom: 0, right: 0)
         print("UIViewController: MessageRequestListVC")
         emptyView = EmptyList(frame: CGRect(x: 0, y: -64, width: tblView.frame.size.width, height: tblView.frame.size.height))
@@ -43,6 +42,11 @@ class MessageRequestListVC: UIViewController {
         self.searchBgView.isHidden = true
         tblView.keyboardDismissMode = .onDrag
 
+    }
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        cnstrntHtNavBar.constant = self.getNavBarHt
     }
     
     //MARK: Initial Setup Methods

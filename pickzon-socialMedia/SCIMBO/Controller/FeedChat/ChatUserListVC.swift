@@ -40,7 +40,6 @@ class ChatUserListVC: UIViewController,UISearchBarDelegate {
     //MARK: Controller Life Cycle Methods
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.constrntHeightNavBar.constant = self.getNavBarHt
         emptyView = EmptyList(frame: CGRect(x: 0, y: -64, width: tblView.frame.size.width, height: tblView.frame.size.height))
         emptyView?.imageView?.image = PZImages.noChat
         emptyView?.lblMsg?.text = "Not following anyone"
@@ -57,6 +56,10 @@ class ChatUserListVC: UIViewController,UISearchBarDelegate {
         
     }
     
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        self.constrntHeightNavBar.constant = self.getNavBarHt
+    }
     //MARK: UIBUtton Action Methods
     @IBAction func backBtnAction() {
         self.navigationController?.popViewController(animated: true)

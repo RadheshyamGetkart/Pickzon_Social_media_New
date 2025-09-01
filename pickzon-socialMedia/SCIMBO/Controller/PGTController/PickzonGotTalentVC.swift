@@ -43,13 +43,18 @@ class PickzonGotTalentVC: UIViewController {
         bgVwFirstHeader.clipsToBounds = true
         bgVwSecondHeader.layer.cornerRadius = 8.0
         bgVwSecondHeader.clipsToBounds = true
-        cnstrntHtNavBar.constant = self.getNavBarHt
+//        cnstrntHtNavBar.constant = self.getNavBarHt
         tblView.register(UINib(nibName: "PGTTblCell", bundle: nil), forCellReuseIdentifier: "PGTTblCell")
         tblView.refreshControl = topRefreshControl
         getPGTTalentApi()
     }
  
     
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        
+        cnstrntHtNavBar.constant = self.getNavBarHt
+    }
     //MARK: Pull to refresh
     @objc func handlePullDownRefresh(_ refreshControl: UIRefreshControl){
         if self.isDataLoading == false{

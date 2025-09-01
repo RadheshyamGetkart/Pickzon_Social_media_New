@@ -95,7 +95,6 @@ class ProfessionalDashboardVC: UIViewController {
         imgVwArrowGreen.transform = imgVwArrowGreen.transform.rotated(by:-55)
         imgVwArrowGreen.setImageViewTintColor(color: UIColor.label)
         
-        cnstrntHtNavBar.constant = self.getNavBarHt
         tblView.register(UINib(nibName: "ProfessionalDashTblCell", bundle: nil), forCellReuseIdentifier: "ProfessionalDashTblCell")
         tblViewEventPass.register(UINib(nibName: "BenefitsTblCell", bundle: nil), forCellReuseIdentifier: "BenefitsTblCell")
 
@@ -157,6 +156,10 @@ class ProfessionalDashboardVC: UIViewController {
       //btnCheckEventPass.setUnderlineForButton(text: "Check entry pass", color: .systemBlue, fontSize: 16.0, fontName: "Roboto-medium")
     }
     
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        cnstrntHtNavBar.constant = self.getNavBarHt
+    }
     
     //MARK: Pull to refresh
     @objc func handlePullDownRefresh(_ refreshControl: UIRefreshControl){

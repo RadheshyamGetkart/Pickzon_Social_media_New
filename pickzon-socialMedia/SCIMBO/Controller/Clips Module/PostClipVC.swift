@@ -43,7 +43,6 @@ class PostClipVC: UIViewController {
     //MARK: Controller Life Cycle Methods
     override func viewDidLoad() {
         super.viewDidLoad()
-        cnstrntHtNavBar.constant = self.getNavBarHt
         btnPublic.isSelected = true
         btnPostVideo.roundCorners(.allCorners, radius: 5)
         btnSaveVideo.roundCorners(.allCorners, radius: 5)
@@ -54,6 +53,12 @@ class PostClipVC: UIViewController {
         descTxtVw.delegate = self
     }
     
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        cnstrntHtNavBar.constant = self.getNavBarHt
+
+    }
     //MARK: Other Helpful Methods
     func updateData(){
         

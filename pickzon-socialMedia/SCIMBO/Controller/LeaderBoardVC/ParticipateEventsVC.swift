@@ -37,7 +37,6 @@ class ParticipateEventsVC: UIViewController {
     //MARK: Controller life cycle methods
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.cnstrntHtNavbar.constant = self.getNavBarHt
         lblNavTitle.text = strTitle
         registerCells()
         btnCheckAll.layer.cornerRadius = 5.0
@@ -49,6 +48,10 @@ class ParticipateEventsVC: UIViewController {
         getListOfEventsApi()
     }
     
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        self.cnstrntHtNavbar.constant = self.getNavBarHt
+    }
     
     //MARK: Other Helpful Methods
     func registerCells(){

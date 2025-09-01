@@ -72,9 +72,13 @@ class WallPostViewVC: UIViewController ,UITableViewDelegate,UITableViewDataSourc
     
     
     //MARK: - Controller Life Cycle Methods
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        cnstrntHtNavBar.constant = self.getNavBarHt
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
-        cnstrntHtNavBar.constant = self.getNavBarHt
         tblView.register(UINib(nibName: "FeedsTableViewCell", bundle: nil), forCellReuseIdentifier: "FeedsTableViewCell")
         tblView.register(UINib(nibName: "FeedsCollageTblCell", bundle: nil), forCellReuseIdentifier: "FeedsCollageTblCell")
         tblView.register(UINib(nibName: "FeedsSharedTableViewCell", bundle: nil), forCellReuseIdentifier: "FeedsSharedTableViewCell")

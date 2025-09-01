@@ -20,7 +20,8 @@ import RealmSwift
 import SVGAPlayer
 import WebKit
 
-class FeedsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+
+class FeedsViewController: MyViewController, UITableViewDelegate, UITableViewDataSource {
     
     //Database handling
     lazy var persistentContainer: NSPersistentContainer = {
@@ -80,7 +81,8 @@ class FeedsViewController: UIViewController, UITableViewDelegate, UITableViewDat
     var isAutopPlayFirstIndex = false
     
     @IBOutlet weak var profilePicView:ImageWithFrameImgView!
-    
+    @IBOutlet weak var cnstrntHtNavBar:NSLayoutConstraint!
+
     
     // MARK: - ViewController Life cycle
     override func loadView(){
@@ -102,12 +104,18 @@ class FeedsViewController: UIViewController, UITableViewDelegate, UITableViewDat
         bgViewBtnMenu.clipsToBounds = true
     }
     
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        
+        cnstrntHtNavBar.constant = self.getNavBarHt
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         UIApplication.shared.isIdleTimerDisabled = true
         getClipSettingApi()
-        
+
+        print("self.getNavBarHt == \(self.getNavBarHt)")
         self.isDisplayWelcomePointAlert = UserDefaults.standard.object(forKey: "isDisplayWelcomePointAlert") as? Bool ?? false
         self.showPromoAlert()
         UserDefaults.standard.set(false, forKey: "isDisplayWelcomePointAlert")
@@ -173,7 +181,11 @@ class FeedsViewController: UIViewController, UITableViewDelegate, UITableViewDat
         
         self.profilePicView.imgVwProfile?.addGestureRecognizer(UITapGestureRecognizer(target: self,
                                                                                       action:#selector(self.handleProfilePicTap)))
+        
+        
+
     }
+    
     
     
     override func viewWillAppear(_ animated: Bool) {
@@ -2397,3 +2409,9 @@ extension FeedsViewController : UploadFilesDelegate {
         }
     }
 }
+
+
+
+
+
+

@@ -48,7 +48,6 @@ class ChatListVC: SwiftBaseViewController,OptionDelegate {
         addObservers()
         checkSocketStatusAndUpdateCount()
         fetchFeedChatListFromDB()
-        cnstrntHtNavBar.constant = self.getNavBarHt
         emptyView = EmptyList(frame: CGRect(x: 0, y: -64, width: tblView.frame.size.width, height: tblView.frame.size.height))
         emptyView?.imageView?.image = PZImages.noChat
         emptyView?.lblMsg?.text = "No Chats available"
@@ -64,6 +63,10 @@ class ChatListVC: SwiftBaseViewController,OptionDelegate {
         tblView.keyboardDismissMode = .onDrag
     }
     
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        cnstrntHtNavBar.constant = self.getNavBarHt
+    }
   
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -470,7 +473,7 @@ extension ChatListVC:UITableViewDelegate,UITableViewDataSource{
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         
-        return 75
+        return 90
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

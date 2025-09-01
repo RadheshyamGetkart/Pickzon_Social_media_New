@@ -17,7 +17,6 @@ class AgencyListViewController: UIViewController {
     var objConiSelected :CoinOfferModel = CoinOfferModel(respDict: [:])
     override func viewDidLoad() {
         super.viewDidLoad()
-        cnstrntHtNavbar.constant = self.getNavBarHt
         tblView.register(UINib(nibName: "packageCell", bundle: nil), forCellReuseIdentifier: "packageCell")
         tblView.register(UINib(nibName: "BenefitsTblCell", bundle: nil), forCellReuseIdentifier: "BenefitsTblCell")
         
@@ -29,6 +28,11 @@ class AgencyListViewController: UIViewController {
         self.getAgencyList()
     }
     
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        cnstrntHtNavbar.constant = self.getNavBarHt
+    }
     func getAgencyList(){
         Themes.sharedInstance.activityView(View: self.view)
 

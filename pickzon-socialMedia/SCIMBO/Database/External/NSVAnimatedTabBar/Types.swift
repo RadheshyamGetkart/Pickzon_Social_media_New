@@ -25,6 +25,8 @@ public enum SubOptionsDistributionType {
 public enum CurveType {
     case none
     case bottom
+    case top   // 👈 new
+
 }
 
 public enum RadiusCorners {

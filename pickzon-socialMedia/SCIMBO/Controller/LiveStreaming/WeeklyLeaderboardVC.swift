@@ -35,7 +35,6 @@ class WeeklyLeaderboardVC: UIViewController {
     //MARK: Controller Life cycle method
     override func viewDidLoad() {
         super.viewDidLoad()
-        cntrntHtNavBar.constant = self.getNavBarHt
         DispatchQueue.main.async{
             self.emptyView = EmptyList(frame: CGRect(x: 0, y: -64, width:  self.tblView.frame.size.width, height:  self.tblView.frame.size.height))
             self.tblView.addSubview(self.emptyView!)
@@ -63,6 +62,11 @@ class WeeklyLeaderboardVC: UIViewController {
         swipeRight.direction = .right
         self.view.addGestureRecognizer(swipeRight)
         
+    }
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        cntrntHtNavBar.constant = self.getNavBarHt
     }
     
     //MARK: Pull to refresh

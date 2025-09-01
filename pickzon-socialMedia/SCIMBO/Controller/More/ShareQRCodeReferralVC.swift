@@ -23,9 +23,13 @@ class ShareQRCodeReferralVC: UIViewController {
     var userId = ""
 
     //MARK: Controller Life Cycle Methods
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        cnstrntHtNavBar.constant = self.getNavBarHt
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
-        cnstrntHtNavBar.constant = self.getNavBarHt
         bgViewReferlCode.addDashBorder(color: UIColor.black)
         self.lblReferralCode.text = referralCode
         getQrCodeApi()

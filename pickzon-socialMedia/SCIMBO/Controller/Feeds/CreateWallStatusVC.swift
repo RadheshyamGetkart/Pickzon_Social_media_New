@@ -36,7 +36,6 @@ class CreateWallStatusVC: UIViewController {
     // MARK: - ViewController life cycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        cnstrnt_HtNAvBar.constant = self.getNavBarHt
         updateColorBack()
         cvFeedsPost.register(UINib(nibName: "FeedsCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "FeedsCollectionViewCell")
         cvFeedsPost.register(UINib(nibName: "CommentCVCell", bundle: nil), forCellWithReuseIdentifier: "CommentCVCell")
@@ -49,6 +48,12 @@ class CreateWallStatusVC: UIViewController {
         self.pageControl.addTarget(self, action: #selector(pageControltapped(_:)), for: .valueChanged)
     }
         
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        cnstrnt_HtNAvBar.constant = self.getNavBarHt
+    }
+    
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         IQKeyboardManager.shared().isEnabled = true
@@ -73,18 +78,24 @@ class CreateWallStatusVC: UIViewController {
     
     //MARK: Initial Setup Methods
     func updateColorBack(){
-        let colorLeft = UIColor(red: 13.0/255.0, green: 107.0/255.0, blue: 255.0/255.0, alpha: 1.0).cgColor
-        let colorRight = UIColor(red: 21.0/255.0, green: 178.0/255.0, blue: 254.0/255.0, alpha: 1.0).cgColor
-        let gradientLayerColor4 = CAGradientLayer()
-        gradientLayerColor4.colors = [colorLeft, colorRight]
-        gradientLayerColor4.locations = [0.0, 1.0]
-        gradientLayerColor4.startPoint = CGPoint(x: 0.0, y: 0.5)
-        gradientLayerColor4.endPoint = CGPoint(x: 1.0, y: 0.5)
-        gradientLayerColor4.frame = self.btnPost.bounds
-        self.btnPost.layer.cornerRadius = 5.0
+        
+        btnPost.backgroundColor = CustomColor.sharedInstance.newThemeColor
+        btnPost.layer.cornerRadius = 5.0
         btnPost.clipsToBounds = true
-        btnPost.layer.insertSublayer(gradientLayerColor4, at:0)
         btnPost.setTitleColor(UIColor.white, for: .normal)
+        
+        /* let colorLeft = UIColor(red: 13.0/255.0, green: 107.0/255.0, blue: 255.0/255.0, alpha: 1.0).cgColor
+         let colorRight = UIColor(red: 21.0/255.0, green: 178.0/255.0, blue: 254.0/255.0, alpha: 1.0).cgColor
+         let gradientLayerColor4 = CAGradientLayer()
+         gradientLayerColor4.colors = [colorLeft, colorRight]
+         gradientLayerColor4.locations = [0.0, 1.0]
+         gradientLayerColor4.startPoint = CGPoint(x: 0.0, y: 0.5)
+         gradientLayerColor4.endPoint = CGPoint(x: 1.0, y: 0.5)
+         gradientLayerColor4.frame = self.btnPost.bounds
+         self.btnPost.layer.cornerRadius = 5.0
+         btnPost.clipsToBounds = true
+         btnPost.layer.insertSublayer(gradientLayerColor4, at:0)
+         btnPost.setTitleColor(UIColor.white, for: .normal)*/
     }
     
     
@@ -274,22 +285,24 @@ extension CreateWallStatusVC:UICollectionViewDelegate, UICollectionViewDataSourc
         
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CommentCVCell", for: indexPath) as! CommentCVCell
         
-        
         let storyObj:StoryUploadModel = storyArray[indexPath.item]
         
         cell.url = storyObj.mediaUrl.absoluteString
         
         cell.imgImageView.image = UIImage(contentsOfFile: storyObj.mediaUrl.path)
         //cell.btnTagUser.isHidden = true
-        cell.btnAddMusic.tag = indexPath.row
+        // cell.btnAddMusic.tag = indexPath.row
         cell.btnTagUser.tag = indexPath.row
         
-        cell.btnAddMusic.addTarget(self, action: #selector(addsoundBtn(_ : )), for: .touchUpInside)
+        //cell.btnAddMusic.addTarget(self, action: #selector(addsoundBtn(_ : )), for: .touchUpInside)
         cell.btnTagUser.addTarget(self, action: #selector(tagUserBtn(_ : )), for: .touchUpInside)
         
         cell.btnTagUser.setImageTintColor(.white)
-        cell.btnAddMusic.setImageTintColor(.white)
-
+        //  cell.btnAddMusic.setImageTintColor(.white)
+        
+        cell.btnAddMusic.isHidden = true
+        
+        
         cell.urlArray = storyArray.map({ obj in
             return obj.mediaUrl.absoluteString
         })
@@ -302,7 +315,7 @@ extension CreateWallStatusVC:UICollectionViewDelegate, UICollectionViewDataSourc
             cell.configureCell(isToHidePlayer: false, indexPath: indexPath)
             
             /*cell.mmPlayerLayer.currentPlayStatus = .pause
-            cell.mmPlayerLayer.player?.pause()*/
+             cell.mmPlayerLayer.player?.pause()*/
             cell.pauseVideo()
         }
         
@@ -322,13 +335,14 @@ extension CreateWallStatusVC:UICollectionViewDelegate, UICollectionViewDataSourc
             str =  "@" + str
         }
         
-        cell.lblTaggedUser.attributedText = str.convertAttributtedColorText(linkAndMentionColor: .white)
+        cell.lblTaggedUser.attributedText = str.convertAttributtedColorText(linkAndMentionColor: CustomColor.sharedInstance.newThemeColor)
         cell.lblTaggedUser.delegate = self
         cell.layoutIfNeeded()
         
         return cell
         
     }
+    
    
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         

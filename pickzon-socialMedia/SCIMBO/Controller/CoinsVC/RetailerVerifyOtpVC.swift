@@ -33,7 +33,6 @@ class RetailerVerifyOtpVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        cnstrntHtNavbar.constant = self.getNavBarHt
         bgViewSuccess.isHidden = true
         
         txtFdPass1.layer.cornerRadius = 10.0
@@ -70,6 +69,12 @@ class RetailerVerifyOtpVC: UIViewController {
         }else if emailId.count == 0 && mobileNo.count > 0{
             lblMessage.text = "We have sent you an OTP to your registered mobile number (\( maskedMobileNoWithStar(mobile:mobileNo))). Verify the OTP received and click on confirm."
         }
+    }
+    
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        cnstrntHtNavbar.constant = self.getNavBarHt
     }
     
     //MARK: Other Helpful Methods

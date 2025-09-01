@@ -28,9 +28,12 @@ class AddLocationVC: UIViewController {
     var locationObj = LocationModal(locationDict: [:])
     var isCreateNewJob = false
     
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        cnstrnt_HtNavBar.constant = self.getNavBarHt
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
-        cnstrnt_HtNavBar.constant = self.getNavBarHt
         self.tblView.register(UINib(nibName: "LocationTblCell", bundle: nil), forCellReuseIdentifier: "LocationTblCell")
 
         if isCreateNewJob == true {

@@ -18,20 +18,99 @@ enum SearchType{
     case hashTag
     case users
     case videos
+    case top
+}
+
+
+protocol SearchPostSelectedDelegate{
+    
+    func searchItemSelected(selObj:Any,type:SearchType)
+}
+
+
+extension SearchFeedUSerListVC :SearchPostSelectedDelegate{
+   
+    func searchItemSelected(selObj:Any,type:SearchType){
+        
+        if type == .top{
+            
+        }else if type == .videos{
+            
+        }else if type == .users{
+            
+            if let obj = selObj as? SearchedUser{
+                let profileVC:ProfileVC = StoryBoard.main.instantiateViewController(withIdentifier: "ProfileVC") as! ProfileVC
+                profileVC.otherMsIsdn = obj.id
+                self.navigationController?.pushViewController(profileVC, animated: true)
+            }
+            
+        }else if type == .hashTag{
+            
+        }
+        
+    }
+
+}
+
+
+extension SearchFeedUSerListVC : CAPSPageMenuDelegate,SearchTextDelegate {
+
+    func searchedTxt(txt:String) {
+        searchTf.text = txt
+        checkAndUpdate()
+
+    }
+    
+    func willMoveToPage(_ controller: UIViewController, index: Int){
+        print(index)
+        selectedTabIndex = index
+        checkAndUpdate()
+
+    }
+
+    func didMoveToPage(_ controller: UIViewController, index: Int){
+        print(index)
+           // pageMenu?.controllerArray[pageMenu?.currentPageIndex ?? 0].srchTxt = searchTf.text ?? ""
+    }
+    
+
+    func checkAndUpdate(){
+      
+        var strNotificationName = ""
+        if selectedTabIndex == 0{
+            strNotificationName = "topSelectedTabIndex"
+        }else  if selectedTabIndex == 1{
+            strNotificationName = "videoSelectedTabIndex"
+
+        }else  if selectedTabIndex == 2{
+            strNotificationName = "accountSelectedTabIndex"
+        }else if selectedTabIndex == 3{
+            strNotificationName = "hashtagSelectedTabIndex"
+        }
+        
+        let data: [String: Any] = [ "searchText":  searchTf.text ?? ""]
+        NotificationCenter.default.post(name: NSNotification.Name(rawValue: strNotificationName), object: nil , userInfo: data)
+    }
+
 }
 
 
 class SearchFeedUSerListVC: UIViewController,UITextFieldDelegate {
     
+    
+    var selectedTabIndex = 0
+    
+    @IBOutlet weak var cnstrntHtNavBar :NSLayoutConstraint!
     @IBOutlet weak var searchBtnWidth :NSLayoutConstraint!
     @IBOutlet weak var searchTf :UITextField!
     @IBOutlet weak var searchtbl :UITableView!
-    @IBOutlet weak var btnAll:UIButton!
+   // @IBOutlet weak var btnAll:UIButton!
     @IBOutlet weak var btnUsers:UIButton!
     @IBOutlet weak var btnHashTag:UIButton!
     @IBOutlet weak var btnMedia:UIButton!
     @IBOutlet weak var lblSeperator:UILabel!
-    
+    @IBOutlet weak var btnTop:UIButton!
+
     var feedSectionNo = 1
     var searchType:SearchType?
     var arrSearchHistory = [SearchHistory]()
@@ -47,6 +126,8 @@ class SearchFeedUSerListVC: UIViewController,UITextFieldDelegate {
     var searchedString = ""
     var emptyView:EmptyList?
     var hashSearchText = ""
+    var topPostList = [WallPostModel]()
+
     
     lazy var topRefreshControl: UIRefreshControl = {
         let refreshControl = UIRefreshControl()
@@ -58,15 +139,82 @@ class SearchFeedUSerListVC: UIViewController,UITextFieldDelegate {
     }()
     
     var strTxtSearched:String = ""
-    
+    private var pageMenu: CAPSPageMenu?
+
     //MARK: Controller life cycle methods
     override func viewDidLoad() {
         super.viewDidLoad()
         print("UIViewController: SearchFeedUSerListVC")
+        
+        
+        var controllerArray : [UIViewController] = []
+        
+        let topVc = StoryBoard.premium.instantiateViewController(withIdentifier: "TopSearchVC") as! TopSearchVC
+        topVc.title = "Top"
+        topVc.delegate = self
+       // topVc.navController = self.navigationController
+        controllerArray.append(topVc)
+        
+        let videoVC = StoryBoard.premium.instantiateViewController(withIdentifier: "VideoSearchVC") as! VideoSearchVC
+        videoVC.title = "Video"
+        topVc.delegate = self
+
+       // peopleVC.navController = self.navigationController
+        controllerArray.append(videoVC)
+        
+        
+        let accountVC = StoryBoard.premium.instantiateViewController(withIdentifier: "AccountSearchVC") as! AccountSearchVC
+        accountVC.title = "Accounts"
+       // peopleVC.navController = self.navigationController
+        
+        topVc.delegate = self
+
+        controllerArray.append(accountVC)
+        
+        let hashtagVC = StoryBoard.premium.instantiateViewController(withIdentifier: "HashTagSearchVC") as! HashTagSearchVC
+        hashtagVC.title = "Hashtags"
+       // peopleVC.navController = self.navigationController
+        topVc.delegate = self
+
+        controllerArray.append(hashtagVC)
+        
+        // Customize page menu to your liking (optional) or use default settings by sending nil for 'options' in the init
+        // Example:
+        let parameters: [CAPSPageMenuOption] = [
+            .menuItemSeparatorWidth(2.0),
+            .menuItemSeparatorPercentageHeight(0.05),
+            .menuItemWidth(self.view.frame.size.width/4-10),
+            .centerMenuItems(true),
+            .bottomMenuHairlineColor(UIColor.clear),
+            .selectionIndicatorColor(CustomColor.sharedInstance.newThemeColor),
+            .scrollMenuBackgroundColor(UIColor.systemBackground),
+            .selectedMenuItemLabelColor(.label),
+            .unselectedMenuItemLabelColor(.darkGray),
+            .menuHeight(40),
+            .selectionIndicatorHeight(2),
+            .menuItemFont(UIFont.systemFont(ofSize: 16, weight: .medium)),
+            
+        ]
+        
+        
+        
+        
+        cnstrntHtNavBar.constant = self.getNavBarHt
+        let ht = cnstrntHtNavBar.constant + 10
+        
+        // Initialize page menu with controller array, frame, and optional parameters
+        pageMenu = CAPSPageMenu(viewControllers: controllerArray, frame: CGRectMake(0.0, ht, self.view.frame.width,self.view.frame.height-ht-(self.tabBarController?.tabBar.frame.height ?? 0)), pageMenuOptions: parameters)
+        pageMenu?.delegate = self
+        pageMenu?.menuScrollView.isScrollEnabled = false
+        pageMenu?.controllerScrollView.isScrollEnabled = false
+        self.view.addSubview(pageMenu!.view)
+      
+        registerCell()
+        /*
         searchTf.delegate = self
-        searchType = .peoples
+        searchType = .top
         self.searchtbl.contentInset = UIEdgeInsets(top: -10, left: 0, bottom: 0, right: 0)
-        lblSeperator.frame =  CGRect(x: btnUsers.frame.origin.x + 5, y: btnUsers.frame.origin.y+btnUsers.frame.size.height-1, width: btnUsers.frame.size.width, height: 3)
+        lblSeperator.frame =  CGRect(x: btnTop.frame.origin.x + 5, y: btnTop.frame.origin.y+btnTop.frame.size.height-1, width: btnTop.frame.size.width, height: 3)
         searchTf.becomeFirstResponder()
         registerCell()
         searchtbl.keyboardDismissMode = .onDrag
@@ -82,6 +230,7 @@ class SearchFeedUSerListVC: UIViewController,UITextFieldDelegate {
         addObservers()
         self.pageNo = 1
         
+        self.btnTop.setTitleColor(.label, for: .normal)
         self.btnUsers.setTitleColor(.label, for: .normal)
         self.btnHashTag.setTitleColor(.lightGray, for: .normal)
         self.btnMedia.setTitleColor(.lightGray, for: .normal)
@@ -99,8 +248,20 @@ class SearchFeedUSerListVC: UIViewController,UITextFieldDelegate {
             self.commonButtonAction(sender: self.btnHashTag)
         }
         searchtbl.reloadData()
+        */
     }
     
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        
+        if cnstrntHtNavBar.constant != self.getNavBarHt + 10{
+            cnstrntHtNavBar.constant = self.getNavBarHt + 10
+            let ht = self.getNavBarHt + 10
+            pageMenu?.view.frame = CGRectMake(0.0, ht, self.view.frame.width,self.view.frame.height-ht-(self.tabBarController?.tabBar.frame.height ?? 0))
+        }
+       
+    }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -214,11 +375,21 @@ class SearchFeedUSerListVC: UIViewController,UITextFieldDelegate {
     
     
     //MARK: UIButton Action Methods
+    
+    @IBAction func txtFdBtnAction(sender:UIButton){
+        
+        let topVc = StoryBoard.premium.instantiateViewController(withIdentifier: "SearchSuggestionVC") as! SearchSuggestionVC
+        topVc.delegate = self
+        topVc.srchTxt = searchTf.text ?? ""
+        self.navigationController?.pushViewController(topVc, animated: false)
+    }
+    
     @IBAction func commonButtonAction(sender:UIButton){
        
         arrSearchHistory.removeAll()
         searchTf.text = searchTf.text?.trimmingLeadingAndTrailingSpaces()
         
+        self.btnTop.setTitleColor(.lightGray, for: .normal)
         self.btnUsers.setTitleColor(.lightGray, for: .normal)
         self.btnHashTag.setTitleColor(.lightGray, for: .normal)
         self.btnMedia.setTitleColor(.lightGray, for: .normal)
@@ -230,29 +401,32 @@ class SearchFeedUSerListVC: UIViewController,UITextFieldDelegate {
         })
         
         if sender.tag == 1000{
-            
-            searchType = .all
-            if searchTf.text?.length ?? 0 > 0{
+            //Top //
+            /*   searchType = .all
+           if searchTf.text?.length ?? 0 > 0{
                 searchKeywordApi()
             }else {
                 searchGlobalListingAPI()
-            }
+            }*/
+            searchType = .top
+            self.searchTf.placeholder = "Search"
+
             searchtbl.reloadData()
             
-        }else if sender.tag == 1001{
+        }else if sender.tag == 1002{
             self.pageNo = 1
             searchType = .peoples
             self.searchTf.placeholder = "Search People"
             searchKeywordApi()
             searchtbl.reloadData()
             
-        }else if sender.tag == 1004{
+        }else if sender.tag == 1003{
             searchType = .hashTag
             self.pageNo_HashTag = 1
             self.searchTf.placeholder = "Search #Tag"
             searchKeywordApi()
             searchtbl.reloadData()
-        }else if sender.tag == 1005{
+        }else if sender.tag == 1001{
             searchType = .media
             self.pageNo_Media = 1
             self.searchTf.placeholder = "Search Media"
@@ -489,6 +663,9 @@ class SearchFeedUSerListVC: UIViewController,UITextFieldDelegate {
         if searchType == .all{
             param  = ["type":"all","keyword":searchTf.text!]
             
+        }else if searchType == .top{
+            param  = ["type":"all","keyword":searchTf.text!]
+            
         }else if searchType == .peoples{
             param  = ["type":"users","keyword":searchTf.text!,"pageNumber":pageNo, "pageLimit":21]
             
@@ -683,17 +860,28 @@ extension SearchFeedUSerListVC:UITableViewDelegate,UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
        
         if section == 0{
+           
             return arrSearchHistory.count
+            
         }else if section == 2{
+           
             return (isDataMoreAvailable) ? 1 : 0
             
         }else if searchType == .peoples {
+           
             return self.arrPeopleList.count
+            
         }else if self.searchType == .hashTag {
             //arrHashTagList.count
             return (arrHashTagList.count > 0) ? 1 : 0
+       
         }else if self.searchType == .media {
+            
             return (arrMediaList.count > 0) ? 1 : 0
+
+        }else if searchType == .top{
+           
+            return (topPostList.count > 0) ? 1 : 0
 
         }else if searchType == .all {
             
@@ -802,7 +990,11 @@ extension SearchFeedUSerListVC:UITableViewDelegate,UITableViewDataSource {
             cell.cllctnVw.reloadData()
             return cell
        
+        }else if searchType == .top{
+            
+            
         }
+
        
         return UITableViewCell()
     }

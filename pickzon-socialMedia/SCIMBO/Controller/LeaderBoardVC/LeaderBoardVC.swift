@@ -32,7 +32,6 @@ class LeaderBoardVC: UIViewController {
     //MARK: Controller Life Cycle Methods
     override func viewDidLoad() {
         super.viewDidLoad()
-        cnstrntHtNavbar.constant = self.getNavBarHt
         tblView.register(UINib(nibName: "ParticipantTblCell", bundle: nil), forCellReuseIdentifier: "ParticipantTblCell")
         tblView.register(UINib(nibName: "ParticipantTopTblCell", bundle: nil),
                                   forHeaderFooterViewReuseIdentifier: "ParticipantTopTblCell")
@@ -58,6 +57,10 @@ class LeaderBoardVC: UIViewController {
         tblView.addGestureRecognizer(swipeRight)
     }
     
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        cnstrntHtNavbar.constant = self.getNavBarHt
+    }
     
     deinit{
         print("Leaderboard deinit")

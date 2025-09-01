@@ -27,12 +27,12 @@ class OnCellClickViewController: UIViewController,MKMapViewDelegate {
     //MARK: Controller life cycle methods
     override func viewDidLoad() {
         super.viewDidLoad()
-        if UIDevice().hasNotch {
-            topViewHeightConstraint.constant = Constant.sharedinstance.NavigationBarHeight_iPhoneX
-        } else {
-            topViewHeightConstraint.constant = Constant.sharedinstance.NavigationBarHeight
-        }
-        
+//        if UIDevice().hasNotch {
+//            topViewHeightConstraint.constant = Constant.sharedinstance.NavigationBarHeight_iPhoneX
+//        } else {
+//            topViewHeightConstraint.constant = Constant.sharedinstance.NavigationBarHeight
+//        }
+//        
         print(latitude)
         print(longitude)
         
@@ -51,6 +51,11 @@ class OnCellClickViewController: UIViewController,MKMapViewDelegate {
         mapKit.isRotateEnabled = false
         
         // Do any additional setup after loading the view.
+    }
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        topViewHeightConstraint.constant = self.getNavBarHt
     }
     
     //MARK: UIButton Action methods

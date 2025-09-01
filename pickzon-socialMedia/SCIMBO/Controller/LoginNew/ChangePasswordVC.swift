@@ -44,8 +44,7 @@ class ChangePasswordVC: UIViewController {
     //MARK: Controller life cycle methods
     override func viewDidLoad() {
         super.viewDidLoad()
-        cnstrntHtNavBar.constant = self.getNavBarHt
-        btnChangePassword.backgroundColor = Themes.sharedInstance.colorWithHexString(hex: "007BFF")
+      //  btnChangePassword.backgroundColor = Themes.sharedInstance.colorWithHexString(hex: "007BFF")
         viewEmail.isHidden = true
         viewOtp.isHidden = true
         viewOldPassword.isHidden = true
@@ -82,6 +81,10 @@ class ChangePasswordVC: UIViewController {
 
         self.txtConfirmPassword.attributedPlaceholder = getTextfromVerifiedAndString(name: "Confirm New Password", imageName: "chat_lock")
 
+    }
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        cnstrntHtNavBar.constant = self.getNavBarHt
     }
     
     

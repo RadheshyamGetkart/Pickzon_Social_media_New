@@ -38,6 +38,8 @@ class FeedSuggestionTblCell: UITableViewCell {
         cllctnView.register(UINib(nibName: "SuggestionCollectionCell", bundle: nil), forCellWithReuseIdentifier: "SuggestionCollectionCell")
         cllctnView.delegate = self
         cllctnView.dataSource = self
+        lblTitle.font = UIFont.Inter.regular(size: 16.0).font
+        btnSeeAll.titleLabel?.font = UIFont.Inter.medium(size: 15.0).font
     }
     
     
@@ -97,20 +99,21 @@ extension FeedSuggestionTblCell:UICollectionViewDelegate,UICollectionViewDataSou
         cell.btnClose.tag = indexPath.item
         cell.btnClose.addTarget(self, action: #selector(closeBtnAction(_ : )), for: .touchUpInside)
         
+        
         return cell
     }
     
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         
-        return CGSize(width: self.view.frame.size.width, height: self.cllctnView.frame.height )
+        return CGSize(width: self.view.frame.size.width, height: self.cllctnView.frame.height-5 )
     }
     
     
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-        return UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
-    }
-    
+//    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
+//        return UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
+//    }
+//    
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         delegate?.clickedUserIndex(index: indexPath.row, section: sectionIndex)

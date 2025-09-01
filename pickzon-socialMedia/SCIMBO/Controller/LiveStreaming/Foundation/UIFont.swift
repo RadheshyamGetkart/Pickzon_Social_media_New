@@ -14,7 +14,7 @@ extension UIFont {
     }
     
     static func defaultFontName() -> String {
-        return "Roboto-Regular"
+        return "Inter-Regular"
     }
     
     

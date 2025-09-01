@@ -14,7 +14,7 @@ enum DevEnvironment {
     case live
 }
 
-var ISDEBUG = false
+var ISDEBUG = true
 var devEnvironment: DevEnvironment = .staging
 
 var BaseURLArray :Array<String> {
@@ -142,6 +142,14 @@ var webUrl : String {
     }
     
     
+    var search_video:String {
+        get{
+            return "\(NewBaseUrl)/feed/search-video"
+        }
+    }
+    
+    
+
     //MARK: Premium & Coins
     
     
@@ -772,6 +780,16 @@ var webUrl : String {
         }
     }
     
+    
+    
+    
+    var feedHashTags : String {
+        get {
+            return "\(NewBaseUrl)/feed/hashTags"
+        }
+    }
+    
+    
     var SearchKeyWord : String {
         get {
             return "\(NewBaseUrl)/user/search"
@@ -784,6 +802,22 @@ var webUrl : String {
         }
     }
     
+    var feed_top_post : String {
+        get {
+            return "\(NewBaseUrl)/feed/top-post"
+        }
+    }
+    
+    
+    
+    var  feed_search_suggestion : String {
+        get {
+            return "\(NewBaseUrl)/feed/search-suggestion"
+        }
+    }
+    
+    
+   
     var friendRequestList:String {
         get{
             return "\(NewBaseUrl)/user/get-user-friend-request-list"
@@ -2047,3 +2081,40 @@ struct FilterEffects {
         self.url = dict["url"] as? String ?? ""
     }
 }
+
+
+
+
+extension UIFont{
+    
+    enum Inter{
+        
+        case regular(size: CGFloat)
+        case medium(size: CGFloat)
+        case semiBold(size: CGFloat)
+        case bold(size: CGFloat)
+        case extraBold(size: CGFloat)
+        
+        var font:UIFont!{
+            switch self{
+                
+            case .regular(size: let size):
+                return UIFont(name: "Inter-Regular", size: size)
+                
+            case .medium(size: let size):
+                return UIFont(name: "Inter-Medium", size: size)
+                
+            case .semiBold(size: let size):
+                return UIFont(name: "Inter-SemiBold", size: size)
+                
+            case .bold(size: let size):
+                return UIFont(name: "Inter-Bold", size: size)
+                
+            case .extraBold(size: let size):
+                return UIFont(name: "Inter-ExtraBold", size: size)
+            }
+            
+        }
+    }
+}
+    

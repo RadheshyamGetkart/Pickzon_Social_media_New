@@ -58,7 +58,6 @@ class WalletVC: SwiftBaseViewController {
     //MARK: Controller Life Cycle Methods
     override func viewDidLoad() {
         super.viewDidLoad()
-        cnstrntHtNavbar.constant = self.getNavBarHt
         tblView.register(UINib(nibName: "CoinsHeaderTblCell", bundle: nil), forCellReuseIdentifier: "CoinsHeaderTblCell")
         tblView.register(UINib(nibName: "BenefitsTblCell", bundle: nil), forCellReuseIdentifier: "BenefitsTblCell")
         tblView.register(UINib(nibName: "CheerCoinTblCell", bundle: nil), forCellReuseIdentifier: "CheerCoinTblCell")
@@ -98,6 +97,10 @@ class WalletVC: SwiftBaseViewController {
         
     }
     
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        cnstrntHtNavbar.constant = self.getNavBarHt
+    }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
         getAvailableCoinList()

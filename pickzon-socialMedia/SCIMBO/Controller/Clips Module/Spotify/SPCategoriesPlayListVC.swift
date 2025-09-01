@@ -36,7 +36,6 @@ class SPCategoriesPlayListVC: UIViewController, UICollectionViewDelegate, UIColl
     var isFeatured = false
     override func viewDidLoad() {
         super.viewDidLoad()
-        cnstrntHtNavBar.constant = self.getNavBarHt
         self.lblTitle.text = strTitle
         clnView.register(UINib(nibName: "SpotifyCategoriesCell", bundle: nil), forCellWithReuseIdentifier: "SpotifyCategoriesCell")
         
@@ -46,6 +45,12 @@ class SPCategoriesPlayListVC: UIViewController, UICollectionViewDelegate, UIColl
         
         // Do any additional setup after loading the view.
         self.fetchspotifyCategoriesPlaylist()
+    }
+    
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        cnstrntHtNavBar.constant = self.getNavBarHt
     }
     
     @IBAction func backButtonAction(){

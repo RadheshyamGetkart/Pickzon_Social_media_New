@@ -349,13 +349,26 @@ extension UIDevice {
 //MARK: UIViewcontroller
 extension UIViewController{
     
-    var getNavBarHt:CGFloat  {
-        //        print("\(UIApplication.shared.statusBarFrame.size.height)==topBarHeight==\((self.navigationController?.navigationBar.frame.height ?? 0.0))" )
+ /*   var getNavBarHt:CGFloat  {
+                print("\(UIApplication.shared.statusBarFrame.size.height)==topBarHeight==\((self.navigationController?.navigationBar.frame.height ?? 0.0))" )
         
         return   UIApplication.shared.statusBarFrame.size.height +
         (self.navigationController?.navigationBar.frame.height ?? 0.0) + 5
+
         
+    }*/
+    
+    var getNavBarHt: CGFloat {
+        let statusBarHeight = view.window?.windowScene?.statusBarManager?.statusBarFrame.height
+            ?? view.safeAreaInsets.top   // fallback if statusBarManager is not available
+        
+        let navBarHeight = self.navigationController?.navigationBar.frame.height ?? 0.0
+        
+        print("\(statusBarHeight) == topBarHeight == \(navBarHeight)")
+        
+        return statusBarHeight + navBarHeight + 5
     }
+
     
     func downloadAllMedia(urlArray:Array<String>){
         

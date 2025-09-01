@@ -96,7 +96,7 @@ class ProfileHeaderTblCell: UITableViewCell {
                                        forCellWithReuseIdentifier: "SuggestionCollectionCell")
         collectioVwSuggestion.delegate = self
         collectioVwSuggestion.dataSource = self
-        self.btnContact.setImageTintColor(UIColor.systemBlue)
+       // self.btnContact.setImageTintColor(UIColor.systemBlue)
         imgVwGiftingLevel.isUserInteractionEnabled = true
         lblDescription.numberOfLines = 3
         lblDescription.collapsed = true
@@ -257,23 +257,20 @@ class ProfileHeaderTblCell: UITableViewCell {
             
                 if userObj.isFollow == 1  {
                     
-                  //  self.btnFollow.setTitle("Followed", for: .normal)
-                    self.btnFollow.setImageTintColor(UIColor.black)
-                    self.btnFollow.backgroundColor = Themes.sharedInstance.colorWithHexString(hex: "#D9D9D9") 
-                    self.btnFollow.setTitleColor(UIColor.black, for: .normal)
-                    self.btnMessage.setImageTintColor(UIColor.systemBlue)
-                    self.btnMessage.backgroundColor = .clear // CustomColor.sharedInstance.newThemeColor
-                  //  self.btnMessage.setTitleColor(UIColor.white, for: .normal)
+                  //  self.btnFollow.setImageTintColor(UIColor.black)
+                   // self.btnFollow.backgroundColor = Themes.sharedInstance.colorWithHexString(hex: "#D9D9D9")
+                    self.btnFollow.setTitleColor(UIColor.white, for: .normal)
+                   // self.btnMessage.setImageTintColor(UIColor.white)
+                  //  self.btnMessage.backgroundColor = .clear // CustomColor.sharedInstance.newThemeColor
                
                 }else{
 
                     self.btnFollow.setImageTintColor(UIColor.white)
                     self.btnFollow.backgroundColor = CustomColor.sharedInstance.newThemeColor
                     self.btnFollow.setTitleColor(UIColor.white, for: .normal)
-                   // self.btnMessage.setTitleColor(CustomColor.sharedInstance.newThemeColor, for: .normal)
-                    self.btnMessage.setImageTintColor(UIColor.systemBlue)
-                    self.btnMessage.backgroundColor =  .clear //UIColor.white
-                    self.btnMessage.layer.borderColor = CustomColor.sharedInstance.newThemeColor.cgColor
+//                    self.btnMessage.setImageTintColor(UIColor.systemBlue)
+//                    self.btnMessage.backgroundColor =  .clear //UIColor.white
+//                    self.btnMessage.layer.borderColor = CustomColor.sharedInstance.newThemeColor.cgColor
                 }
         }
         

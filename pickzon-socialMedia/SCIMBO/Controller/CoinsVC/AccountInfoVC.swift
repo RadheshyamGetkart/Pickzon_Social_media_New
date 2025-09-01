@@ -33,7 +33,6 @@ class AccountInfoVC: UIViewController {
     //MARK: Controller life Cycle Methods
     override func viewDidLoad() {
         super.viewDidLoad()
-        cnstrntHtNavbar.constant = self.getNavBarHt
         btnNext.layer.cornerRadius = 5.0
         btnNext.clipsToBounds = true
         tblView.register(UINib(nibName: "AccountInfoTblCell", bundle: nil), forCellReuseIdentifier: "AccountInfoTblCell")
@@ -52,6 +51,10 @@ class AccountInfoVC: UIViewController {
         }
     }
     
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        cnstrntHtNavbar.constant = self.getNavBarHt
+    }
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         IQKeyboardManager.shared().isEnabled = true

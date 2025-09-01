@@ -16,9 +16,13 @@ class CertificateBadgeVC: UIViewController {
     @IBOutlet weak var btnDownload:UIButton!
 
 //MARK: Controller life cycle methods
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        self.cnstrntHtNavBar.constant = self.getNavBarHt
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.cnstrntHtNavBar.constant = self.getNavBarHt
         getBadgeCertificateApi()
         btnDownload.setImageTintColor(.blue)
     }

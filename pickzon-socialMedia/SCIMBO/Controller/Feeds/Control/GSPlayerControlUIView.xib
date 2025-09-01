@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="22505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="23504" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22504"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="23506"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -30,10 +30,10 @@
                     <rect key="frame" x="0.0" y="0.0" width="414" height="100"/>
                 </imageView>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="U9M-9p-mv0">
-                    <rect key="frame" x="0.0" y="60" width="414" height="40"/>
+                    <rect key="frame" x="10" y="60" width="389" height="40"/>
                     <subviews>
                         <stackView opaque="NO" contentMode="scaleToFill" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="0eu-p2-xRC">
-                            <rect key="frame" x="0.0" y="5" width="414" height="30"/>
+                            <rect key="frame" x="5" y="5" width="374" height="30"/>
                             <subviews>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cAu-8v-zVP">
                                     <rect key="frame" x="0.0" y="0.0" width="30" height="30"/>
@@ -59,7 +59,7 @@
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <slider opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="0.0" maxValue="0.0" translatesAutoresizingMaskIntoConstraints="NO" id="Aad-Af-mO4" customClass="MyCustomSlider" customModule="PickZon" customModuleProvider="target">
-                                    <rect key="frame" x="78" y="0.0" width="258" height="31"/>
+                                    <rect key="frame" x="78" y="0.0" width="218" height="31"/>
                                     <color key="minimumTrackTintColor" systemColor="tintColor"/>
                                     <color key="maximumTrackTintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <color key="thumbTintColor" systemColor="systemRedColor"/>
@@ -74,7 +74,7 @@
                                     </connections>
                                 </slider>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00:00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5gN-kx-QEC">
-                                    <rect key="frame" x="339" y="0.0" width="40" height="30"/>
+                                    <rect key="frame" x="299" y="0.0" width="40" height="30"/>
                                     <constraints>
                                         <constraint firstAttribute="width" constant="40" id="50o-fg-bHA"/>
                                         <constraint firstAttribute="height" constant="30" id="bbA-YY-TTV"/>
@@ -84,7 +84,7 @@
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kQc-fT-ydk">
-                                    <rect key="frame" x="384" y="0.0" width="30" height="30"/>
+                                    <rect key="frame" x="344" y="0.0" width="30" height="30"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="30" id="Fbl-dJ-UDE"/>
                                         <constraint firstAttribute="width" constant="30" id="nae-jS-Qub"/>
@@ -101,8 +101,8 @@
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="40" id="QTS-4P-zVQ"/>
-                        <constraint firstItem="0eu-p2-xRC" firstAttribute="leading" secondItem="U9M-9p-mv0" secondAttribute="leading" id="Si8-NU-agr"/>
-                        <constraint firstAttribute="trailing" secondItem="0eu-p2-xRC" secondAttribute="trailing" id="ihE-3o-mRX"/>
+                        <constraint firstItem="0eu-p2-xRC" firstAttribute="leading" secondItem="U9M-9p-mv0" secondAttribute="leading" constant="5" id="Si8-NU-agr"/>
+                        <constraint firstAttribute="trailing" secondItem="0eu-p2-xRC" secondAttribute="trailing" constant="10" id="ihE-3o-mRX"/>
                         <constraint firstItem="0eu-p2-xRC" firstAttribute="top" secondItem="U9M-9p-mv0" secondAttribute="top" constant="5" id="o00-0L-eIB"/>
                         <constraint firstAttribute="bottom" secondItem="0eu-p2-xRC" secondAttribute="bottom" constant="5" id="qWK-pe-dN4"/>
                     </constraints>
@@ -112,10 +112,10 @@
             <constraints>
                 <constraint firstItem="HcB-b7-UMu" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="6tP-6R-DHK"/>
                 <constraint firstItem="HcB-b7-UMu" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="BSc-wR-FbC"/>
-                <constraint firstItem="U9M-9p-mv0" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="BTy-rb-7pf"/>
+                <constraint firstItem="U9M-9p-mv0" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="10" id="BTy-rb-7pf"/>
                 <constraint firstAttribute="bottom" secondItem="U9M-9p-mv0" secondAttribute="bottom" id="Bol-HX-Sz1"/>
                 <constraint firstAttribute="trailing" secondItem="HcB-b7-UMu" secondAttribute="trailing" id="IYR-zY-fqk"/>
-                <constraint firstAttribute="trailing" secondItem="U9M-9p-mv0" secondAttribute="trailing" id="Sot-Kh-NEo"/>
+                <constraint firstAttribute="trailing" secondItem="U9M-9p-mv0" secondAttribute="trailing" constant="15" id="Sot-Kh-NEo"/>
                 <constraint firstAttribute="bottom" secondItem="HcB-b7-UMu" secondAttribute="bottom" id="laT-Xm-14R"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>

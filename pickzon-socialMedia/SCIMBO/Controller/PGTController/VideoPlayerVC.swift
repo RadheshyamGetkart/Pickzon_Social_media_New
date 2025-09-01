@@ -23,7 +23,6 @@ class VideoPlayerVC: UIViewController {
     //MARK: Controller life cycle methods
     override func viewDidLoad() {
         super.viewDidLoad()
-        cnstrntHtNavBar.constant = self.getNavBarHt
         
         if let url = URL(string:videoURL){
             player = AVPlayer(url: url)
@@ -36,6 +35,12 @@ class VideoPlayerVC: UIViewController {
     }
     
 
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        
+        cnstrntHtNavBar.constant = self.getNavBarHt
+    }
     //MARK: UIButton Action Methods
     @IBAction func backButtonActionMethod(_ sender : UIButton){
         self.navigationController?.popViewController(animated: true)

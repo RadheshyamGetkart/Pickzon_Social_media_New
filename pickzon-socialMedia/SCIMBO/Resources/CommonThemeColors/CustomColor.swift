@@ -11,7 +11,7 @@ import UIKit
 class CustomColor: NSObject {
     static let sharedInstance=CustomColor()
 //    let themeColor = Themes.sharedInstance.UIColorFromHex(0x7ABC3B)
-    let themeColor = Themes.sharedInstance.UIColorFromHex(0x19B754)
+    let themeColor = Themes.sharedInstance.colorWithHexString(hex: "#00BDB0") //Themes.sharedInstance.UIColorFromHex(0x19B754)
     
     
     let alertColor = UIColor(red:0.00, green:0.66, blue:0.90, alpha:1.0)
@@ -23,7 +23,7 @@ class CustomColor: NSObject {
     let lightBlueColor = UIColor(red: 0/255.0, green: 102/255.0, blue: 204/255.0, alpha: 1)
     
     
-     let BGColor = Themes.sharedInstance.UIColorFromHex(0xEEEEEE)
+    // let BGColor = Themes.sharedInstance.UIColorFromHex(0xEEEEEE)
     
 //    let newThemeColor = Themes.sharedInstance.colorWithHexString(hex: "#007aff")
     let newThemeColor = Themes.sharedInstance.colorWithHexString(hex: "#00BDB0")

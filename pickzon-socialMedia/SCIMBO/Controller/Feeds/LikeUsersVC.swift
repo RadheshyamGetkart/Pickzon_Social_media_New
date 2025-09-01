@@ -33,7 +33,6 @@ class LikeUsersVC: UIViewController {
     //MARK: Controller Life cycle methods
     override func viewDidLoad() {
         super.viewDidLoad()
-        cnstrntHtNavBar.constant = self.getNavBarHt
         self.tblView.register(UINib(nibName: "LoadMoreTblCell", bundle: nil), forCellReuseIdentifier: "LoadMoreTblCell")
         lblTitle.text = "Likes"
         
@@ -62,6 +61,11 @@ class LikeUsersVC: UIViewController {
                                                 #selector(self.feedFollwedNotification(notification:)), name: notif_FeedFollowed, object: nil)
     }
     
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        cnstrntHtNavBar.constant = self.getNavBarHt
+    }
 
     //MARK:UIButton Action Methods
         
@@ -531,7 +535,7 @@ class LikeTblCell: UITableViewCell {
     @IBOutlet weak var profilePicView:ImageWithFrameImgView!
 
     @IBOutlet weak var lblName:UILabel!
-    @IBOutlet weak var btnProfile:UIButton!
+   // @IBOutlet weak var btnProfile:UIButton!
     @IBOutlet weak var lblSeperator:UILabel!
     @IBOutlet weak var btnFollow:UIButton!
     @IBOutlet weak var lblPickzonId:UILabel!
@@ -539,7 +543,7 @@ class LikeTblCell: UITableViewCell {
     
     override func awakeFromNib(){
         super.awakeFromNib()
-        btnFollow.layer.cornerRadius = 5.0
+        btnFollow.layer.cornerRadius = btnFollow.frame.height/2.0
         btnFollow.clipsToBounds = true
         profilePicView.initializeView()
     }

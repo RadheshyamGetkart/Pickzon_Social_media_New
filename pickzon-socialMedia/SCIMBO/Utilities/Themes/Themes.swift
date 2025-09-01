@@ -2647,17 +2647,17 @@ extension UIView {
         layer.shadowRadius = radius
     }
 }
-
+/*
 extension UIFont{
     
     @objc class func MyMediumFont(_ fontSize: CGFloat) -> UIFont?
     {
-        return UIFont(name: "Roboto-Medium", size: fontSize)!
+        return UIFont(name: "Inter-Medium", size: fontSize)!
     }
     
     @objc class func MyboldFont(_ fontSize: CGFloat) -> UIFont?
     {
-        return UIFont(name: "Roboto-Bold", size: fontSize)!
+        return UIFont(name: "Inter-Bold", size: fontSize)!
     }
     
     @objc class func MyitalicFont(_ fontSize: CGFloat) -> UIFont?
@@ -2667,7 +2667,7 @@ extension UIFont{
     
     @objc class func MyRegularFont(_ fontSize: CGFloat) -> UIFont?
     {
-        return UIFont(name: "Roboto-Regular", size: fontSize)!
+        return UIFont(name: "Inter-Regular", size: fontSize)!
        
     }
     
@@ -2690,6 +2690,80 @@ extension UIFont{
         if let italicSystemFontMethod = class_getClassMethod(self, #selector(italicSystemFont(ofSize:))),
             let myItalicSystemFontMethod = class_getClassMethod(self, #selector(MyitalicFont(_:))) {
             method_exchangeImplementations(italicSystemFontMethod, myItalicSystemFontMethod)
+        }
+        
+        if let italicSystemFontMethod = class_getClassMethod(self, #selector(italicSystemFont(ofSize:))),
+            let myItalicSystemFontMethod = class_getClassMethod(self, #selector(MyitalicFont(_:))) {
+            method_exchangeImplementations(italicSystemFontMethod, myItalicSystemFontMethod)
+        }
+    }
+}
+
+*/
+
+extension UIFont {
+    
+    @objc class func MyMediumFont(_ fontSize: CGFloat) -> UIFont {
+        return UIFont(name: "Inter-Medium", size: fontSize)
+            ?? UIFont.systemFont(ofSize: fontSize, weight: .medium)
+    }
+    
+    @objc class func MyBoldFont(_ fontSize: CGFloat) -> UIFont {
+        return UIFont(name: "Inter-Bold", size: fontSize)
+            ?? UIFont.boldSystemFont(ofSize: fontSize)
+    }
+    
+    @objc class func MyItalicFont(_ fontSize: CGFloat) -> UIFont {
+        return UIFont(name: "Roboto-Italic", size: fontSize)
+            ?? UIFont.italicSystemFont(ofSize: fontSize)
+    }
+    
+    @objc class func MyRegularFont(_ fontSize: CGFloat) -> UIFont {
+        return UIFont(name: "Inter-Regular", size: fontSize)
+            ?? UIFont.systemFont(ofSize: fontSize)
+    }
+    
+    @objc class func MySystemFontWithWeight(_ fontSize: CGFloat, weight: UIFont.Weight) -> UIFont {
+        switch weight {
+        case .medium:
+            return MyMediumFont(fontSize)
+        case .bold, .semibold:
+            return MyBoldFont(fontSize)
+        case .regular:
+            return MyRegularFont(fontSize)
+        case .light, .thin, .ultraLight:
+            return UIFont(name: "Inter-Light", size: fontSize)
+                ?? MyRegularFont(fontSize)
+        default:
+            return MyRegularFont(fontSize)
+        }
+    }
+    
+    class func overrideInitialize() {
+        guard self == UIFont.self else { return }
+        
+        // Swap systemFont(ofSize:)
+        if let systemFontMethod = class_getClassMethod(self, #selector(systemFont(ofSize:))),
+           let mySystemFontMethod = class_getClassMethod(self, #selector(MyRegularFont(_:))) {
+            method_exchangeImplementations(systemFontMethod, mySystemFontMethod)
+        }
+        
+        // Swap boldSystemFont(ofSize:)
+        if let boldSystemFontMethod = class_getClassMethod(self, #selector(boldSystemFont(ofSize:))),
+           let myBoldSystemFontMethod = class_getClassMethod(self, #selector(MyBoldFont(_:))) {
+            method_exchangeImplementations(boldSystemFontMethod, myBoldSystemFontMethod)
+        }
+        
+        // Swap italicSystemFont(ofSize:)
+        if let italicSystemFontMethod = class_getClassMethod(self, #selector(italicSystemFont(ofSize:))),
+           let myItalicSystemFontMethod = class_getClassMethod(self, #selector(MyItalicFont(_:))) {
+            method_exchangeImplementations(italicSystemFontMethod, myItalicSystemFontMethod)
+        }
+        
+        // Swap systemFont(ofSize:weight:)
+        if let systemFontWithWeightMethod = class_getClassMethod(self, #selector(systemFont(ofSize:weight:))),
+           let mySystemFontWithWeightMethod = class_getClassMethod(self, #selector(MySystemFontWithWeight(_:weight:))) {
+            method_exchangeImplementations(systemFontWithWeightMethod, mySystemFontWithWeightMethod)
         }
     }
 }

@@ -51,7 +51,6 @@ class FeedsNotificationVC: UIViewController {
         super.viewDidLoad()
         
         self.btnSelectAll.isHidden = true
-        cnstrntHtNavBar.constant = self.getNavBarHt
         emptyView = EmptyList(frame: CGRect(x: 0, y: -64, width: tblView.frame.size.width, height: tblView.frame.size.height))
         emptyView?.imageView?.image = PZImages.noChat
         emptyView?.lblMsg?.text = "No Notifications"
@@ -65,7 +64,10 @@ class FeedsNotificationVC: UIViewController {
         
     }
     
-    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        cnstrntHtNavBar.constant = self.getNavBarHt
+    }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
     }

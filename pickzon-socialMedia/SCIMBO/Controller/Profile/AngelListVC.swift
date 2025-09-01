@@ -30,9 +30,13 @@ class AngelListVC: UIViewController {
     var totalCoinRecieved = 0
 
     //AMRK: Controller Life cycle methods
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        cnstrntHtNavbar.constant = self.getNavBarHt
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
-        cnstrntHtNavbar.constant = self.getNavBarHt
         self.searchBgView.isHidden = true
         txtFdSearch.delegate = self
         viewSeperator.frame =  CGRect(x: btnCurrent.frame.origin.x, y: btnCurrent.frame.origin.y+btnCurrent.frame.size.height, width: btnCurrent.frame.size.width, height: 2)

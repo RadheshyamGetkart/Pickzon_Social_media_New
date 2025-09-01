@@ -34,12 +34,7 @@ class DashboardVC: UIViewController {
     //MARK: Controller life cycle methods
     override func viewDidLoad() {
         super.viewDidLoad()
-        if isNeedBackBtn{
-            cnstrntHtNavBar.constant = self.getNavBarHt
-        }else{
-            cnstrntHtNavBar.constant = 0
-
-        }
+     
         tblView.register(UINib(nibName: "BoostedPostCell", bundle: nil), forCellReuseIdentifier: "BoostedPostCell")
         tblView.register(UINib(nibName: "LoadMoreTblCell", bundle: nil), forCellReuseIdentifier: "LoadMoreTblCell")
         let day = Date().dateBeforeOrAfterFromToday(numberOfDays: -28)
@@ -66,6 +61,18 @@ class DashboardVC: UIViewController {
         super.viewWillAppear(animated)
         print("viewWillAppear DashboardVC")
     }
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        
+        if isNeedBackBtn{
+            cnstrntHtNavBar.constant = self.getNavBarHt
+        }else{
+            cnstrntHtNavBar.constant = 0
+
+        }
+    }
+    
     
     //MARK: UIButton Action Methods
     

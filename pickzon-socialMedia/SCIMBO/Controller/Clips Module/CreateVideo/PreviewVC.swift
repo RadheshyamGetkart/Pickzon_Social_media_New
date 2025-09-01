@@ -47,10 +47,16 @@ class PreviewVC: UIViewController {
             name: .AVPlayerItemDidPlayToEndTime,
             object: nil
         )
+//        self.btnCross.layer.cornerRadius = self.btnCross.frame.size.height/2.0
+//        self.btnCross.backgroundColor = UIColor.lightGray.withAlphaComponent(0.3)
+//        self.btnDone.layer.cornerRadius = self.btnDone.frame.size.height/2.0
+//        self.btnDone.backgroundColor = UIColor.lightGray.withAlphaComponent(0.3)
+        
         self.btnCross.layer.cornerRadius = self.btnCross.frame.size.height/2.0
-        self.btnCross.backgroundColor = UIColor.lightGray.withAlphaComponent(0.3)
+        self.btnCross.backgroundColor = CustomColor.sharedInstance.newThemeColor.withAlphaComponent(0.3)
         self.btnDone.layer.cornerRadius = self.btnDone.frame.size.height/2.0
-        self.btnDone.backgroundColor = UIColor.lightGray.withAlphaComponent(0.3)
+        self.btnDone.backgroundColor = CustomColor.sharedInstance.newThemeColor.withAlphaComponent(0.3)
+
     }
     
     deinit {
