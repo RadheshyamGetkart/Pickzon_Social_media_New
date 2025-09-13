@@ -1,27 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
-    <device id="retina4_7" orientation="portrait">
-        <adaptation id="fullscreen"/>
-    </device>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="23504" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
-        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="23506"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
-    <customFonts key="customFonts">
-        <array key="AvenirNext.ttc">
-            <string>AvenirNext-Medium</string>
-        </array>
-    </customFonts>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="SelectContactTableViewCell" rowHeight="53" id="KGk-i7-Jjw" customClass="SelectContactTableViewCell" customModule="Now_Lets_Chat" customModuleProvider="target">
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="SelectContactTableViewCell" rowHeight="53" id="KGk-i7-Jjw" customClass="SelectContactTableViewCell" customModule="PickZon" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="320" height="53"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="320" height="52.5"/>
+                <rect key="frame" x="0.0" y="0.0" width="320" height="53"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VkJ-PJ-lYm">
@@ -30,7 +22,7 @@
                             <constraint firstAttribute="width" constant="217" id="bBl-L7-kDV"/>
                             <constraint firstAttribute="height" constant="29" id="eHz-tq-zq5"/>
                         </constraints>
-                        <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="16"/>
+                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="16"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
@@ -40,7 +32,7 @@
                             <constraint firstAttribute="width" constant="217" id="MNn-of-enR"/>
                             <constraint firstAttribute="height" constant="29" id="eCP-U0-D4U"/>
                         </constraints>
-                        <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="14"/>
+                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="14"/>
                         <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                         <nil key="highlightedColor"/>
                     </label>
@@ -52,7 +44,7 @@
                         </constraints>
                     </imageView>
                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="HqL-Ft-1My">
-                        <rect key="frame" x="16" y="8" width="38" height="38"/>
+                        <rect key="frame" x="16" y="7" width="38" height="38"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="38" id="cHy-tR-Juo"/>
                             <constraint firstAttribute="height" constant="38" id="u1U-B0-iKG"/>
@@ -79,7 +71,7 @@
                 <outlet property="roundTick" destination="i6p-5D-irV" id="wmW-iU-x6h"/>
                 <outlet property="subDecLbl" destination="kDw-dH-bLo" id="34c-xC-Zcp"/>
             </connections>
-            <point key="canvasLocation" x="25" y="56.5"/>
+            <point key="canvasLocation" x="40" y="50.824587706146929"/>
         </tableViewCell>
     </objects>
 </document>

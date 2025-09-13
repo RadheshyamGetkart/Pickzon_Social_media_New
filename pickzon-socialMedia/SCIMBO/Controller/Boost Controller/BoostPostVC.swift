@@ -52,7 +52,7 @@ class BoostPostVC: UIViewController {
             .menuItemWidth(self.view.frame.size.width/2-50),
             .centerMenuItems(true),
             .bottomMenuHairlineColor(UIColor.lightGray),
-            .selectionIndicatorColor(UIColor.label),
+            .selectionIndicatorColor(CustomColor.sharedInstance.newThemeColor),
             .scrollMenuBackgroundColor(UIColor.systemBackground),
             .selectedMenuItemLabelColor(.label),
             .unselectedMenuItemLabelColor(.darkGray),

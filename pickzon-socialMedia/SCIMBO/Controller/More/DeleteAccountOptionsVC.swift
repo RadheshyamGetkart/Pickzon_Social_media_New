@@ -159,7 +159,7 @@ class DeleteAccountOptionsVC: UIViewController, UITableViewDelegate, UITableView
     
     @objc func selectButtonAction(sender: UIButton) {
         selectedIndex = sender.tag
-        btnDelete.backgroundColor = UIColor.systemBlue
+        btnDelete.backgroundColor = CustomColor.sharedInstance.newThemeColor
         
         if selectedIndex == arrOptions.count - 1 {
             txtVwReason.isUserInteractionEnabled = true
@@ -192,7 +192,7 @@ class DeleteAccountOptionsVC: UIViewController, UITableViewDelegate, UITableView
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         selectedIndex = indexPath.row
-        btnDelete.backgroundColor = UIColor.systemBlue
+        btnDelete.backgroundColor = CustomColor.sharedInstance.newThemeColor
         if selectedIndex == arrOptions.count - 1 {
             txtVwReason.isHidden = false
             txtVwReason.isUserInteractionEnabled = true

@@ -1645,9 +1645,11 @@ import Kingfisher
     func tagAndLinkColor() ->UIColor{
         
         //return self.colorWithHexString(hex: "#0a66c2")
-        return UIColor(named: "linkColor")!
+        return UIColor(named: "themeColor")!
     }
     
+    
+ 
     
     func seeMoreColor() ->UIColor{
         

@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="22155" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="23504" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
-        <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22131"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="23506"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -11,9 +10,6 @@
     <customFonts key="customFonts">
         <array key="Roboto-Medium.ttf">
             <string>Roboto-Medium</string>
-        </array>
-        <array key="Roboto-Regular.ttf">
-            <string>Roboto-Regular</string>
         </array>
     </customFonts>
     <objects>
@@ -44,14 +40,14 @@
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xXs-qb-1n6">
                         <rect key="frame" x="189" y="266" width="0.0" height="0.0"/>
-                        <fontDescription key="fontDescription" name="Roboto-Medium" family="Roboto" pointSize="9"/>
+                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="9"/>
                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <nil key="highlightedColor"/>
                         <color key="shadowColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5WA-98-hCP">
                         <rect key="frame" x="238.66666666666666" y="306" width="0.0" height="0.0"/>
-                        <fontDescription key="fontDescription" name="Roboto-Medium" family="Roboto" pointSize="8"/>
+                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="8"/>
                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <nil key="highlightedColor"/>
                         <color key="shadowColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -78,33 +74,33 @@
                                 </constraints>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="qeqwe" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eg4-e8-HyI">
-                                <rect key="frame" x="45.666666666666657" y="125.00000000000001" width="105" height="10.666666666666671"/>
+                                <rect key="frame" x="45.666666666666657" y="125" width="105" height="11"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="105" id="kgj-g9-ZNX"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="Roboto-Medium" family="Roboto" pointSize="9"/>
+                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="9"/>
                                 <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="15l-aD-TaA">
-                                <rect key="frame" x="63.333333333333343" y="138.66666666666666" width="70" height="11"/>
+                                <rect key="frame" x="63.333333333333343" y="139" width="70" height="11"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="td1-8Q-Day">
-                                        <rect key="frame" x="27" y="0.0" width="16" height="11"/>
+                                        <rect key="frame" x="26.666666666666657" y="0.0" width="16.666666666666671" height="11"/>
                                         <subviews>
-                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="coinSmall" translatesAutoresizingMaskIntoConstraints="NO" id="Pzf-aG-4IT">
-                                                <rect key="frame" x="0.0" y="0.66666666666668561" width="10" height="10"/>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="starCoin" translatesAutoresizingMaskIntoConstraints="NO" id="Pzf-aG-4IT">
+                                                <rect key="frame" x="0.0" y="0.66666666666665719" width="10" height="10"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="10" id="b6q-bK-0wJ"/>
                                                     <constraint firstAttribute="height" constant="10" id="wth-Xx-Q1Y"/>
                                                 </constraints>
                                             </imageView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="x85-t8-zig">
-                                                <rect key="frame" x="10.666666666666657" y="0.66666666666668561" width="5.3333333333333321" height="10"/>
+                                                <rect key="frame" x="10.666666666666657" y="0.66666666666665719" width="6" height="10"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="10" id="om1-Le-zjU"/>
                                                 </constraints>
-                                                <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="9"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="9"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
@@ -152,33 +148,33 @@
                                 </constraints>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="sadasd" textAlignment="center" lineBreakMode="middleTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VoN-BS-bLt">
-                                <rect key="frame" x="33.666666666666657" y="91" width="80" height="8.3333333333333286"/>
+                                <rect key="frame" x="33.666666666666657" y="91" width="80" height="8.6666666666666714"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="80" id="I6c-Je-M4c"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="Roboto-Medium" family="Roboto" pointSize="7"/>
+                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="7"/>
                                 <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BnW-4j-TEu">
-                                <rect key="frame" x="38.666666666666657" y="100.33333333333334" width="70" height="11"/>
+                                <rect key="frame" x="38.666666666666657" y="100.66666666666666" width="70" height="11"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="TH4-7w-4hk">
-                                        <rect key="frame" x="27.000000000000007" y="0.0" width="16" height="11"/>
+                                        <rect key="frame" x="26.666666666666664" y="0.0" width="16.666666666666664" height="11"/>
                                         <subviews>
-                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="coinSmall" translatesAutoresizingMaskIntoConstraints="NO" id="YHZ-37-ftM">
-                                                <rect key="frame" x="0.0" y="0.66666666666665719" width="10" height="10"/>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="starCoin" translatesAutoresizingMaskIntoConstraints="NO" id="YHZ-37-ftM">
+                                                <rect key="frame" x="0.0" y="0.66666666666668561" width="10" height="10"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="10" id="ZLL-0Q-i6N"/>
                                                     <constraint firstAttribute="width" constant="10" id="bBT-PH-8ra"/>
                                                 </constraints>
                                             </imageView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zrs-K8-PGp">
-                                                <rect key="frame" x="10.666666666666657" y="0.0" width="5.3333333333333321" height="11"/>
+                                                <rect key="frame" x="10.666666666666671" y="0.0" width="6" height="11"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="10.67" id="8Jd-eM-eRB"/>
                                                 </constraints>
-                                                <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="9"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="9"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
@@ -226,33 +222,33 @@
                                 </constraints>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="asdasd" textAlignment="center" lineBreakMode="middleTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WLZ-Ml-rBJ">
-                                <rect key="frame" x="27" y="88" width="80" height="8.3333333333333286"/>
+                                <rect key="frame" x="27" y="88" width="80" height="8.6666666666666714"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="80" id="8a1-zK-gl2"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="Roboto-Medium" family="Roboto" pointSize="7"/>
+                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="7"/>
                                 <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4VI-rT-qSY">
-                                <rect key="frame" x="32" y="97" width="70" height="11"/>
+                                <rect key="frame" x="32" y="97.333333333333343" width="70" height="11"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="ZU6-od-SD7">
-                                        <rect key="frame" x="27" y="0.0" width="16" height="11"/>
+                                        <rect key="frame" x="26.666666666666686" y="0.0" width="16.666666666666671" height="11"/>
                                         <subviews>
-                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="coinSmall" translatesAutoresizingMaskIntoConstraints="NO" id="k3f-lb-PVT">
-                                                <rect key="frame" x="0.0" y="0.33333333333334281" width="10" height="10"/>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="starCoin" translatesAutoresizingMaskIntoConstraints="NO" id="k3f-lb-PVT">
+                                                <rect key="frame" x="0.0" y="0.33333333333331439" width="10" height="10"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="10" id="E6A-Uu-GhL"/>
                                                     <constraint firstAttribute="width" constant="10" id="uqa-05-bD7"/>
                                                 </constraints>
                                             </imageView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ze8-e0-Kul">
-                                                <rect key="frame" x="10.666666666666686" y="0.33333333333334281" width="5.3333333333333321" height="10"/>
+                                                <rect key="frame" x="10.666666666666629" y="0.33333333333331439" width="6" height="10"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="10" id="dF5-9C-fb9"/>
                                                 </constraints>
-                                                <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="9"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="9"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
@@ -291,7 +287,7 @@
                             <constraint firstAttribute="height" constant="25" id="cVU-00-f5D"/>
                             <constraint firstAttribute="width" constant="50" id="mWK-PU-ehR"/>
                         </constraints>
-                        <fontDescription key="fontDescription" name="Roboto-Medium" family="Roboto" pointSize="14"/>
+                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="14"/>
                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                         <state key="normal" title="See all"/>
                     </button>
@@ -376,16 +372,11 @@
             <point key="canvasLocation" x="265.64885496183206" y="83.098591549295776"/>
         </collectionViewCell>
     </objects>
-    <designables>
-        <designable name="qZT-ck-bme">
-            <size key="intrinsicContentSize" width="1696" height="1474"/>
-        </designable>
-    </designables>
     <resources>
-        <image name="coinSmall" width="24" height="23.333333969116211"/>
         <image name="f1.png" width="220" height="290"/>
         <image name="f2.png" width="180" height="233"/>
         <image name="f3.png" width="170" height="220"/>
+        <image name="starCoin" width="128" height="128"/>
         <image name="weeklyLeaderboardBg.jpg" width="1696" height="1474"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

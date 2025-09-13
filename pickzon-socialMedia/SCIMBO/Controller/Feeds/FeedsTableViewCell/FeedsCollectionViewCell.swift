@@ -85,10 +85,9 @@ class FeedsCollectionViewCell: UICollectionViewCell {
             
             controlView.populate(with: videoView)
             self.view.bringSubviewToFront(controlView)
-           
         }
-        
     }
+    
     
     func playVideo() {
         if videoView.isEndPlaying == true {

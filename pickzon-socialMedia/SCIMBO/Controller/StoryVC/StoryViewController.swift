@@ -53,7 +53,6 @@ class StoryViewController:  UIViewController,SegmentedProgressBarDelegate, Conte
     @IBOutlet weak var blurImageView:UIImageView!
     @IBOutlet weak var imgVwCelebrity:UIImageView!
     @IBOutlet weak var replyLbl: UILabel!
-   // @IBOutlet weak var btnProfilePic: UIButtonX!
     @IBOutlet weak var profileImgView:ImageWithFrameImgView!
 
     @IBOutlet weak var topViewHeightConstraint: NSLayoutConstraint!
@@ -62,7 +61,7 @@ class StoryViewController:  UIViewController,SegmentedProgressBarDelegate, Conte
     @IBOutlet weak var cnstrnt_HtViewCount:NSLayoutConstraint!
     @IBOutlet weak var scrollVwTxtFd:TPKeyboardAvoidingScrollView!
     @IBOutlet weak var cnstrnt_TableBottom:NSLayoutConstraint!
-     var progressBar: SegmentedProgressBar!
+    var progressBar: SegmentedProgressBar!
 
     private let viewImgs = UIView()
     private let scrollView = UIScrollView()
@@ -183,12 +182,14 @@ class StoryViewController:  UIViewController,SegmentedProgressBarDelegate, Conte
         
         bottomView.addGestureRecognizer(panGestureRecognizer)
         setupView()
+      
         if(isFromView)
         {
             DispatchQueue.main.asyncAfter(deadline: .now() + 1.0, execute: {
                 self.replayViewShower()
             })
         }
+        
         bgViewCount.isHidden = true
         if(Themes.sharedInstance.Getuser_id() == self.wallStatusObj.userInfo?.id)
         {
@@ -217,15 +218,19 @@ class StoryViewController:  UIViewController,SegmentedProgressBarDelegate, Conte
         
         
         self.view.insertSubview(videoView, belowSubview: self.topView)
+       
+        self.viewIsDisplayed()
+
 
     }
         
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         print("UIViewController: StoryViewController")
-//        if !fromBottomView{
-//            viewIsDisplayed()
-//        }
+        //        if !fromBottomView{
+        //            viewIsDisplayed()
+        //        }
+        
         self.viewIsDisplayed()
     }
     
@@ -238,6 +243,7 @@ class StoryViewController:  UIViewController,SegmentedProgressBarDelegate, Conte
         if !fromBottomView{
             initialFrame = bottomView.frame
         }
+
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -248,11 +254,8 @@ class StoryViewController:  UIViewController,SegmentedProgressBarDelegate, Conte
         DispatchQueue.main.async {
             self.progressBar.isPaused = true
             self.videoView.player?.pause()
-            
             self.deallocPlayer()
             self.removeNotificationListener()
-            
-            
             self.blureView.isHidden = true
             self.messageTextField.text = ""
             self.messageTextField.resignFirstResponder()
@@ -836,12 +839,12 @@ class StoryViewController:  UIViewController,SegmentedProgressBarDelegate, Conte
     
     private func deallocPlayer() {
         self.videoView.player?.pause()
-       // self.videoView.player = nil
+        // self.videoView.player = nil
         self.videoView.isHidden = true
-       // self.videoView.removeFromSuperview()
-//        NotificationCenter.default.removeObserver(NSNotification.Name.AVPlayerItemDidPlayToEndTime)
-//        timeObserver = nil
-//        playerLayerReadyForDisplayObservation = nil
+        // self.videoView.removeFromSuperview()
+        //        NotificationCenter.default.removeObserver(NSNotification.Name.AVPlayerItemDidPlayToEndTime)
+        //        timeObserver = nil
+        //        playerLayerReadyForDisplayObservation = nil
     }
     
     
@@ -853,7 +856,7 @@ class StoryViewController:  UIViewController,SegmentedProgressBarDelegate, Conte
         spinner.isHidden = true
         messageTextField.text = ""
         self.statusImgView.isHidden = false
-        
+
         _ = self.statusImgView.subviews.map {
             if $0.tag == 100 {
                 $0.removeFromSuperview()
@@ -871,6 +874,7 @@ class StoryViewController:  UIViewController,SegmentedProgressBarDelegate, Conte
             self.btnRepostYourTag.isHidden = (messageFrame.taggedStoryStatus == 1) ? false : true
             self.lblMarquee.isHidden = true
             self.imgVwSong.isHidden = true
+
             if (messageFrame.soundTitle.length > 0 || messageFrame.soundThumbUrl.length > 0){
               
                 self.lblMarquee.text = messageFrame.soundTitle

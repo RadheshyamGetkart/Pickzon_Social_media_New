@@ -29,14 +29,14 @@ class EditPickzonIdVC: UIViewController {
     //MARK: Controller life cycle methods
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.txtFdPickzonId.layer.borderColor = UIColor.systemBlue.cgColor
+        self.txtFdPickzonId.layer.borderColor = CustomColor.sharedInstance.newThemeColor.cgColor
         self.txtFdPickzonId.layer.borderWidth = 1.5
         self.txtFdPickzonId.layer.cornerRadius = 5.0
         self.txtFdPickzonId.clipsToBounds = true
         self.txtFdPickzonId.addLeftPadding()
         self.txtFdPickzonId.delegate = self
         self.txtFdPickzonId.addRightPadding()
-        self.imgVwTick.setImageColor(color: UIColor.systemBlue)
+        self.imgVwTick.setImageColor(color:CustomColor.sharedInstance.newThemeColor)
         self.imgVwTick.isHidden = true
         self.lblErrorMsg.isHidden = true
         self.lblErrorMsg.text = "This PickZon Id is taken"

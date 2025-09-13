@@ -18,8 +18,8 @@ class ChatListVC: SwiftBaseViewController,OptionDelegate {
     @IBOutlet weak var txtFdSearch: UITextField!
 
     
-    @IBOutlet weak var bgVwNotifcationCount:UIViewX!
-    @IBOutlet weak var lblNotificationCount:UILabel!
+//    @IBOutlet weak var bgVwNotifcationCount:UIViewX!
+//    @IBOutlet weak var lblNotificationCount:UILabel!
     @IBOutlet weak var searchTxtFdBgVw:UIView!
 //    @IBOutlet weak var btnClose:UIButton!
 //    @IBOutlet weak var btnCloseSearch:UIButton!
@@ -61,6 +61,9 @@ class ChatListVC: SwiftBaseViewController,OptionDelegate {
        // self.btnOption.badgeString = "\(Constant.sharedinstance.requestedChatCount)"
         //self.btnOption.isHidden = (Constant.sharedinstance.requestedChatCount == 0) ? true : false
         tblView.keyboardDismissMode = .onDrag
+        
+        searchTxtFdBgVw.layer.cornerRadius = searchTxtFdBgVw.frame.height/2.0
+        searchTxtFdBgVw.clipsToBounds = true
     }
     
     override func viewDidLayoutSubviews() {
@@ -75,6 +78,10 @@ class ChatListVC: SwiftBaseViewController,OptionDelegate {
         IQKeyboardManager.shared().isEnableAutoToolbar = true
         IQKeyboardManager.shared().shouldShowToolbarPlaceholder = true
         IQKeyboardManager.shared().shouldResignOnTouchOutside = true
+        
+        if (self.txtFdSearch.text?.count  ?? 0) == 0{
+            self.isSearching = false
+        }
         if Themes.sharedInstance.isChatListRefresh == 0 {
             emitChatList(isToClearList: true)
         }
@@ -247,12 +254,12 @@ class ChatListVC: SwiftBaseViewController,OptionDelegate {
             }
         }
         
-        self.lblNotificationCount.text = "\(Constant.sharedinstance.notificationCount)"
+      //  self.lblNotificationCount.text = "\(Constant.sharedinstance.notificationCount)"
         
-        if  Constant.sharedinstance.notificationCount == 0 {
-            self.lblNotificationCount.text =  ""
-            
-        }
+//        if  Constant.sharedinstance.notificationCount == 0 {
+//            self.lblNotificationCount.text =  ""
+//            
+//        }
 //        NotificationCenter.default.post(name: NSNotification.Name(rawValue: notif_Badgecount),
 //                                        object:nil, userInfo: nil)
     }
@@ -379,19 +386,19 @@ class ChatListVC: SwiftBaseViewController,OptionDelegate {
     
     //MARK: UIButton Action Methods
     
-    @IBAction func closebtnSearch(sender:UIButton){
-        
-        self.searchTxtFdBgVw.isHidden = true
-        self.txtFdSearch.resignFirstResponder()
-        self.isSearching = false
-        self.txtFdSearch.text = ""
-        self.tblView.reloadData()
-    }
-    
-    @IBAction func searchBtnAction(sender:UIButton){
-        self.searchTxtFdBgVw.isHidden = false
-        self.txtFdSearch.becomeFirstResponder()
-    }
+//    @IBAction func closebtnSearch(sender:UIButton){
+//        
+//        self.searchTxtFdBgVw.isHidden = true
+//        self.txtFdSearch.resignFirstResponder()
+//        self.isSearching = false
+//        self.txtFdSearch.text = ""
+//        self.tblView.reloadData()
+//    }
+//    
+//    @IBAction func searchBtnAction(sender:UIButton){
+//        self.searchTxtFdBgVw.isHidden = false
+//        self.txtFdSearch.becomeFirstResponder()
+//    }
     
     @IBAction func notificationBtnAction(sender:UIButton){
        if let viewController:FeedsNotificationVC = StoryBoard.main.instantiateViewController(withIdentifier: "FeedsNotificationVC") as? FeedsNotificationVC {
@@ -664,7 +671,7 @@ extension ChatListVC:UITableViewDelegate,UITableViewDataSource{
 extension  ChatListVC: UITextFieldDelegate{
     //MARK: - UItextfield Delegate methods
     func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
-        
+        isSearching = true
         return true
     }
     

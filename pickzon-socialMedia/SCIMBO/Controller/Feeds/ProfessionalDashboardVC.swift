@@ -77,7 +77,7 @@ class ProfessionalDashboardVC: UIViewController {
         refreshControl.addTarget(self, action:
                                     #selector(handlePullDownRefresh(_:)),
                                  for: .valueChanged)
-        refreshControl.tintColor = UIColor.systemBlue
+        refreshControl.tintColor = CustomColor.sharedInstance.newThemeColor
         return refreshControl
     }()
     
@@ -198,12 +198,12 @@ class ProfessionalDashboardVC: UIViewController {
         self.calendar = calendar
         calendar.appearance.titleDefaultColor = .black
         calendar.appearance.headerTitleColor = .black
-        calendar.appearance.titleFont = UIFont(name: "Roboto-Regular", size: 16)
+        calendar.appearance.titleFont = UIFont.systemFont(ofSize: 16.0)
         calendar.weekdayHeight = 30
         calendar.swipeToChooseGesture.isEnabled = true
-        self.calendar?.appearance.eventDefaultColor = UIColor.systemBlue
+        self.calendar?.appearance.eventDefaultColor = CustomColor.sharedInstance.newThemeColor
         self.calendar?.appearance.weekdayTextColor = .black
-        self.calendar?.appearance.weekdayFont = UIFont(name: "Roboto-Medium", size: 18)
+        self.calendar?.appearance.weekdayFont = UIFont.systemFont(ofSize: 18, weight: .medium)
       //  calendar.today = nil; // Hide the today circle
         self.calendar?.appearance.titleTodayColor = .black
         
@@ -223,7 +223,7 @@ class ProfessionalDashboardVC: UIViewController {
 
     func drawDottedLine(start p0: CGPoint, end p1: CGPoint, view: UIView) {
         let shapeLayer = CAShapeLayer()
-        shapeLayer.strokeColor = UIColor.blue.cgColor
+        shapeLayer.strokeColor = CustomColor.sharedInstance.newThemeColor.cgColor
         shapeLayer.lineWidth = 2
         shapeLayer.lineDashPattern = [2, 3] // 7 is the length of dash, 3 is length of the gap.
 

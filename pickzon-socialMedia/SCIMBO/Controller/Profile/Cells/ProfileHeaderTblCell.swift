@@ -24,10 +24,11 @@ protocol SuggestionsDelegate: AnyObject{
 
 class ProfileHeaderTblCell: UITableViewCell {
 
-    @IBOutlet weak var bgVwBtnOption:UIViewX!
+    @IBOutlet weak var bgVwLowerBack:UIView!
+   // @IBOutlet weak var bgVwBtnOption:UIViewX!
     @IBOutlet weak var profilePicView:ImageWithSvgaFrame!
-    @IBOutlet weak var btnOption:MIBadgeButton!
-    @IBOutlet weak var btnBack:UIButtonX!
+  //  @IBOutlet weak var btnOption:MIBadgeButton!
+   // @IBOutlet weak var btnBack:UIButtonX!
     @IBOutlet weak var lblPickzonId:UILabel!
     @IBOutlet weak var lblName:UILabel!
     @IBOutlet weak var lblHeadline:UILabel!
@@ -45,7 +46,7 @@ class ProfileHeaderTblCell: UITableViewCell {
     @IBOutlet weak var cnstrntHt_FollowMessageBgVw:NSLayoutConstraint!
     @IBOutlet weak var imgVwCelecbrity:UIImageView!
     @IBOutlet weak var btnEditProfile:UIButton!
-    @IBOutlet weak var imgVwBanner:UIImageViewX!
+   // @IBOutlet weak var imgVwBanner:UIImageViewX!
     @IBOutlet weak var collectioVwSuggestion:UICollectionView!
     @IBOutlet weak var btnSeeMoreSuggestion:UIButton!
     @IBOutlet weak var cnstrntHt_SuggestionCollectionVw :NSLayoutConstraint!
@@ -101,6 +102,9 @@ class ProfileHeaderTblCell: UITableViewCell {
         lblDescription.numberOfLines = 3
         lblDescription.collapsed = true
         lblDescription.collapsedAttributedLink = NSAttributedString(string: " Read more" ,attributes:  [.foregroundColor:UIColor.systemBlue])
+        
+        bgVwLowerBack.roundGivenCorners([.topLeft,.topRight], radius: 12)
+       // bgVwLowerBack.clipsToBounds = true
        
 
     }
@@ -121,12 +125,12 @@ class ProfileHeaderTblCell: UITableViewCell {
       
         self.profilePicView.setImgView(profilePic: userObj.profilePic, remoteSVGAUrl: userObj.avatarSVGA,changeValue: 18)
 
-        btnOption.badgeBackgroundColor = UIColor.systemRed
+      //  btnOption.badgeBackgroundColor = UIColor.systemRed
         self.btnContact.isHidden = true
        
       //  self.btnWallet.isHidden = (userObj.isWallet == 1 && Themes.sharedInstance.Getuser_id() == userObj.id) ? false : true
         self.btnWallet.isHidden  = true
-        self.btnOption.badgeString = ""
+       // self.btnOption.badgeString = ""
         self.btnEditProfile.isHidden = true
         
         if (userObj.id == Themes.sharedInstance.Getuser_id() || userId == Themes.sharedInstance.Getuser_id()){
@@ -207,7 +211,7 @@ class ProfileHeaderTblCell: UITableViewCell {
      
         
         
-        self.imgVwBanner.kf.setImage(with: URL(string: userObj.coverImage), placeholder: PZImages.defaultCover, options: nil, progressBlock: nil) { result in
+      /*  self.imgVwBanner.kf.setImage(with: URL(string: userObj.coverImage), placeholder: PZImages.defaultCover, options: nil, progressBlock: nil) { result in
             switch result {
             case .success(let value):
                
@@ -221,7 +225,7 @@ class ProfileHeaderTblCell: UITableViewCell {
             }
             
         }
-    
+    */
                 
 //        self.btnFollow.setImage((userObj.followStatus == 0) ? PZImages.followPlus : PZImages.followCheckWhite, for: .normal)
         

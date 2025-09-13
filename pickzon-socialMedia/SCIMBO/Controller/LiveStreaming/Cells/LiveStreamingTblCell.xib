@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="22155" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="23504" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
-        <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22131"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="23506"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -11,9 +10,6 @@
     <customFonts key="customFonts">
         <array key="Roboto-Medium.ttf">
             <string>Roboto-Medium</string>
-        </array>
-        <array key="Roboto-Regular.ttf">
-            <string>Roboto-Regular</string>
         </array>
     </customFonts>
     <objects>
@@ -145,9 +141,9 @@
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="15" id="FF7-TD-GyD"/>
                                                 </constraints>
-                                                <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="11"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="11"/>
                                             </button>
-                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="coinSmall" translatesAutoresizingMaskIntoConstraints="NO" id="jhE-RP-COH">
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="starCoin" translatesAutoresizingMaskIntoConstraints="NO" id="jhE-RP-COH">
                                                 <rect key="frame" x="30" y="21" width="15" height="15"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="15" id="Fc4-yT-uM0"/>
@@ -252,16 +248,16 @@
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" lineBreakMode="tailTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2Hd-ns-ZGV">
                                         <rect key="frame" x="20" y="0.0" width="165" height="25"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="13"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                        <state key="normal" title="0" image="coinSmall"/>
+                                        <state key="normal" title="0" image="starCoin"/>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" lineBreakMode="tailTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6lE-f2-Bw7">
                                         <rect key="frame" x="195" y="0.0" width="165" height="25"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="13"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                        <state key="normal" title="0" image="coinSmall"/>
+                                        <state key="normal" title="0" image="starCoin"/>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" red="0.067874066529999999" green="0.1163542643" blue="0.18432155250000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
@@ -441,11 +437,11 @@
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="15" id="HxD-4V-CJw"/>
                                                 </constraints>
-                                                <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="12"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                                 <state key="normal" title=" 0"/>
                                             </button>
-                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="coinSmall" translatesAutoresizingMaskIntoConstraints="NO" id="kFW-Ad-Kdl">
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="starCoin" translatesAutoresizingMaskIntoConstraints="NO" id="kFW-Ad-Kdl">
                                                 <rect key="frame" x="45" y="24" width="15" height="15"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="15" id="lDe-vf-rwT"/>
@@ -495,7 +491,7 @@
                                     <constraint firstAttribute="height" constant="30" id="IYs-0A-AFM"/>
                                     <constraint firstAttribute="width" constant="60" id="vgW-Sr-p4c"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="13"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <inset key="titleEdgeInsets" minX="1" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
@@ -596,36 +592,16 @@
             <point key="canvasLocation" x="-19.083969465648853" y="36.971830985915496"/>
         </tableViewCell>
     </objects>
-    <designables>
-        <designable name="6bj-t9-Ieg">
-            <size key="intrinsicContentSize" width="29.333333333333332" height="21.333333333333332"/>
-        </designable>
-        <designable name="7ch-S1-sfA">
-            <size key="intrinsicContentSize" width="101" height="101"/>
-        </designable>
-        <designable name="CKT-8i-Hc3">
-            <size key="intrinsicContentSize" width="50" height="50"/>
-        </designable>
-        <designable name="YyJ-U0-bLv">
-            <size key="intrinsicContentSize" width="50" height="50"/>
-        </designable>
-        <designable name="mcK-fn-W7m">
-            <size key="intrinsicContentSize" width="78" height="78"/>
-        </designable>
-        <designable name="sTv-c1-bN1">
-            <size key="intrinsicContentSize" width="101" height="101"/>
-        </designable>
-    </designables>
     <resources>
         <image name="avatar" width="101" height="101"/>
         <image name="blurPK" width="78" height="78"/>
-        <image name="coinSmall" width="24" height="23.333333969116211"/>
         <image name="crossIcon1" width="24" height="24"/>
         <image name="dummy" width="266.66665649414062" height="195"/>
         <image name="eye" width="21.333333969116211" height="21.333333969116211"/>
         <image name="muteLiveAudio" width="19" height="22.666666030883789"/>
         <image name="pk" width="24" height="25"/>
-        <image name="plusRound" width="50" height="50"/>
+        <image name="plusRound" width="256" height="256"/>
+        <image name="starCoin" width="128" height="128"/>
         <image name="videoLiveOff" width="42.666667938232422" height="33.666667938232422"/>
         <systemColor name="linkColor">
             <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

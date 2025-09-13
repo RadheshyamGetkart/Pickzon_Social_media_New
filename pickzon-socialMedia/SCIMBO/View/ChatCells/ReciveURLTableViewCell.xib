@@ -1,17 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="23504" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="23506"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
-    <customFonts key="customFonts">
-        <array key="Roboto-Regular.ttf">
-            <string>Roboto-Regular</string>
-        </array>
-    </customFonts>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
@@ -78,11 +73,11 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" 11:08 AM" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Yyn-C7-XQt">
-                                <rect key="frame" x="224" y="210.5" width="68" height="14.5"/>
+                                <rect key="frame" x="224" y="211" width="68" height="14"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="68" id="nh7-BR-t69"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="12"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                 <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -125,10 +120,14 @@
                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="CTP-7r-HH1">
                         <rect key="frame" x="0.0" y="210" width="14" height="21"/>
                         <color key="tintColor" white="0.90497504340000001" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstAttribute="width" secondItem="CTP-7r-HH1" secondAttribute="height" multiplier="33:49" id="rCk-X6-eFT"/>
+                        </constraints>
                     </imageView>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WHu-OL-Och">
                         <rect key="frame" x="314" y="86" width="60" height="60"/>
                         <constraints>
+                            <constraint firstAttribute="width" secondItem="WHu-OL-Och" secondAttribute="height" multiplier="1:1" id="CQR-MM-Te3"/>
                             <constraint firstAttribute="width" secondItem="WHu-OL-Och" secondAttribute="height" multiplier="1:1" id="q4K-SW-URt"/>
                             <constraint firstAttribute="height" constant="60" id="tdg-qv-xJQ"/>
                         </constraints>
@@ -147,14 +146,12 @@
                     <constraint firstItem="37L-01-aai" firstAttribute="leading" secondItem="EDH-hV-Sk7" secondAttribute="leading" id="3NU-HU-Adx"/>
                     <constraint firstItem="37L-01-aai" firstAttribute="trailing" secondItem="8LQ-Mf-Rbv" secondAttribute="trailing" constant="6" id="4Bc-pq-fKZ"/>
                     <constraint firstItem="CTP-7r-HH1" firstAttribute="leading" secondItem="EDH-hV-Sk7" secondAttribute="leading" id="9qZ-M8-v6j"/>
-                    <constraint firstItem="WHu-OL-Och" firstAttribute="width" secondItem="WHu-OL-Och" secondAttribute="height" multiplier="1:1" id="CQR-MM-Te3"/>
                     <constraint firstItem="37L-01-aai" firstAttribute="bottom" secondItem="8LQ-Mf-Rbv" secondAttribute="bottom" constant="3" id="JPV-sf-fDp"/>
                     <constraint firstItem="37L-01-aai" firstAttribute="top" secondItem="8LQ-Mf-Rbv" secondAttribute="top" id="UEA-Vx-5qo"/>
                     <constraint firstItem="WHu-OL-Och" firstAttribute="centerY" secondItem="EDH-hV-Sk7" secondAttribute="centerY" id="aNC-Rh-O3C"/>
                     <constraint firstItem="WHu-OL-Och" firstAttribute="leading" secondItem="8LQ-Mf-Rbv" secondAttribute="trailing" id="kNa-G4-naq"/>
                     <constraint firstItem="8LQ-Mf-Rbv" firstAttribute="leading" secondItem="EDH-hV-Sk7" secondAttribute="leading" constant="14" id="lyz-Kr-WCy"/>
                     <constraint firstItem="8LQ-Mf-Rbv" firstAttribute="leading" secondItem="CTP-7r-HH1" secondAttribute="trailing" id="oep-KH-NRR"/>
-                    <constraint firstItem="CTP-7r-HH1" firstAttribute="width" secondItem="CTP-7r-HH1" secondAttribute="height" multiplier="33:49" id="rCk-X6-eFT"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="agK-Pp-rC7"/>

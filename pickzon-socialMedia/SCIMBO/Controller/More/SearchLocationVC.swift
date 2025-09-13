@@ -28,11 +28,7 @@ class SearchLocationVC: UIViewController {
     var searchResults = [MKLocalSearchCompletion]()
     var delegate:SearchLocationDelegate?
     
-    
-    override func viewDidLayoutSubviews() {
-        super.viewDidLayoutSubviews()
-        cnstrnt_HtNavBar.constant = self.getNavBarHt
-    }
+ 
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -43,9 +39,20 @@ class SearchLocationVC: UIViewController {
         searchBar?.delegate = self
         searchResultsTable?.delegate = self
         searchResultsTable?.dataSource = self
+        
+        // Set region to something meaningful (e.g. India center)
+            searchCompleter.region = MKCoordinateRegion(
+                center: CLLocationCoordinate2D(latitude: 20.5937, longitude: 78.9629),
+                span: MKCoordinateSpan(latitudeDelta: 10, longitudeDelta: 10)
+            )
        // searchBar.becomeFirstResponder()
     }
  
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        cnstrnt_HtNavBar.constant = self.getNavBarHt
+    }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         IQKeyboardManager.shared().isEnabled = true
@@ -78,6 +85,7 @@ extension SearchLocationVC: MKLocalSearchCompleterDelegate,UISearchBarDelegate {
         searchCompleter.queryFragment = searchText
     }
     
+    
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
             print("Сancel button tapped")
         searchCompleter.queryFragment = ""
@@ -99,8 +107,9 @@ extension SearchLocationVC: MKLocalSearchCompleterDelegate,UISearchBarDelegate {
     
 
     // This method is called when there was an error with the searchCompleter
+  
     func completer(_ completer: MKLocalSearchCompleter, didFailWithError error: Error) {
-        // Error
+        print("Search completer failed: \(error.localizedDescription)")
     }
 }
 

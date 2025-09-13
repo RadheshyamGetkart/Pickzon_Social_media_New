@@ -145,8 +145,6 @@ var backgroundTask: UIBackgroundTaskIdentifier = UIBackgroundTaskIdentifier.inva
         SwiftRater.debugMode = false
         SwiftRater.appLaunched()
         
-        
-
         /*for family: String in UIFont.familyNames
         {
             print(family)
@@ -184,7 +182,9 @@ var backgroundTask: UIBackgroundTaskIdentifier = UIBackgroundTaskIdentifier.inva
         IQKeyboardManager.shared().toolbarTintColor = CustomColor.sharedInstance.newThemeColor
         FirebaseApp.configure()
         
-    /*  
+        // Disable Firebase logging
+        FirebaseConfiguration.shared.setLoggerLevel(.min)
+    /*
 
      UINavigationBar.appearance().tintColor = CustomColor.sharedInstance.newThemeColor/* Change tint color using Xcode default vales */
         UIBarButtonItem.appearance().tintColor = CustomColor.sharedInstance.newThemeColor
@@ -592,7 +592,6 @@ var backgroundTask: UIBackgroundTaskIdentifier = UIBackgroundTaskIdentifier.inva
         addcontactChangeobserver()
     }
     
- 
     
     func addcontactChangeobserver()
     {

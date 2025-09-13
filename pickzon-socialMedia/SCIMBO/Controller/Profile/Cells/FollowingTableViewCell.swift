@@ -17,15 +17,17 @@ class FollowingTableViewCell: UITableViewCell {
     //@IBOutlet weak var btnBgView:UIView!
   //  @IBOutlet weak var btnProfile:UIButton!
     @IBOutlet weak var imgVwCelebrity:UIImageView!
-    
     @IBOutlet weak var profilePicView:ImageWithFrameImgView!
+
+    @IBOutlet weak var btnfollowMid:UIButton!
 
 
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
        // imgUser.layer.cornerRadius = imgUser.frame.height / 2.0
-        //btnProfile.layer.cornerRadius = btnProfile.frame.height / 2.0
+        btnUnfollow.layer.cornerRadius = btnUnfollow.frame.height / 2.0
+        btnUnfollow.clipsToBounds = true
         btnUnfollow.backgroundColor = CustomColor.sharedInstance.newThemeColor
         profilePicView.initializeView()
     }

@@ -360,7 +360,7 @@ extension FrameSelectionVC: UICollectionViewDelegate,UICollectionViewDataSource,
         }else{
             let attachment:NSTextAttachment = NSTextAttachment()
             attachment.bounds = CGRect(x: 0, y: -1.0, width: 9, height: 9)
-            attachment.image = UIImage(named: "coinSmall")
+            attachment.image = UIImage(named: "starCoin")
             let attachmentString:NSAttributedString = NSAttributedString(attachment: attachment)
             nameAttr.append(attachmentString)
             nameAttr.append(NSMutableAttributedString(string: " "))

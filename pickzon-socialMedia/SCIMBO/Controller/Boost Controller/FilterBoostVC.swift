@@ -79,7 +79,6 @@ class FilterBoostVC: UIViewController {
         btnCloseCalendar.setImageTintColor(.darkGray)
         btnSelectDate.layer.cornerRadius = 5.0
         
-        
         self.gregorian =  NSCalendar(identifier: .gregorian)
         self.dateFormatter =  DateFormatter()
         self.dateFormatter?.dateFormat = "yyyy-MM-dd"
@@ -99,18 +98,23 @@ class FilterBoostVC: UIViewController {
         self.calendar = calendar
         calendar.appearance.titleDefaultColor = .black
         calendar.appearance.headerTitleColor = .black
-        calendar.appearance.titleFont = UIFont(name: "Roboto-Regular", size: 16)
+        calendar.appearance.titleFont = UIFont.systemFont(ofSize: 16, weight: .regular) /*UIFont(name: "Roboto-Regular", size: 16)*/
         calendar.weekdayHeight = 30
         calendar.swipeToChooseGesture.isEnabled = true
         self.calendar?.appearance.eventDefaultColor = CustomColor.sharedInstance.newThemeColor
         self.calendar?.appearance.weekdayTextColor = .black
-        self.calendar?.appearance.weekdayFont = UIFont(name: "Roboto-Medium", size: 18)
+        self.calendar?.appearance.weekdayFont =  UIFont.systemFont(ofSize: 18, weight: .medium) /*UIFont(name:
+                                                                                                 "Roboto-Medium", size: 18)*/
       //  calendar.today = nil; // Hide the today circle
         self.calendar?.appearance.titleTodayColor = .black
+      
 
         self.calendar?.register(RangePickerCell.self, forCellReuseIdentifier: "cell")
         
         self.setDates(d1: date1, d2: date2)
+        
+      
+    
         
     }
     
@@ -226,6 +230,9 @@ class FilterBoostVC: UIViewController {
 
 extension FilterBoostVC:FSCalendarDataSource, FSCalendarDelegate,FSCalendarDelegateAppearance{
    
+    
+
+    
     func minimumDate(for calendar: FSCalendar) -> Date {
         
         let calendar1 = NSCalendar.current

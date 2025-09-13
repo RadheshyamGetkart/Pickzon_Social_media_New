@@ -278,7 +278,7 @@ extension PostInsightsVC: UITableViewDelegate,UITableViewDataSource{
             cell.rightImgVwIcon.isHidden = false
             
             if indexPath.row == 0{
-                cell.rightImgVwIcon.image = UIImage(named: "coinSmall")
+                cell.rightImgVwIcon.image = UIImage(named: "starCoin")
                 cell.lblCoin.text = "\(objPost?.coinsSpent ?? 0)"
                 
             }else{

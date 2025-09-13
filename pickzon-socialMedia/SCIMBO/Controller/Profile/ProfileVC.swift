@@ -50,20 +50,21 @@ class ProfileVC: UIViewController, OptionDelegate,updatedProfileDelegate,Shimmer
     var objUser = PickzonUser(respdict: [:])
    
     @IBOutlet weak var tableViewProfile: UITableView!
-    @IBOutlet weak var bgVwBackBtnSwipe: UIView!
-    @IBOutlet weak var cnstrntHt_BackBtn:NSLayoutConstraint!
-    @IBOutlet weak var lblSwipeName: UILabel!
-    @IBOutlet weak var btnFollowSwipe: UIButtonX!
+//    @IBOutlet weak var bgVwBackBtnSwipe: UIView!
+//    @IBOutlet weak var cnstrntHt_BackBtn:NSLayoutConstraint!
+//    @IBOutlet weak var lblSwipeName: UILabel!
+//    @IBOutlet weak var btnFollowSwipe: UIButtonX!
     @IBOutlet weak var btnThreeDotSwipe:UIButton!
-    @IBOutlet weak var celebritySwipe: UIImageView!
+  //  @IBOutlet weak var celebritySwipe: UIImageView!
     @IBOutlet weak var tblFooterVw:UIView!
     @IBOutlet weak var lblErrorMessage: UILabel!
     @IBOutlet weak var lblDescErrorMessage: UILabel!
     @IBOutlet weak var imgVwEmpty: UIImageView!
-    
     lazy var picker = UIImagePickerController()
     var isFirstTime = true
     var isDataMoreAvailable = false
+    @IBOutlet weak var cnstrntHtNavBar:NSLayoutConstraint!
+
     
     private var shimmerReplicatorView: ShimmerReplicatorView = {
         let view = ShimmerReplicatorView(itemSize: .fixedHeight( UIScreen.main.bounds.height)) { () -> ShimmerReplicatorViewCell in
@@ -81,6 +82,7 @@ class ProfileVC: UIViewController, OptionDelegate,updatedProfileDelegate,Shimmer
         refreshControl.tintColor = UIColor.systemBlue
         return refreshControl
     }()
+    
     
     //MARK: Controller Life cycle methods
     override func viewDidLoad() {
@@ -102,8 +104,8 @@ class ProfileVC: UIViewController, OptionDelegate,updatedProfileDelegate,Shimmer
         }
         tableViewProfile.bounces = true
         self.tblFooterVw.isHidden = true
-        self.btnThreeDotSwipe.isHidden = true
-        cnstrntHt_BackBtn.constant = 0
+       // self.btnThreeDotSwipe.isHidden = true
+       // cnstrntHt_BackBtn.constant = 0
         getUserInfoDetails()
         self.getAllUserPostListApi()
         if #available(iOS 11.0, *) {
@@ -121,6 +123,12 @@ class ProfileVC: UIViewController, OptionDelegate,updatedProfileDelegate,Shimmer
         self.tableViewProfile.refreshControl = self.topRefreshControl
     }
    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        self.cnstrntHtNavBar.constant = self.getNavBarHt
+    }
+    
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
         print("UIViewController: ProfileVC")
@@ -150,7 +158,6 @@ class ProfileVC: UIViewController, OptionDelegate,updatedProfileDelegate,Shimmer
         NotificationCenter.default.removeObserver(self, name: Notification.Name(noti_RefreshProfile), object: nil)
         NotificationCenter.default.removeObserver(self, name: Notification.Name(notif_FeedRemoved.rawValue), object: nil)
         NotificationCenter.default.removeObserver(self, name: Notification.Name(notif_TagRemoved.rawValue), object: nil)
-        
     }
     
     func addObservers(){
@@ -426,6 +433,15 @@ func alertToEncourageCameraAccessWhenApplicationStarts()
     }
     
     //MARK: UIButton Action Methods
+    
+    @IBAction func backBtnAction(_ sender : UIButton){
+        self.navigationController?.popViewController(animated: true)
+    }
+    
+    
+    @IBAction func optionBtnAction(_ sender : UIButton){
+        
+    }
   
     func threeDotOptionsMethod(){
         
@@ -1158,7 +1174,7 @@ func alertToEncourageCameraAccessWhenApplicationStarts()
    
     func updateUserInfo(){
         
-        self.btnFollowSwipe.isHidden = true
+   /*     self.btnFollowSwipe.isHidden = true
         self.lblSwipeName.text = objUser.pickzonId
         self.btnThreeDotSwipe.isHidden = false
         
@@ -1182,6 +1198,7 @@ func alertToEncourageCameraAccessWhenApplicationStarts()
             }
             self.btnFollowSwipe.setTitle(getFollowUnfollowRequestedText(isFollowValue: objUser.isFollow), for: .normal)
         }
+        */
 //                self.tblFooterVw.frame = .zero
 //                self.tblFooterVw.isHidden = true
 //                self.lblErrorMessage.text = ""
@@ -1680,20 +1697,20 @@ extension ProfileVC:UITableViewDelegate,UITableViewDataSource{
             cell.lblDescription.collapsed = isExpanded
             cell.lblDescription.numberOfLines = 3
             
-            if otherMsIsdn == Themes.sharedInstance.Getuser_id(){
-                cell.bgVwBtnOption.isHidden = true
-                cell.btnOption.isHidden = true
-            }else{
-                cell.bgVwBtnOption.isHidden = false
-                cell.btnOption.isHidden = false
-            }
-            
+//            if otherMsIsdn == Themes.sharedInstance.Getuser_id(){
+//                cell.bgVwBtnOption.isHidden = true
+//                cell.btnOption.isHidden = true
+//            }else{
+//                cell.bgVwBtnOption.isHidden = false
+//                cell.btnOption.isHidden = false
+//            }
+//            
             cell.setProfileInfoData(userObj: objUser)
             cell.suggestionArray = objUser.suggestedUsers
             cell.collectioVwSuggestion.reloadWithoutAnimation()
             cell.btnContact.addTarget(self, action: #selector(contactBtnAction(_ : )), for: .touchUpInside)
-            cell.btnBack.addTarget(self, action: #selector(backButtonAction), for: .touchUpInside)
-            cell.btnOption.addTarget(self, action: #selector(optionButtonAction(_ : )), for: .touchUpInside)
+//            cell.btnBack.addTarget(self, action: #selector(backButtonAction), for: .touchUpInside)
+//            cell.btnOption.addTarget(self, action: #selector(optionButtonAction(_ : )), for: .touchUpInside)
             cell.btnMessage.addTarget(self, action: #selector(messageBtnAction(_ : )), for: .touchUpInside)
             cell.btnFollow.addTarget(self, action: #selector(followBtnAction(_ : )), for: .touchUpInside)
             cell.btnFollowerCount.addTarget(self, action: #selector(followersBtnAction(_ : )), for: .touchUpInside)
@@ -1710,8 +1727,8 @@ extension ProfileVC:UITableViewDelegate,UITableViewDataSource{
             cell.profilePicView.remoteSVGAPlayer?.addGestureRecognizer(UITapGestureRecognizer(target: self,
                                                                           action:#selector(self.handleProfilePicTap(_:))))
             
-            cell.imgVwBanner.addGestureRecognizer(UITapGestureRecognizer(target: self,
-                                                                         action:#selector(self.handleCoverTap(_:))))
+//            cell.imgVwBanner.addGestureRecognizer(UITapGestureRecognizer(target: self,
+//                                                                         action:#selector(self.handleCoverTap(_:))))
             
             cell.btnMutualFriend.addTarget(self, action: #selector(mutualFriendsBtnAction(_ : )), for: .touchUpInside)
             cell.btnSeeMoreSuggestion.addTarget(self, action: #selector(seeAllList), for: .touchUpInside)
@@ -1799,7 +1816,7 @@ extension ProfileVC:UITableViewDelegate,UITableViewDataSource{
         return UITableViewCell()
     }
  
-    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+  /*  func scrollViewDidScroll(_ scrollView: UIScrollView) {
         // print("scrollView.contentOffset.y ==\(scrollView.contentOffset.y)")
         if scrollView.contentOffset.y > 200{
             if cnstrntHt_BackBtn.constant != 30 {
@@ -1811,7 +1828,7 @@ extension ProfileVC:UITableViewDelegate,UITableViewDataSource{
             }
         }
     }
-    
+    */
     
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         
@@ -2334,17 +2351,16 @@ extension ProfileVC:TabDelegate,SuggestionDelegate,BusinessMediaDelegate,Suggest
         self.tableViewProfile.reloadSections(IndexSet(integer: 1), with: .fade)
        UIView.setAnimationsEnabled(true)
         
-        if objUser.isFollow == 0 || objUser.isFollow == 3{
-            self.btnFollowSwipe.isHidden = false
-        }else{
-            self.btnFollowSwipe.isHidden = true
-
-        }
-        cnstrntHt_BackBtn.constant = 0
+//        if objUser.isFollow == 0 || objUser.isFollow == 3{
+//            self.btnFollowSwipe.isHidden = false
+//        }else{
+//            self.btnFollowSwipe.isHidden = true
+//        }
+//        cnstrntHt_BackBtn.constant = 0
         
-        if Themes.sharedInstance.Getuser_id() == objUser.id{
-            self.btnFollowSwipe.isHidden = true
-        }
+//        if Themes.sharedInstance.Getuser_id() == objUser.id{
+//            self.btnFollowSwipe.isHidden = true
+//        }
     }
 }
 

@@ -80,13 +80,12 @@ class ChangePasswordVC: UIViewController {
         self.txtPassword.attributedPlaceholder = getTextfromVerifiedAndString(name: "New Password", imageName: "chat_lock")
 
         self.txtConfirmPassword.attributedPlaceholder = getTextfromVerifiedAndString(name: "Confirm New Password", imageName: "chat_lock")
-
     }
+    
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         cnstrntHtNavBar.constant = self.getNavBarHt
     }
-    
     
     func getTextfromVerifiedAndString(name:String, color:UIColor = .lightGray,imageName:String, fontSize:CGFloat = 15) -> NSMutableAttributedString {
         
@@ -109,8 +108,7 @@ class ChangePasswordVC: UIViewController {
     
     
     //MARK: UIButton Action Methods
-    @IBAction func backButtonAction()
-    {
+    @IBAction func backButtonAction()  {
         self.navigationController?.popViewController(animated: true)
     }
     
@@ -123,8 +121,8 @@ class ChangePasswordVC: UIViewController {
             btnShowHideOldPassword.setImage(PZImages.showEye, for: .normal)
             txtOldPassword.isSecureTextEntry = false
         }
-        
     }
+    
     
     @IBAction func showHidePasswordAction(){
 

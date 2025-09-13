@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="22505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="23504" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_0" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22504"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="23506"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -11,9 +11,6 @@
     <customFonts key="customFonts">
         <array key="Roboto-Medium.ttf">
             <string>Roboto-Medium</string>
-        </array>
-        <array key="Roboto-Regular.ttf">
-            <string>Roboto-Regular</string>
         </array>
     </customFonts>
     <objects>
@@ -62,11 +59,11 @@
                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NpF-67-u2G">
-                                        <rect key="frame" x="65" y="5" width="140" height="25"/>
+                                        <rect key="frame" x="65" y="5" width="139" height="25"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="25" id="Bv4-97-wFs"/>
                                         </constraints>
-                                        <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="15"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                         <state key="normal" title="Radhe Shyam Yadav">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -74,14 +71,14 @@
                                         </state>
                                     </button>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="green_badge_1" translatesAutoresizingMaskIntoConstraints="NO" id="KpP-CS-t1c">
-                                        <rect key="frame" x="207.66666666666666" y="9" width="17" height="17"/>
+                                        <rect key="frame" x="206.66666666666666" y="9" width="17" height="17"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="17" id="VCB-ck-s4G"/>
                                             <constraint firstAttribute="height" constant="17" id="sqw-2l-Kki"/>
                                         </constraints>
                                     </imageView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="e48-Zi-0Z9">
-                                        <rect key="frame" x="229.66666666666663" y="5" width="75" height="25"/>
+                                        <rect key="frame" x="228.66666666666663" y="5" width="75" height="25"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="75" id="1k9-RM-NeH"/>
                                             <constraint firstAttribute="height" constant="25" id="crK-mf-gSH"/>
@@ -109,7 +106,7 @@
                                         <constraints>
                                             <constraint firstAttribute="height" constant="20" id="aeV-Wt-ET8"/>
                                         </constraints>
-                                        <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="14"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                         <state key="normal" title="@radheyShyam">
                                             <color key="titleShadowColor" systemColor="labelColor"/>
@@ -161,7 +158,7 @@
                                             <constraint firstAttribute="height" constant="15" id="ajs-oy-ssU"/>
                                             <constraint firstAttribute="width" constant="100" id="qsC-Jz-haX"/>
                                         </constraints>
-                                        <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="11"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="11"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
@@ -332,7 +329,7 @@
                             <constraint firstAttribute="height" constant="50" id="0jO-IT-soe"/>
                             <constraint firstAttribute="width" constant="58" id="7nV-r3-bj0"/>
                         </constraints>
-                        <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="12"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
                         <inset key="titleEdgeInsets" minX="-30" minY="22" maxX="0.0" maxY="2"/>
                         <inset key="imageEdgeInsets" minX="15" minY="0.0" maxX="2.2250738585072014e-308" maxY="25"/>
                         <state key="normal" title="Send gift" image="gift_wrapped">
@@ -341,7 +338,7 @@
                         </state>
                     </button>
                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="dVv-Gp-8cg">
-                        <rect key="frame" x="465" y="8" width="50" height="350"/>
+                        <rect key="frame" x="465" y="58" width="50" height="300"/>
                         <subviews>
                             <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Gcq-Pd-KWJ" customClass="UIViewX" customModule="PickZon" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="0.0" width="50" height="60"/>
@@ -361,7 +358,7 @@
                                             <constraint firstAttribute="height" constant="21" id="udz-0K-nLn"/>
                                             <constraint firstAttribute="width" constant="50" id="vHo-Zl-cKS"/>
                                         </constraints>
-                                        <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="12"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                         <color key="shadowColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -416,7 +413,7 @@
                                         <constraints>
                                             <constraint firstAttribute="height" constant="16" id="O8S-7j-Gah"/>
                                         </constraints>
-                                        <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="12"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                         <color key="shadowColor" systemColor="labelColor"/>
@@ -473,7 +470,7 @@
                                         <constraints>
                                             <constraint firstAttribute="height" constant="16" id="zgA-ut-uaG"/>
                                         </constraints>
-                                        <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="12"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                         <state key="normal" title="11 k">
                                             <color key="titleShadowColor" systemColor="labelColor"/>
@@ -529,7 +526,7 @@
                                         <constraints>
                                             <constraint firstAttribute="height" constant="16" id="BxR-TM-C3N"/>
                                         </constraints>
-                                        <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="12"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                         <state key="normal" title="11 k">
                                             <color key="titleShadowColor" systemColor="labelColor"/>
@@ -609,8 +606,8 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Wfq-fi-BFb">
-                                <rect key="frame" x="2.6666666666666856" y="305" width="45" height="45"/>
+                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Wfq-fi-BFb">
+                                <rect key="frame" x="2.6666666666666856" y="300" width="45" height="45"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8vp-To-tJG">
                                         <rect key="frame" x="5" y="5" width="35" height="35"/>
@@ -741,18 +738,13 @@
             <point key="canvasLocation" x="350" y="101.30331753554502"/>
         </tableViewCell>
     </objects>
-    <designables>
-        <designable name="TUV-zL-dyJ">
-            <size key="intrinsicContentSize" width="40" height="13"/>
-        </designable>
-    </designables>
     <resources>
         <image name="CommentIcon" width="23.666666030883789" height="23.666666030883789"/>
         <image name="Shareicon" width="23.666666030883789" height="23.666666030883789"/>
         <image name="Song" width="980" height="980"/>
         <image name="commentIconBig" width="30" height="30"/>
         <image name="gift_wrapped" width="24" height="24.333333969116211"/>
-        <image name="green_badge_1" width="25" height="25"/>
+        <image name="green_badge_1" width="16" height="16"/>
         <image name="heartEmpty" width="23.666666030883789" height="23.666666030883789"/>
         <image name="heartEmptyBig" width="30" height="30"/>
         <image name="music-1" width="10.666666984558105" height="10.666666984558105"/>
@@ -764,13 +756,13 @@
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
         <systemColor name="opaqueSeparatorColor">
-            <color red="0.77647058820000003" green="0.77647058820000003" blue="0.7843137255" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.77647058823529413" green="0.77647058823529413" blue="0.78431372549019607" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
         <systemColor name="systemRedColor">
-            <color red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

@@ -101,7 +101,7 @@ class ShareProfileVC: UIViewController {
     func addBorderColor(){
         
         let gradientLayer = CAGradientLayer()
-        gradientLayer.colors =  [Themes.sharedInstance.colorWithHexString(hex: "#307CF6").cgColor, Themes.sharedInstance.colorWithHexString(hex: "#193D9A").cgColor]
+        gradientLayer.colors =  [Themes.sharedInstance.colorWithHexString(hex: "#00BDB0").cgColor, Themes.sharedInstance.colorWithHexString(hex: "#028090").cgColor]
         gradientLayer.locations = [0.0, 1.0]
         gradientLayer.frame = self.bgViewQrCode.bounds
         self.bgViewQrCode.layer.insertSublayer(gradientLayer, at:0)

@@ -222,7 +222,6 @@
 		2938FB802A54397800AFD79D /* LeaderBoardTopCollectionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2938FB7E2A54397800AFD79D /* LeaderBoardTopCollectionCell.xib */; };
 		293C5C422BCCFE7200E9A65C /* AgencyCoinBuyVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 293C5C412BCCFE7200E9A65C /* AgencyCoinBuyVC.swift */; };
 		293D04262A38444E00DBB277 /* SettingsApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 293D04252A38444E00DBB277 /* SettingsApi.swift */; };
-		293D3F1C2AEF6F120077E748 /* liveIcon.gif in Resources */ = {isa = PBXBuildFile; fileRef = 293D3F1B2AEF6F120077E748 /* liveIcon.gif */; };
 		293E6FD429766BBB0044E549 /* LoadMoreTblCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 293E6FD229766BBB0044E549 /* LoadMoreTblCell.swift */; };
 		293E6FD529766BBB0044E549 /* LoadMoreTblCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 293E6FD329766BBB0044E549 /* LoadMoreTblCell.xib */; };
 		293E841F2AF61AE2007AEEEF /* TopThreeLiveCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 293E841D2AF61AE2007AEEEF /* TopThreeLiveCell.swift */; };
@@ -1613,7 +1612,6 @@
 		2938FB7E2A54397800AFD79D /* LeaderBoardTopCollectionCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LeaderBoardTopCollectionCell.xib; sourceTree = "<group>"; };
 		293C5C412BCCFE7200E9A65C /* AgencyCoinBuyVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AgencyCoinBuyVC.swift; sourceTree = "<group>"; };
 		293D04252A38444E00DBB277 /* SettingsApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsApi.swift; sourceTree = "<group>"; };
-		293D3F1B2AEF6F120077E748 /* liveIcon.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = liveIcon.gif; sourceTree = "<group>"; };
 		293E6FD229766BBB0044E549 /* LoadMoreTblCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadMoreTblCell.swift; sourceTree = "<group>"; };
 		293E6FD329766BBB0044E549 /* LoadMoreTblCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoadMoreTblCell.xib; sourceTree = "<group>"; };
 		293E841D2AF61AE2007AEEEF /* TopThreeLiveCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopThreeLiveCell.swift; sourceTree = "<group>"; };
@@ -3216,7 +3214,6 @@
 			isa = PBXGroup;
 			children = (
 				2994A00B2B26DAE600F91AE6 /* animatedLine.gif */,
-				293D3F1B2AEF6F120077E748 /* liveIcon.gif */,
 			);
 			path = Gif;
 			sourceTree = "<group>";
@@ -7543,7 +7540,6 @@
 				C57BBD901F4ABB750044D1A9 /* ReplyDetailView.xib in Resources */,
 				F0B0D5D92A8214A8008EF95B /* ClipSuggestionTVCell.xib in Resources */,
 				F057C2AA2AF25A9100918BB5 /* Roboto-Light.ttf in Resources */,
-				293D3F1C2AEF6F120077E748 /* liveIcon.gif in Resources */,
 				C56141172110760100F1BBBD /* mode-ctr.js in Resources */,
 				29223B572C0EE9980064A20F /* SectionHeaderCell.xib in Resources */,
 				C5EDF51820AF061D0075A3D3 /* DetailHeadertableViewCell.xib in Resources */,

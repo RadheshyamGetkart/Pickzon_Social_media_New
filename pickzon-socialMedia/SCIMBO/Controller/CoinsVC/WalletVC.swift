@@ -530,17 +530,18 @@ extension WalletVC:UITableViewDelegate,UITableViewDataSource{
             let width = CGFloat(self.view.frame.size.width/3.0)
             let divide =  CGFloat(count/3) * width
             var  remainder = CGFloat(count % 3) * width
-            if  (count % 3) > 0 && count % 3 < 3{
+            if (count % 3) > 0 && count % 3 < 3 {
                 remainder = width
             }else{
                 remainder = 0
             }
             return  CGFloat(divide + remainder + 20)
+            
         }else if indexPath.section == 4{
             if indexPath.row == 0 {
                 let count = coinOfferArrayAgency.count
                 let width = CGFloat((self.view.frame.size.width/3)/2 + 30)
-                let divide =  CGFloat(count/3) * width
+                let divide =  CGFloat(count/3) * (width + 50)
                 var  remainder = CGFloat(count % 3) * width
                 if  (count % 3) > 0 && count % 3 < 3{
                     remainder = width
@@ -618,22 +619,22 @@ extension WalletVC:UITableViewDelegate,UITableViewDataSource{
                 
                 let cell = tblView.dequeueReusableCell(withIdentifier: "CoinsHeaderTblCell") as! CoinsHeaderTblCell
                 cell.bgViewUpgradePremium.isHidden = true
-                cell.imgVwBanner.image = UIImage(named: "rectanglePink")
+                cell.imgVwBanner.image = UIImage(named: "rectangleBlue")
                 cell.btnWithdraw.isHidden = true
                 //let imageName = isReadMoreSelected ? "down-arrow 1-3" : "right-arrow 1"
                 //cell.btnReadMore.setImage(UIImage(named: imageName), for: .normal)
                 //cell.bgViewUpgradePremium.isHidden = false
-                cell.btnWithdraw.isHidden = true
                 cell.lblTitleCoins.text = "Available Coins"
                 if Settings.sharedInstance.isAgency == 1{
                     cell.btnHistory.setTitle("Transaction History", for: .normal)
                 }else{
                     cell.btnHistory.setTitle("History", for: .normal)
                 }
-                cell.btnHistory.setTitleColor(Themes.sharedInstance.colorWithHexString(hex: "#e887b1"), for: .normal)
+                
+             //   cell.btnHistory.setTitleColor(Themes.sharedInstance.colorWithHexString(hex: "#e887b1"), for: .normal)
                 cell.btnEarnHistory.isHidden = true
                 cell.lblNumberOfCoins.text = "\(cheerCoins)"
-                cell.imgVwCoin.image = UIImage(named: "coin1")
+                cell.imgVwCoin.image = UIImage(named: "starCoin")
                 
                 cell.btnReadMore.addTarget(self, action: #selector(readMoreBtnAction(_ : )), for: .touchUpInside)
                 cell.btnHistory.addTarget(self, action: #selector(historyBtnAction(_ : )), for: .touchUpInside)
@@ -651,8 +652,9 @@ extension WalletVC:UITableViewDelegate,UITableViewDataSource{
                 cell.btnWithdraw.addTarget(self, action: #selector(withdrawGiftedCoinsBtnAction(_ : )), for: .touchUpInside)
                // cell.lblCoinAndValue.text = " \(giftedCoins) = \(giftedCoinsDollar)"
 
+               
                 
-                cell.lblCoinAndValue.setAttributedText(firstText: "\(giftedCoins) = ", firstcolor: .white, seconText: giftedCoinsDollar, secondColor: Themes.sharedInstance.colorWithHexString(hex: "FCD304") , firstFont:  UIFont(name: "Roboto-Medium", size: 20.0)!, secondFont:  UIFont(name: "Roboto-Medium", size: 20.0)!)
+                cell.lblCoinAndValue.setAttributedText(firstText: "\(giftedCoins) = ", firstcolor: .white, seconText: giftedCoinsDollar, secondColor: Themes.sharedInstance.colorWithHexString(hex: "FCD304") , firstFont:  UIFont.systemFont(ofSize: 20, weight: .medium), secondFont:   UIFont.systemFont(ofSize: 20, weight: .medium))
                 
                 
                 return cell
@@ -956,8 +958,11 @@ extension WalletVC: RazorpayProtocol, RazorpayPaymentCompletionProtocol,CheerCoi
         imgpopup.contentMode = .scaleAspectFill
         viewPopUp.addSubview(imgpopup)
         
-        let imgCoin = UIImageView(frame: CGRect(x: (viewPopUp.frame.width/2.0 - 75.0) , y: 20, width: 150.0, height: 114.0))
-        imgCoin.image = UIImage(named: "coinStar")
+//        let imgCoin = UIImageView(frame: CGRect(x: (viewPopUp.frame.width/2.0 - 75.0) , y: 20, width: 150.0, height: 114.0))
+        
+        let imgCoin = UIImageView(frame: CGRect(x: (viewPopUp.frame.width/2.0 - 57.0) , y: 20, width: 114.0, height: 114.0))
+
+        imgCoin.image = UIImage(named: "starCoin")
         viewPopUp.addSubview(imgCoin)
         
         

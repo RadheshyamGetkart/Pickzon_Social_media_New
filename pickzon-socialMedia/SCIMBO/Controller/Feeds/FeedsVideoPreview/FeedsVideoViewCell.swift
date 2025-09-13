@@ -364,7 +364,7 @@ class FeedsVideoViewCell:UITableViewCell, OptionDelegate {
         
         if (objWallPost.soundInfo?.id ?? "").count > 0{
             
-            self.bgVwSoundClip.isHidden = false
+            self.bgVwSoundClip.isHidden = true // false
             self.lblSoundName.isHidden = false
             self.imgVwSongIcon.isHidden = false
             self.btnSound.kf.setImage(with:  URL(string: objWallPost.soundInfo!.thumb) , for: .normal, placeholder:PZImages.avatar , options: nil)
@@ -525,7 +525,7 @@ class FeedsVideoViewCell:UITableViewCell, OptionDelegate {
         
         
         if (objWallPost.sharedWallData.soundInfo?.id ?? "").count > 0{
-            self.bgVwSoundClip.isHidden = false
+            self.bgVwSoundClip.isHidden =  true //false
             self.lblSoundName.isHidden = false
             self.imgVwSongIcon.isHidden = false
             self.btnSound.kf.setImage(with:  URL(string: objWallPost.sharedWallData.soundInfo!.thumb) , for: .normal, placeholder:PZImages.avatar , options: nil)

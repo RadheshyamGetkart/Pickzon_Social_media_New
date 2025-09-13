@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="22155" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="23504" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
-        <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22131"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="23506"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -11,9 +10,6 @@
     <customFonts key="customFonts">
         <array key="Roboto-Medium.ttf">
             <string>Roboto-Medium</string>
-        </array>
-        <array key="Roboto-Regular.ttf">
-            <string>Roboto-Regular</string>
         </array>
     </customFonts>
     <objects>
@@ -53,7 +49,7 @@
                         </constraints>
                         <inset key="imageEdgeInsets" minX="0.5" minY="0.5" maxX="0.5" maxY="0.5"/>
                     </button>
-                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="coinSmall" translatesAutoresizingMaskIntoConstraints="NO" id="Zxt-LL-fdu">
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="starCoin" translatesAutoresizingMaskIntoConstraints="NO" id="Zxt-LL-fdu">
                         <rect key="frame" x="10" y="81.666666666666671" width="20" height="20"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="20" id="FvA-32-DUW"/>
@@ -61,7 +57,7 @@
                         </constraints>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Loser" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gqa-1F-lIk">
-                        <rect key="frame" x="10" y="103.66666666666667" width="35.333333333333336" height="20"/>
+                        <rect key="frame" x="10" y="103.66666666666667" width="35" height="20"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="20" id="npw-ZV-ew3"/>
                         </constraints>
@@ -74,7 +70,7 @@
                         <constraints>
                             <constraint firstAttribute="height" constant="20" id="WMh-C0-cbH"/>
                         </constraints>
-                        <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="15"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <nil key="highlightedColor"/>
                     </label>
@@ -86,7 +82,7 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="20" id="xZP-Js-SvK"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="15"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                 <state key="normal" title="Raju"/>
                             </button>
@@ -124,11 +120,11 @@
                         <constraints>
                             <constraint firstAttribute="height" constant="20" id="TvF-Fm-iH8"/>
                         </constraints>
-                        <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="15"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="coinSmall" translatesAutoresizingMaskIntoConstraints="NO" id="9aq-C6-5bh">
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="starCoin" translatesAutoresizingMaskIntoConstraints="NO" id="9aq-C6-5bh">
                         <rect key="frame" x="300" y="81.666666666666671" width="20" height="20"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="20" id="C1N-Ob-Jy5"/>
@@ -136,7 +132,7 @@
                         </constraints>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Loser" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EzH-9s-PNs">
-                        <rect key="frame" x="284.66666666666669" y="103.66666666666667" width="35.333333333333314" height="20"/>
+                        <rect key="frame" x="285" y="103.66666666666667" width="35" height="20"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="20" id="96W-bp-slr"/>
                         </constraints>
@@ -152,7 +148,7 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="20" id="DG2-f0-ixs"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="15"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                 <state key="normal" title="Raju"/>
                             </button>
@@ -189,7 +185,7 @@
                         </constraints>
                     </view>
                     <stackView opaque="NO" contentMode="scaleToFill" spacing="2.5" translatesAutoresizingMaskIntoConstraints="NO" id="stM-eL-tFR">
-                        <rect key="frame" x="50.333333333333336" y="103.66666666666667" width="65.333333333333314" height="20"/>
+                        <rect key="frame" x="49.999999999999993" y="103.66666666666667" width="65.333333333333314" height="20"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ip1-pV-cz6">
                                 <rect key="frame" x="0.0" y="0.0" width="20" height="20"/>
@@ -201,7 +197,7 @@
                                 <state key="normal" image="avatar"/>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="J0w-Re-Hlp">
-                                <rect key="frame" x="22.666666666666664" y="0.0" width="20" height="20"/>
+                                <rect key="frame" x="22.666666666666671" y="0.0" width="20" height="20"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="20" id="NzV-n3-C61"/>
                                     <constraint firstAttribute="width" constant="20" id="Suu-AL-fZm"/>
@@ -210,7 +206,7 @@
                                 <state key="normal" image="avatar"/>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ezZ-TP-Eqr">
-                                <rect key="frame" x="45.333333333333336" y="0.0" width="20.000000000000007" height="20"/>
+                                <rect key="frame" x="45.333333333333329" y="0.0" width="20" height="20"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="20" id="Mjq-3G-1LQ"/>
                                     <constraint firstAttribute="width" constant="20" id="rRT-Xy-F55"/>
@@ -221,7 +217,7 @@
                         </subviews>
                     </stackView>
                     <stackView opaque="NO" contentMode="scaleToFill" spacing="2.5" translatesAutoresizingMaskIntoConstraints="NO" id="aXR-NA-IXk">
-                        <rect key="frame" x="214.33333333333334" y="103.66666666666667" width="65.333333333333343" height="20"/>
+                        <rect key="frame" x="214.66666666666666" y="103.66666666666667" width="65.333333333333343" height="20"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Th6-wT-fL5">
                                 <rect key="frame" x="0.0" y="0.0" width="20" height="20"/>
@@ -233,7 +229,7 @@
                                 <state key="normal" image="avatar"/>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Zcx-cw-J9O">
-                                <rect key="frame" x="22.666666666666657" y="0.0" width="20" height="20"/>
+                                <rect key="frame" x="22.666666666666686" y="0.0" width="20" height="20"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="20" id="if7-gp-LN3"/>
                                     <constraint firstAttribute="height" constant="20" id="qIg-zk-xIX"/>
@@ -327,8 +323,8 @@
         <image name="agencyPkBg." width="344" height="111"/>
         <image name="avatar" width="101" height="101"/>
         <image name="blurPK" width="78" height="78"/>
-        <image name="coinSmall" width="24" height="23.333333969116211"/>
         <image name="pickzon_verify_Gold" width="376.33334350585938" height="358"/>
+        <image name="starCoin" width="128" height="128"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

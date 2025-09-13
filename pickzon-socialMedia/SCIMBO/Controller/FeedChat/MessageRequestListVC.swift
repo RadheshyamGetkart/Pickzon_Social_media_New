@@ -41,7 +41,6 @@ class MessageRequestListVC: UIViewController {
         emitChatList(isToClearList: false)
         self.searchBgView.isHidden = true
         tblView.keyboardDismissMode = .onDrag
-
     }
     
     override func viewDidLayoutSubviews() {

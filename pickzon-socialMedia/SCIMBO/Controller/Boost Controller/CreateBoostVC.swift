@@ -34,7 +34,7 @@ class CreateBoostVC: UIViewController {
         tblView.register(UINib(nibName: "BoostPackTblCell", bundle: nil), forCellReuseIdentifier: "BoostPackTblCell")
         getAvailablePlansApi()
         self.getAvailableCoinsApi()
-        self.btnPay.setGradientColork(colorLeft: Themes.sharedInstance.colorWithHexString(hex: "18409E"), colorRight: Themes.sharedInstance.colorWithHexString(hex: "0866FF"), titleColor: .white, cornerRadious: 5.0, image: "", title: "Pay")  
+        self.btnPay.setGradientColork(colorLeft: Themes.sharedInstance.colorWithHexString(hex: "#00BDB0"), colorRight: Themes.sharedInstance.colorWithHexString(hex: "#028090"), titleColor: .white, cornerRadious: btnPay.frame.height/2.0, image: "", title: "Pay")
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -294,7 +294,7 @@ extension  CreateBoostVC : UITableViewDelegate,UITableViewDataSource,WalletDeleg
             cell.lblTitle.text = "Ad Coin Balance"
             cell.lblRecommended.isHidden = true
             cell.lblCoin.textColor = ( self.availableCoin == 0 ) ? .red : .systemGreen
-            cell.lblTitle.font = UIFont(name: "Roboto-Medium", size: 16.0)
+            cell.lblTitle.font = UIFont.systemFont(ofSize: 16.0, weight: .medium)/*UIFont(name: "Roboto-Medium", size: 16.0)*/
         }else{
             cell.lblVIewCount.isHidden = false
             cell.cnstrntLeadingClipImg.constant = 10
@@ -325,7 +325,7 @@ extension  CreateBoostVC : UITableViewDelegate,UITableViewDataSource,WalletDeleg
             }
             
             cell.lblCoin.textColor = .label
-            cell.lblTitle.font = UIFont(name: "Roboto-Regular", size: 16.0)
+            cell.lblTitle.font = UIFont.systemFont(ofSize: 16.0, weight: .regular)
             cell.imgVwClipIcon.isHidden = false
         }
         
@@ -333,7 +333,7 @@ extension  CreateBoostVC : UITableViewDelegate,UITableViewDataSource,WalletDeleg
         cell.lblVIewCount.textColor = .label
         cell.imgVwClipIcon.setImageColor(color: .label)
         if selectedIndex == indexPath.row{
-            cell.bgView.backgroundColor = Themes.sharedInstance.colorWithHexString(hex: "#0866FF").withAlphaComponent(0.5)
+            cell.bgView.backgroundColor = CustomColor.sharedInstance.newThemeColor.withAlphaComponent(0.4)
         }else{
             cell.bgView.backgroundColor = .clear
         }

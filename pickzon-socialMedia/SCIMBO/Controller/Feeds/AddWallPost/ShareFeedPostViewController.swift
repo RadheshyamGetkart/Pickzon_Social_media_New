@@ -301,7 +301,7 @@ class ShareFeedPostViewController: UIViewController{
         tfDescription.layer.cornerRadius = 2.0
         tfDescription.placeholder = "What do you want to talk about?"
         tfDescription.contentInset = UIEdgeInsets(top: 5, left: 5, bottom: 5, right: 5)
-        lblTaggedItems.textColor = UIColor(red: 30.0/255.0, green: 110.0/255.0, blue: 222.0/255.0, alpha: 1.0)
+        lblTaggedItems.textColor = CustomColor.sharedInstance.newThemeColor // UIColor(red: 30.0/255.0, green: 110.0/255.0, blue: 222.0/255.0, alpha: 1.0)
         cvFeedsPost.register(UINib(nibName: "FeedsCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "FeedsCollectionViewCell")
         cvFeedsPost.delegate = self
         cvFeedsPost.dataSource = self
@@ -312,7 +312,12 @@ class ShareFeedPostViewController: UIViewController{
     }
     func updateColorBack(){
          
-        let colorLeft = UIColor(red: 13.0/255.0, green: 107.0/255.0, blue: 255.0/255.0, alpha: 1.0).cgColor
+        self.btnPost.layer.cornerRadius =  self.btnPost.frame.height/2.0
+        btnPost.clipsToBounds = true
+        btnPost.backgroundColor = CustomColor.sharedInstance.newThemeColor
+        btnPost.setTitleColor(UIColor.white, for: .normal)
+
+     /*   let colorLeft = UIColor(red: 13.0/255.0, green: 107.0/255.0, blue: 255.0/255.0, alpha: 1.0).cgColor
         
         let colorRight = UIColor(red: 21.0/255.0, green: 178.0/255.0, blue: 254.0/255.0, alpha: 1.0).cgColor
         let gradientLayerColor4 = CAGradientLayer()
@@ -325,7 +330,7 @@ class ShareFeedPostViewController: UIViewController{
         self.btnPost.layer.cornerRadius = 5.0
         btnPost.clipsToBounds = true
         btnPost.layer.insertSublayer(gradientLayerColor4, at:0)
-        btnPost.setTitleColor(UIColor.white, for: .normal)
+        btnPost.setTitleColor(UIColor.white, for: .normal)*/
         
     }
     

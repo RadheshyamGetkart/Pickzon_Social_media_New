@@ -122,7 +122,7 @@ class CreateWallPostViewController: UIViewController,GrowingTextViewDelegate {
         
         tfDescription.layer.borderColor = UIColor.lightGray.cgColor
         tfDescription.layer.cornerRadius = 5.0
-        tfDescription.layer.borderWidth = 0.5
+        tfDescription.layer.borderWidth = 0.2
        
         
         self.btnSaveDraft.isHidden = false
@@ -350,7 +350,7 @@ class CreateWallPostViewController: UIViewController,GrowingTextViewDelegate {
         tfDescription.placeholder = "What do you want to talk about?"
         tfDescription.contentInset = UIEdgeInsets(top: 5, left: 5, bottom: 5, right: 5)
         tfDescription.delegate = self
-        lblTaggedItems.textColor = UIColor(red: 30.0/255.0, green: 110.0/255.0, blue: 222.0/255.0, alpha: 1.0)
+        lblTaggedItems.textColor = CustomColor.sharedInstance.newThemeColor// UIColor(red: 30.0/255.0, green: 110.0/255.0, blue: 222.0/255.0, alpha: 1.0)
         
         cvFeedsPost.register(UINib(nibName: "FeedsCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "FeedsCollectionViewCell")
         cvFeedsPost.delegate = self
@@ -374,12 +374,12 @@ class CreateWallPostViewController: UIViewController,GrowingTextViewDelegate {
     func updateColorBack(){
         
         btnPost.setBackgroundColor(CustomColor.sharedInstance.newThemeColor, forState: .normal)
-        btnPost.layer.cornerRadius = 5.0
+        btnPost.layer.cornerRadius = btnPost.frame.height/2.0
         btnPost.clipsToBounds = true
         btnPost.setTitleColor(UIColor.white, for: .normal)
 
         btnSaveDraft.setBackgroundColor(CustomColor.sharedInstance.newThemeColor, forState: .normal)
-        btnSaveDraft.layer.cornerRadius = 5.0
+        btnSaveDraft.layer.cornerRadius = btnSaveDraft.frame.height/2.0
         btnSaveDraft.clipsToBounds = true
         btnPost.setTitleColor(UIColor.white, for: .normal)
 
@@ -1673,12 +1673,12 @@ extension CreateWallPostViewController : UITableViewDelegate, UITableViewDataSou
             return url.absoluteString
         })
         cell.selIndex = indexPath.item
-        cell.btnAddMusic.isHidden = false
-        cell.btnAddMusic.tag = indexPath.item
-        cell.btnAddMusic.addTarget(self, action: #selector(addsoundBtn(_ : )), for: .touchUpInside)
-        if isFromEdit == true {
-            cell.btnAddMusic.isHidden = true
-        }
+        cell.btnAddMusic.isHidden = true
+//        cell.btnAddMusic.tag = indexPath.item
+//        cell.btnAddMusic.addTarget(self, action: #selector(addsoundBtn(_ : )), for: .touchUpInside)
+//        if isFromEdit == true {
+//            cell.btnAddMusic.isHidden = true
+//        }
         let objUrlString = (urlSelectedItemsArray[indexPath.row].absoluteString) as NSString
         
         if objUrlString.contains("https") {

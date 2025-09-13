@@ -23,22 +23,21 @@ import NSFWDetector
 
 class ProfileInfoViewController: UIViewController,SocketIOManagerDelegate{
     
-    @IBOutlet weak var enterchat_view: UIView!
     @IBOutlet weak var imageBtn: UIButton!
-    @IBOutlet weak var btnBannerCamera: UIButton!
+  //  @IBOutlet weak var btnBannerCamera: UIButton!
     @IBOutlet weak var btnBack: UIButton!
 
     @IBOutlet weak var go_btn: UIButton!
-    @IBOutlet weak var Entername_field: UITextField!
-    @IBOutlet weak var HeightConstraint: NSLayoutConstraint!
-    @IBOutlet weak var tfTiktokName: UITextField!
+   // @IBOutlet weak var Entername_field: UITextField!
+   // @IBOutlet weak var HeightConstraint: NSLayoutConstraint!
+    //@IBOutlet weak var tfTiktokName: UITextField!
     @IBOutlet weak var user_image: UIImageView!
        
-    @IBOutlet weak var profileSubBgView:UIView!
+   // @IBOutlet weak var profileSubBgView:UIView!
     @IBOutlet weak var btnCheckBox:UIButtonX!
     @IBOutlet weak var tblView:UITableView!
-    @IBOutlet weak var logoImgVw: UIImageView!
-    @IBOutlet weak var imgViewBanner:UIImageView!
+    //@IBOutlet weak var logoImgVw: UIImageView!
+  //  @IBOutlet weak var imgViewBanner:UIImageView!
     
     var locationObj = LocationModal(locationDict: [:])
     var picker = UIImagePickerController()
@@ -81,7 +80,8 @@ class ProfileInfoViewController: UIViewController,SocketIOManagerDelegate{
     private var isToShowPassword = true
     private var isToShowConfirmPassword = true
     
-    
+    @IBOutlet weak var cnstrntHtNavbar: NSLayoutConstraint!
+
     //MARK: Controller life cycle methods
   
     override func viewDidLoad() {
@@ -135,6 +135,11 @@ class ProfileInfoViewController: UIViewController,SocketIOManagerDelegate{
         
         initialSetupMethods()
     }
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        cnstrntHtNavbar.constant = self.getNavBarHt
+    }
    
     override var prefersStatusBarHidden: Bool {
         return true
@@ -165,8 +170,8 @@ class ProfileInfoViewController: UIViewController,SocketIOManagerDelegate{
         btnCheckBox.isSelected = false
         btnCheckBox.setImage(#imageLiteral(resourceName: "uncheck"), for: .normal)
         localTimeZoneIdentifier = TimeZone.current.identifier
-        profileSubBgView.layer.cornerRadius = 25.0
-        profileSubBgView.clipsToBounds = true
+//        profileSubBgView.layer.cornerRadius = 25.0
+//        profileSubBgView.clipsToBounds = true
         user_image.layer.cornerRadius=user_image.frame.size.width/2
         user_image.clipsToBounds=true
         user_image.layer.borderWidth = 1.0
@@ -381,7 +386,7 @@ class ProfileInfoViewController: UIViewController,SocketIOManagerDelegate{
     
     @IBAction func DidclickenterChat(_ sender: Any) {
         
-        self.UpdateUserInfo(name: self.Entername_field.text!, imagedata: "", base64data: "", email: self.email, tiktokName: self.tfTiktokName.text?.trim() ?? "".trimmingCharacters(in: .whitespaces))
+       // self.UpdateUserInfo(name: self.Entername_field.text!, imagedata: "", base64data: "", email: self.email, tiktokName: self.tfTiktokName.text?.trim() ?? "".trimmingCharacters(in: .whitespaces))
     }
     
     
@@ -493,25 +498,9 @@ class ProfileInfoViewController: UIViewController,SocketIOManagerDelegate{
     
     func openEnterChat()
     {
-        self.UpdateUserInfo(name: self.Entername_field.text!, imagedata: "", base64data: "", email: "", tiktokName: self.tfTiktokName.text?.trim() ?? "".trimmingCharacters(in: .whitespaces))
+      //  self.UpdateUserInfo(name: self.Entername_field.text!, imagedata: "", base64data: "", email: "", tiktokName: self.tfTiktokName.text?.trim() ?? "".trimmingCharacters(in: .whitespaces))
         
-//        let identityAnimation = CGAffineTransform.identity
-//        let scaleOfIdentity = identityAnimation.scaledBy(x: 0.001, y: 0.001)
-//        enterchat_view.transform = scaleOfIdentity
-//        enterchat_view.isHidden = false
-//        UIView.animate(withDuration: 0.3/1.5, animations: {
-//            let scaleOfIdentity = identityAnimation.scaledBy(x: 1.1, y: 1.1)
-//            self.enterchat_view.transform = scaleOfIdentity
-//        }, completion: {finished in
-//            UIView.animate(withDuration: 0.3/2, animations: {
-//                let scaleOfIdentity = identityAnimation.scaledBy(x: 0.9, y: 0.9)
-//                self.enterchat_view.transform = scaleOfIdentity
-//            }, completion: {finished in
-//                UIView.animate(withDuration: 0.3/2, animations: {
-//                    self.enterchat_view.transform = identityAnimation
-//                })
-//            })
-//        })
+
     }
    
     
@@ -1570,7 +1559,7 @@ extension ProfileInfoViewController:UIImagePickerControllerDelegate,UINavigation
             user_image.image = croppedImage
         }else{
             
-            imgViewBanner.image = croppedImage
+           // imgViewBanner.image = croppedImage
         }
         self.pop(animated: true)
     }
@@ -1614,8 +1603,8 @@ extension ProfileInfoViewController:UIImagePickerControllerDelegate,UINavigation
                         self.user_image.image = image
                         self.uploadImage(image: image)
                     }else{
-                        self.imgViewBanner.image = image
-                        self.uploadImage(image: image)
+//                        self.imgViewBanner.image = image
+//                        self.uploadImage(image: image)
                         
                     }
                      

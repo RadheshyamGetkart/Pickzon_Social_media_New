@@ -39,7 +39,7 @@ class FeedsViewController: MyViewController, UITableViewDelegate, UITableViewDat
         refreshControl.addTarget(self, action:
                                     #selector(handlePullDownRefresh(_:)),
                                  for: .valueChanged)
-        refreshControl.tintColor = UIColor.systemBlue
+        refreshControl.tintColor = CustomColor.sharedInstance.newThemeColor
         return refreshControl
     }()
     

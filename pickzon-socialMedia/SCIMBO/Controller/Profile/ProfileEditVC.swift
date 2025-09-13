@@ -31,17 +31,18 @@ class ProfileEditVC: UIViewController {
     @IBOutlet weak var tblView:TPKeyboardAvoidingTableView!
     @IBOutlet weak var headerVw:UIView!
     @IBOutlet weak var footerView:UIView!
-    @IBOutlet weak var profileSubBgView:UIViewX!
+   // @IBOutlet weak var profileSubBgView:UIViewX!
     @IBOutlet weak var switchBtnPrivate:UISwitch!
     @IBOutlet weak var txtViewDesc:IQTextView!
     @IBOutlet weak var lblAccountType:UILabel!
     @IBOutlet weak var btnPickzonId:UIButton!
   //@IBOutlet weak var profileImg_Btn: UIButton!
-    @IBOutlet weak var imgVwCover: UIImageView!
+  //  @IBOutlet weak var imgVwCover: UIImageView!
     @IBOutlet weak var btnEditPickzonId: UIButton!
     @IBOutlet weak var btnProfileCamera: UIButton!
-    @IBOutlet weak var btnCoverCamera: UIButton!
+   // @IBOutlet weak var btnCoverCamera: UIButton!
     @IBOutlet weak var profilePicView:ImageWithSvgaFrame!
+    @IBOutlet weak var cnstrntHtNavBar:NSLayoutConstraint!
 
     var titleArray:NSMutableArray? = nil
     var iconArray:NSMutableArray? = nil
@@ -109,6 +110,10 @@ class ProfileEditVC: UIViewController {
         profilePicView.remoteSVGAPlayer?.addGestureRecognizer(UITapGestureRecognizer(target: self,
                                                                            action:#selector(self.profilePicTapped(_:))))
     }
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        cnstrntHtNavBar.constant = self.getNavBarHt
+    }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -174,8 +179,8 @@ class ProfileEditVC: UIViewController {
 
         self.profilePicView.setImgView(profilePic: pickzonUser.profilePic, remoteSVGAUrl: pickzonUser.avatarSVGA,changeValue: (pickzonUser.profilePic.count == 0) ? 12 : 18)
         
-        self.imgVwCover.kf.setImage(with:  URL(string: pickzonUser.coverImage), placeholder:  PZImages.defaultCover, options: nil, progressBlock: nil) { response in
-        }
+//        self.imgVwCover.kf.setImage(with:  URL(string: pickzonUser.coverImage), placeholder:  PZImages.defaultCover, options: nil, progressBlock: nil) { response in
+//        }
         
         self.tblView.reloadData()
     }
@@ -1380,8 +1385,8 @@ extension ProfileEditVC:UIImagePickerControllerDelegate,UINavigationControllerDe
                     
                 }else {
                     if self.isCoverImage{
-                        self.imgVwCover.image = image
-                        self.uploadImage(image: image)
+//                        self.imgVwCover.image = image
+//                        self.uploadImage(image: image)
                      }else{
                         // self.profileImg_Btn.setBackgroundImage(image, for: .normal)
                          self.profilePicView.imgVwProfile?.image = image

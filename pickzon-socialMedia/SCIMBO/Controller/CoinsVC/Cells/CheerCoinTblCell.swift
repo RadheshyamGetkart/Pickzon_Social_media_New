@@ -77,7 +77,9 @@ extension CheerCoinTblCell:UICollectionViewDelegate,UICollectionViewDataSource,U
             }else {
                 cell.lblExtraCoin.isHidden = true
             }
-            
+            cell.btnBuy.layoutIfNeeded()
+            cell.btnBuy.setGradientColork(colorLeft: UIColor(hexString: "#00BDB0"), colorRight: UIColor(hexString: "#028090"), titleColor: .label, cornerRadious: 0, image: "", title: "Buy Now")
+
             return cell
         }else {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CoinCollectionCell", for: indexPath) as! CoinCollectionCell
@@ -101,9 +103,13 @@ extension CheerCoinTblCell:UICollectionViewDelegate,UICollectionViewDataSource,U
 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         if isAgencyCell == true {
-            return CGSize(width: self.view.frame.size.width/3.0 , height: (self.view.frame.size.width/3)/2 + 30)
+//            return CGSize(width: self.view.frame.size.width/3.0 , height: (self.view.frame.size.width/3)/2 + 30)
+            return CGSize(width: self.view.frame.size.width/3.0 , height: (self.view.frame.size.width/3)/2 + 50)
+
         }else {
             return CGSize(width: self.view.frame.size.width/3.0, height: self.view.frame.size.width/3.0-5 )
+            
+
         }
     }
     

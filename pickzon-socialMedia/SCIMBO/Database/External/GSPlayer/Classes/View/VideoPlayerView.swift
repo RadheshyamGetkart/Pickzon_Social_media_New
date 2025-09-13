@@ -285,7 +285,7 @@ open class VideoPlayerView: UIView {
     
     /// Requests invocation of a block when specified times are traversed during normal playback.
     @discardableResult
-    @nonobjc open func addBoundaryTimeObserver(forTimes times: [CMTime], queue: DispatchQueue? = nil, using: @escaping () -> Void) -> Any? {
+    @nonobjc public func addBoundaryTimeObserver(forTimes times: [CMTime], queue: DispatchQueue? = nil, using: @escaping () -> Void) -> Any? {
         return player?.addBoundaryTimeObserver(forTimes: times.map { NSValue(time: $0) }, queue: queue, using: using)
     }
     
@@ -407,7 +407,8 @@ private extension VideoPlayerView {
             }
         }
     }
-    
+    //old one
+   /*
     func observe(playerItem: AVPlayerItem?) {
         
         guard let playerItem = playerItem else {
@@ -486,6 +487,97 @@ private extension VideoPlayerView {
             }
         }
     }
+    */
+    
+    //GPT one
+    func observe(playerItem: AVPlayerItem?) {
+        // Clean up old observers before assigning new ones
+        playerBufferingObservation?.invalidate()
+        playerItemStatusObservation?.invalidate()
+        playerItemKeepUpObservation?.invalidate()
+        
+        guard let playerItem = playerItem else {
+            playerBufferingObservation = nil
+            playerItemStatusObservation = nil
+            playerItemKeepUpObservation = nil
+            return
+        }
+        
+        playerItem.preferredForwardBufferDuration = 2
+        
+        // MARK: Buffering observation
+        playerBufferingObservation = playerItem.observe(\.loadedTimeRanges) { [unowned self] item, _ in
+            if case .paused = self.state, self.pausedReason != .hidden {
+                self.state = .paused(playProgress: self.playProgress, bufferProgress: self.bufferProgress)
+            }
+            
+            if (item.currentBufferDuration - item.currentDuration) >= 3.0 {
+                if let url = item.url,
+                   let objVideoLoader = VideoLoadManager.shared.loaderMap[url] {
+                    objVideoLoader.downloader.suspend()
+                    self.isCancelled = true
+                    // Start preloading pending videos
+                    VideoPreloadManager.shared.start()
+                }
+            } else if self.bufferProgress >= 0.99 || (self.currentBufferDuration - self.currentDuration) > 3.0 {
+                VideoPreloadManager.shared.start()
+            } else {
+                VideoPreloadManager.shared.pause()
+            }
+        }
+        
+        // MARK: Status observation (error handling / retry)
+        playerItemStatusObservation = playerItem.observe(\.status) { [weak self] item, _ in
+            
+            guard let self = self else { return }  // Exit if self is gone
+
+            if item.status == .failed, let error = item.error as NSError? {
+                self.state = .error(error)
+                
+                if ISDEBUG {
+                    print("Error in Video Player : \(self.playerURL?.absoluteString ?? "nil") : \(error)")
+                }
+                
+                // Retry only a few times if duration == 0
+                if (player?.currentItem?.currentDuration ?? 0) == 0,
+                   let url = self.playerURL,
+                   self.retryPlayVideoCount < 3 {
+                    
+                    self.retryPlayVideoCount += 1
+                    
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
+                        // Only remove cache if it's a local file
+                        if url.isFileURL {
+                            do {
+                                try VideoCacheManager.removeCachedFile(fileName: url.lastPathComponent)
+                            } catch {
+                                if ISDEBUG {
+                                    print("File could not be removed: \(url)")
+                                }
+                            }
+                        }
+                        
+                        self.setURLToPlay(for: url)
+                       
+                    }
+                } else {
+                    // Post error notification if unrecoverable
+                    let objDict: [String: Any] = ["playingIndex": self.tag]
+                    NotificationCenter.default.post(name: nofit_VideoPlayerError, object: objDict)
+                }
+            }
+        }
+        
+        // MARK: Keep-up observation
+        playerItemKeepUpObservation = playerItem.observe(\.isPlaybackLikelyToKeepUp) { [unowned self] item, _ in
+            if item.isPlaybackLikelyToKeepUp {
+                if self.player?.rate == 0, self.pausedReason == .waitingKeepUp {
+                    self.player?.play()
+                }
+            }
+        }
+    }
+
     
     @objc func playerItemDidReachEnd(notification: Notification) {
         guard (notification.object as? AVPlayerItem) == player?.currentItem else {

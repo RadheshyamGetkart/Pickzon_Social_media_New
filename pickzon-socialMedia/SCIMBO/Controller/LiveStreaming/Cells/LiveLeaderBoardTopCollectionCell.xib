@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="22155" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="23504" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
-        <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22131"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="23506"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -11,9 +10,6 @@
     <customFonts key="customFonts">
         <array key="Roboto-Medium.ttf">
             <string>Roboto-Medium</string>
-        </array>
-        <array key="Roboto-Regular.ttf">
-            <string>Roboto-Regular</string>
         </array>
     </customFonts>
     <objects>
@@ -122,27 +118,27 @@
                             <button opaque="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xm2-WD-DBR">
                                 <rect key="frame" x="0.0" y="0.0" width="124.33333333333333" height="25"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="12"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                 <inset key="titleEdgeInsets" minX="5" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                <state key="normal" title="0" image="coinSmall">
+                                <state key="normal" title="0" image="starCoin">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                             </button>
                             <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yay-sS-cGg">
                                 <rect key="frame" x="124.33333333333334" y="0.0" width="124.33333333333334" height="25"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="12"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                 <inset key="titleEdgeInsets" minX="5" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                <state key="normal" title="0" image="coinSmall">
+                                <state key="normal" title="0" image="starCoin">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                             </button>
                             <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dNk-ZJ-VwH">
                                 <rect key="frame" x="248.66666666666666" y="0.0" width="124.33333333333334" height="25"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="12"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                 <inset key="titleEdgeInsets" minX="5" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                <state key="normal" title="0" image="coinSmall">
+                                <state key="normal" title="0" image="starCoin">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                             </button>
@@ -168,7 +164,7 @@
                         <rect key="frame" x="5.0000000000000071" y="195" width="119.66666666666669" height="25"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="Hcb-MD-6Ea">
-                                <rect key="frame" x="8.3333333333333357" y="0.0" width="103.33333333333331" height="25"/>
+                                <rect key="frame" x="6.3333333333333357" y="0.0" width="107" height="25"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mmq-tr-XfT" customClass="ImageWithFrameImgView" customModule="PickZon" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="25" height="25"/>
@@ -179,11 +175,11 @@
                                         </constraints>
                                     </view>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="@radheshyam" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vdE-0m-MzL">
-                                        <rect key="frame" x="26.999999999999993" y="0.0" width="76.333333333333314" height="25"/>
+                                        <rect key="frame" x="27" y="0.0" width="80" height="25"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="25" id="F90-dp-aec"/>
                                         </constraints>
-                                        <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="12"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
@@ -217,7 +213,7 @@
                         <rect key="frame" x="126.66666666666666" y="195" width="119.66666666666666" height="25"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="Dld-z3-EXJ">
-                                <rect key="frame" x="8.3333333333333286" y="0.0" width="103.33333333333333" height="25"/>
+                                <rect key="frame" x="6.3333333333333286" y="0.0" width="107" height="25"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OP6-Su-iTW" customClass="ImageWithFrameImgView" customModule="PickZon" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="25" height="25"/>
@@ -228,11 +224,11 @@
                                         </constraints>
                                     </view>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="@radheshyam" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="F2q-wP-Hgk">
-                                        <rect key="frame" x="26.999999999999993" y="0.0" width="76.333333333333314" height="25"/>
+                                        <rect key="frame" x="27" y="0.0" width="80" height="25"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="25" id="NOu-ZW-QGi"/>
                                         </constraints>
-                                        <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="12"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
@@ -260,7 +256,7 @@
                         <rect key="frame" x="248.33333333333334" y="195" width="119.66666666666666" height="25"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleAspectFit" alignment="center" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="vHP-p4-OYh">
-                                <rect key="frame" x="8.3333333333333428" y="0.0" width="103.33333333333333" height="25"/>
+                                <rect key="frame" x="6.3333333333333144" y="0.0" width="107" height="25"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="s5L-J9-9JR" customClass="ImageWithFrameImgView" customModule="PickZon" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="25" height="25"/>
@@ -271,11 +267,11 @@
                                         </constraints>
                                     </view>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="@radheshyam" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="X7D-ZB-mSe">
-                                        <rect key="frame" x="26.999999999999993" y="0.0" width="76.333333333333314" height="25"/>
+                                        <rect key="frame" x="27.000000000000028" y="0.0" width="80" height="25"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="25" id="Ca3-tN-uA1"/>
                                         </constraints>
-                                        <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="12"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
@@ -284,7 +280,7 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZdS-oR-Z0x">
                                 <rect key="frame" x="0.0" y="0.0" width="119.66666666666667" height="27"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="12"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                             </button>
                         </subviews>
@@ -313,7 +309,7 @@
                             <constraint firstAttribute="width" constant="60" id="0bB-ez-Zjc"/>
                             <constraint firstAttribute="height" constant="20" id="FTt-3e-PJ2"/>
                         </constraints>
-                        <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="14"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                         <state key="normal" title="See All"/>
                     </button>
@@ -402,9 +398,9 @@
         </collectionViewCell>
     </objects>
     <resources>
-        <image name="coinSmall" width="24" height="23.333333969116211"/>
         <image name="lliveTopBg" width="375" height="240"/>
         <image name="octicon_info-16" width="18" height="18"/>
+        <image name="starCoin" width="128" height="128"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

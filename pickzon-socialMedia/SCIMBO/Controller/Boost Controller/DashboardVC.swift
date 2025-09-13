@@ -245,7 +245,7 @@ extension  DashboardVC : UITableViewDelegate,UITableViewDataSource,FilterDateDel
             let cell = tableView.dequeueReusableCell(withIdentifier: "BoostedPostCell") as! BoostedPostCell
             cell.btnViewInsights.tag = indexPath.row
             cell.btnViewInsights.addTarget(self, action: #selector(viewInsightsPost(_:)), for: .touchUpInside)
-            cell.bgView.backgroundColor = Themes.sharedInstance.colorWithHexString(hex: "#EDEEF3")
+            cell.bgView.backgroundColor =  Themes.sharedInstance.colorWithHexString(hex: "#F2F9F8")
             cell.bgView.layer.cornerRadius = 5.0
             cell.bgView.clipsToBounds = true
             cell.lblBoostedTime.text = listArray[indexPath.item].boostDate
