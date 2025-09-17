@@ -44,7 +44,7 @@
 	<true/>
 	<key>keychain-access-groups</key>
 	<array>
-		<string>$(AppIdentifierPrefix)$(CFBundleIdentifier)</string>
+		<string>$(AppIdentifierPrefix)com.apps.pickzon</string>
 	</array>
 </dict>
 </plist>

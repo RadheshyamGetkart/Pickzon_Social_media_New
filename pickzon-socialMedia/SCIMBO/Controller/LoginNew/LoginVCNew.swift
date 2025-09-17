@@ -228,7 +228,7 @@ class LoginVCNew: UIViewController {
         txtMobile.text = ""
         
         let signInConfig = GIDConfiguration.init(clientID: "531803338654-snn153cm7patvj9mhvuvh3chupfles7u.apps.googleusercontent.com")
-        GIDSignIn.sharedInstance.signIn(with: signInConfig, presenting: self) { user, error in
+            /*  GIDSignIn.sharedInstance.signIn(with: signInConfig, presenting: self) { user, error in
             
             
             if error == nil {
@@ -250,6 +250,33 @@ class LoginVCNew: UIViewController {
                 print("ERROR GOOGLE SIGN IN \(error?.localizedDescription ?? "")")
             }
         }
+        
+        */
+        
+        GIDSignIn.sharedInstance.signIn(with: signInConfig, presenting: self) { user, error in
+            guard error == nil else {
+                print("Error: ",error?.localizedDescription ?? "")
+                return }
+            guard let user = user else { return }
+            
+            
+            let userID = user.userID ?? ""
+            let emailAddress = user.profile?.email ?? ""
+            let fullName = user.profile?.name ?? ""
+//            let givenName = user.profile?.givenName ?? ""
+//            let familyName = user.profile?.familyName ?? ""
+//            let profilePicUrl = user.profile?.imageURL(withDimension: 320)
+            
+            self.socialUser = userID
+            self.socialFullName = fullName
+            self.socialEmail = emailAddress
+            print("socialUser \(self.socialUser), socialFullName: \(self.socialFullName) , socialEmail: \(self.socialEmail)")
+            self.loginButtonAction()
+            
+            
+        }
+        
+        
     }
  
     

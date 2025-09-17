@@ -1485,7 +1485,7 @@
                                                 </state>
                                                 <userDefinedRuntimeAttributes>
                                                     <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                                        <real key="value" value="20"/>
+                                                        <real key="value" value="8"/>
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
                                                 <connections>
@@ -1510,11 +1510,18 @@
                                             <constraint firstItem="00a-ad-Pbp" firstAttribute="top" secondItem="EwC-Vs-XI3" secondAttribute="top" constant="30" id="miw-ce-i8k"/>
                                             <constraint firstAttribute="bottom" secondItem="fCc-WU-Biq" secondAttribute="bottom" constant="25" id="mqq-mq-v0o"/>
                                             <constraint firstItem="Z9d-rX-0tW" firstAttribute="top" secondItem="00a-ad-Pbp" secondAttribute="bottom" constant="20" id="nMd-o7-oqv"/>
+                                            <constraint firstAttribute="width" constant="354" id="pzz-bQ-rka"/>
                                             <constraint firstItem="fCc-WU-Biq" firstAttribute="leading" secondItem="EwC-Vs-XI3" secondAttribute="leading" constant="30" id="taL-Oa-oiA"/>
                                         </constraints>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                                <real key="value" value="10"/>
+                                                <real key="value" value="11"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                                <color key="value" systemColor="separatorColor"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                                <real key="value" value="0.59999999999999998"/>
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                     </view>

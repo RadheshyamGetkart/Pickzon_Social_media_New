@@ -166,9 +166,12 @@ class CoinHistoryVC: UIViewController {
                         self.tblView.reloadData()
 
                     }
-                    self.isDataLoading = false
-
-                    self.pageNumber = self.pageNumber + 1
+                    
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.3, execute: {
+                        self.isDataLoading = false
+                        self.pageNumber = self.pageNumber + 1
+                    })
+               
                 }else{
                     self.isDataLoading = false
                 }
@@ -220,8 +223,12 @@ class CoinHistoryVC: UIViewController {
                         }
                         self.states = [Bool](repeating: true, count: self.listArray.count)
                         self.tblView.reloadData()
-                        self.pageNumber = self.pageNumber + 1
-                        self.isDataLoading = false
+                    
+                        
+                        DispatchQueue.main.asyncAfter(deadline: .now() + 0.3, execute: {
+                            self.pageNumber = self.pageNumber + 1
+                            self.isDataLoading = false
+                        })
 
                     }
                    
@@ -284,8 +291,11 @@ class CoinHistoryVC: UIViewController {
                         self.states = [Bool](repeating: true, count: self.listArray.count)
                         self.tblView.reloadData()
                     }
-                    self.pageNumber = self.pageNumber + 1
-                    self.isDataLoading = false
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.3, execute: {
+                        self.pageNumber = self.pageNumber + 1
+                        self.isDataLoading = false
+                    })
+          
 
                 }else{
                     self.isDataLoading = false
