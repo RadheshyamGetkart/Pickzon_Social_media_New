@@ -4,8 +4,8 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="23506"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
-        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
@@ -16,7 +16,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="AgencyBtnCell" rowHeight="55" id="KGk-i7-Jjw" customClass="AgencyBtnCell" customModule="PickZon" customModuleProvider="target">
+        <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="AgencyBtnCell" rowHeight="55" id="KGk-i7-Jjw" customClass="AgencyBtnCell" customModule="PickZon" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="398" height="55"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
@@ -36,7 +36,7 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Official Coin Reseller" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Y31-Pb-ebe">
                                 <rect key="frame" x="45" y="16.333333333333329" width="308" height="17.666666666666671"/>
                                 <fontDescription key="fontDescription" name="Roboto-Medium" family="Roboto" pointSize="15"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="textColor" name="textColorSet"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tTM-qO-vmT">
@@ -49,7 +49,7 @@
                                 <state key="normal" image="goArrow"/>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" name="postBgColor"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="50" id="1uQ-do-kL3"/>
                             <constraint firstItem="tTM-qO-vmT" firstAttribute="leading" secondItem="Y31-Pb-ebe" secondAttribute="trailing" constant="10" id="DnB-Kh-AUq"/>
@@ -62,20 +62,21 @@
                             <constraint firstAttribute="trailing" secondItem="tTM-qO-vmT" secondAttribute="trailing" constant="10" id="v51-tu-oJG"/>
                         </constraints>
                         <userDefinedRuntimeAttributes>
-                            <userDefinedRuntimeAttribute type="color" keyPath="firstColor">
-                                <color key="value" red="0.0" green="0.74117647058823533" blue="0.69019607843137254" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                            </userDefinedRuntimeAttribute>
-                            <userDefinedRuntimeAttribute type="color" keyPath="secondColor">
-                                <color key="value" red="0.0078431372549019607" green="0.50196078431372548" blue="0.56470588235294117" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                            </userDefinedRuntimeAttribute>
-                            <userDefinedRuntimeAttribute type="boolean" keyPath="horizontalGradient" value="YES"/>
+                            <userDefinedRuntimeAttribute type="boolean" keyPath="horizontalGradient" value="NO"/>
                             <userDefinedRuntimeAttribute type="boolean" keyPath="addBlur" value="NO"/>
                             <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                <real key="value" value="5"/>
+                                <real key="value" value="10"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                <real key="value" value="1"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                <color key="value" red="0.95294117647058818" green="0.95294117647058818" blue="0.95294117647058818" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </userDefinedRuntimeAttribute>
                         </userDefinedRuntimeAttributes>
                     </view>
                 </subviews>
+                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 <constraints>
                     <constraint firstAttribute="trailing" secondItem="Ih0-84-J4q" secondAttribute="trailing" constant="5" id="2da-po-51l"/>
                     <constraint firstItem="Ih0-84-J4q" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="3" id="YLw-Q1-blJ"/>
@@ -84,6 +85,7 @@
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <connections>
                 <outlet property="btnInfo" destination="tTM-qO-vmT" id="Wsh-O8-YIZ"/>
                 <outlet property="cnstrnt_topView" destination="YLw-Q1-blJ" id="sMV-cr-yN6"/>
@@ -96,8 +98,11 @@
     <resources>
         <image name="goArrow" width="64" height="64"/>
         <image name="starCoin" width="40" height="40"/>
-        <systemColor name="systemBackgroundColor">
-            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
+        <namedColor name="postBgColor">
+            <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="textColorSet">
+            <color red="0.12156863510608673" green="0.13333332538604736" blue="0.19607841968536377" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
     </resources>
 </document>

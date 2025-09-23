@@ -81,7 +81,7 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="coin1" translatesAutoresizingMaskIntoConstraints="NO" id="LTT-Yr-gR1">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="starCoin" translatesAutoresizingMaskIntoConstraints="NO" id="LTT-Yr-gR1">
                                 <rect key="frame" x="285" y="39" width="20" height="20"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="20" id="5o5-15-86F"/>
@@ -136,9 +136,9 @@
         </tableViewCell>
     </objects>
     <resources>
-        <image name="coin1" width="28" height="27"/>
         <image name="gift_coin" width="20" height="20"/>
         <image name="received" width="24" height="24"/>
+        <image name="starCoin" width="40" height="40"/>
         <namedColor name="postBgColor">
             <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

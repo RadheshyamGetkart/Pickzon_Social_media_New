@@ -17,7 +17,7 @@ import Kingfisher
 import SCIMBOEx
 import NSFWDetector
 import FittedSheets
-
+import GooglePlaces
 
 protocol updatedProfileDelegate: AnyObject{
     
@@ -940,6 +940,7 @@ extension ProfileEditVC:UITableViewDelegate,UITableViewDataSource,UITextFieldDel
     //MARK: - UItextfield Delegate methods
     func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
       
+        
        if (self.pickzonUser.celebrity == 1 || self.pickzonUser.celebrity == 4) && ( textField.tag == 0 || textField.tag == 6){
             return false
         }
@@ -984,7 +985,7 @@ extension ProfileEditVC:UITableViewDelegate,UITableViewDataSource,UITextFieldDel
             }
        else if textField.tag == 1{
             self.view.endEditing(true)
-            ActionSheetMultipleStringPicker.show(withTitle: "", rows: [
+           if let picker =  ActionSheetMultipleStringPicker.show(withTitle: "", rows: [
                 userTypeArray
             ], initialSelection: [0, 0], doneBlock: {
                 picker, indexes, values in
@@ -996,12 +997,15 @@ extension ProfileEditVC:UITableViewDelegate,UITableViewDataSource,UITextFieldDel
                  }
                 
                 return
-            }, cancel: { ActionMultipleStringCancelBlock in return }, origin: textField)
+            }, cancel: { ActionMultipleStringCancelBlock in return }, origin: textField){
+                picker.toolbar.tintColor = CustomColor.sharedInstance.newThemeColor
+
+            }
             return false
             
         }else if textField.tag == 2{
             self.view.endEditing(true)
-            ActionSheetMultipleStringPicker.show(withTitle: "", rows: [
+            if let picker =   ActionSheetMultipleStringPicker.show(withTitle: "", rows: [
                 categoryArray
             ], initialSelection: [0, 0], doneBlock: {
                 picker, indexes, values in
@@ -1013,17 +1017,21 @@ extension ProfileEditVC:UITableViewDelegate,UITableViewDataSource,UITextFieldDel
                  }
                 
                 return
-            }, cancel: { ActionMultipleStringCancelBlock in return }, origin: textField)
+            }, cancel: { ActionMultipleStringCancelBlock in return }, origin: textField){
+                picker.toolbar.tintColor = CustomColor.sharedInstance.newThemeColor
+
+            }
             return false
             
         }else if textField.tag == 7{
             
           
             self.view.endEditing(true)
-            let destVC = StoryBoard.feeds.instantiateViewController(withIdentifier: "SearchLocationVC") as! SearchLocationVC
+           /* let destVC = StoryBoard.feeds.instantiateViewController(withIdentifier: "SearchLocationVC") as! SearchLocationVC
             destVC.delegate = self
             self.navigationController?.pushViewController(destVC, animated: true)
-
+            */
+            openSearchLocationApi()
             return false
         }
         
@@ -1442,7 +1450,69 @@ extension ProfileEditVC:LocationDelegate,SearchLocationDelegate,FrameSelectionDe
     }
 }
 
+extension ProfileEditVC: GMSAutocompleteViewControllerDelegate {
 
+    func openSearchLocationApi() {
+        let autocompleteController = GMSAutocompleteViewController()
+        autocompleteController.delegate = self
+        
+        // Fields you want back
+        autocompleteController.placeFields = [.name, .placeID, .coordinate, .formattedAddress]
+
+        // Filter: use strings in SDK v5+
+        let filter = GMSAutocompleteFilter()
+        filter.types = ["address"]
+        autocompleteController.autocompleteFilter = filter
+        
+        // ✅ Force full-screen on all devices
+        autocompleteController.modalPresentationStyle = .fullScreen
+        
+        present(autocompleteController, animated: true)
+    }
+
+    // MARK: - GMSAutocompleteViewControllerDelegate
+
+    
+    
+    // MARK: - GMSAutocompleteViewControllerDelegate
+      func viewController(_ viewController: GMSAutocompleteViewController,
+                          didAutocompleteWith place: GMSPlace) {
+
+          dismiss(animated: true) { [weak self] in
+              guard let self = self else { return }
+              
+        
+
+              print("Selected name: \(place.formattedAddress ?? "")")
+              print("Place ID: \(place.placeID ?? "")")
+              print("Coordinate: \(place.coordinate.latitude), \(place.coordinate.longitude)")
+        
+              self.userObject.location = place.formattedAddress ?? ""
+              self.tblView.reloadRows(at: [IndexPath(row: 7, section: 0)], with: .none)
+           
+          }
+      }
+    
+
+
+    func viewController(_ viewController: GMSAutocompleteViewController,
+                        didFailAutocompleteWithError error: Error) {
+        print("Autocomplete error: \(error.localizedDescription)")
+        dismiss(animated: true)
+    }
+
+    func wasCancelled(_ viewController: GMSAutocompleteViewController) {
+        dismiss(animated: true)
+    }
+
+    func didRequestAutocompletePredictions(_ viewController: GMSAutocompleteViewController) {
+        UIApplication.shared.isNetworkActivityIndicatorVisible = true
+    }
+
+    func didUpdateAutocompletePredictions(_ viewController: GMSAutocompleteViewController) {
+        UIApplication.shared.isNetworkActivityIndicatorVisible = false
+    }
+}
 
 
 //MARK: UITAbleview cell

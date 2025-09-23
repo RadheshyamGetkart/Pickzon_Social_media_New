@@ -114,7 +114,7 @@
     _textView.layer.borderColor =  [UIColor colorWithRed:200.0/255.0 green:200.0/255.0 blue:205.0/255.0 alpha:1.0].CGColor;
     
     _textView.autoresizingMask = UIViewAutoresizingFlexibleWidth;
-    _textView.textColor = UIColor.blackColor;
+    _textView.textColor = UIColor.labelColor;
     // view hierachy
 }
 

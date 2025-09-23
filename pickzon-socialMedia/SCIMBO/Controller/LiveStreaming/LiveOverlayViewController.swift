@@ -57,7 +57,7 @@ class LiveOverlayViewController: UIViewController, UITextViewDelegate {
         btnHostOption.isHidden = true
         btnSendGift.layer.cornerRadius = btnSendGift.frame.size.height/2.0
         btnSendGift.clipsToBounds = true
-        self.btnSendGift.setGradientColork(colorLeft: Themes.sharedInstance.colorWithHexString(hex: "007AFE"), colorRight: Themes.sharedInstance.colorWithHexString(hex: "18409E"), titleColor: .white, cornerRadious:  btnSendGift.layer.cornerRadius, image: "", title: "Send a gift")
+        self.btnSendGift.setGradientColork(colorLeft: Themes.sharedInstance.colorWithHexString(hex: "#00BDB0"), colorRight: Themes.sharedInstance.colorWithHexString(hex: "#028090"), titleColor: .white, cornerRadious:  btnSendGift.layer.cornerRadius, image: "", title: "Send a gift")
         self.tableView.estimatedRowHeight = 55
         self.tableView.rowHeight = UITableView.automaticDimension
         NotificationCenter.default.addObserver(self,

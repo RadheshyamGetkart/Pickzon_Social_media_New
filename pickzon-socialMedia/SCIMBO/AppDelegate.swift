@@ -27,6 +27,7 @@ import AVFoundation
 import Kingfisher
 import FirebaseCore
 import FirebaseAnalytics
+import GooglePlaces
 
 var languageHandler = Languagehandler()
 var filter_ContactRec = NSMutableArray()
@@ -133,7 +134,6 @@ var backgroundTask: UIBackgroundTaskIdentifier = UIBackgroundTaskIdentifier.inva
 
         //To check and update the theme appearance
         window = UIWindow(frame: UIScreen.main.bounds)
-        
         self.ReachabilityListener()
         
         SwiftRater.appID = "1560097730"
@@ -163,6 +163,7 @@ var backgroundTask: UIBackgroundTaskIdentifier = UIBackgroundTaskIdentifier.inva
             }
         }
         
+        GMSPlacesClient.provideAPIKey("AIzaSyDJfLn3hazVVpeSS9FDGWU3B7Mhl9wsKJQ")
 
         
        UIFont.overrideInitialize()
@@ -180,6 +181,8 @@ var backgroundTask: UIBackgroundTaskIdentifier = UIBackgroundTaskIdentifier.inva
         IQKeyboardManager.shared().shouldShowToolbarPlaceholder = false
         IQKeyboardManager.shared().shouldResignOnTouchOutside = true
         IQKeyboardManager.shared().toolbarTintColor = CustomColor.sharedInstance.newThemeColor
+        UITextField.appearance().tintColor = CustomColor.sharedInstance.newThemeColor
+        
         FirebaseApp.configure()
         
         // Disable Firebase logging
@@ -209,6 +212,8 @@ var backgroundTask: UIBackgroundTaskIdentifier = UIBackgroundTaskIdentifier.inva
         NotificationCenter.default.addObserver(self, selector: #selector(self.sio_exit_go_live_host_user(notification:)),
                                                name: NSNotification.Name(rawValue: Constant.sharedinstance.sio_exit_go_live_host_user ), object: nil)
         
+        window?.tintColor = UIColor(named: "themeColor")
+
         
         return true
         
@@ -901,10 +906,13 @@ var backgroundTask: UIBackgroundTaskIdentifier = UIBackgroundTaskIdentifier.inva
     }
     
     func updateLatestAppearance() {
-        var enumVal = UserDefaults.standard.value(forKey: darkModeSettings) as? Int ??  2 //0
+        var enumVal = UserDefaults.standard.value(forKey: darkModeSettings) as? Int ??  0
         //First time if there is no theme selected than select dark theme by default
+       
         if enumVal == 0 {
-            enumVal = 1
+          //  enumVal = 1
+            enumVal = 2
+
             UserDefaults.standard.setValue(1, forKey: darkModeSettings)
             UserDefaults.standard.synchronize()
         }
@@ -981,9 +989,7 @@ var backgroundTask: UIBackgroundTaskIdentifier = UIBackgroundTaskIdentifier.inva
                 navigationController?.viewControllers = [signinVC]
                 self.window?.setRootViewController(self.navigationController!, options: .init(direction: .fade, style: .easeOut))
             }
-        }
-        else
-        {
+        } else {
             /*let signinVC = mainStoryBoard.instantiateViewController(withIdentifier: "LoginVCID") as! LoginVC
             navigationController?.viewControllers = [signinVC]
             self.window?.setRootViewController(self.navigationController!, options: .init(direction: .fade, style: .easeOut))*/

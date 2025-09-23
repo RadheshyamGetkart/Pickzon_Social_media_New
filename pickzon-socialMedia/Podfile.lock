@@ -110,6 +110,7 @@ PODS:
   - GoogleDataTransportCCTSupport (2.0.3):
     - GoogleDataTransport (~> 5.1)
     - nanopb (~> 0.3.901)
+  - GooglePlaces (7.4.0)
   - GoogleSignIn (6.1.0):
     - AppAuth (~> 1.4)
     - GTMAppAuth (~> 1.0)
@@ -244,6 +245,7 @@ DEPENDENCIES:
   - FittedSheets
   - FSCalendar
   - GLNotificationBar
+  - GooglePlaces
   - GoogleSignIn
   - GrowingTextView
   - GSImageViewerController
@@ -319,6 +321,7 @@ SPEC REPOS:
     - GoogleAppMeasurement
     - GoogleDataTransport
     - GoogleDataTransportCCTSupport
+    - GooglePlaces
     - GoogleSignIn
     - GoogleUtilities
     - GrowingTextView
@@ -414,6 +417,7 @@ SPEC CHECKSUMS:
   GoogleAppMeasurement: e49be3954045b17d046f271b9cc1ec052bad9702
   GoogleDataTransport: 6ffa4dd0b6d547f8d27b91bd92fa9e197a3f5f1f
   GoogleDataTransportCCTSupport: 2d7e609f8c5af1a33d7d59053e6f8cba59365df5
+  GooglePlaces: 544e908d94860bf6f8fc1865b80d2c7eb6b5f937
   GoogleSignIn: c90b5bec45e780f54c6a8e1e3c182a86e3dda69d
   GoogleUtilities: ad0f3b691c67909d03a3327cc205222ab8f42e0e
   GrowingTextView: 876bf42005b5e4a4fd740597db12caaf41f0fe6c
@@ -423,7 +427,7 @@ SPEC CHECKSUMS:
   ICGVideoTrimmer: 1f54de0595af56af2a406f20cdb33c1c440d15cd
   IHKeyboardAvoiding: 4cae0880c3975feffa278495df894c5166e71ad0
   IQKeyboardManager: b1fd66ccf7a79095bdcc4a2735231586f744216e
-  IQMediaPickerController: d8c88f955bcc67e8c2703538f63cc670c56b82a2
+  IQMediaPickerController: 4f51cdf640bfdcd60bf8ccfedd74149acba951fa
   JSSAlertView: 7d8345c88e6fd8b515bc49f0fc8d8c69f6776b9c
   Kingfisher: f043ac666dfc96c1f37604f93effb45a7ee3a3e1
   Mantis: 5dea32ad49addabb3247112f5b1282a6e0964bb0
@@ -469,6 +473,6 @@ SPEC CHECKSUMS:
   TextAttributes: 89905fb52c36de587010f335bd4071463d9c6d9b
   Toast-Swift: 5b2f8f720f7e78e48511f693df1f9c9a6e38a25a
 
-PODFILE CHECKSUM: 5679a2e6fe6f9b22f313ec7be83e3c37c04b360a
+PODFILE CHECKSUM: f8531690dcabf69032d3a16eed7527aa900b613f
 
-COCOAPODS: 1.11.3
+COCOAPODS: 1.16.2

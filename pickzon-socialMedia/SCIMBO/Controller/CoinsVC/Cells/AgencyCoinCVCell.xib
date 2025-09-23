@@ -69,7 +69,7 @@
                                 </constraints>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="99" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kff-qb-cMC">
-                                <rect key="frame" x="5" y="41" width="72" height="21.666666666666671"/>
+                                <rect key="frame" x="5" y="50" width="72" height="27"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -82,29 +82,15 @@
                                     <constraint firstAttribute="width" constant="20" id="Q5e-7y-xu2"/>
                                 </constraints>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Yp0-Qb-8Ng">
-                                <rect key="frame" x="0.0" y="62" width="82" height="25"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="25" id="LYR-fa-FGF"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="14"/>
-                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                <state key="normal" title="Buy Now">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </state>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="nLc-5h-ZS3" secondAttribute="trailing" constant="5" id="4H5-Xh-wR7"/>
-                            <constraint firstAttribute="trailing" secondItem="Yp0-Qb-8Ng" secondAttribute="trailing" id="A4f-1P-5aM"/>
                             <constraint firstItem="kff-qb-cMC" firstAttribute="leading" secondItem="djw-Fh-2y7" secondAttribute="leading" constant="5" id="AC5-7n-kds"/>
-                            <constraint firstItem="Yp0-Qb-8Ng" firstAttribute="leading" secondItem="djw-Fh-2y7" secondAttribute="leading" id="Nff-Yv-gpe"/>
+                            <constraint firstAttribute="bottom" secondItem="kff-qb-cMC" secondAttribute="bottom" constant="10" id="FFz-ge-BLu"/>
                             <constraint firstItem="3Cf-Yb-EXZ" firstAttribute="top" secondItem="djw-Fh-2y7" secondAttribute="top" id="OCv-Ue-gm4"/>
-                            <constraint firstItem="kff-qb-cMC" firstAttribute="top" secondItem="nLc-5h-ZS3" secondAttribute="bottom" constant="1" id="U4c-lo-ePr"/>
+                            <constraint firstItem="kff-qb-cMC" firstAttribute="top" secondItem="nLc-5h-ZS3" secondAttribute="bottom" constant="10" id="U4c-lo-ePr"/>
                             <constraint firstItem="nLc-5h-ZS3" firstAttribute="leading" secondItem="djw-Fh-2y7" secondAttribute="leading" constant="5" id="UVl-n1-ZGa"/>
-                            <constraint firstAttribute="bottom" secondItem="Yp0-Qb-8Ng" secondAttribute="bottom" id="ZbR-DT-4En"/>
-                            <constraint firstItem="Yp0-Qb-8Ng" firstAttribute="top" secondItem="kff-qb-cMC" secondAttribute="bottom" constant="-0.6666666666666714" id="dK2-jm-fxT"/>
                             <constraint firstItem="nLc-5h-ZS3" firstAttribute="top" secondItem="djw-Fh-2y7" secondAttribute="top" constant="5" id="lJJ-Ui-f34"/>
                             <constraint firstItem="3Cf-Yb-EXZ" firstAttribute="leading" secondItem="djw-Fh-2y7" secondAttribute="leading" id="oxX-2U-Efh"/>
                             <constraint firstAttribute="trailing" secondItem="kff-qb-cMC" secondAttribute="trailing" constant="5" id="zXW-C8-8Ls"/>
@@ -169,7 +155,6 @@
             </constraints>
             <size key="customSize" width="90" height="67"/>
             <connections>
-                <outlet property="btnBuy" destination="Yp0-Qb-8Ng" id="91g-Qi-C1P"/>
                 <outlet property="imgVwCheck" destination="3Cf-Yb-EXZ" id="gPA-Ff-yeC"/>
                 <outlet property="imgVwOffer" destination="VCf-GJ-LeW" id="xen-5A-YOV"/>
                 <outlet property="lblCoinAmount" destination="kff-qb-cMC" id="qYu-dh-39J"/>

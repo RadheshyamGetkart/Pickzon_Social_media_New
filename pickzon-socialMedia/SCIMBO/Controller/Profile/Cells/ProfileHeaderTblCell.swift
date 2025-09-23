@@ -327,10 +327,10 @@ class ProfileHeaderTblCell: UITableViewCell {
         
         if userObj.angelsCount == "0" || userObj.angelsCount.count == 0 {
             self.bgVwAngel.isHidden = true
-            self.lblSeperatorAngel.isHidden = true
+           // self.lblSeperatorAngel.isHidden = true
         }else{
             self.bgVwAngel.isHidden = false
-            self.lblSeperatorAngel.isHidden = false
+           // self.lblSeperatorAngel.isHidden = false
         }
     }
     

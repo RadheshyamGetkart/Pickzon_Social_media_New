@@ -379,7 +379,7 @@
                                                         </constraints>
                                                         <fontDescription key="fontDescription" type="system" pointSize="11"/>
                                                         <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                        <state key="normal" image="gift_wrapped">
+                                                        <state key="normal" image="gift_coin">
                                                             <color key="titleShadowColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="medium"/>
                                                         </state>
@@ -586,7 +586,7 @@
         <image name="favourite" width="60" height="60"/>
         <image name="feedsSavePost" width="30" height="30"/>
         <image name="follow" width="15" height="15.5"/>
-        <image name="gift_wrapped" width="24" height="24.5"/>
+        <image name="gift_coin" width="20" height="20"/>
         <image name="globe" width="9.5" height="9.5"/>
         <image name="green_badge_1" width="16" height="16"/>
         <image name="more1" width="4" height="16"/>

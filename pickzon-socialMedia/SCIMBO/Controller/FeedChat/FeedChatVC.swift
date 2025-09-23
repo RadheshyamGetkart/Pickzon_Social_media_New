@@ -1511,7 +1511,8 @@ extension FeedChatVC:UUInputFunctionViewDelegate{
         actionSheetController.addAction(shareConAction)
         actionSheetController.addAction(cancelAction)
         
-        actionSheetController.view.tintColor = UIColor.systemBlue
+        actionSheetController.view.tintColor = UIColor(named: "themeColor")
+
         // actionSheetController.view.backgroundColor = UIColor.white
         self.presentView(actionSheetController, animated: true, completion: nil)      
 

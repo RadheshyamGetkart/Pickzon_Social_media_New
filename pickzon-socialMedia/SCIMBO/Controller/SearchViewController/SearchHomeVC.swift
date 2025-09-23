@@ -14,8 +14,7 @@ class SearchHomeVC: UIViewController {
     @IBOutlet weak var searchBtnWidth :NSLayoutConstraint!
     @IBOutlet weak var searchTf :UITextField!
     @IBOutlet weak var searchtbl :UITableView!
-    
-   var pageNumber = 1
+     var pageNumber = 1
     var bannerArray = [BannerModel]()
     var arrTrendingHashTags = [TrendingHashTags]()
     var arrTrendingLeaderBoard = [TrendingLeaderBoard]()
@@ -393,7 +392,7 @@ extension SearchHomeVC : UITableViewDelegate, UITableViewDataSource, BusinessMed
     
     func clickedAllMedia(parentIndex:Int) {
         let vc = self.storyboard?.instantiateViewController(withIdentifier: "SearchFeedUSerListVC") as! SearchFeedUSerListVC
-        vc.hashSearchText = self.arrTrendingHashTags[parentIndex].title
+       // vc.hashSearchText = self.arrTrendingHashTags[parentIndex].title
         navigationController?.pushViewController(vc, animated: false)
     }
         

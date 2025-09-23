@@ -16,18 +16,9 @@ import FittedSheets
 class ChatListVC: SwiftBaseViewController,OptionDelegate {
     
     @IBOutlet weak var txtFdSearch: UITextField!
-
-    
-//    @IBOutlet weak var bgVwNotifcationCount:UIViewX!
-//    @IBOutlet weak var lblNotificationCount:UILabel!
     @IBOutlet weak var searchTxtFdBgVw:UIView!
-//    @IBOutlet weak var btnClose:UIButton!
-//    @IBOutlet weak var btnCloseSearch:UIButton!
-
-    
     @IBOutlet weak var tblView:UITableView!
     @IBOutlet weak var  btnNewChat:UIButton!
-   // @IBOutlet weak var searchBar:UISearchBar!
     @IBOutlet weak var btnOption:MIBadgeButton!
     @IBOutlet weak var cnstrntHtNavBar:NSLayoutConstraint!
     var emptyView:EmptyList?
@@ -57,14 +48,12 @@ class ChatListVC: SwiftBaseViewController,OptionDelegate {
         if(SocketIOManager.sharedInstance.socket.status == .disconnected || SocketIOManager.sharedInstance.socket.status == .notConnected){
             SocketIOManager.sharedInstance.establishConnection(Nickname: Themes.sharedInstance.CheckNullvalue(Passed_value: Themes.sharedInstance.Getuser_id()) as NSString, isLogin: true)
         }
-        designMethodInitial()
-       // self.btnOption.badgeString = "\(Constant.sharedinstance.requestedChatCount)"
-        //self.btnOption.isHidden = (Constant.sharedinstance.requestedChatCount == 0) ? true : false
         tblView.keyboardDismissMode = .onDrag
         
         searchTxtFdBgVw.layer.cornerRadius = searchTxtFdBgVw.frame.height/2.0
         searchTxtFdBgVw.clipsToBounds = true
     }
+    
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
@@ -118,15 +107,7 @@ class ChatListVC: SwiftBaseViewController,OptionDelegate {
                                                name: NSNotification.Name(rawValue: Constant.sharedinstance.socketCnnected), object: nil)
     }
 
-    func designMethodInitial(){
-//        searchBar.showsCancelButton = true
-//        if #available(iOS 13.0, *) {
-//            searchBar.searchTextField.delegate = self
-//        } else {
-//            searchBar.textFieldSearchBar?.delegate = self
-//        }
-//        searchBar.showsCancelButton = false
-    }
+
     
     func clearAllData(){
         self.pageNumber = 1

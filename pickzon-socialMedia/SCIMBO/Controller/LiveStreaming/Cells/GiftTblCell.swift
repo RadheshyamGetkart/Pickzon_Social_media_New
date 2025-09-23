@@ -45,7 +45,7 @@ extension GiftTblCell:UICollectionViewDelegate,UICollectionViewDataSource,UIColl
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "GiftCollectionCell", for: indexPath) as! GiftCollectionCell
         cell.btnCoin.setTitle(giftCoinList[indexPath.row].label, for: .normal)
        
-        cell.imgVwGift.kf.setImage(with: URL(string: giftCoinList[indexPath.row].icon), placeholder: UIImage(named: "coin1") , options: nil, progressBlock: nil, completionHandler: { response in })
+        cell.imgVwGift.kf.setImage(with: URL(string: giftCoinList[indexPath.row].icon), placeholder: UIImage(named: "starCoinSmall") , options: nil, progressBlock: nil, completionHandler: { response in })
    
         cell.bgVw.layer.cornerRadius = 5.0
         if indexPath.row == selectedIndex{

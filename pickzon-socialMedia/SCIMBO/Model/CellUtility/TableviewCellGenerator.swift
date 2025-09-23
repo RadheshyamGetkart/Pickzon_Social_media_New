@@ -1638,8 +1638,8 @@ class TableviewCellGenerator{
             CustomTableViewCell.messageFrame = messageFrame
             CustomTableViewCell.timeLabel.text = getTimeLabelText(messageFrame)
             CustomTableViewCell.bubleImage = messageFrame.message.from == MessageFrom(rawValue: 1) ? "inBubble" : "outBubble"
-            messageFrame.message.messageheight = 80
-            CustomTableViewCell.cellMaxWidth.constant = imageCellWith
+            messageFrame.message.messageheight =  60 //80
+            CustomTableViewCell.cellMaxWidth.constant = 170 //imageCellWith
             CustomTableViewCell.statusImg?.image = self.setStatusIcon(messageFrame)
             CustomTableViewCell.customButton.setImage(nil, for: .normal)
             self.setAudioCell(messageFrame, cell: CustomTableViewCell)

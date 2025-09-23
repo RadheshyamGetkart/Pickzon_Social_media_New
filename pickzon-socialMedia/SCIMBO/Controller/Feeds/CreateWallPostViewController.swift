@@ -17,6 +17,7 @@ import GrowingTextView
 import Alamofire
 import NSFWDetector
 import QuartzCore
+import GooglePlaces
 
 
 protocol ImageRemovedDelegate : AnyObject{
@@ -913,9 +914,12 @@ class CreateWallPostViewController: UIViewController,GrowingTextViewDelegate {
             let updateLocationAction = UIAlertAction(title: "Update Location",
                                                      style: .default) { [unowned self] (_) in
                 self.view.endEditing(true)
-                let destVC = StoryBoard.feeds.instantiateViewController(withIdentifier: "SearchLocationVC") as! SearchLocationVC
+              /*  let destVC = StoryBoard.feeds.instantiateViewController(withIdentifier: "SearchLocationVC") as! SearchLocationVC
                 destVC.delegate = self
                 self.navigationController?.pushViewController(destVC, animated: true)
+                */
+                openSearchLocationApi()
+
             }
             alert.addAction(updateLocationAction)
             let removeLocationAction = UIAlertAction(title: "Remove Location",
@@ -933,9 +937,11 @@ class CreateWallPostViewController: UIViewController,GrowingTextViewDelegate {
             present(alert, animated: true, completion: nil)
         }else {
             self.view.endEditing(true)
-            let destVC = StoryBoard.feeds.instantiateViewController(withIdentifier: "SearchLocationVC") as! SearchLocationVC
+          /*  let destVC = StoryBoard.feeds.instantiateViewController(withIdentifier: "SearchLocationVC") as! SearchLocationVC
             destVC.delegate = self
             self.navigationController?.pushViewController(destVC, animated: true)
+            */
+            openSearchLocationApi()
         }
     }
   
@@ -2394,58 +2400,104 @@ extension CreateWallPostViewController:onSongSelectionDelegate,onCancelClick,onD
 
 
 
-/*
+extension CreateWallPostViewController: GMSAutocompleteViewControllerDelegate {
 
-import GooglePlaces
-
-extension CreateWallPostViewController:GMSAutocompleteViewControllerDelegate {
-    
     func openSearchLocationApi() {
-        
         let autocompleteController = GMSAutocompleteViewController()
         autocompleteController.delegate = self
         
-        // Specify the place data types to return.
-        let fields: GMSPlaceField = GMSPlaceField(rawValue: UInt(GMSPlaceField.name.rawValue) |
-                                                  UInt(GMSPlaceField.placeID.rawValue))!
-        autocompleteController.placeFields = fields
-        
-        // Specify a filter.
+        // Fields you want back
+        autocompleteController.placeFields = [.name, .placeID, .coordinate, .formattedAddress]
+
+        // Filter: use strings in SDK v5+
         let filter = GMSAutocompleteFilter()
-        filter.types = [.address]
+        filter.types = ["address"]
         autocompleteController.autocompleteFilter = filter
         
-        // Display the autocomplete view controller.
-        present(autocompleteController, animated: true, completion: nil)
+        // ✅ Force full-screen on all devices
+        autocompleteController.modalPresentationStyle = .fullScreen
+        
+        present(autocompleteController, animated: true)
     }
+
+    // MARK: - GMSAutocompleteViewControllerDelegate
+
     
     
-    // Handle the user's selection.
-    func viewController(_ viewController: GMSAutocompleteViewController, didAutocompleteWith place: GMSPlace) {
-        print("Place name: \(place.name)")
-        print("Place ID: \(place.placeID)")
-        print("Place attributions: \(place.attributions)")
-        dismiss(animated: true, completion: nil)
+    // MARK: - GMSAutocompleteViewControllerDelegate
+      func viewController(_ viewController: GMSAutocompleteViewController,
+                          didAutocompleteWith place: GMSPlace) {
+
+          dismiss(animated: true) { [weak self] in
+              guard let self = self else { return }
+              
+        
+
+              print("Selected name: \(place.formattedAddress ?? "")")
+              print("Place ID: \(place.placeID ?? "")")
+              print("Coordinate: \(place.coordinate.latitude), \(place.coordinate.longitude)")
+             // self.reverseGeocode(latitude: place.coordinate.latitude, longitude: place.coordinate.longitude)
+              
+              self.latitude = place.coordinate.latitude
+              self.longitude = place.coordinate.longitude
+              self.locationString = place.formattedAddress ?? ""
+              self.updatetaggedLabel()
+           
+          }
+      }
+    
+    func reverseGeocode(latitude: Double, longitude: Double) {
+        let location = CLLocation(latitude: latitude, longitude: longitude)
+        
+        // Geocode Location
+        let geoCoder = CLGeocoder()
+        geoCoder.reverseGeocodeLocation(location) { placemarks, error in
+            if let error = error {
+                print("Reverse-geocode error: \(error.localizedDescription)")
+                return
+            }
+
+            guard let placemark = placemarks?.first else {
+                print("No address found")
+                return
+            }
+
+            // Full formatted string
+            let address = [
+                placemark.name,
+                placemark.locality,
+                placemark.administrativeArea,
+                placemark.postalCode,
+                placemark.country
+            ]
+            .compactMap { $0 }
+            .joined(separator: ", ")
+
+            print("Full address: \(address)")
+            
+            self.latitude = latitude
+            self.longitude = longitude
+            self.locationString = address
+            self.updatetaggedLabel()
+        }
     }
-    
-    func viewController(_ viewController: GMSAutocompleteViewController, didFailAutocompleteWithError error: Error) {
-        // TODO: handle the error.
-        print("Error: ", error.localizedDescription)
+
+
+    func viewController(_ viewController: GMSAutocompleteViewController,
+                        didFailAutocompleteWithError error: Error) {
+        print("Autocomplete error: \(error.localizedDescription)")
+        dismiss(animated: true)
     }
-    
-    // User canceled the operation.
+
     func wasCancelled(_ viewController: GMSAutocompleteViewController) {
-        dismiss(animated: true, completion: nil)
+        dismiss(animated: true)
     }
-    
-    // Turn the network activity indicator on and off again.
+
     func didRequestAutocompletePredictions(_ viewController: GMSAutocompleteViewController) {
         UIApplication.shared.isNetworkActivityIndicatorVisible = true
     }
-    
+
     func didUpdateAutocompletePredictions(_ viewController: GMSAutocompleteViewController) {
         UIApplication.shared.isNetworkActivityIndicatorVisible = false
     }
-    
 }
-*/

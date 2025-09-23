@@ -52,7 +52,8 @@ class UserInfoVC: UIViewController {
         profilePicView.initializeView()
         btnProfile.layer.cornerRadius = btnProfile.frame.size.height/2.0
         btnProfile.layer.borderWidth = 1.0
-        btnProfile.layer.borderColor = UIColor.systemBlue.cgColor
+        btnProfile.layer.borderColor = CustomColor.sharedInstance.newThemeColor.cgColor
+        btnProfile.setImageTintColor(CustomColor.sharedInstance.newThemeColor)
         btnProfile.clipsToBounds = true
         btnProfile.backgroundColor = .white
         

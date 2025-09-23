@@ -24,21 +24,11 @@ import NSFWDetector
 class ProfileInfoViewController: UIViewController,SocketIOManagerDelegate{
     
     @IBOutlet weak var imageBtn: UIButton!
-  //  @IBOutlet weak var btnBannerCamera: UIButton!
     @IBOutlet weak var btnBack: UIButton!
-
     @IBOutlet weak var go_btn: UIButton!
-   // @IBOutlet weak var Entername_field: UITextField!
-   // @IBOutlet weak var HeightConstraint: NSLayoutConstraint!
-    //@IBOutlet weak var tfTiktokName: UITextField!
     @IBOutlet weak var user_image: UIImageView!
-       
-   // @IBOutlet weak var profileSubBgView:UIView!
     @IBOutlet weak var btnCheckBox:UIButtonX!
     @IBOutlet weak var tblView:UITableView!
-    //@IBOutlet weak var logoImgVw: UIImageView!
-  //  @IBOutlet weak var imgViewBanner:UIImageView!
-    
     var locationObj = LocationModal(locationDict: [:])
     var picker = UIImagePickerController()
     var username:String=String()
@@ -60,30 +50,26 @@ class ProfileInfoViewController: UIViewController,SocketIOManagerDelegate{
     var viewDatePicker : UIView = UIView()
     var jobArray:Array<String> = Array<String>()
     var jobIdArray:Array<String> = Array<String>()
-    
     private var datePicker: UIDatePicker = UIDatePicker()
 
     var userObject = UserModel(dict: [:])
-    var titleArray:NSArray? = nil
-    var iconArray:NSArray? = nil
+    var titleArray:Array<String>? = nil
+    var iconArray:Array<String>? = nil
     var imageUrl = ""
     var profileThumbUrl = ""
-    
     var coverImageS3 = ""
     var coverImageS3Compress = ""
     var localTimeZoneIdentifier = ""
     var socialId = ""
     var isVerifyEmail = false
     var isEmailMobileVerified = false
-
     
     private var isToShowPassword = true
     private var isToShowConfirmPassword = true
-    
     @IBOutlet weak var cnstrntHtNavbar: NSLayoutConstraint!
+    private var didSetNavHeight = false
 
     //MARK: Controller life cycle methods
-  
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -91,18 +77,6 @@ class ProfileInfoViewController: UIViewController,SocketIOManagerDelegate{
      
         //Referal Code is enable for India only
          countryCode = Themes.sharedInstance.getMobileCode()
-        
-        
-        
-        
-      /*  if  Themes.sharedInstance.getIsReferAvailable() as? Int ?? 0 == 1 {
-        iconArray = NSMutableArray(objects:"FullName","headlineIcon","Position","LivesIn","Gender","DOB","ReferIcon")
-
-        titleArray = NSArray(objects: "Full Name","Organization","Job Title","Lives In","Gender","Date Of Birth", "Referal Code")
-        }else {
-            iconArray = NSMutableArray(objects:"FullName","headlineIcon","Position","LivesIn","Gender","DOB")
-            titleArray = NSArray(objects: "Full Name","Organization","Job Title","Lives In","Gender","Date Of Birth")
-        }*/
         
         tblView.register(UINib(nibName: "PasswordCell", bundle: nil),
                           forCellReuseIdentifier: "PasswordCell")
@@ -112,33 +86,37 @@ class ProfileInfoViewController: UIViewController,SocketIOManagerDelegate{
                           forCellReuseIdentifier: "InputFieldTblCell")
         
         
-        
         if  Themes.sharedInstance.getIsCoinReferAvailable() as? Int ?? 0 == 1 || Themes.sharedInstance.getIsReferAvailable() as? Int ?? 0 == 1   {
             if  socialId.length == 0{
-                iconArray = NSMutableArray(objects:"FullName", "Gender","DOB", "ReferIcon","chat_lock","chat_lock")
-               titleArray = NSArray(objects: "Full Name",  "Gender","Date Of Birth", "Referal Code","Password","Confirm Password")
+                iconArray = ["FullName", "Gender","DOB", "ReferIcon","chat_lock","chat_lock"]
+               titleArray = ["Full Name",  "Gender","Date Of Birth", "Referal Code","Password","Confirm Password"]
             }else{
-                iconArray = NSMutableArray(objects:"FullName","Gender","DOB", "ReferIcon")
-               titleArray = NSArray(objects: "Full Name", "Gender","Date Of Birth", "Referal Code")
+                iconArray = ["FullName","Gender","DOB", "ReferIcon"]
+               titleArray = ["Full Name", "Gender","Date Of Birth", "Referal Code"]
             }
        
         }else {
             if  socialId.length == 0{
                 
-                iconArray = NSMutableArray(objects:"FullName", "Gender","DOB","chat_lock","chat_lock")
-                titleArray = NSArray(objects: "Full Name","Gender","Date Of Birth", "Password","Confirm Password")
+                iconArray = ["FullName", "Gender","DOB","chat_lock","chat_lock"]
+                titleArray =  ["Full Name","Gender","Date Of Birth", "Password","Confirm Password"]
             }else{
-                iconArray = NSMutableArray(objects:"FullName", "Gender","DOB")
-                titleArray = NSArray(objects: "Full Name","Gender","Date Of Birth")
+                iconArray = ["FullName", "Gender","DOB"]
+                titleArray = ["Full Name","Gender","Date Of Birth"]
             }
         }
         
         initialSetupMethods()
+
     }
+    
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
-        cnstrntHtNavbar.constant = self.getNavBarHt
+        if !didSetNavHeight{
+            cnstrntHtNavbar.constant = self.getNavBarHt
+            didSetNavHeight = false
+        }
     }
    
     override var prefersStatusBarHidden: Bool {
@@ -170,19 +148,15 @@ class ProfileInfoViewController: UIViewController,SocketIOManagerDelegate{
         btnCheckBox.isSelected = false
         btnCheckBox.setImage(#imageLiteral(resourceName: "uncheck"), for: .normal)
         localTimeZoneIdentifier = TimeZone.current.identifier
-//        profileSubBgView.layer.cornerRadius = 25.0
-//        profileSubBgView.clipsToBounds = true
         user_image.layer.cornerRadius=user_image.frame.size.width/2
         user_image.clipsToBounds=true
         user_image.layer.borderWidth = 1.0
         user_image.layer.borderColor = UIColor.white.cgColor
         imageBtn.layer.cornerRadius=imageBtn.frame.size.width/2
         imageBtn.clipsToBounds=true
-        
         btnBack.layer.cornerRadius=btnBack.frame.size.width/2
         btnBack.backgroundColor = CustomColor.sharedInstance.newThemeColor
         btnBack.clipsToBounds=true
-        
         updateDetail()
     }
     
@@ -380,19 +354,6 @@ class ProfileInfoViewController: UIViewController,SocketIOManagerDelegate{
         }
     }
     
-    
-  
-  
-    
-    @IBAction func DidclickenterChat(_ sender: Any) {
-        
-       // self.UpdateUserInfo(name: self.Entername_field.text!, imagedata: "", base64data: "", email: self.email, tiktokName: self.tfTiktokName.text?.trim() ?? "".trimmingCharacters(in: .whitespaces))
-    }
-    
-    
-    
-    
-    
     @IBAction func bannerCameraButtonAction(_ sender: Any) {
         
         isProfileSelected = false
@@ -493,16 +454,7 @@ class ProfileInfoViewController: UIViewController,SocketIOManagerDelegate{
         }
         
     }
-    
-    
-    
-    func openEnterChat()
-    {
-      //  self.UpdateUserInfo(name: self.Entername_field.text!, imagedata: "", base64data: "", email: "", tiktokName: self.tfTiktokName.text?.trim() ?? "".trimmingCharacters(in: .whitespaces))
-        
 
-    }
-   
     
     //MARK: Api Methods
 
@@ -1436,10 +1388,6 @@ extension ProfileInfoViewController:UITableViewDelegate,UITableViewDataSource,UI
         dateFormatter.dateFormat = "MM/dd/yyyy"
         let dateString = dateFormatter.string(from: datePicker.date)
         self.userObject.dob = dateString
-        
-//        let dateFormatter1 = DateFormatter()
-//        dateFormatter1.dateFormat = "yyyy-MM-dd"
-//        self.userObject.dob = dateFormatter1.string(from: datePicker.date)
         self.tblView.reloadRows(at: [IndexPath(row: 2, section: 0)], with: .none)
 
         viewDatePicker.removeFromSuperview()
@@ -1514,7 +1462,7 @@ extension ProfileInfoViewController:UIImagePickerControllerDelegate,UINavigation
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         let image : UIImage = (info[UIImagePickerController.InfoKey.originalImage] as? UIImage)!
         let compressedimg = image.jpegData(compressionQuality: 0.3)
-        if isProfileSelected == false {
+       /* if isProfileSelected == false {
             let imageCropVC = RSKImageCropViewController(image: image)
             imageCropVC.delegate = self
             imageCropVC.dataSource = self
@@ -1531,6 +1479,13 @@ extension ProfileInfoViewController:UIImagePickerControllerDelegate,UINavigation
             self.pushView(imageCropVC, animated: true)
         }
         picker.dismissView(animated: true, completion: nil)
+        */
+        picker.dismissView(animated: true) {
+            let imageCropVC = RSKImageCropViewController(image: UIImage(data: compressedimg!)!)
+            imageCropVC.delegate = self
+            imageCropVC.cropMode = .circle
+            self.pushView(imageCropVC, animated: true)
+        }
     }
    
     

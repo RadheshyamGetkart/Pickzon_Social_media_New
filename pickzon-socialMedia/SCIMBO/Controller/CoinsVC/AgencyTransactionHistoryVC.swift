@@ -271,14 +271,14 @@ extension AgencyTransactionHistoryVC:UITableViewDelegate,UITableViewDataSource{
                     cell.lblGiftCoinValue.text =  " – \(obj.coins)"
                     cell.lblGiftCoinValue.textColor = .systemRed
                     cell.imgVwType.image = UIImage(named: "sent")
-                    cell.imgVwGiftCoin.image = UIImage(named: "coin1")
+                    cell.imgVwGiftCoin.image = UIImage(named: "starCoin")
 
                 }else if  obj.coinsType  == 1{
                     //Recieved
                     cell.lblGiftCoinValue.text = "+ \(obj.coins)"
                     cell.lblGiftCoinValue.textColor = .systemGreen
                     cell.imgVwType.image = UIImage(named: "received")
-                    cell.imgVwGiftCoin.image = UIImage(named: "coin1")
+                    cell.imgVwGiftCoin.image = UIImage(named: "starCoin")
 
                 }else if obj.coinsType  == 2 {
                     //Exchange

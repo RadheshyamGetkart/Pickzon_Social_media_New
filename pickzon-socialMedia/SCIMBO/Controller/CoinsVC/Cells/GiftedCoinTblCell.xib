@@ -113,7 +113,7 @@
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="RE3-PT-bOW">
                                 <rect key="frame" x="80.666666666666686" y="60" width="183" height="35"/>
                                 <subviews>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="gift_wrapped" translatesAutoresizingMaskIntoConstraints="NO" id="roq-Pv-qCa" customClass="UIImageViewX" customModule="PickZon" customModuleProvider="target">
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="gift_coin" translatesAutoresizingMaskIntoConstraints="NO" id="roq-Pv-qCa" customClass="UIImageViewX" customModule="PickZon" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="35" height="35"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="35" id="Uop-DX-Rnz"/>
@@ -203,6 +203,7 @@
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <connections>
                 <outlet property="btnExchangeForCheerCoin" destination="QUk-9W-BcT" id="gag-No-0Wd"/>
                 <outlet property="btnHistory" destination="okr-9l-Fc5" id="Frw-dY-r1B"/>
@@ -215,7 +216,7 @@
     </objects>
     <resources>
         <image name="ant-design_reload-time-outline" width="12" height="12"/>
-        <image name="gift_wrapped" width="24" height="24.333333969116211"/>
+        <image name="gift_coin" width="20" height="20"/>
         <image name="rectangleBlue" width="358" height="173"/>
         <image name="right-arrow 1" width="16" height="16"/>
         <image name="shapeExchangeBg" width="343" height="61"/>

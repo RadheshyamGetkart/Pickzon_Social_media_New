@@ -598,7 +598,7 @@ extension WalletVC:UITableViewDelegate,UITableViewDataSource{
             let cell = tblView.dequeueReusableCell(withIdentifier: "AgencyBtnCell") as! AgencyBtnCell
             cell.lblTitle.text = "Retailer Dashboard"
             cell.cnstrnt_topView.constant = 15
-            
+            cell.btnInfo.setImage(UIImage(named: "next-arrow"), for: .normal)
             return cell
             
         }else if  Settings.sharedInstance.isAgency == 1 && indexPath.section == 2 {
@@ -704,7 +704,7 @@ extension WalletVC:UITableViewDelegate,UITableViewDataSource{
         }else if indexPath.section == 3{
             let cell = tblView.dequeueReusableCell(withIdentifier: "AgencyBtnCell") as! AgencyBtnCell
             cell.cnstrnt_topView.constant = 0
-            cell.btnInfo.setImage(UIImage(named: "octicon_info-16"), for: .normal)
+            cell.btnInfo.setImage(UIImage(named: "info_icon"), for: .normal)
             return cell
         }else if indexPath.section == 4 {
             
@@ -948,19 +948,20 @@ extension WalletVC: RazorpayProtocol, RazorpayPaymentCompletionProtocol,CheerCoi
         viewPopUpBack.backgroundColor = UIColor(r: 226.0/255.0, g: 226.0/255.0, b: 225.0/255.0, a: 0.5)
         
         
-        let viewPopUp = UIView(frame: CGRect(x: (self.view.frame.width/2.0 - 295.0/2.0) , y: (self.view.frame.height / 2) - (295.0/2.0), width: 295.0, height: 273.0))
-        viewPopUp.backgroundColor = UIColor.clear
+        let viewPopUp = UIView(frame: CGRect(x: (self.view.frame.width/2.0 - 270.0/2.0) , y: (self.view.frame.height / 2) - (270.0/2.0), width: 270.0, height: 260.0))
+        viewPopUp.backgroundColor = UIColor(named: "postBgColor") ?? .systemBackground
         viewPopUp.layer.cornerRadius = 15.0
         viewPopUp.clipsToBounds = true
         
-        let imgpopup = UIImageView(frame: CGRect(x: 0 , y: 0, width: viewPopUp.frame.size.width, height: viewPopUp.frame.size.height))
+//        let imgpopup = UIImageView(frame: CGRect(x: 0 , y: 0, width: viewPopUp.frame.size.width, height: viewPopUp.frame.size.height))
+        let imgpopup = UIImageView(frame: CGRect(x: 0 , y: viewPopUp.frame.size.height/2.0 - 20, width: viewPopUp.frame.size.width, height: viewPopUp.frame.size.height/2.0 + 21))
         imgpopup.image = UIImage(named: "coinPurchasePopup")
         imgpopup.contentMode = .scaleAspectFill
         viewPopUp.addSubview(imgpopup)
         
 //        let imgCoin = UIImageView(frame: CGRect(x: (viewPopUp.frame.width/2.0 - 75.0) , y: 20, width: 150.0, height: 114.0))
         
-        let imgCoin = UIImageView(frame: CGRect(x: (viewPopUp.frame.width/2.0 - 57.0) , y: 20, width: 114.0, height: 114.0))
+        let imgCoin = UIImageView(frame: CGRect(x: (viewPopUp.frame.width/2.0 - 40.0) , y: 25, width: 80.0, height: 80.0))
 
         imgCoin.image = UIImage(named: "starCoin")
         viewPopUp.addSubview(imgCoin)
@@ -1012,7 +1013,7 @@ extension WalletVC: RazorpayProtocol, RazorpayPaymentCompletionProtocol,CheerCoi
         btnBuy.setBackgroundColor(UIColor.white, forState: .normal)
         btnBuy.setTitle("\(objConiSelected.currencySymbol)\(objConiSelected.amount)", for: .normal)
         btnBuy.setTitleColor(.black, for: .normal)
-        btnBuy.layer.cornerRadius = 5.0
+        btnBuy.layer.cornerRadius = btnBuy.frame.height/2.0
         btnBuy.clipsToBounds = true
         btnBuy.addTarget(self, action: #selector(buyAgencyCoinAction), for: .touchUpInside)
         viewPopUp.addSubview(btnBuy)

@@ -227,8 +227,10 @@ class BroadcasterViewController: UIViewController {
         //Hide and show options in case user has not given permission for Camera and mickrphone
         self.overlayController.btnSendGift.isHidden = true
         self.overlayController.btnLikeVideo.isHidden = true
-        self.overlayController.btnPk.isHidden = false
-        self.overlayController.btnPkRequests.isHidden = false
+       
+        //Both hidden because no pk
+        /*self.overlayController.btnPk.isHidden = false
+        self.overlayController.btnPkRequests.isHidden = false*/
         self.overlayController.btnHostOption.isHidden = false
         
         //Camera aceess code was there
@@ -242,7 +244,8 @@ class BroadcasterViewController: UIViewController {
         registerCell()
         addObservers()
         getUserInfo(userId: Themes.sharedInstance.Getuser_id())
-        getAllLivedFriendsList()
+        //Pk disabled that why commented
+      /*  getAllLivedFriendsList()*/
         filterViewSetup()
         waitingForOppenentVW.isHidden = true
         waitingForOppenentVW.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(self.waitingForOppenentVWTap(_:))))
@@ -274,8 +277,8 @@ class BroadcasterViewController: UIViewController {
             self.pkStartImageView?.contentMode = .scaleAspectFit
             self.pkStartImageView?.setGifFromURL(URL(string: pKBoxingglove), manager: .defaultManager, loopCount: -1, showLoader: true)
         }
-        
-        getTimeSlotApi()
+        //Pk disabled that why commented
+       /* getTimeSlotApi()*/
         
         self.imgVwSeperatorGif.setGifImage(UIImage(gifName: "animatedLine.gif"), loopCount: -1)
         
@@ -1093,7 +1096,9 @@ class BroadcasterViewController: UIViewController {
                 self.playedStreamIdArray.removeAll()
                 self.rightBlurBgVw.isHidden = true
                 self.previewView.isHidden = false
-                self.overlayController.btnPk.isHidden = false
+              
+                //Both hidden because no pk
+                /* self.overlayController.btnPk.isHidden = false */
 
                 if type == 1{
                     self.isExitedGoLive = true
@@ -1133,8 +1138,8 @@ class BroadcasterViewController: UIViewController {
                     self.pkTimeSlot = 0
                     self.emitTopGifters(isPk: false)
                     self.btnRestartPk.isHidden = true
-                    
-                    overlayController.btnPk.isHidden = false
+                   /* overlayController.btnPk.isHidden = false*/ //Both hidden because no pk
+
                     overlayController.isGoLiveUser = true
                     overlayController.fromId = Themes.sharedInstance.Getuser_id()
                     overlayController.livePkId = ""
@@ -1598,8 +1603,9 @@ class BroadcasterViewController: UIViewController {
             self.overlayController.comments.removeAll()
             self.overlayController.btnSendGift.isHidden = true
             self.overlayController.btnLikeVideo.isHidden = true
-            self.overlayController.btnPk.isHidden = false
-            self.overlayController.btnPkRequests.isHidden = false
+            //Both hidden because no pk
+           /* self.overlayController.btnPk.isHidden = false
+            self.overlayController.btnPkRequests.isHidden = false*/
             self.overlayController.fromId = Themes.sharedInstance.Getuser_id()
             self.overlayController.toId = self.joinerId
             self.overlayController.livePkId = self.livePKId

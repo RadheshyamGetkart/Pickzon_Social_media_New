@@ -386,7 +386,7 @@ extension CoinHistoryVC:UITableViewDelegate,UITableViewDataSource{
                 cell.lblGiftCoinValue.text =  " + \(obj.coins)"
                 cell.lblGiftCoinValue.textColor = .systemGreen
                 cell.imgVwType.image = UIImage(named: "ReferIcon")
-                cell.imgVwGiftCoin.image = UIImage(named: "coin1")
+                cell.imgVwGiftCoin.image = UIImage(named: "starCoin")
             }
 
             return cell
@@ -450,7 +450,7 @@ extension CoinHistoryVC:UITableViewDelegate,UITableViewDataSource{
                     cell.lblGiftCoinValue.text =  " – \(obj.coins)"
                     cell.lblGiftCoinValue.textColor = .systemRed
                     cell.imgVwType.image = UIImage(named: "sent")
-                    cell.imgVwGiftCoin.image = UIImage(named: "coin1")
+                    cell.imgVwGiftCoin.image = UIImage(named: "starCoin")
 
                 }else if  obj.coinsType  == 1{
                     //Recieved
@@ -458,7 +458,7 @@ extension CoinHistoryVC:UITableViewDelegate,UITableViewDataSource{
                     cell.lblGiftCoinValue.textColor = .systemGreen
                     cell.imgVwType.image = UIImage(named: "received")
                     if coinsTYpe == .cheerCoins{
-                        cell.imgVwGiftCoin.image = UIImage(named: "coin1")
+                        cell.imgVwGiftCoin.image = UIImage(named: "starCoin")
                     }else{
                         cell.imgVwGiftCoin.image = UIImage(named: "gift_coin")
                     }

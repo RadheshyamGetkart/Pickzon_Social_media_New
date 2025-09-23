@@ -42,6 +42,8 @@ class FollowingListViewController: UIViewController,UITableViewDelegate, UITable
         super.viewDidLayoutSubviews()
         cnstntTopNavBarr.constant = self.getNavBarHt
     }
+   
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         

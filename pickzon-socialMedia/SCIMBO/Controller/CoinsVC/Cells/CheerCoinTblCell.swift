@@ -77,8 +77,8 @@ extension CheerCoinTblCell:UICollectionViewDelegate,UICollectionViewDataSource,U
             }else {
                 cell.lblExtraCoin.isHidden = true
             }
-            cell.btnBuy.layoutIfNeeded()
-            cell.btnBuy.setGradientColork(colorLeft: UIColor(hexString: "#00BDB0"), colorRight: UIColor(hexString: "#028090"), titleColor: .label, cornerRadious: 0, image: "", title: "Buy Now")
+//            cell.btnBuy.layoutIfNeeded()
+//            cell.btnBuy.setGradientColork(colorLeft: UIColor(hexString: "#00BDB0"), colorRight: UIColor(hexString: "#028090"), titleColor: .label, cornerRadious: 0, image: "", title: "Buy Now")
 
             return cell
         }else {
@@ -96,6 +96,7 @@ extension CheerCoinTblCell:UICollectionViewDelegate,UICollectionViewDataSource,U
             }
             cell.btnBuyNow.tag = indexPath.item
             cell.btnBuyNow.addTarget(self, action: #selector(buyBtnAction(_ : )), for: .touchUpInside)
+            
             return cell
         }
     }

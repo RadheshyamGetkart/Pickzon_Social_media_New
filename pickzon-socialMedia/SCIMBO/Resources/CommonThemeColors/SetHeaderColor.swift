@@ -12,9 +12,9 @@ class SetHeaderColor: UIView {
     
     required init(coder aDecoder:NSCoder){
         super.init(coder: aDecoder)!
-//        self.backgroundColor = CustomColor.sharedInstance.themeColor
+        self.backgroundColor = CustomColor.sharedInstance.newThemeColor
         
-        self.backgroundColor = Themes.sharedInstance.colorWithHexString(hex: "#007BFF") 
+      //  self.backgroundColor = Themes.sharedInstance.colorWithHexString(hex: "#007BFF") 
 
     }
     

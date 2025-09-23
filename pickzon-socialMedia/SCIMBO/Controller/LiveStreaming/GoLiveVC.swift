@@ -26,11 +26,8 @@ class GoLiveVC: UIViewController {
     
     @IBOutlet weak var bgVwBottom:UIViewX!
     @IBOutlet weak var tblVwFriends:UITableView!
-    
     @IBOutlet weak var bgVwTime:UIViewX!
     @IBOutlet weak var tblVwTime:UITableView!
-    
-    
     @IBOutlet weak var viewFilters:UIView!
     @IBOutlet weak var cvFilters:UICollectionView!
     
@@ -50,11 +47,7 @@ class GoLiveVC: UIViewController {
     var filterIndex: Int = 0
     var deepAR: DeepAR!
     var arView: UIView!
-   
-    
     var deepARView:UIView?
-    
-    
     
     //MARK: Controller Life cycle methods
     override func viewDidLoad() {
@@ -77,8 +70,8 @@ class GoLiveVC: UIViewController {
         
         waitingForOppenentVW.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(self.waitingForOppenentVWTap(_:))))
         waitingForOppenentVW.isUserInteractionEnabled = true
-        
-        getTimeSlotApi()
+        //Pk disabled that why commented
+       /* getTimeSlotApi()*/
     }
     
     override func viewDidAppear(_ animated: Bool) {

@@ -119,7 +119,7 @@
                                         </connections>
                                     </textField>
                                 </subviews>
-                                <color key="backgroundColor" name="lightGrey"/>
+                                <color key="backgroundColor" red="0.96862745098039216" green="0.96862745098039216" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstItem="1qh-0c-uGb" firstAttribute="top" secondItem="90a-DX-Nqb" secondAttribute="top" constant="5" id="29m-HC-vYH"/>
                                     <constraint firstAttribute="height" constant="45" id="OeO-lC-5Ob"/>
@@ -235,6 +235,19 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nmJ-6h-NNO">
+                                        <rect key="frame" x="348" y="44" width="35" height="35"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="35" id="IlV-l2-qw4"/>
+                                            <constraint firstAttribute="height" constant="35" id="kqW-07-iFF"/>
+                                        </constraints>
+                                        <color key="tintColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                        <state key="normal" image="search2"/>
+                                        <connections>
+                                            <action selector="optionButtonActionWithSender:" destination="7tw-jp-dEk" eventType="touchUpInside" id="HQb-P7-GsI"/>
+                                        </connections>
+                                    </button>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Yfn-hS-CZg">
                                         <rect key="frame" x="50" y="44" width="333" height="35"/>
                                         <subviews>
@@ -253,13 +266,13 @@
                                                     <constraint firstAttribute="width" constant="25" id="ui9-ec-QeM"/>
                                                 </constraints>
                                                 <inset key="imageEdgeInsets" minX="5" minY="5" maxX="5" maxY="5"/>
-                                                <state key="normal" image="close-5 1"/>
+                                                <state key="normal" image="crossMark"/>
                                                 <connections>
                                                     <action selector="crossBtnAction:" destination="7tw-jp-dEk" eventType="touchUpInside" id="V8C-2x-zeN"/>
                                                 </connections>
                                             </button>
                                         </subviews>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <color key="backgroundColor" name="lightGrey"/>
                                         <constraints>
                                             <constraint firstAttribute="trailing" secondItem="eVh-Gc-zpd" secondAttribute="trailing" id="Bn0-Kw-UK8"/>
                                             <constraint firstItem="eVh-Gc-zpd" firstAttribute="centerY" secondItem="Yfn-hS-CZg" secondAttribute="centerY" id="bOl-O5-bLd"/>
@@ -270,19 +283,6 @@
                                             <constraint firstAttribute="bottom" secondItem="OmW-ED-G1Q" secondAttribute="bottom" id="z2O-mK-3Ag"/>
                                         </constraints>
                                     </view>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nmJ-6h-NNO">
-                                        <rect key="frame" x="348" y="44" width="35" height="35"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="35" id="IlV-l2-qw4"/>
-                                            <constraint firstAttribute="height" constant="35" id="kqW-07-iFF"/>
-                                        </constraints>
-                                        <color key="tintColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                        <state key="normal" image="search2"/>
-                                        <connections>
-                                            <action selector="optionButtonActionWithSender:" destination="7tw-jp-dEk" eventType="touchUpInside" id="HQb-P7-GsI"/>
-                                        </connections>
-                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
@@ -1104,8 +1104,8 @@
         <image name="back" width="24" height="24"/>
         <image name="backward" catalog="system" width="128" height="76"/>
         <image name="chat background" width="320" height="461"/>
-        <image name="close-5 1" width="16" height="16"/>
         <image name="crossIcon" width="15" height="15"/>
+        <image name="crossMark" width="20" height="20"/>
         <image name="follow" width="15" height="15.666666984558105"/>
         <image name="forward" catalog="system" width="128" height="76"/>
         <image name="green_badge_1" width="16" height="16"/>
@@ -1126,34 +1126,34 @@
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
         <systemColor name="linkColor">
-            <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="opaqueSeparatorColor">
-            <color red="0.77647058823529413" green="0.77647058823529413" blue="0.78431372549019607" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.77647058820000003" green="0.77647058820000003" blue="0.7843137255" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="secondaryLabelColor">
-            <color red="0.23529411764705882" green="0.23529411764705882" blue="0.2627450980392157" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.23529411759999999" green="0.23529411759999999" blue="0.26274509800000001" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="secondarySystemBackgroundColor">
-            <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.94901960780000005" green="0.94901960780000005" blue="0.96862745100000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="separatorColor">
-            <color red="0.23529411764705882" green="0.23529411764705882" blue="0.2627450980392157" alpha="0.28999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.23529411759999999" green="0.23529411759999999" blue="0.26274509800000001" alpha="0.28999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
         <systemColor name="systemBlueColor">
-            <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemGray5Color">
-            <color red="0.89803921568627454" green="0.89803921568627454" blue="0.91764705882352937" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.8980392157" green="0.8980392157" blue="0.91764705879999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemGreenColor">
-            <color red="0.20392156862745098" green="0.7803921568627451" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemRedColor">
-            <color red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

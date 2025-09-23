@@ -68,6 +68,7 @@ target 'SCIMBO' do
   pod 'NSFWDetector'
   pod 'GoogleSignIn'
   pod 'SVGAPlayer'
+  pod 'GooglePlaces'
   
 end
 

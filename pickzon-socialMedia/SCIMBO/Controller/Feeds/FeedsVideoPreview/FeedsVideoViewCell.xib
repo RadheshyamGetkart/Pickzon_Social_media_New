@@ -332,7 +332,7 @@
                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
                         <inset key="titleEdgeInsets" minX="-30" minY="22" maxX="0.0" maxY="2"/>
                         <inset key="imageEdgeInsets" minX="15" minY="0.0" maxX="2.2250738585072014e-308" maxY="25"/>
-                        <state key="normal" title="Send gift" image="gift_wrapped">
+                        <state key="normal" title="Send gift" image="gift_coin">
                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <color key="titleShadowColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         </state>
@@ -350,7 +350,7 @@
                                             <constraint firstAttribute="height" constant="35" id="bEn-FQ-WCv"/>
                                         </constraints>
                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                        <state key="normal" image="gift_wrapped"/>
+                                        <state key="normal" image="gift_coin"/>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Send gift" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZhX-P5-WgE">
                                         <rect key="frame" x="0.0" y="35" width="50" height="21"/>
@@ -743,7 +743,7 @@
         <image name="Shareicon" width="23.666666030883789" height="23.666666030883789"/>
         <image name="Song" width="980" height="980"/>
         <image name="commentIconBig" width="30" height="30"/>
-        <image name="gift_wrapped" width="24" height="24.333333969116211"/>
+        <image name="gift_coin" width="20" height="20"/>
         <image name="green_badge_1" width="16" height="16"/>
         <image name="heartEmpty" width="23.666666030883789" height="23.666666030883789"/>
         <image name="heartEmptyBig" width="30" height="30"/>

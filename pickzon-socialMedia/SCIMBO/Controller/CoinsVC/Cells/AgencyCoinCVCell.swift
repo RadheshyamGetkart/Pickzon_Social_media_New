@@ -16,7 +16,7 @@ class AgencyCoinCVCell: UICollectionViewCell {
     @IBOutlet weak var imgVwOffer: UIImageView!
     @IBOutlet weak var lblOffer: UILabel!
     @IBOutlet weak var imgVwCheck: UIImageView!
-    @IBOutlet weak var btnBuy: UIButton!
+  //  @IBOutlet weak var btnBuy: UIButton!
 
 
     override func awakeFromNib() {

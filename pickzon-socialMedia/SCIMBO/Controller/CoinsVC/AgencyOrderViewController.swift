@@ -33,7 +33,7 @@ class AgencyOrderViewController: UIViewController {
         super.viewDidLoad()
         
         bgViewPopup.isHidden = true
-        btnConfirmPopuup.layer.cornerRadius = 5.0
+        btnConfirmPopuup.layer.cornerRadius = btnConfirmPopuup.frame.height/2.0
         btnConfirmPopuup.clipsToBounds = true
 
         btnContactAgency.layer.cornerRadius = 5.0

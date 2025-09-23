@@ -55,7 +55,7 @@ extension CoinUpTblCell:UICollectionViewDelegate,UICollectionViewDataSource,UICo
         
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CheerUpCollectionCell", for: indexPath) as! CheerUpCollectionCell
         cell.lblCoinName.text = cheerCoinList[indexPath.row].label
-        cell.imgVwCoin.kf.setImage(with: URL(string: cheerCoinList[indexPath.row].icon), placeholder: UIImage(named: "coin1") , options: nil, progressBlock: nil, completionHandler: { response in })
+        cell.imgVwCoin.kf.setImage(with: URL(string: cheerCoinList[indexPath.row].icon), placeholder: UIImage(named: "starCoin") , options: nil, progressBlock: nil, completionHandler: { response in })
         //        cell.b.tag = indexPath.item
         //        cell.btnBuyNow.addTarget(self, action: #selector(buyBtnAction(_ : )), for: .touchUpInside)
         return cell
