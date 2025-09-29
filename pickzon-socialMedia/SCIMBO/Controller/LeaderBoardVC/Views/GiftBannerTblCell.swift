@@ -21,7 +21,6 @@ class GiftBannerTblCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
-        //self.lblBannerTitle.font = UIFont(name: "Playball-Regular", size: 20.0)
         self.backgroundColor = .clear
         self.backgroundView?.backgroundColor = .clear
 

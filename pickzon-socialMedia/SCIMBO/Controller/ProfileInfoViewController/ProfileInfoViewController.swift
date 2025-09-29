@@ -115,7 +115,7 @@ class ProfileInfoViewController: UIViewController,SocketIOManagerDelegate{
         super.viewDidLayoutSubviews()
         if !didSetNavHeight{
             cnstrntHtNavbar.constant = self.getNavBarHt
-            didSetNavHeight = false
+            didSetNavHeight = true
         }
     }
    
@@ -140,8 +140,6 @@ class ProfileInfoViewController: UIViewController,SocketIOManagerDelegate{
     }
     
     
-    
-  
     //MARK: Initial Setup Methods
     func initialSetupMethods(){
         istermsChecked = false

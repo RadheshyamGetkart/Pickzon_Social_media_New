@@ -223,7 +223,7 @@ class LiveOverlayViewController: UIViewController, UITextViewDelegate {
                 let str = NSAttributedString(
                     string: "\(pickzonId)",
                     attributes: [
-                        .font: UIFont(name: "Amaranth-Bold", size: 40.0)!,
+                        .font: UIFont.boldSystemFont(ofSize: 40.0),
                         .foregroundColor: UIColor.white,.shadow:shadow,
                         .paragraphStyle: para,
                     ])

@@ -188,7 +188,8 @@ extension BlockedUserVC:UITableViewDelegate,UITableViewDataSource,UITextFieldDel
             cell.imgVwCelecbrity.isHidden = false
             cell.imgVwCelecbrity.image = PZImages.blueVerification
         }
-        
+        cell.watchBtn.layer.cornerRadius = 8.0
+        cell.watchBtn.clipsToBounds = true
         return cell
     }
     

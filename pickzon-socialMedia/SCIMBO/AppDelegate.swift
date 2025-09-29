@@ -913,7 +913,9 @@ var backgroundTask: UIBackgroundTaskIdentifier = UIBackgroundTaskIdentifier.inva
           //  enumVal = 1
             enumVal = 2
 
-            UserDefaults.standard.setValue(1, forKey: darkModeSettings)
+//            UserDefaults.standard.setValue(1, forKey: darkModeSettings)
+            UserDefaults.standard.setValue(2, forKey: darkModeSettings)
+
             UserDefaults.standard.synchronize()
         }
         
@@ -1357,8 +1359,8 @@ extension AppDelegate : ATAppUpdaterDelegate{
         }
         //update the appearance setting to dark
 //        UserDefaults.standard.setValue(1, forKey: darkModeSettings)
-        UserDefaults.standard.setValue(2, forKey: darkModeSettings)
-
+        UserDefaults.standard.setValue(0, forKey: darkModeSettings)
+        UserDefaults.standard.synchronize()
         self.updateLatestAppearance()
         
         Constant.sharedinstance.feedChatCount = 0

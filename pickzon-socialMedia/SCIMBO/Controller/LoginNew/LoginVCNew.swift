@@ -17,6 +17,9 @@ import Security
 
 class LoginVCNew: UIViewController {
     
+    
+    @IBOutlet weak var bgViewForWelcome: UIView!
+
     @IBOutlet weak var lblCountrycode: UILabel!
     @IBOutlet weak var viewEmail:UIView!
     @IBOutlet weak var txtEmail: UITextField!
@@ -46,11 +49,17 @@ class LoginVCNew: UIViewController {
     var socialEmail = ""
     var socialProfilePicUrl = ""
     
-   
+    override func loadView() {
+        super.loadView()
+        bgViewForWelcome.isHidden = false
+       
+    }
+    
     //MARK: Controller Life cycle methods
     override func viewDidLoad() {
         super.viewDidLoad()
         
+      
         imgVwDDIcon.setImageColor(color: .black)
         txtEmail.setAttributedPlaceHolder(text: "Enter Email/PickZon Id", color: .lightGray)
         txtMobile.setAttributedPlaceHolder(text: "Your Mobile Number", color: .lightGray)
@@ -121,6 +130,25 @@ class LoginVCNew: UIViewController {
         bgViewSegmentControl.layer.cornerRadius = bgViewSegmentControl.bounds.height / 2.0
         bgViewSegmentControl.clipsToBounds = true
         segmentControl.applyCapsuleStyle()
+        
+        let value = UserDefaults.standard.bool(forKey: "isFirstInstall")
+        if value == false{
+            //not present
+            if let vc = StoryBoard.prelogin.instantiateViewController(withIdentifier: "WelcomeVC") as? WelcomeVC{
+                vc.modalPresentationStyle = .fullScreen
+                self.navigationController?.pushView(vc, animated: false)
+            }
+            UserDefaults.standard.set(true, forKey: "isFirstInstall")
+            UserDefaults.standard.synchronize()
+            
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.1, execute: {
+            self.bgViewForWelcome.isHidden = true
+        })
+            
+        }else{
+            self.bgViewForWelcome.isHidden = true
+
+        }
     }
     
 
@@ -469,7 +497,7 @@ class LoginVCNew: UIViewController {
                                          UserDefaults.standard.setValue(true, forKey: Constant.sharedinstance.isProfileInfoAvailable)
                                          UserDefaults.standard.synchronize()
                                          
-                                         //Disconnect the socket so the it can be connected with latest User ID
+                                         //Disconnect the socket so that it can be connected with latest User ID
                                          DispatchQueue.global(qos: .background).async {
                                              SocketIOManager.sharedInstance.socket.disconnect()
                                          }

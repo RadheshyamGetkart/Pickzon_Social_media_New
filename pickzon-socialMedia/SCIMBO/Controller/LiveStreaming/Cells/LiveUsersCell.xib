@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="23504" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="23506"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -24,34 +25,34 @@
                                 <rect key="frame" x="10" y="5" width="130" height="40"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Tgo-PG-xSR">
-                                        <rect key="frame" x="0.0" y="5" width="30" height="30"/>
+                                        <rect key="frame" x="0.0" y="5" width="25" height="25"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="30" id="uWQ-V1-33h"/>
-                                            <constraint firstAttribute="height" constant="30" id="yu3-l9-GQ1"/>
+                                            <constraint firstAttribute="width" constant="25" id="uWQ-V1-33h"/>
+                                            <constraint firstAttribute="height" constant="25" id="yu3-l9-GQ1"/>
                                         </constraints>
                                     </imageView>
-                                    <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="3" translatesAutoresizingMaskIntoConstraints="NO" id="Uxv-Iy-L8p">
-                                        <rect key="frame" x="35" y="5" width="54.666666666666657" height="15"/>
+                                    <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="1" translatesAutoresizingMaskIntoConstraints="NO" id="Uxv-Iy-L8p">
+                                        <rect key="frame" x="28" y="4" width="49" height="17"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Radhe" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PF9-dq-fLa">
-                                                <rect key="frame" x="0.0" y="0.0" width="36.666666666666664" height="15"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="34" height="17"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="height" constant="15" id="WHP-pX-ctl"/>
+                                                    <constraint firstAttribute="height" constant="17" id="WHP-pX-ctl"/>
                                                 </constraints>
-                                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="12"/>
+                                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="11"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pickzon_verify_Gold" translatesAutoresizingMaskIntoConstraints="NO" id="AMq-te-qbh">
-                                                <rect key="frame" x="39.666666666666671" y="0.0" width="15" height="15"/>
+                                                <rect key="frame" x="35" y="1.6666666666666661" width="14" height="14"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="height" constant="15" id="3CU-J5-MC1"/>
-                                                    <constraint firstAttribute="width" constant="15" id="Nuq-T8-qjP"/>
+                                                    <constraint firstAttribute="height" constant="14" id="3CU-J5-MC1"/>
+                                                    <constraint firstAttribute="width" constant="14" id="Nuq-T8-qjP"/>
                                                 </constraints>
                                             </imageView>
                                         </subviews>
                                     </stackView>
                                     <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zL5-O0-k30" customClass="UIViewX" customModule="PickZon" customModuleProvider="target">
-                                        <rect key="frame" x="35" y="20" width="18.333333333333329" height="15"/>
+                                        <rect key="frame" x="28" y="21" width="18.333333333333329" height="15"/>
                                         <subviews>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ViewIcon" translatesAutoresizingMaskIntoConstraints="NO" id="KpP-g9-EVm">
                                                 <rect key="frame" x="0.0" y="2" width="10" height="10"/>
@@ -64,7 +65,7 @@
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZRR-Bq-mry">
                                                 <rect key="frame" x="12" y="0.0" width="5.3333333333333321" height="14"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="8"/>
-                                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <color key="textColor" name="textColorSet"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                         </subviews>
@@ -84,37 +85,36 @@
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                     </view>
-                                    <view clipsSubviews="YES" alpha="0.69999999999999996" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PHO-Dl-rFS" customClass="UIViewX" customModule="PickZon" customModuleProvider="target">
-                                        <rect key="frame" x="90" y="15" width="40" height="20"/>
+                                    <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PHO-Dl-rFS" customClass="UIViewX" customModule="PickZon" customModuleProvider="target">
+                                        <rect key="frame" x="90" y="10" width="40" height="16"/>
                                         <subviews>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="starCoin" translatesAutoresizingMaskIntoConstraints="NO" id="qPb-VM-F3i">
-                                                <rect key="frame" x="5" y="2.6666666666666679" width="15" height="15"/>
+                                                <rect key="frame" x="5" y="3" width="10" height="10"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="width" constant="15" id="CJd-4a-j1u"/>
-                                                    <constraint firstAttribute="height" constant="15" id="aAB-1M-iaK"/>
+                                                    <constraint firstAttribute="width" constant="10" id="CJd-4a-j1u"/>
+                                                    <constraint firstAttribute="height" constant="10" id="aAB-1M-iaK"/>
                                                 </constraints>
                                             </imageView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="znc-tR-sZq">
-                                                <rect key="frame" x="22.666666666666671" y="1" width="12.333333333333336" height="18"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="9"/>
-                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <rect key="frame" x="17" y="1" width="20.666666666666671" height="14"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="8"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                         </subviews>
-                                        <color key="backgroundColor" name="themeColor"/>
+                                        <color key="backgroundColor" name="lightTheme"/>
                                         <constraints>
                                             <constraint firstItem="znc-tR-sZq" firstAttribute="top" secondItem="PHO-Dl-rFS" secondAttribute="top" constant="1" id="5QC-3H-ffG"/>
-                                            <constraint firstAttribute="trailing" secondItem="znc-tR-sZq" secondAttribute="trailing" constant="5" id="EaQ-RB-Qya"/>
+                                            <constraint firstAttribute="trailing" secondItem="znc-tR-sZq" secondAttribute="trailing" constant="2.5" id="EaQ-RB-Qya"/>
                                             <constraint firstAttribute="width" constant="40" id="HvC-sZ-tQR"/>
-                                            <constraint firstAttribute="height" constant="20" id="Yv1-F6-c4a"/>
+                                            <constraint firstAttribute="height" constant="16" id="Yv1-F6-c4a"/>
                                             <constraint firstItem="qPb-VM-F3i" firstAttribute="centerY" secondItem="PHO-Dl-rFS" secondAttribute="centerY" id="if0-za-JTx"/>
                                             <constraint firstAttribute="bottom" secondItem="znc-tR-sZq" secondAttribute="bottom" constant="1" id="kwv-k8-dPJ"/>
-                                            <constraint firstItem="znc-tR-sZq" firstAttribute="leading" secondItem="qPb-VM-F3i" secondAttribute="trailing" constant="2.5" id="pkC-T8-nh8"/>
+                                            <constraint firstItem="znc-tR-sZq" firstAttribute="leading" secondItem="qPb-VM-F3i" secondAttribute="trailing" constant="2" id="pkC-T8-nh8"/>
                                             <constraint firstItem="qPb-VM-F3i" firstAttribute="leading" secondItem="PHO-Dl-rFS" secondAttribute="leading" constant="5" id="tOL-v2-rp0"/>
                                         </constraints>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                                <real key="value" value="10"/>
+                                                <real key="value" value="8"/>
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                     </view>
@@ -123,14 +123,14 @@
                                 <constraints>
                                     <constraint firstAttribute="trailing" secondItem="PHO-Dl-rFS" secondAttribute="trailing" id="Bx0-Mi-G6o"/>
                                     <constraint firstItem="Tgo-PG-xSR" firstAttribute="leading" secondItem="3x4-eE-hzK" secondAttribute="leading" id="JzI-th-2ru"/>
-                                    <constraint firstItem="Uxv-Iy-L8p" firstAttribute="leading" secondItem="Tgo-PG-xSR" secondAttribute="trailing" constant="5" id="QoJ-Yw-uRt"/>
                                     <constraint firstAttribute="height" constant="40" id="YnA-Co-uAk"/>
                                     <constraint firstItem="Tgo-PG-xSR" firstAttribute="top" secondItem="3x4-eE-hzK" secondAttribute="top" constant="5" id="e23-Vv-ZsH"/>
-                                    <constraint firstItem="zL5-O0-k30" firstAttribute="leading" secondItem="Tgo-PG-xSR" secondAttribute="trailing" constant="5" id="e6n-ha-KPc"/>
-                                    <constraint firstItem="PHO-Dl-rFS" firstAttribute="top" secondItem="3x4-eE-hzK" secondAttribute="top" constant="15" id="jtY-I1-j5O"/>
+                                    <constraint firstItem="zL5-O0-k30" firstAttribute="leading" secondItem="Tgo-PG-xSR" secondAttribute="trailing" constant="3" id="e6n-ha-KPc"/>
+                                    <constraint firstItem="PHO-Dl-rFS" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="Uxv-Iy-L8p" secondAttribute="trailing" constant="2" id="hFg-Ed-Vga"/>
+                                    <constraint firstItem="PHO-Dl-rFS" firstAttribute="top" secondItem="3x4-eE-hzK" secondAttribute="top" constant="10" id="jtY-I1-j5O"/>
                                     <constraint firstItem="zL5-O0-k30" firstAttribute="top" secondItem="Uxv-Iy-L8p" secondAttribute="bottom" id="kSd-5B-AaL"/>
-                                    <constraint firstItem="Uxv-Iy-L8p" firstAttribute="leading" secondItem="Tgo-PG-xSR" secondAttribute="trailing" constant="5" id="tl8-62-zsu"/>
-                                    <constraint firstItem="Uxv-Iy-L8p" firstAttribute="top" secondItem="3x4-eE-hzK" secondAttribute="top" constant="5" id="y0i-lR-uCG"/>
+                                    <constraint firstItem="Uxv-Iy-L8p" firstAttribute="leading" secondItem="Tgo-PG-xSR" secondAttribute="trailing" constant="3" id="tl8-62-zsu"/>
+                                    <constraint firstItem="Uxv-Iy-L8p" firstAttribute="top" secondItem="3x4-eE-hzK" secondAttribute="top" constant="4" id="y0i-lR-uCG"/>
                                 </constraints>
                             </view>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="dummy" translatesAutoresizingMaskIntoConstraints="NO" id="F5O-ow-rEF">
@@ -187,12 +187,15 @@
         <image name="blurPK" width="78" height="78"/>
         <image name="dummy" width="266.66665649414062" height="195"/>
         <image name="pickzon_verify_Gold" width="376.33334350585938" height="358"/>
-        <image name="starCoin" width="128" height="128"/>
+        <image name="starCoin" width="40" height="40"/>
+        <namedColor name="lightTheme">
+            <color red="0.70196078431372544" green="0.92156862745098034" blue="0.90196078431372551" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <namedColor name="postBgColor">
             <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
-        <namedColor name="themeColor">
-            <color red="0.0" green="0.74117647058823533" blue="0.69019607843137254" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        <namedColor name="textColorSet">
+            <color red="0.12156863510608673" green="0.13333332538604736" blue="0.19607841968536377" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
     </resources>
 </document>

@@ -607,8 +607,13 @@ extension AllLiveUserListVC:UITextFieldDelegate,UICollectionViewDelegate, UIColl
                         //cell.cnstntWidthPkIcon.constant = 0
                     }
                     
-                    cell.lblViewCount.text = otherLiveListArray[indexPath.row].joinUserCount
-                    
+                    if otherLiveListArray[indexPath.row].joinUserCount.count == 0{
+                        cell.bgVwJoinCount.isHidden = true
+                    }else{
+                        cell.lblViewCount.text = otherLiveListArray[indexPath.row].joinUserCount
+                        cell.bgVwJoinCount.isHidden = false
+
+                    }
                     switch otherLiveListArray[indexPath.row].celebrity{
                     case 1:
                         cell.imgVwCelebrity.isHidden = false
@@ -721,7 +726,7 @@ extension AllLiveUserListVC:UITextFieldDelegate,UICollectionViewDelegate, UIColl
             }*/
             if indexPath.section == 0{
                 
-                return CGSize(width:((self.collectionVw.frame.size.width/2.0)-1.0), height: self.collectionVw.frame.size.width/2.0 + 50)
+                return CGSize(width:((self.collectionVw.frame.size.width/2.0)-1.0), height: self.collectionVw.frame.size.width/2.0 + 65)
 
             }else {
                 return  CGSize(width:((self.collectionVw.frame.size.width)), height: 65)
