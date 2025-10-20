@@ -14,28 +14,18 @@ class CreateAddDetailVC: UIViewController {
     @IBOutlet weak var scrScrollView:UIScrollView!
     @IBOutlet weak var btnDateStart:UIButton!
     @IBOutlet weak var btnDateEnd:UIButton!
-    
     @IBOutlet weak var btnCurrencyName:UIButton!
     @IBOutlet weak var btnCurrency:UIButton!
-    
     @IBOutlet weak var btnPplLikeAndFriend:UIButton!
     @IBOutlet weak var btnOptionPplLikeAndFriend:UIButton!
-    
-    
     @IBOutlet weak var btnPeopleArea:UIButton!
     @IBOutlet weak var btnOptionPeopleArea:UIButton!
-    
     @IBOutlet weak var btnTargetPeople:UIButton!
     @IBOutlet weak var btnOptionTargetPeople:UIButton!
-    
     @IBOutlet weak var viewGender:UIView!
     @IBOutlet weak var btnMale:UIButton!
     @IBOutlet weak var btnFeMale:UIButton!
     @IBOutlet weak var btnAllGender:UIButton!
-    
-    
-    
-    
     @IBOutlet weak var viewTargetAudience:UIView!
     let rangeSlider1 = RangeSlider(frame: CGRect.zero)
     let lblStartAge:UILabel = UILabel(frame: CGRect.zero)

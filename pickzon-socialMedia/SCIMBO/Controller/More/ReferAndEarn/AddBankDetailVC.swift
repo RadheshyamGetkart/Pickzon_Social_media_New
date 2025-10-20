@@ -113,7 +113,7 @@ class AddBankDetailVC: UIViewController {
     
     @IBAction func payPalViewSelected() {
         viewBank.layer.borderColor = UIColor.lightGray.cgColor
-        viewPaypal.layer.borderColor = UIColor.systemBlue.cgColor
+        viewPaypal.layer.borderColor = CustomColor.sharedInstance.newThemeColor.cgColor
         viewUPI.layer.borderColor = UIColor.lightGray.cgColor
         
         btnBankSelected.setImage(UIImage(named: "switchOff"), for: .normal)
@@ -125,7 +125,7 @@ class AddBankDetailVC: UIViewController {
     @IBAction func upiViewSelected() {
         viewBank.layer.borderColor = UIColor.lightGray.cgColor
         viewPaypal.layer.borderColor = UIColor.lightGray.cgColor
-        viewUPI.layer.borderColor = UIColor.systemBlue.cgColor
+        viewUPI.layer.borderColor = CustomColor.sharedInstance.newThemeColor.cgColor
         
         btnBankSelected.setImage(UIImage(named: "switchOff"), for: .normal)
         btnPayPalSelected.setImage(UIImage(named: "switchOff"), for: .normal)

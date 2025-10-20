@@ -260,7 +260,7 @@ extension PickzonGotTalentVC:UITableViewDelegate,UITableViewDataSource{
                 self.navigationController?.pushView(vc, animated: true)
             }else{
                                   
-                    if #available(iOS 13.0, *) {
+                    if #available(iOS 15.0, *) {
                         let controller = StoryBoard.promote.instantiateViewController(identifier: "GuideLinesVC")
                         as! GuideLinesVC
                         controller.isHtmlText = winnerPrizeDetails

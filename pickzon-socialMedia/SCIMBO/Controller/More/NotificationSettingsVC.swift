@@ -161,7 +161,7 @@ extension NotificationSettingsVC:UITableViewDelegate, UITableViewDataSource {
         let obj = arrOptions[indexPath.row]
         cell.lblTitle.text = obj["title"] as? String ?? ""
         cell.lblSubTitle.text = obj["subTitle"] as? String ?? ""
-        cell.optionSwitch.onTintColor = UIColor.lightGray
+        cell.optionSwitch.onTintColor = CustomColor.sharedInstance.newThemeColor
         if obj["value"] as? Int == 1 {
             cell.optionSwitch.setOn(true, animated: false)
         }else {

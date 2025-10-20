@@ -145,15 +145,15 @@ var backgroundTask: UIBackgroundTaskIdentifier = UIBackgroundTaskIdentifier.inva
         SwiftRater.debugMode = false
         SwiftRater.appLaunched()
         
-        /*for family: String in UIFont.familyNames
+       /* for family: String in UIFont.familyNames
         {
             print(family)
             for names: String in UIFont.fontNames(forFamilyName: family)
             {
                 print("== \(names)")
             }
-        }*/
-        
+        }
+        */
         UIApplication.shared.applicationIconBadgeNumber = 0
         rootUSerApi()
         if Themes.sharedInstance.Getuser_id().length > 0{
@@ -166,7 +166,7 @@ var backgroundTask: UIBackgroundTaskIdentifier = UIBackgroundTaskIdentifier.inva
         GMSPlacesClient.provideAPIKey("AIzaSyDJfLn3hazVVpeSS9FDGWU3B7Mhl9wsKJQ")
 
         
-       UIFont.overrideInitialize()
+        UIFont.overrideInitialize()
         
         setupKingfisherSettings()
         
@@ -202,7 +202,7 @@ var backgroundTask: UIBackgroundTaskIdentifier = UIBackgroundTaskIdentifier.inva
      */
         //Themes.sharedInstance.showWaitingNetwork(true, state: false)
         self.addNotificationListener()
-        self.MovetoRooVC()
+//        self.MovetoRooVC()
         Themes.sharedInstance.getCurrentLocationCountryCode()
        
         self.pushnotificationSetup()
@@ -214,7 +214,8 @@ var backgroundTask: UIBackgroundTaskIdentifier = UIBackgroundTaskIdentifier.inva
         
         window?.tintColor = UIColor(named: "themeColor")
 
-        
+        self.MovetoRooVC()
+
         return true
         
         
@@ -1031,14 +1032,20 @@ var backgroundTask: UIBackgroundTaskIdentifier = UIBackgroundTaskIdentifier.inva
                 print("Reachable via Cellular")
                 byreachable = "2"
             }
-            NotificationCenter.default.post(name: NSNotification.Name(rawValue: Constant.sharedinstance.reconnectInternet), object: nil , userInfo: nil)
+            DispatchQueue.main.async {
+                
+                NotificationCenter.default.post(name: NSNotification.Name(rawValue: Constant.sharedinstance.reconnectInternet), object: nil , userInfo: nil)
+            }
         } else {
             IsInternetconnected=false
             //Themes.sharedInstance.showWaitingNetwork(true, state: false)
             print("Network not reachable")
             byreachable = ""
-            NotificationCenter.default.post(name: NSNotification.Name(rawValue: Constant.sharedinstance.reloadData), object: nil , userInfo: nil)
-            NotificationCenter.default.post(name: NSNotification.Name(rawValue: Constant.sharedinstance.noInternet), object: nil , userInfo: nil)
+            DispatchQueue.main.async {
+                
+                NotificationCenter.default.post(name: NSNotification.Name(rawValue: Constant.sharedinstance.reloadData), object: nil , userInfo: nil)
+                NotificationCenter.default.post(name: NSNotification.Name(rawValue: Constant.sharedinstance.noInternet), object: nil , userInfo: nil)
+            }
         }
     }
     

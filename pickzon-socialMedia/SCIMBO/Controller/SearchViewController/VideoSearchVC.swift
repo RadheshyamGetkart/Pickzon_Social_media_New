@@ -144,6 +144,8 @@ extension VideoSearchVC:UICollectionViewDelegate,UICollectionViewDataSource,UICo
         cell.btnEditVideo.isHidden = true
         cell.btnDeleteVideo.isHidden = true
         
+        
+        
         cell.btnDeleteVideo.tag = indexPath.item
         cell.btnEditVideo.tag = indexPath.item
         
@@ -151,10 +153,18 @@ extension VideoSearchVC:UICollectionViewDelegate,UICollectionViewDataSource,UICo
             return UICollectionViewCell()
         }
      
-            cell.eye.image = PZImages.eye
-            cell.eye.isHidden = false
-            cell.lblViewCount.isHidden = false
-            cell.lblViewCount.text = mediaArray[indexPath.item].viewCount.asFormatted_k_String
+//            cell.eye.image = PZImages.eye
+//            cell.eye.isHidden = false
+//            cell.lblViewCount.isHidden = false
+        
+        
+        
+        cell.eye.image = PZImages.playBlank
+        cell.eye.isHidden = false
+        cell.lblViewCount.isHidden = false
+        cell.lblViewCount.text = mediaArray[indexPath.item].viewCount.asFormatted_k_String
+
+     
             
             if objWallPost.sharedWallData == nil {
                 if let urlStr = objWallPost.thumbUrlArray.first {

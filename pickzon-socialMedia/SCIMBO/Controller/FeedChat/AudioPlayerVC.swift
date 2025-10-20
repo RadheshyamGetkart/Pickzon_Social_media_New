@@ -27,7 +27,7 @@ class AudioPlayerVC: UIViewController {
         view.backgroundColor = .clear
        // view.backgroundColor =  UIColor.black.withAlphaComponent(0.8)
         self.topBGView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(tapOnView)))
-        btnPlay.setImageTintColor(.blue)
+        btnPlay.setImageTintColor(CustomColor.sharedInstance.newThemeColor)
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -101,9 +101,9 @@ class AudioPlayerVC: UIViewController {
     @objc func finishedPlaying( _ myNotification:NSNotification) {
         btnPlay.setImage(UIImage(named: "play_triangle"), for: .normal)
         //reset player when finish
-        btnPlay.setImageTintColor(.blue)
+        btnPlay.setImageTintColor(CustomColor.sharedInstance.newThemeColor)
         playbackSlider.value = 0
-        btnPlay.setImageTintColor(.blue)
+        btnPlay.setImageTintColor(CustomColor.sharedInstance.newThemeColor)
         let targetTime:CMTime = CMTimeMake(value: 0, timescale: 1)
         player!.seek(to: targetTime)
     }
@@ -121,7 +121,7 @@ class AudioPlayerVC: UIViewController {
             btnPlay.setImage(UIImage(named: "play_triangle"), for: .normal)
             
         }
-        btnPlay.setImageTintColor(.blue)
+        btnPlay.setImageTintColor(CustomColor.sharedInstance.newThemeColor)
 
     }
     

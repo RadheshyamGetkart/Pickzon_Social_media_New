@@ -59,7 +59,7 @@ class PhoneEmailSignUpVC: UIViewController {
         bgViewSegmentControl.clipsToBounds = true
         segmentControl.applyCapsuleStyle()
     
-        txtEmail.setAttributedPlaceHolder(text: "Enter Email/PickZon Id", color: .lightGray)
+        txtEmail.setAttributedPlaceHolder(text: "Enter Email", color: .lightGray)
         txtMobile.setAttributedPlaceHolder(text: "Your Mobile Number", color: .lightGray)
     }
     

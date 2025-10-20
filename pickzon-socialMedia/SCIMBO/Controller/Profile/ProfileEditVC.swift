@@ -301,7 +301,7 @@ class ProfileEditVC: UIViewController {
         isCoverImage = false
         let controller = UIStoryboard(name: "TableViewDemo", bundle: nil).instantiateInitialViewController()! as! TableViewDemo
         var percentage:Float = 0.30
-        controller.listArray = ["Entry Style","Frame","Gallery","Camera"]
+        controller.listArray = ["Entry Style","Frames","Gallery","Camera"]
         controller.iconArray = ["entryStyle","crown1","galley1","cameraFill"]
         controller.videoIndex = 0
         controller.delegate = self
@@ -662,12 +662,11 @@ extension ProfileEditVC:UITableViewDelegate,UITableViewDataSource,UITextFieldDel
   
     func selectedOption(index:Int,videoIndex:Int,title:String){
         
-        
         if title == "Entry Style" {
             let vc =  StoryBoard.feeds.instantiateViewController(withIdentifier: "EntryStyleSelectionVC") as! EntryStyleSelectionVC
             vc.pickzonUser = self.pickzonUser
             self.navigationController?.pushViewController(vc, animated: true)
-        }else if title == "Frame" {
+        }else if title == "Frames" {
             let vc =  StoryBoard.feeds.instantiateViewController(withIdentifier: "FrameSelectionVC") as! FrameSelectionVC
             vc.pickzonUser = self.pickzonUser
             vc.frameDelegate = self

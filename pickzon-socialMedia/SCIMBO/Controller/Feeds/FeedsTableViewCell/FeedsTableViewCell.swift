@@ -164,7 +164,7 @@ class FeedsTableViewCell: FeedsCell, UICollectionViewDelegate, UICollectionViewD
         
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
    
-            return CGSize(width: self.view.frame.size.width , height: self.cvFeedsPost.frame.height )
+            return CGSize(width: self.cvFeedsPost.frame.size.width , height: self.cvFeedsPost.frame.height )
         
     }
         

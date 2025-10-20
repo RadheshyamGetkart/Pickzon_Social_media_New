@@ -435,7 +435,7 @@ class RequestVerificationViewController: UIViewController {
                 if status == 1{
                     self.isEmailVerified = 1
                     self.btnVerifyEmail.setTitle("Verified", for: .normal)
-                    self.btnVerifyEmail.setTitleColor(UIColor.green, for: .normal)
+                    self.btnVerifyEmail.setTitleColor(UIColor.systemGreen, for: .normal)
                     self.btnVerifyEmail.isUserInteractionEnabled = false
                     self.txtEmail.isUserInteractionEnabled = false
                 }else {
@@ -504,17 +504,15 @@ class RequestVerificationViewController: UIViewController {
                             
                             self.txtFullName.text = userDict["fullName"] as? String ?? ""
                             self.txtEmail.text = userDict["email"] as? String ?? ""
-                           // self.txtCategory.text = userDict["jobProfile"] as? String ?? ""
-                            
-                            
-                            
-                            
+                            self.txtCategory.text = userDict["jobProfile"] as? String ?? ""
+                            self.selCategoryId = userDict["jobProfileId"] as? String ?? ""
+
                             self.isEmailVerified = userDict["isEmailVerified"] as? Int ?? 0
                             
                             
                             if self.isEmailVerified == 1 {
                                 self.btnVerifyEmail.setTitle("Verified", for: .normal)
-                                self.btnVerifyEmail.setTitleColor(UIColor.green, for: .normal)
+                                self.btnVerifyEmail.setTitleColor(UIColor.systemGreen, for: .normal)
                                 self.btnVerifyEmail.isUserInteractionEnabled = false
                                 self.txtEmail.isUserInteractionEnabled = false
                             }
@@ -524,7 +522,7 @@ class RequestVerificationViewController: UIViewController {
                             self.isMobileVerified = userDict["isMobileVerified"] as? Int ?? 0
                             if self.isMobileVerified == 1 {
                                 self.btnVerifyPhone.setTitle("Verified", for: .normal)
-                                self.btnVerifyPhone.setTitleColor(UIColor.green, for: .normal)
+                                self.btnVerifyPhone.setTitleColor(UIColor.systemGreen, for: .normal)
                                 self.btnVerifyPhone.isUserInteractionEnabled = false
                                 self.txtPhone.isUserInteractionEnabled = false
                             }
@@ -537,6 +535,7 @@ class RequestVerificationViewController: UIViewController {
                                 self.btnVerifyPhone.isHidden = true
                             }
                             
+
                             self.txtDOB.text = userDict["dob"] as? String ?? ""
                             let isRequested = userDict["isRequested"] as? Int ?? 0
                             
@@ -558,7 +557,7 @@ class RequestVerificationViewController: UIViewController {
                 }
                 else
                 {
-                    self.view.makeToast(message: message as! String, duration: 3, position: HRToastActivityPositionDefault)
+                    self.view.makeToast(message: message , duration: 3, position: HRToastActivityPositionDefault)
                 }
             }
         })
@@ -659,6 +658,7 @@ class RequestVerificationViewController: UIViewController {
         datePicker.datePickerMode = .date
         datePicker.setValue(UIColor.black, forKey: "textColor")
         viewDatePicker.addSubview(datePicker)
+         datePicker.tintColor = CustomColor.sharedInstance.newThemeColor
         self.view.addSubview(viewDatePicker)
     }
     
@@ -782,7 +782,7 @@ extension RequestVerificationViewController:UITextFieldDelegate,PickzonIdDelegat
          }else if textField == txtCategory {
              self.view.endEditing(true)
              
-             ActionSheetMultipleStringPicker.show(withTitle: "", rows: [
+            /* ActionSheetMultipleStringPicker.show(withTitle: "", rows: [
                  arrProfileCategory
              ], initialSelection: [0, 0], doneBlock: {
                  picker, indexes, values in
@@ -798,12 +798,37 @@ extension RequestVerificationViewController:UITextFieldDelegate,PickzonIdDelegat
                  }
                  return
              }, cancel: { ActionMultipleStringCancelBlock in return }, origin: txtCategory)
+             
+             */
+             
+             
+             if let picker =  ActionSheetMultipleStringPicker.show(withTitle: "", rows: [
+                arrProfileCategory
+              ], initialSelection: [0, 0], doneBlock: {
+                  picker, indexes, values in
+                  if let str = (values as AnyObject?) as? NSArray {
+                      
+                      self.txtCategory.text  = str[0] as? String ?? ""
+                  }
+                  if let index = (indexes as AnyObject?) as? NSArray {
+                      
+                      self.selCategoryId  = self.arrProfileCategoryId[(index[0] as? Int ?? 0)]
+                      print(self.selCategoryId)
+                  }
+                  return
+              }, cancel: { ActionMultipleStringCancelBlock in return }, origin: txtCategory){
+                  picker.toolbar.tintColor = CustomColor.sharedInstance.newThemeColor
+
+              }
+             
+             
+             
              return false
              
          }else  if textField == txtDocumentType {
              self.view.endEditing(true)
              
-             ActionSheetMultipleStringPicker.show(withTitle: "", rows: [
+             /*ActionSheetMultipleStringPicker.show(withTitle: "", rows: [
                  arrDocType
              ], initialSelection: [0, 0], doneBlock: {
                  picker, indexes, values in
@@ -819,12 +844,35 @@ extension RequestVerificationViewController:UITextFieldDelegate,PickzonIdDelegat
                  }
                  return
              }, cancel: { ActionMultipleStringCancelBlock in return }, origin: txtDocumentType)
+             */
+             
+             
+             if let picker =  ActionSheetMultipleStringPicker.show(withTitle: "", rows: [
+                arrDocType
+              ], initialSelection: [0, 0], doneBlock: {
+                  picker, indexes, values in
+                  
+                  if let str = (values as AnyObject?) as? NSArray {
+                      
+                      self.txtDocumentType.text  = str[0] as? String ?? ""
+                  }
+                  if let index = (indexes as AnyObject?) as? NSArray {
+                      
+                      self.selDocumentTypeId  = self.arrDocTypeId[(index[0] as? Int ?? 0)]
+                      print(self.selDocumentTypeId)
+                  }
+                  return
+              }, cancel: { ActionMultipleStringCancelBlock in return }, origin: txtDocumentType){
+                  picker.toolbar.tintColor = CustomColor.sharedInstance.newThemeColor
+
+              }
+             
              return false
              
          }else  if textField == txtSocialProfileType {
              self.view.endEditing(true)
              
-             ActionSheetMultipleStringPicker.show(withTitle: "", rows: [
+           /*  ActionSheetMultipleStringPicker.show(withTitle: "", rows: [
                  arrSocialProfileType
              ], initialSelection: [0, 0], doneBlock: {
                  picker, indexes, values in
@@ -842,6 +890,28 @@ extension RequestVerificationViewController:UITextFieldDelegate,PickzonIdDelegat
                  
                  return
              }, cancel: { ActionMultipleStringCancelBlock in return }, origin: txtSocialProfileType)
+             
+             */
+             
+             if let picker =  ActionSheetMultipleStringPicker.show(withTitle: "", rows: [
+                arrSocialProfileType
+              ], initialSelection: [0, 0], doneBlock: {
+                  picker, indexes, values in
+                  if let str = (values as AnyObject?) as? NSArray {
+                      
+                      self.txtSocialProfileType.text  = str[0] as? String ?? ""
+                  }
+                  
+                  if let index = (indexes as AnyObject?) as? NSArray {
+                      
+                      self.selSocialTypeId  = self.arrSocialProfileTypeId[(index[0] as? Int ?? 0)]
+                      print(self.selSocialTypeId)
+                  }
+                  return
+              }, cancel: { ActionMultipleStringCancelBlock in return }, origin: txtSocialProfileType){
+                  picker.toolbar.tintColor = CustomColor.sharedInstance.newThemeColor
+
+              }
              return false
              
          }else if textField == txtDOB {
@@ -962,7 +1032,7 @@ extension RequestVerificationViewController:VerifyEmailPhoneDelegate {
             self.isEmailVerified = 1
             self.txtEmail.text = strEmailPhone
             self.btnVerifyEmail.setTitle("Verified", for: .normal)
-            self.btnVerifyEmail.setTitleColor(UIColor.green, for: .normal)
+            self.btnVerifyEmail.setTitleColor(UIColor.systemGreen, for: .normal)
             self.btnVerifyEmail.isUserInteractionEnabled = false
             self.txtEmail.isUserInteractionEnabled = false
             
@@ -970,7 +1040,7 @@ extension RequestVerificationViewController:VerifyEmailPhoneDelegate {
             self.txtPhone.text = strEmailPhone
             self.isMobileVerified = 1
             self.btnVerifyPhone.setTitle("Verified", for: .normal)
-            self.btnVerifyPhone.setTitleColor(UIColor.green, for: .normal)
+            self.btnVerifyPhone.setTitleColor(UIColor.systemGreen, for: .normal)
             self.btnVerifyPhone.isUserInteractionEnabled = false
             self.txtPhone.isUserInteractionEnabled = false
             

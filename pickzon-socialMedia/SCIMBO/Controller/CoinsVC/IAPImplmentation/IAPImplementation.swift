@@ -53,6 +53,8 @@ class IAPHandler: NSObject {
     //Set Product Ids
     func setProductIds(ids: [String]) {
         self.productIds = ids
+        print("📦 IAPHandler | Set product IDs: \(productIds)")
+
     }
 
     //MAKE PURCHASE OF A PRODUCT
@@ -104,6 +106,10 @@ class IAPHandler: NSObject {
             fatalError(IAPHandlerAlertType.setProductIds.message)
         }
         else {
+            print("🛰️ IAPHandler | Starting product request for: \(productIds)")
+            print("Bundle ID:", Bundle.main.bundleIdentifier ?? "nil")
+            print("Can make payments:", SKPaymentQueue.canMakePayments())
+
             productsRequest = SKProductsRequest(productIdentifiers: Set(self.productIds))
             productsRequest.delegate = self
             productsRequest.start()
@@ -122,9 +128,14 @@ class IAPHandler: NSObject {
 //MARK:-
 extension IAPHandler: SKProductsRequestDelegate, SKPaymentTransactionObserver{
     
+   
     // REQUEST IAP PRODUCTS
     func productsRequest (_ request:SKProductsRequest, didReceive response:SKProductsResponse) {
         
+        print("🧾 Product request received")
+        print("✅ Valid products: \(response.products.map { $0.productIdentifier })")
+        print("❌ Invalid identifiers: \(response.invalidProductIdentifiers)")
+
         if (response.products.count > 0) {
             if let complition = self.fetchProductComplition {
                 complition(response.products)

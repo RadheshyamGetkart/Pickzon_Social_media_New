@@ -61,7 +61,7 @@ extension TrendingVideoTVCell:UICollectionViewDelegate,UICollectionViewDataSourc
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
         let cell = cllctnVw.dequeueReusableCell(withReuseIdentifier: "ProfileMediaCellId", for: indexPath) as! ProfileMediaCell
-        cell.lblDesc.backgroundColor = UIColor.systemBlue
+        cell.lblDesc.backgroundColor = CustomColor.sharedInstance.newThemeColor
         cell.imgVideoThumb.contentMode = .scaleAspectFill
         cell.imgVideoThumb.backgroundColor = UIColor.black
         cell.lblDesc.isHidden = true

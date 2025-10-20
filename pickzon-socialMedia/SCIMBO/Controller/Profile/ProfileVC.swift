@@ -79,7 +79,7 @@ class ProfileVC: UIViewController, OptionDelegate,updatedProfileDelegate,Shimmer
         refreshControl.addTarget(self, action:
                                     #selector(handlePullDownRefresh(_:)),
                                  for: .valueChanged)
-        refreshControl.tintColor = UIColor.systemBlue
+        refreshControl.tintColor = CustomColor.sharedInstance.newThemeColor
         return refreshControl
     }()
     
@@ -361,7 +361,7 @@ func alertToEncourageCameraAccessWhenApplicationStarts()
                     vc.pickzonUser = self.objUser
                     self.navigationController?.pushViewController(vc, animated: true)
                
-                }else if title == "Frame" {
+                }else if title == "Frames" {
                     
                     let vc =  StoryBoard.feeds.instantiateViewController(withIdentifier: "FrameSelectionVC") as! FrameSelectionVC
                     vc.pickzonUser = self.objUser
@@ -1923,7 +1923,7 @@ extension ProfileVC:UITableViewDelegate,UITableViewDataSource{
             
             let controller = UIStoryboard(name: "TableViewDemo", bundle: nil).instantiateInitialViewController()! as! TableViewDemo
             var percentage:Float = 0.30
-            controller.listArray = ["Entry Style","Frame","Gallery","Camera"]
+            controller.listArray = ["Entry Style","Frames","Gallery","Camera"]
             controller.iconArray = ["entryStyle","crown1","galley1","cameraFill"]
             controller.videoIndex = 0
             controller.delegate = self

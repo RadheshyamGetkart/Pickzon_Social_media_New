@@ -18,6 +18,8 @@ class AgencyBtnCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+       // viewBack.backgroundColor = CustomColor.sharedInstance.newThemeColor
+        
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

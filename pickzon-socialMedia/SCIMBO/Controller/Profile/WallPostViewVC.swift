@@ -66,7 +66,7 @@ class WallPostViewVC: UIViewController ,UITableViewDelegate,UITableViewDataSourc
         refreshControl.addTarget(self, action:
                                     #selector(handlePullDownRefresh(_:)),
                                  for: .valueChanged)
-        refreshControl.tintColor = UIColor.systemBlue
+        refreshControl.tintColor = CustomColor.sharedInstance.newThemeColor
         return refreshControl
     }()
     
@@ -397,7 +397,7 @@ class WallPostViewVC: UIViewController ,UITableViewDelegate,UITableViewDataSourc
             }else{
                 let result = responseObject! as NSDictionary
                 let status = result["status"] as? Int ?? 0
-                let message = result["message"]
+                let message = result["message"] as? String ?? ""
                 if status == 1{
                     let data = result.value(forKey: "payload") as? NSArray ?? []
                     //self.arrwallPost.removeAll()
@@ -534,7 +534,7 @@ class WallPostViewVC: UIViewController ,UITableViewDelegate,UITableViewDataSourc
             }else{
                 let result = responseObject! as NSDictionary
                 let status = result["status"] as? Int ?? 0
-                let message = result["message"]
+                let message = result["message"] as? String ?? ""
                // self.totalPageNo = result["totalPages"] as? Int ?? 0
                 //self.isDataLoading = false
                 
@@ -560,7 +560,7 @@ class WallPostViewVC: UIViewController ,UITableViewDelegate,UITableViewDataSourc
                     self.arrwallPost.append(contentsOf: newPageArr)
                     
                     self.delegate?.getNewPageList(listArray: newPageArr, pageNo: self.pageNo + 1,postType:self.controllerType)
-                    self.emptyView?.lblMsg?.text = "Empty List"
+                    self.emptyView?.lblMsg?.text =  message //"Empty List"
                     self.emptyView?.isHidden = (self.arrwallPost.count == 0) ? false : true
                     
                     self.states = [Bool](repeating: true, count: self.arrwallPost.count)
@@ -641,7 +641,7 @@ class WallPostViewVC: UIViewController ,UITableViewDelegate,UITableViewDataSourc
                         self.tblView.reloadData {
                             self.isDataLoading = false
                         }
-                        self.emptyView?.lblMsg?.text = "Empty List"
+                        self.emptyView?.lblMsg?.text = message //"Empty List"
                         self.emptyView?.isHidden = (self.arrwallPost.count == 0) ? false : true
                     }
                     self.pageNo = self.pageNo + 1
@@ -691,7 +691,7 @@ class WallPostViewVC: UIViewController ,UITableViewDelegate,UITableViewDataSourc
             }else{
                 let result = responseObject! as NSDictionary
                 let status = result["status"] as? Int ?? 0
-                let message = result["message"]
+                let message = result["message"] as? String ?? ""
                // self.totalPageNo = result["totalPages"] as? Int ?? 0
                 if status == 1 {
                     var currentIndex = self.arrwallPost.count
@@ -717,7 +717,7 @@ class WallPostViewVC: UIViewController ,UITableViewDelegate,UITableViewDataSourc
                     DispatchQueue.main.async {
                     self.delegate?.getNewPageList(listArray: newPageArr, pageNo: self.pageNo + 1,postType:self.controllerType)
 
-                    self.emptyView?.lblMsg?.text = "Empty List"
+                    self.emptyView?.lblMsg?.text = message // "Empty List"
                     self.emptyView?.isHidden = (self.arrwallPost.count == 0) ? false : true
                     
                     self.states = [Bool](repeating: true, count: self.arrwallPost.count)
@@ -735,7 +735,7 @@ class WallPostViewVC: UIViewController ,UITableViewDelegate,UITableViewDataSourc
                     self.isDataLoading = false
                 }
                 
-                self.emptyView?.lblMsg?.text = "Empty List"
+                self.emptyView?.lblMsg?.text =  message //"Empty List"
                 self.emptyView?.isHidden = (self.arrwallPost.count == 0) ? false : true
             }
         })

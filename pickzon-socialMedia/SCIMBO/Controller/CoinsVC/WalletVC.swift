@@ -101,6 +101,7 @@ class WalletVC: SwiftBaseViewController {
         super.viewDidLayoutSubviews()
         cnstrntHtNavbar.constant = self.getNavBarHt
     }
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
         getAvailableCoinList()
@@ -704,7 +705,9 @@ extension WalletVC:UITableViewDelegate,UITableViewDataSource{
         }else if indexPath.section == 3{
             let cell = tblView.dequeueReusableCell(withIdentifier: "AgencyBtnCell") as! AgencyBtnCell
             cell.cnstrnt_topView.constant = 0
-            cell.btnInfo.setImage(UIImage(named: "info_icon"), for: .normal)
+            cell.btnInfo.setImage(UIImage(named: "octicon_info-16"), for: .normal)
+          //  cell.viewBack.backgroundColor = CustomColor.sharedInstance.newThemeColor
+
             return cell
         }else if indexPath.section == 4 {
             

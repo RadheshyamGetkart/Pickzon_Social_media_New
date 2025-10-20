@@ -2091,7 +2091,7 @@ extension FeedsViewController {
         }
         
         
-        if  Constant.sharedinstance.notificationCount > 0 || Constant.sharedinstance.feedChatCount > 0{
+        if  Constant.sharedinstance.notificationCount > 0{ // || Constant.sharedinstance.feedChatCount > 0{
             self.btnChat.badgeString =  "•"
         }else{
             self.btnChat.badgeString =  ""

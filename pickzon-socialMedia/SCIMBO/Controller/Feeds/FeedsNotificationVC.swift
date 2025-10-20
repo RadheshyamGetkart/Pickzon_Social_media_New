@@ -41,7 +41,7 @@ class FeedsNotificationVC: UIViewController {
     private lazy var topRefreshControl:UIRefreshControl = {
         let refreshControl = UIRefreshControl()
         refreshControl.addTarget(self, action: #selector(handlePullDownRefresh(_ : )), for: .valueChanged)
-        refreshControl.tintColor = UIColor.systemBlue
+        refreshControl.tintColor = CustomColor.sharedInstance.newThemeColor
         return refreshControl
     }()
     

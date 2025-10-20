@@ -68,8 +68,7 @@ class FrameSelectionVC: UIViewController {
         }else if self.objSelectectedAvatar?.isActive == 1 {
             self.btnApply.setTitle("Remove", for: .normal)
         }else {
-           
-                self.btnApply.setTitle("Apply", for: .normal)
+            self.btnApply.setTitle("Apply", for: .normal)
         }
         
        
@@ -100,7 +99,6 @@ class FrameSelectionVC: UIViewController {
     }
     
     @IBAction func applyBtnAction(_ sender : UIButton){
-        
         
         if btnApply.currentTitle == "Apply"{
             if selectedSectionIndex >= 0{

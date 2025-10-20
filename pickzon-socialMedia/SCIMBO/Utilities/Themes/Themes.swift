@@ -2021,11 +2021,13 @@ import Kingfisher
             let fileURLs = try FileManager.default.contentsOfDirectory(at: dirPath,
                                                                        includingPropertiesForKeys: nil,
                                                                        options: .skipsHiddenFiles)
-            print(fileURLs)
+           // print(fileURLs)
             for fileURL in fileURLs {
                 try FileManager.default.removeItem(at: fileURL)
             }
-        } catch  { print(error) }
+        } catch  {
+            print(error)
+        }
     }
     
     // MARK: Lock Actions
@@ -2664,7 +2666,7 @@ extension UIFont{
     
     @objc class func MyitalicFont(_ fontSize: CGFloat) -> UIFont?
     {
-        return UIFont(name: "Roboto-Italic", size: fontSize)!
+        return UIFont(name: "Inter-Italic", size: fontSize)!
     }
     
     @objc class func MyRegularFont(_ fontSize: CGFloat) -> UIFont?
@@ -2716,7 +2718,7 @@ extension UIFont {
     }
     
     @objc class func MyItalicFont(_ fontSize: CGFloat) -> UIFont {
-        return UIFont(name: "Roboto-Italic", size: fontSize)
+        return UIFont(name: "Inter-Italic", size: fontSize)
             ?? UIFont.italicSystemFont(ofSize: fontSize)
     }
     

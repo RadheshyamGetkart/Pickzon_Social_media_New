@@ -251,7 +251,14 @@ class LoginVCNew: UIViewController {
     
     
     @IBAction func handleGoogleSignInButton() {
-        
+        GIDSignIn.sharedInstance.disconnect { error in
+            if let error = error {
+                print("❌ Disconnect failed: \(error.localizedDescription)")
+            } else {
+                print("✅ User disconnected successfully, tokens cleared")
+            }
+        }
+        GIDSignIn.sharedInstance.signOut()
         txtEmail.text = ""
         txtMobile.text = ""
         

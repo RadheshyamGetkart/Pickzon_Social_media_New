@@ -257,7 +257,7 @@ extension EditPickzonIdVC:UITextFieldDelegate{
             
             if currentText.length > 5 {
                 self.searchUserByPickZonId(pickZonID: currentText)
-                self.btnSubmit.backgroundColor = .systemBlue
+                self.btnSubmit.backgroundColor = CustomColor.sharedInstance.newThemeColor
 
             }else{
                 self.btnSubmit.backgroundColor = .darkGray

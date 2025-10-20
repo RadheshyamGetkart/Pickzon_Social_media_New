@@ -33,7 +33,7 @@ class LiveUsersFeedTblCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
-        btnSeeAll.setImageTintColor(UIColor.systemBlue)
+        btnSeeAll.setImageTintColor(CustomColor.sharedInstance.newThemeColor)
         cllctnView.register(UINib(nibName: "LiveUserCell", bundle: nil), forCellWithReuseIdentifier: "LiveUserCell")
         cllctnView.delegate = self
         cllctnView.dataSource = self

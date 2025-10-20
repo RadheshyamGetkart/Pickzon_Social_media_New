@@ -51,6 +51,8 @@ class ChatListVC: SwiftBaseViewController,OptionDelegate {
         tblView.keyboardDismissMode = .onDrag
         
         searchTxtFdBgVw.layer.cornerRadius = searchTxtFdBgVw.frame.height/2.0
+        searchTxtFdBgVw.layer.borderWidth = 0.4
+        searchTxtFdBgVw.layer.borderColor = UIColor.lightGray.cgColor
         searchTxtFdBgVw.clipsToBounds = true
     }
     

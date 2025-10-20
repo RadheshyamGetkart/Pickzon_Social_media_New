@@ -28,83 +28,15 @@ protocol SearchPostSelectedDelegate{
 }
 
 
-extension SearchFeedUSerListVC :SearchPostSelectedDelegate{
-   
-    func searchItemSelected(selObj:Any,type:SearchType){
-        
-        if type == .top{
-            
-        }else if type == .videos{
-            
-        }else if type == .users{
-            
-            if let obj = selObj as? SearchedUser{
-                let profileVC:ProfileVC = StoryBoard.main.instantiateViewController(withIdentifier: "ProfileVC") as! ProfileVC
-                profileVC.otherMsIsdn = obj.id
-                self.navigationController?.pushViewController(profileVC, animated: true)
-            }
-            
-        }else if type == .hashTag{
-            
-        }
-        
-    }
-
-}
-
-
-extension SearchFeedUSerListVC : CAPSPageMenuDelegate,SearchTextDelegate {
-
-    func searchedTxt(txt:String) {
-        searchTf.text = txt
-        checkAndUpdate()
-
-    }
-    
-    func willMoveToPage(_ controller: UIViewController, index: Int){
-        print(index)
-        selectedTabIndex = index
-        checkAndUpdate()
-
-    }
-
-    func didMoveToPage(_ controller: UIViewController, index: Int){
-        print(index)
-           // pageMenu?.controllerArray[pageMenu?.currentPageIndex ?? 0].srchTxt = searchTf.text ?? ""
-    }
-    
-
-    func checkAndUpdate(){
-      
-        var strNotificationName = ""
-        if selectedTabIndex == 0{
-            strNotificationName = "topSelectedTabIndex"
-        }else  if selectedTabIndex == 1{
-            strNotificationName = "videoSelectedTabIndex"
-
-        }else  if selectedTabIndex == 2{
-            strNotificationName = "accountSelectedTabIndex"
-        }else if selectedTabIndex == 3{
-            strNotificationName = "hashtagSelectedTabIndex"
-        }
-        
-        let data: [String: Any] = [ "searchText":  searchTf.text ?? ""]
-        NotificationCenter.default.post(name: NSNotification.Name(rawValue: strNotificationName), object: nil , userInfo: data)
-    }
-
-}
-
 
 class SearchFeedUSerListVC: UIViewController,UITextFieldDelegate {
-    
-    
-    var selectedTabIndex = 0
-    
+        
     @IBOutlet weak var cnstrntHtNavBar :NSLayoutConstraint!
     @IBOutlet weak var searchTf :UITextField!
    
     var strTxtSearched:String = ""
     private var pageMenu: CAPSPageMenu?
+    private var selectedTabIndex = 0
 
     //MARK: Controller life cycle methods
     override func viewDidLoad() {
@@ -248,6 +180,73 @@ class SearchFeedUSerListVC: UIViewController,UITextFieldDelegate {
 
 
 
+
+
+extension SearchFeedUSerListVC :SearchPostSelectedDelegate{
+   
+    func searchItemSelected(selObj:Any,type:SearchType){
+        
+        if type == .top{
+            
+        }else if type == .videos{
+            
+        }else if type == .users{
+            
+            if let obj = selObj as? SearchedUser{
+                let profileVC:ProfileVC = StoryBoard.main.instantiateViewController(withIdentifier: "ProfileVC") as! ProfileVC
+                profileVC.otherMsIsdn = obj.id
+                self.navigationController?.pushViewController(profileVC, animated: true)
+            }
+            
+        }else if type == .hashTag{
+            
+        }
+        
+    }
+
+}
+
+
+extension SearchFeedUSerListVC : CAPSPageMenuDelegate,SearchTextDelegate {
+
+    func searchedTxt(txt:String) {
+        searchTf.text = txt
+        checkAndUpdate()
+
+    }
+    
+    func willMoveToPage(_ controller: UIViewController, index: Int){
+        print(index)
+        selectedTabIndex = index
+        checkAndUpdate()
+
+    }
+
+    func didMoveToPage(_ controller: UIViewController, index: Int){
+        print(index)
+           // pageMenu?.controllerArray[pageMenu?.currentPageIndex ?? 0].srchTxt = searchTf.text ?? ""
+    }
+    
+
+    func checkAndUpdate(){
+      
+        var strNotificationName = ""
+        if selectedTabIndex == 0{
+            strNotificationName = "topSelectedTabIndex"
+        }else  if selectedTabIndex == 1{
+            strNotificationName = "videoSelectedTabIndex"
+
+        }else  if selectedTabIndex == 2{
+            strNotificationName = "accountSelectedTabIndex"
+        }else if selectedTabIndex == 3{
+            strNotificationName = "hashtagSelectedTabIndex"
+        }
+        
+        let data: [String: Any] = [ "searchText":  searchTf.text ?? ""]
+        NotificationCenter.default.post(name: NSNotification.Name(rawValue: strNotificationName), object: nil , userInfo: data)
+    }
+
+}
 
 
 
