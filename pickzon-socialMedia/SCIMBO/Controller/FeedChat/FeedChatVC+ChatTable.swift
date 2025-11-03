@@ -67,11 +67,11 @@ extension FeedChatVC:OptionDelegate{
         
         let controller = UIStoryboard(name: "TableViewDemo", bundle: nil).instantiateInitialViewController()! as! TableViewDemo
         let blockUnblock = (blockByMe == 1) ? "Unblock User" : "Block User"
-        let isChatBlock = (isChatBlockByMe == 1) ? "Unblock Chat" : "Block Chat"
+      //  let isChatBlock = (isChatBlockByMe == 1) ? "Unblock Chat" : "Block Chat"
 
         
-        controller.listArray = ["View Profile","Report","Clear All Chat",blockUnblock,isChatBlock]
-        controller.iconArray =  ["User","Report","Delete1","BlockAccount","chatb"]
+        controller.listArray = ["View Profile","Report","Clear All Chat",blockUnblock]//,isChatBlock]
+        controller.iconArray =  ["User","Report","Delete1","BlockAccount"]//,"chatb"]
         
         controller.videoIndex = 0
         controller.delegate = self

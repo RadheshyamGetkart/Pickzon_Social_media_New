@@ -15,6 +15,8 @@ import FittedSheets
 
 class ChatListVC: SwiftBaseViewController,OptionDelegate {
     
+    @IBOutlet weak var  lblChatCount:UILabel!
+
     @IBOutlet weak var txtFdSearch: UITextField!
     @IBOutlet weak var searchTxtFdBgVw:UIView!
     @IBOutlet weak var tblView:UITableView!
@@ -54,6 +56,10 @@ class ChatListVC: SwiftBaseViewController,OptionDelegate {
         searchTxtFdBgVw.layer.borderWidth = 0.4
         searchTxtFdBgVw.layer.borderColor = UIColor.lightGray.cgColor
         searchTxtFdBgVw.clipsToBounds = true
+        
+        lblChatCount.layer.cornerRadius = lblChatCount.frame.size.width / 2.0
+        lblChatCount.clipsToBounds = true
+        lblChatCount.isHidden = true
     }
     
     
@@ -232,6 +238,9 @@ class ChatListVC: SwiftBaseViewController,OptionDelegate {
                 if requestedChatCount == 0{
                     self.btnOption.badgeString =  ""
                     
+                }else{
+                    self.btnOption.badgeString =  "\(Constant.sharedinstance.requestedChatCount)"
+
                 }
                // self.btnOption.isHidden = (Constant.sharedinstance.requestedChatCount == 0) ? true : false
             }
@@ -245,6 +254,15 @@ class ChatListVC: SwiftBaseViewController,OptionDelegate {
 //        }
 //        NotificationCenter.default.post(name: NSNotification.Name(rawValue: notif_Badgecount),
 //                                        object:nil, userInfo: nil)
+        
+        
+        if  Constant.sharedinstance.feedChatCount > 0{
+            lblChatCount.text =  "\(Constant.sharedinstance.feedChatCount)"
+            lblChatCount.isHidden = false
+        }else{
+            lblChatCount.isHidden = true
+        }
+        
     }
     
     

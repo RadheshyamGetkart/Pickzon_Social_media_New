@@ -64,8 +64,8 @@ var backgroundTask: UIBackgroundTaskIdentifier = UIBackgroundTaskIdentifier.inva
     var IsKeyboardVisible = false
     var socketConnected:Bool=false
     var KeyboardFrame = CGRect.zero
-    var seenArray: Array<String> = Array()
-    var isUpdatingFeedsSeen = false
+  //  var seenArray: Array<String> = Array()
+    //var isUpdatingFeedsSeen = false
     var isSemaPhoreWaiting = false
     var sem = DispatchSemaphore(value: 0)
     var soundInfoSelected =  SoundInfo(dict: [:])
@@ -298,9 +298,12 @@ var backgroundTask: UIBackgroundTaskIdentifier = UIBackgroundTaskIdentifier.inva
     
     func applicationWillResignActive(_ application: UIApplication) {
         print("applicationWillResignActive")
-        if self.seenArray.count > 0 {
-            self.updateFeedsSeenArrayNew()
-        }
+//        if self.seenArray.count > 0 {
+//            self.updateFeedsSeenArrayNew()
+//        }
+        
+        FeedSeenManager.shared.flushOnAppTerminate()
+
         // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
         // Use this method to pause ongoing tasks, disable timers, and invalidate graphics rendering callbacks. Games should use this method to pause the game
         active = false
@@ -512,9 +515,11 @@ var backgroundTask: UIBackgroundTaskIdentifier = UIBackgroundTaskIdentifier.inva
         NotificationCenter.default.post(Notification(name: Notification.Name(Constant.sharedinstance.app_terminated)))
        
        
-        if self.seenArray.count > 0 {
-            self.updateFeedsSeenArrayNew()
-        }
+        FeedSeenManager.shared.flushOnAppTerminate()
+
+//        if self.seenArray.count > 0 {
+//            self.updateFeedsSeenArrayNew()
+//        }
         
         if Themes.sharedInstance.Getuser_id() != "" {
             
@@ -1117,12 +1122,13 @@ extension AppDelegate:MessagingDelegate{
             SocketIOManager.sharedInstance.establishConnection(Nickname: Themes.sharedInstance.CheckNullvalue(Passed_value: Themes.sharedInstance.Getuser_id()) as NSString, isLogin: true)
         }
     
-        
+        //old process key
         var  notificationType =  response.notification.request.content.userInfo["gcm.notification.notificationType"] as? String ?? ""
         var  userId =  response.notification.request.content.userInfo["gcm.notification.userId"] as? String ?? ""
         var  listingId =  response.notification.request.content.userInfo["gcm.notification.listingId"] as? String ?? ""
         
         
+        //New process
         if let notificationTypes =  response.notification.request.content.userInfo["notificationType"] as? String{
             
             notificationType = notificationTypes
@@ -1307,10 +1313,11 @@ extension AppDelegate:MessagingDelegate{
     
     //This is key callback to present notification while the app is in foreground
     func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
-        //print("Notification being triggered")
+        print("Notification being triggered")
         //You can either present alert ,sound or increase badge while the app is in foreground too with ios 10
         //to distinguish between notifications
-       // print(notification.request.content.userInfo)
+       
+        print(notification.request.content.userInfo)
         
         if notification.request.identifier == "VideoCallRequest"{
             
@@ -1320,10 +1327,21 @@ extension AppDelegate:MessagingDelegate{
             print(notification.request.content)
             // completionHandler( [.alert,.sound,.badge])
             // let  notificationType =  notification.request.content.userInfo["gcm.notification.notificationType"] as? String ?? ""
-            let  userId =  notification.request.content.userInfo["gcm.notification.userId"] as? String ?? ""
+         //   let  userId =  notification.request.content.userInfo["gcm.notification.userId"] as? String ?? ""
             // let  listingId =  notification.request.content.userInfo["gcm.notification.listingId"] as? String ?? ""
             
-            if ((self.navigationController?.topViewController?.isKind(of: FeedChatVC.self)) != nil) && Themes.sharedInstance.chattingUSerId == userId {
+            //old process
+            var  userId =  notification.request.content.userInfo["gcm.notification.userId"] as? String ?? ""
+
+            //New process
+            if  let checkUserId = notification.request.content.userInfo["userId"] as? String
+            {
+                userId = checkUserId
+            }
+                    
+          
+            if ((self.navigationController?.topViewController?.isKind(of: FeedChatVC.self)) != nil) && Themes.sharedInstance.chattingUSerId == userId  && userId.length > 0 {
+                
             }else{
                 completionHandler( [.alert,.sound,.badge])
             }
@@ -1489,7 +1507,7 @@ extension AppDelegate : ATAppUpdaterDelegate{
     }
     
     
-    func updateFeedsSeenArrayNew(){
+ /*  private func updateFeedsSeenArrayNew(){
         
         if isUpdatingFeedsSeen == true {
             return
@@ -1512,7 +1530,7 @@ extension AppDelegate : ATAppUpdaterDelegate{
             }
         }
     }
- 
+ */
     
 
     func logoutApi(){

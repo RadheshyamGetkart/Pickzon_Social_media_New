@@ -92,10 +92,10 @@ class LiveOverlayViewController: UIViewController, UITextViewDelegate {
             
             self.btnShare.setImage(PZImages.threedot, for: .normal)
         }
-        //DispatchQueue.main.asyncAfter(deadline: .now() + 0.02) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.4) {
             
             self.emitGetComments()
-        //}
+        }
         btnShare.setImageTintColor(.white)
 
     }

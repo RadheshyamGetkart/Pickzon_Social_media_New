@@ -154,6 +154,8 @@ extension SearchSuggestionVC:UITableViewDelegate,UITableViewDataSource{
                 cell.lblCount.text = "\(respDict["pickzonId"] as? String ?? "")"
                 cell.imgvwProfile.isHidden = false
                 cell.imgvwProfile.kf.setImage(with: URL(string: "\(respDict["profilePic"] as? String ?? "")"),placeholder: PZImages.avatar)
+               /* cell.imgvwProfile.setImgView(profilePic:"\(respDict["profilePic"] as? String ?? "")", frameImg: "\(respDict["avatar"] as? String ?? "")",changeValue: ("\(respDict["avatar"] as? String ?? "")".count > 0) ? 8 : 5)*/
+
                 break
             default:
                 break

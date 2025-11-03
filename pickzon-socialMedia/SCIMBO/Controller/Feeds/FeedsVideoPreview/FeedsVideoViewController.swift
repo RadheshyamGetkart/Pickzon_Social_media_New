@@ -561,16 +561,21 @@ extension FeedsVideoViewController: UITableViewDelegate, UITableViewDataSource  
         
         if arrFeedsVideo.count > indexPath.row {
             if arrFeedsVideo[indexPath.row].isSeen == 0 {
-                if !AppDelegate.sharedInstance.seenArray.contains(arrFeedsVideo[indexPath.row].id){
-                    AppDelegate.sharedInstance.seenArray.append(arrFeedsVideo[indexPath.row].id)
+             //   if !AppDelegate.sharedInstance.seenArray.contains(arrFeedsVideo[indexPath.row].id){
+                   // AppDelegate.sharedInstance.seenArray.append(arrFeedsVideo[indexPath.row].id)
+                  
+                    FeedSeenManager.shared.addSeenFeedId(arrFeedsVideo[indexPath.row].id)
+
                     if arrFeedsVideo[indexPath.row].sharedWallData != nil {
-                        AppDelegate.sharedInstance.seenArray.append(arrFeedsVideo[indexPath.row].sharedWallData.id)
+                       // AppDelegate.sharedInstance.seenArray.append(arrFeedsVideo[indexPath.row].sharedWallData.id)
+                        FeedSeenManager.shared.addSeenFeedId(arrFeedsVideo[indexPath.row].sharedWallData.id)
+
                     }
-                }
+              //  }
                 
-                if  AppDelegate.sharedInstance.seenArray.count >= 10 {
+               /* if  AppDelegate.sharedInstance.seenArray.count >= 10 {
                     AppDelegate.sharedInstance.updateFeedsSeenArrayNew()
-                }
+                }*/
                 arrFeedsVideo[indexPath.row].isSeen = 1
             }
         }

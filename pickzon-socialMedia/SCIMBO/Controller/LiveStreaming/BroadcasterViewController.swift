@@ -2072,10 +2072,13 @@ class BroadcasterViewController: UIViewController {
             if index == 0{
                 return
             }else{
-                let settingsUrl = NSURL(string:UIApplication.openSettingsURLString)
+                let settingsUrl = URL(string:UIApplication.openSettingsURLString)
                 if let url = settingsUrl {
                     DispatchQueue.main.async {
-                        UIApplication.shared.openURL(url as URL)
+                     //   UIApplication.shared.openURL(url as URL)
+                        UIApplication.shared.open(url, options: [:], completionHandler: { success in
+                            print("URL opened: \(success)")
+                        })
                     }
                     
                 }

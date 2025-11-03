@@ -300,10 +300,23 @@ func alertToEncourageCameraAccessWhenApplicationStarts()
         if index == 0{
             return
         }else{
-            let settingsUrl = NSURL(string:UIApplication.openSettingsURLString)
+            
+            
+//            if UIApplication.shared.canOpenURL(url) {
+//                UIApplication.shared.open(url, options: [:], completionHandler: { success in
+//                    print("URL opened: \(success)")
+//                })
+//            }
+
+            
+            let settingsUrl = URL(string:UIApplication.openSettingsURLString)
             if let url = settingsUrl {
                 DispatchQueue.main.async {
-                    UIApplication.shared.openURL(url as URL)
+                    
+                    UIApplication.shared.open(url, options: [:], completionHandler: { success in
+                        print("URL opened: \(success)")
+                    })
+                  //  UIApplication.shared.openURL(url as URL)
                 }
 
             }
@@ -576,7 +589,11 @@ func alertToEncourageCameraAccessWhenApplicationStarts()
             if objUser.showMobile == 1{
                 alert.addAction(UIAlertAction(title: "Call: \(objUser.mobileNo)", style: .default, handler: { _ in
                     if let url = URL(string: "tel://\(self.objUser.mobileNo)") {
-                        UIApplication.shared.openURL(url)
+                        //                        UIApplication.shared.openURL(url)
+                        
+                        UIApplication.shared.open(url, options: [:], completionHandler: { success in
+                            print("URL opened: \(success)")
+                        })
                     }
                 }))
             }

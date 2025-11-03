@@ -52,8 +52,9 @@ target 'SCIMBO' do
   pod 'FSCalendar'
   #pod 'MediaWatermark'
   pod 'IQKeyboardManager'
-  pod 'razorpay-pod', '~> 1.3.2'
-  pod 'IQMediaPickerController'
+ # pod 'razorpay-pod', '~> 1.3.2'
+ pod 'razorpay-pod', :git => 'https://github.com/razorpay/razorpay-pod.git'
+ pod 'IQMediaPickerController'
   pod 'MarqueeLabel'
   pod 'CCBottomRefreshControl'
   pod "SwiftRater"

@@ -297,6 +297,7 @@
 		296E6C952673852900948DD3 /* TableViewDemo.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 296E6C932673852900948DD3 /* TableViewDemo.storyboard */; };
 		296E6C962673852900948DD3 /* TableViewDemo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 296E6C942673852900948DD3 /* TableViewDemo.swift */; };
 		2970D8AF2849D6E700FC2C4D /* Global.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2970D8AE2849D6E700FC2C4D /* Global.swift */; };
+		29712CDB2EAB7D120006671C /* FeedSeenManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29712CDA2EAB7D120006671C /* FeedSeenManager.swift */; };
 		2971AC4A2AAC5FD400EB69DB /* AllLiveUserListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2971AC492AAC5FD400EB69DB /* AllLiveUserListVC.swift */; };
 		2971AC4D2AAC60B000EB69DB /* LiveUsersCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2971AC4B2AAC60B000EB69DB /* LiveUsersCell.swift */; };
 		2971AC4E2AAC60B000EB69DB /* LiveUsersCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2971AC4C2AAC60B000EB69DB /* LiveUsersCell.xib */; };
@@ -1678,6 +1679,7 @@
 		296E6C932673852900948DD3 /* TableViewDemo.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = TableViewDemo.storyboard; sourceTree = "<group>"; };
 		296E6C942673852900948DD3 /* TableViewDemo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewDemo.swift; sourceTree = "<group>"; };
 		2970D8AE2849D6E700FC2C4D /* Global.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Global.swift; sourceTree = "<group>"; };
+		29712CDA2EAB7D120006671C /* FeedSeenManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedSeenManager.swift; sourceTree = "<group>"; };
 		2971AC492AAC5FD400EB69DB /* AllLiveUserListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllLiveUserListVC.swift; sourceTree = "<group>"; };
 		2971AC4B2AAC60B000EB69DB /* LiveUsersCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LiveUsersCell.swift; sourceTree = "<group>"; };
 		2971AC4C2AAC60B000EB69DB /* LiveUsersCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LiveUsersCell.xib; sourceTree = "<group>"; };
@@ -3808,6 +3810,7 @@
 				297D27F926708BC6005BA8B0 /* FeedsViewController.swift */,
 				29CD5A4228EE963A005A3D8F /* FeedsApi.swift */,
 				293D04252A38444E00DBB277 /* SettingsApi.swift */,
+				29712CDA2EAB7D120006671C /* FeedSeenManager.swift */,
 			);
 			path = Feed;
 			sourceTree = "<group>";
@@ -8794,6 +8797,7 @@
 				F0883C4E2AFA425B00BEBE68 /* TrendingGifterInfoTCell.swift in Sources */,
 				F02CE3D62C41452F007C07EC /* UIButton+HXExtension.m in Sources */,
 				291B4ACF2A3320BE0096D881 /* VideoInfo.swift in Sources */,
+				29712CDB2EAB7D120006671C /* FeedSeenManager.swift in Sources */,
 				C5CB31A31F70F9DB00FCC566 /* VideoTrimCell.swift in Sources */,
 				F0D43D812A4D62BB005276B0 /* IAPImplementation.swift in Sources */,
 				F0877F7729B1BE0800157C65 /* CreateBusinessTblCell.swift in Sources */,

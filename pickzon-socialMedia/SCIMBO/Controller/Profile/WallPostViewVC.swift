@@ -876,15 +876,20 @@ class WallPostViewVC: UIViewController ,UITableViewDelegate,UITableViewDataSourc
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         var objWallPost =  arrwallPost[indexPath.row]
         if objWallPost.isSeen == 0 {
-            if !AppDelegate.sharedInstance.seenArray.contains(objWallPost.id){
-                AppDelegate.sharedInstance.seenArray.append(objWallPost.id)
+          //  if !AppDelegate.sharedInstance.seenArray.contains(objWallPost.id){
+                //AppDelegate.sharedInstance.seenArray.append(objWallPost.id)
+            
+            FeedSeenManager.shared.addSeenFeedId(objWallPost.id)
+
                 if objWallPost.sharedWallData != nil {
-                    AppDelegate.sharedInstance.seenArray.append(objWallPost.sharedWallData.id)
+                  //  AppDelegate.sharedInstance.seenArray.append(objWallPost.sharedWallData.id)
+                    FeedSeenManager.shared.addSeenFeedId(objWallPost.sharedWallData.id)
+
                 }
-            }
-            if  AppDelegate.sharedInstance.seenArray.count >= 10 {
+           // }
+            /*if  AppDelegate.sharedInstance.seenArray.count >= 10 {
                 AppDelegate.sharedInstance.updateFeedsSeenArrayNew()
-            }
+            }*/
             objWallPost.isSeen = 1
             arrwallPost[indexPath.row] = objWallPost
         }

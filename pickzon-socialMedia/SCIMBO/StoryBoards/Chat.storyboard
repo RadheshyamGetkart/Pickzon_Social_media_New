@@ -49,7 +49,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Chat" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ILL-ZB-wZM">
-                                        <rect key="frame" x="20" y="44" width="313" height="35"/>
+                                        <rect key="frame" x="20" y="44" width="37" height="35"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="35" id="EHS-Xc-7hK"/>
                                         </constraints>
@@ -57,18 +57,30 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="25" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FfL-is-l5u">
+                                        <rect key="frame" x="62" y="49" width="25" height="25"/>
+                                        <color key="backgroundColor" name="themeColor"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="25" id="bs3-Zq-g3j"/>
+                                            <constraint firstAttribute="height" constant="25" id="sTZ-vG-LNK"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="12"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nzJ-TD-r1F" customClass="MIBadgeButton" customModule="PickZon" customModuleProvider="target">
-                                        <rect key="frame" x="343" y="44" width="35" height="35"/>
+                                        <rect key="frame" x="338" y="44" width="35" height="35"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="35" id="Z4b-YV-S0L"/>
                                             <constraint firstAttribute="width" constant="35" id="z9f-zJ-U8E"/>
                                         </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                         <color key="tintColor" systemColor="labelColor"/>
                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                         <state key="normal" image="more1"/>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="color" keyPath="badgeBackgroundColor">
-                                                <color key="value" systemColor="systemRedColor"/>
+                                                <color key="value" name="themeColor"/>
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                         <connections>
@@ -78,6 +90,7 @@
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
+                                    <constraint firstItem="FfL-is-l5u" firstAttribute="leading" secondItem="ILL-ZB-wZM" secondAttribute="trailing" constant="5" id="0AX-rl-kKA"/>
                                     <constraint firstItem="ywS-dd-uFH" firstAttribute="leading" secondItem="L6v-PJ-izy" secondAttribute="leading" id="3Mf-g7-i5O"/>
                                     <constraint firstItem="ywS-dd-uFH" firstAttribute="top" secondItem="HMk-OL-b8P" secondAttribute="bottom" constant="10" id="6G5-mc-3Hr"/>
                                     <constraint firstAttribute="trailing" secondItem="ywS-dd-uFH" secondAttribute="trailing" id="Aix-od-bDi"/>
@@ -86,10 +99,10 @@
                                     <constraint firstAttribute="bottom" secondItem="ywS-dd-uFH" secondAttribute="bottom" id="MDJ-Gc-afl"/>
                                     <constraint firstAttribute="height" constant="90" id="R3W-2S-6XQ"/>
                                     <constraint firstItem="ywS-dd-uFH" firstAttribute="top" secondItem="nzJ-TD-r1F" secondAttribute="bottom" constant="10" id="aD8-iI-cWi"/>
-                                    <constraint firstAttribute="trailing" secondItem="nzJ-TD-r1F" secondAttribute="trailing" constant="15" id="eaX-x8-ieQ"/>
+                                    <constraint firstAttribute="trailing" secondItem="nzJ-TD-r1F" secondAttribute="trailing" constant="20" id="eaX-x8-ieQ"/>
                                     <constraint firstItem="ywS-dd-uFH" firstAttribute="top" secondItem="ILL-ZB-wZM" secondAttribute="bottom" constant="10" id="joL-Jn-xLh"/>
                                     <constraint firstItem="ywS-dd-uFH" firstAttribute="top" secondItem="ILL-ZB-wZM" secondAttribute="bottom" constant="10" id="leQ-jW-KIJ"/>
-                                    <constraint firstItem="nzJ-TD-r1F" firstAttribute="leading" secondItem="ILL-ZB-wZM" secondAttribute="trailing" constant="10" id="tpg-Ad-VGP"/>
+                                    <constraint firstItem="FfL-is-l5u" firstAttribute="centerY" secondItem="ILL-ZB-wZM" secondAttribute="centerY" id="yn7-SP-0TL"/>
                                 </constraints>
                             </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="FNn-Yz-VCy">
@@ -184,6 +197,7 @@
                         <outlet property="btnNewChat" destination="bAx-6e-5sc" id="1y5-K9-ScL"/>
                         <outlet property="btnOption" destination="nzJ-TD-r1F" id="J6C-Dj-qXV"/>
                         <outlet property="cnstrntHtNavBar" destination="R3W-2S-6XQ" id="yf6-PX-R6b"/>
+                        <outlet property="lblChatCount" destination="FfL-is-l5u" id="Cw2-RQ-H2f"/>
                         <outlet property="searchTxtFdBgVw" destination="90a-DX-Nqb" id="a5M-39-VuY"/>
                         <outlet property="tblView" destination="FNn-Yz-VCy" id="wG0-GJ-ZRU"/>
                         <outlet property="txtFdSearch" destination="1qh-0c-uGb" id="8EL-x4-hNp"/>

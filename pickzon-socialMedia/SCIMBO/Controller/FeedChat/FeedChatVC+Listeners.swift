@@ -200,6 +200,8 @@ extension FeedChatVC{
                     self.pageNumber = 1
                     self.chatHistory.removeAllObjects()
                     self.tblChat.reloadData()
+                    Themes.sharedInstance.isChatListRefresh = 0
+
                 }
             }
         }
@@ -326,6 +328,8 @@ extension FeedChatVC{
                     DispatchQueue.main.async{
                         self.tblChat.reloadRows(at: [IndexPath(row: index, section: 0)], with: .fade)
                     }
+                    Themes.sharedInstance.isChatListRefresh = 0
+
                 }
             }
         })

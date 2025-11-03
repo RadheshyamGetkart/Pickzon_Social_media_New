@@ -149,16 +149,30 @@ class EditPickzonIdVC: UIViewController {
                     UserDefaults.standard.synchronize()
                     
                     self.delegate?.getPickzonId(pickzonId: self.txtFdPickzonId.text?.lowercased() ?? "")
-                    let alertview = JSSAlertView().show(self,title: "Pickzon",text: message ,buttonText: "Ok",cancelButtonText: nil ,color: CustomColor.sharedInstance.newThemeColor)
                     
-                    alertview.addAction {
+                   
                     
+                    AlertView.sharedManager.presentAlertWith(title: "Pickzon", msg: message as NSString, buttonTitles: ["Ok"], onController: (AppDelegate.sharedInstance.navigationController?.topViewController)!) { title, index in
+                       
+                      
                     }
+                    
                     if self.sheetViewController?.options.useInlineMode == true {
                         self.sheetViewController?.attemptDismiss(animated: true)
                     } else {
                         self.dismiss(animated: true, completion: nil)
                     }
+                    
+//                    let alertview = JSSAlertView().show(self,title: "Pickzon",text: message ,buttonText: "Ok",cancelButtonText: nil ,color: CustomColor.sharedInstance.newThemeColor)
+//                    
+//                    alertview.addAction {
+//                    
+//                    }
+//                    if self.sheetViewController?.options.useInlineMode == true {
+//                        self.sheetViewController?.attemptDismiss(animated: true)
+//                    } else {
+//                        self.dismiss(animated: true, completion: nil)
+//                    }
                 }
                 else
                 {

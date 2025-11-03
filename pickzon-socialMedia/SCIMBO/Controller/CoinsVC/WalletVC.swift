@@ -289,13 +289,8 @@ class WalletVC: SwiftBaseViewController {
     }
     
     
-    
-   
-    
-    
     func coinAgencyRetailerPlanOffersListApi(){
         
-
         URLhandler.sharedinstance.makeGetCall(url: Constant.sharedinstance.agency_get_agency_plans, param: [:]) {(responseObject, error) ->  () in
             
             if(error != nil)
@@ -316,18 +311,16 @@ class WalletVC: SwiftBaseViewController {
                         for dict in agencyPlanOffer {
                             self.coinOfferArrayAgency.append(CoinOfferModel(respDict: dict as! Dictionary<String, Any>))
                         }
-                        
 //                        for dict in payload{
 //                            self.coinOfferArray.append(CoinOfferModel(respDict: dict as! Dictionary<String, Any>))
 //                        }
                         self.tblView.reloadData()
                     }
-                    
                 }
             }
         }
     }
-    
+     
     
     func getAgencyPlanOffersApi(){
         Themes.sharedInstance.activityView(View: self.view)

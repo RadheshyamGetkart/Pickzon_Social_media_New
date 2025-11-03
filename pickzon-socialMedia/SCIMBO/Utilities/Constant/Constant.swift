@@ -762,7 +762,7 @@ var webUrl : String {
     
     var follow : String {
         get {
-            return "\(NewBaseUrl)/user/follow-user"
+            return "\(NewBaseUrl)/v1/user/follow-user"
         }
     }
     

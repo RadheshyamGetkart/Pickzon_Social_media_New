@@ -978,16 +978,23 @@ class FeedsViewController: MyViewController, UITableViewDelegate, UITableViewDat
             if arrwallPost.count > indexPath.row {
                 if var objWallPost =  arrwallPost[indexPath.row] as? WallPostModel {
                     if objWallPost.isSeen == 0 {
-                        if !AppDelegate.sharedInstance.seenArray.contains(objWallPost.id){
-                            AppDelegate.sharedInstance.seenArray.append(objWallPost.id)
-                            if objWallPost.sharedWallData != nil {
-                                AppDelegate.sharedInstance.seenArray.append(objWallPost.sharedWallData.id)
-                            }
-                        }
                         
-                        if  AppDelegate.sharedInstance.seenArray.count >= 10 {
+                       // if !AppDelegate.sharedInstance.seenArray.contains(objWallPost.id){
+                          //  AppDelegate.sharedInstance.seenArray.append(objWallPost.id)
+                            
+                            FeedSeenManager.shared.addSeenFeedId(objWallPost.id)
+
+                            if objWallPost.sharedWallData != nil {
+                               // AppDelegate.sharedInstance.seenArray.append(objWallPost.sharedWallData.id)
+                                
+                                FeedSeenManager.shared.addSeenFeedId(objWallPost.sharedWallData.id)
+
+                            }
+                      //  }
+                        
+                       /* if  AppDelegate.sharedInstance.seenArray.count >= 10 {
                             AppDelegate.sharedInstance.updateFeedsSeenArrayNew()
-                        }
+                        }*/
                         objWallPost.isSeen = 1
                         arrwallPost[indexPath.row] = objWallPost
                     }

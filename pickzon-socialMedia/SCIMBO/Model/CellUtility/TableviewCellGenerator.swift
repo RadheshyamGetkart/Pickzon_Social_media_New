@@ -11,6 +11,9 @@ public var incommingBubbleColour: UIColor =   Themes.sharedInstance.colorWithHex
 public var outgoingHighlightColour: UIColor =  Themes.sharedInstance.colorWithHexString(hex: "#00BDB0") // UIColor(red: 200/255, green: 229/255, blue: 177/255, alpha: 1.0)
 public var incommingHighlightColour: UIColor = Themes.sharedInstance.colorWithHexString(hex: "#cdcdcd") // UIColor(red: 241/255, green: 241/255, blue: 241/255, alpha: 1.0)
 
+public var outgoingLightColour: UIColor = Themes.sharedInstance.colorWithHexString(hex: "#B3EBE6") // UIColor(red: 241/255, green: 241/255, blue: 241/255, alpha: 1.0)
+
+
 import UIKit
 import SDWebImage
 import SwiftyGif

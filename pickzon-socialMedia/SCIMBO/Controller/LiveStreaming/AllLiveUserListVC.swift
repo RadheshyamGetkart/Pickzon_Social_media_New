@@ -187,7 +187,9 @@ class AllLiveUserListVC: UIViewController {
                     }
                     self.cnstrntHtStatusLiveBgVw.constant = (self.followersLiveArray.count > 0) ? 105 : 0
                    
-                    if (self.otherLiveListArray.count == 0 && self.topThreeLiveArray.count == 0 && followersLiveArray.count == 0) {
+//                    if (self.otherLiveListArray.count == 0 && self.topThreeLiveArray.count == 0 && followersLiveArray.count == 0) {
+                    if (self.otherLiveListArray.count == 0 &&  followersLiveArray.count == 0) {
+
                         self.emptyView?.isHidden = false
                         
                     }else{
@@ -219,7 +221,8 @@ class AllLiveUserListVC: UIViewController {
                     }
                     self.cnstrntHtStatusLiveBgVw.constant = (self.followersLiveArray.count > 0) ? 105 : 0
                     
-                    if (self.otherLiveListArray.count == 0 && self.topThreeLiveArray.count == 0 && followersLiveArray.count == 0) {
+//                    if (self.otherLiveListArray.count == 0 && self.topThreeLiveArray.count == 0 && followersLiveArray.count == 0) {
+                    if (self.otherLiveListArray.count == 0  && followersLiveArray.count == 0) {
                         self.emptyView?.isHidden = false
                         
                     }else{
@@ -331,7 +334,10 @@ class AllLiveUserListVC: UIViewController {
                     }
                     
                     self.emptyView?.lblMsg?.text = result["message"] as? String ?? ""
-                    if (self.otherLiveListArray.count == 0 && self.topThreeLiveArray.count == 0 && self.followersLiveArray.count == 0){
+                   
+//                    if (self.otherLiveListArray.count == 0 && self.topThreeLiveArray.count == 0 && self.followersLiveArray.count == 0){
+                    
+                    if (self.otherLiveListArray.count == 0 && self.followersLiveArray.count == 0){
                        
                         self.emptyView?.isHidden = false
                         

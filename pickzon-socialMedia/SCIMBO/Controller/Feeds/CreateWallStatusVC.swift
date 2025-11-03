@@ -46,12 +46,34 @@ class CreateWallStatusVC: UIViewController {
         cvFeedsPost.layer.cornerRadius = 10.0
         cvFeedsPost.clipsToBounds = true
         self.pageControl.addTarget(self, action: #selector(pageControltapped(_:)), for: .valueChanged)
-    }
         
+        styleFloatingButton()
+        
+
+
+    }
+    
+   
+        
+    func styleFloatingButton() {
+        btnAdd.layer.cornerRadius = btnAdd.frame.size.height / 2
+        btnAdd.clipsToBounds = false
+        
+        // Floating shadow effect
+        btnAdd.layer.shadowColor = UIColor.clear.cgColor
+        btnAdd.layer.shadowOpacity = 0.3
+        btnAdd.layer.shadowOffset = CGSize(width: 0, height: 4)
+        btnAdd.layer.shadowRadius = 1
+        btnAdd.imageView?.backgroundColor = .clear
+        // Optional: background color
+        btnAdd.backgroundColor = .clear
+    }
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         cnstrnt_HtNAvBar.constant = self.getNavBarHt
+        view.bringSubviewToFront(btnAdd)
+
     }
     
     override func viewDidAppear(_ animated: Bool) {

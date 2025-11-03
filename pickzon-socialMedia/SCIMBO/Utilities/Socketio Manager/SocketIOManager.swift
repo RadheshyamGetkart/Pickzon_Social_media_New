@@ -190,9 +190,7 @@ class SocketIOManager: NSObject {
     
     func  listenFeedSocketResponse(){
         
-        
-        
-        
+                
         socket.on(Constant.sharedinstance.sio_block_unblock_user_chat) { data, ack in
             
             if let responseDict = data[0] as? NSDictionary{
