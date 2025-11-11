@@ -53,11 +53,11 @@ class CoinHistoryVC: UIViewController {
       
         }else  if coinsTYpe == .cheerCoins{
             getCoinHistoryApi()
-            lblNavTitle.text = "Cheer Coin History"
+            lblNavTitle.text = "Cheer Star History"
             btnOption.isHidden = false
 
         }else  if coinsTYpe == .giftCoins{
-            lblNavTitle.text = "Gift Coin History"
+            lblNavTitle.text = "Gift Star History"
             getCoinHistoryApi()
         }
         tblView.estimatedRowHeight = 75
@@ -80,11 +80,11 @@ class CoinHistoryVC: UIViewController {
         
         let alert = UIAlertController(title: "", message: "", preferredStyle: .actionSheet)
           
-          alert.addAction(UIAlertAction(title: "Cheer Coin History", style: .default , handler:{ (UIAlertAction)in
+          alert.addAction(UIAlertAction(title: "Cheer Star History", style: .default , handler:{ (UIAlertAction)in
               self.pageNumber = 1
               self.coinsTYpe = .cheerCoins
               self.getCoinHistoryApi()
-              self.lblNavTitle.text = "Cheer Coin History"
+              self.lblNavTitle.text = "Cheer Star History"
               self.btnOption.isHidden = false
           }))
           
@@ -98,11 +98,11 @@ class CoinHistoryVC: UIViewController {
 
        if Themes.sharedInstance.getIsCoinReferAvailable() as? Int ?? 0 == 1 {
             
-            alert.addAction(UIAlertAction(title: "Referral Coin History", style: .default , handler:{ (UIAlertAction)in
+            alert.addAction(UIAlertAction(title: "Referral Star History", style: .default , handler:{ (UIAlertAction)in
                 self.pageNumber = 1
                 self.coinsTYpe = .referralCoinsHistory
                 self.self.getReferralCoinHistoryApi()
-                self.lblNavTitle.text = "Referral Coin History"
+                self.lblNavTitle.text = "Referral Star History"
                 self.btnOption.isHidden = false
             }))
         }

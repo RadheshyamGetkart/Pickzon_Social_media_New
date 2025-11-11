@@ -53,13 +53,13 @@ class ChatUserListVC: UIViewController,UISearchBarDelegate {
         searchBar.showsCancelButton = false
         self.btnDone.isHidden = (isMultipleSelection==true) ? false : true
         getNewFollowingList()
-        
     }
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         self.constrntHeightNavBar.constant = self.getNavBarHt
     }
+    
     //MARK: UIBUtton Action Methods
     @IBAction func backBtnAction() {
         self.navigationController?.popViewController(animated: true)
@@ -82,6 +82,7 @@ class ChatUserListVC: UIViewController,UISearchBarDelegate {
             self.emptyView?.isHidden = true
         }
     }
+   
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
         self.view.endEditing(true)
         isSearching = false
@@ -97,7 +98,7 @@ class ChatUserListVC: UIViewController,UISearchBarDelegate {
         getNewFollowingList()
     }
     
-    
+
     
     //MARK: Api Methods
     

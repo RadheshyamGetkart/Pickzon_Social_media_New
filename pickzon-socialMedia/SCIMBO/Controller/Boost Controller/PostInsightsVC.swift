@@ -17,7 +17,7 @@ class PostInsightsVC: UIViewController {
     @IBOutlet weak var btnBoostAgain:UIButton!
     @IBOutlet weak var tblFooterVw:UIView!
 
-    var firstSecRowArray = ["Coins Spent","Post reached"]
+    var firstSecRowArray = ["Stars Spent","Post reached"]
     var secondSecRowArray = ["Likes","Comments","Shares","Saves"]
     var thirdSecRowArray = ["Profile visits","Follows"]
     var secondSecImgRowArray = ["heart_blank","CommentIcon","Shareicon","saveIcon"]

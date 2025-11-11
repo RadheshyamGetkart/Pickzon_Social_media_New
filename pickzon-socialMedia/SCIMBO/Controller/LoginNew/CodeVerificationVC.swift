@@ -111,16 +111,39 @@ class CodeVerificationVC: UIViewController {
     }
     
     
+//    @IBAction func textChangedAction(_ sender: UITextFieldX) {
+//        
+//        if let otpCode = sender.text{
+//            otpFeilds[0].text = String(otpCode[otpCode.index(otpCode.startIndex, offsetBy: 0)])
+//            otpFeilds[1].text = String(otpCode[otpCode.index(otpCode.startIndex, offsetBy: 1)])
+//            otpFeilds[2].text = String(otpCode[otpCode.index(otpCode.startIndex, offsetBy: 2)])
+//            otpFeilds[3].text = String(otpCode[otpCode.index(otpCode.startIndex, offsetBy: 3)])
+//        }
+//    }
+//    
+    
     @IBAction func textChangedAction(_ sender: UITextFieldX) {
-        
-        if let otpCode = sender.text{
-            otpFeilds[0].text = String(otpCode[otpCode.index(otpCode.startIndex, offsetBy: 0)])
-            otpFeilds[1].text = String(otpCode[otpCode.index(otpCode.startIndex, offsetBy: 1)])
-            otpFeilds[2].text = String(otpCode[otpCode.index(otpCode.startIndex, offsetBy: 2)])
-            otpFeilds[3].text = String(otpCode[otpCode.index(otpCode.startIndex, offsetBy: 3)])
+        guard let otpCode = sender.text else { return }
+
+        // Ensure input has at least 4 characters
+        if otpCode.count >= 4 {
+            for (index, field) in otpFeilds.enumerated() where index < 4 {
+                let char = otpCode[otpCode.index(otpCode.startIndex, offsetBy: index)]
+                field.text = String(char)
+            }
+        } else {
+            // Clear fields when input is less than expected
+            for (index, field) in otpFeilds.enumerated() {
+                if index < otpCode.count {
+                    let char = otpCode[otpCode.index(otpCode.startIndex, offsetBy: index)]
+                    field.text = String(char)
+                } else {
+                    field.text = ""
+                }
+            }
         }
     }
-    
+
     
     @objc func updateTime() {
         
@@ -427,11 +450,12 @@ extension CodeVerificationVC:UITextFieldDelegate{
                 //   }else {
                 otpFeilds[3].resignFirstResponder()
                 // }
-            }else if textField == otpFeilds[4] {
-                otpFeilds[5].becomeFirstResponder()
-            }else if textField == otpFeilds[5] {
-                otpFeilds[5].resignFirstResponder()
             }
+//            else if textField == otpFeilds[4] {
+//                otpFeilds[5].becomeFirstResponder()
+//            }else if textField == otpFeilds[5] {
+//                otpFeilds[5].resignFirstResponder()
+//            }
             textField.text? = string
             return false
         }else{
@@ -443,11 +467,12 @@ extension CodeVerificationVC:UITextFieldDelegate{
                 otpFeilds[1].becomeFirstResponder()
             }else  if textField == otpFeilds[3] {
                 otpFeilds[2].becomeFirstResponder()
-            }else  if textField == otpFeilds[4] {
-                otpFeilds[3].becomeFirstResponder()
-            }else  if textField == otpFeilds[5] {
-                otpFeilds[4].becomeFirstResponder()
             }
+//            else  if textField == otpFeilds[4] {
+//                otpFeilds[3].becomeFirstResponder()
+//            }else  if textField == otpFeilds[5] {
+//                otpFeilds[4].becomeFirstResponder()
+//            }
             textField.text? = string
             return false
         }

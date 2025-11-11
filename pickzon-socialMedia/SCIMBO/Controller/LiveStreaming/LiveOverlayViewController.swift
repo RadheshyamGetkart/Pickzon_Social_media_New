@@ -618,7 +618,7 @@ class LiveOverlayViewController: UIViewController, UITextViewDelegate {
             as! SendGiftVC
             // controller.objWallPost = self.objWallPost
             let useInlineMode = view != nil
-            controller.title = "Cheer Coins"
+            controller.title = "Cheer Stars"
             controller.delegate = self
             controller.roomId = fromId
             controller.pickzonId = pickzonId

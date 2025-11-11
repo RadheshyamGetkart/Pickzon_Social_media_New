@@ -102,7 +102,7 @@ public final class YPVideoFiltersVC: UIViewController, IsMediaFilterVC {
         setupNavigationBar(isFromSelectionVC: self.isFromSelectionVC)
         
         
-        btnAddSound.frame = CGRectMake(self.view.frame.width/2 - 100, 10, 200, 20)
+       /* btnAddSound.frame = CGRectMake(self.view.frame.width/2 - 100, 10, 200, 20)
         
         if AppDelegate.sharedInstance.soundInfoSelected.name.length > 0 {
             btnAddSound.setTitle(AppDelegate.sharedInstance.soundInfoSelected.name, for: .normal)
@@ -123,7 +123,7 @@ public final class YPVideoFiltersVC: UIViewController, IsMediaFilterVC {
         btnAddSound.addTarget(self, action: #selector(addSongButtonTapped), for: .touchUpInside)
         btnAddSound.titleLabel?.textAlignment = .center
         self.view.addSubview(btnAddSound)
-        
+        */
         
         // Remove the default and add a notification to repeat playback from the start
         videoView.removeReachEndObserver()

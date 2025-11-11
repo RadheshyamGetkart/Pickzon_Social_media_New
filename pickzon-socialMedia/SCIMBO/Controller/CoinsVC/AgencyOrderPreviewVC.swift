@@ -17,7 +17,7 @@ class AgencyOrderPreviewVC: UIViewController {
     @IBOutlet weak var btnMessage:UIButton!
     @IBOutlet weak var imgVwLogo:UIImageViewX!
     @IBOutlet weak var lblAgencyName:UILabel!
-    let titleArray = ["Agency","Coin","Recharge Amount","Agency's Phone Number","Agency's Pickzon Id"]
+    let titleArray = ["Agency","Star","Recharge Amount","Agency's Phone Number","Agency's Pickzon Id"]
     var objCoinDetail = CoinDetail(respDict: [:])
 
     //MARK: UIButton Action Method
@@ -55,7 +55,7 @@ class AgencyOrderPreviewVC: UIViewController {
     
     @IBAction func messageButtonAcion(){
         
-        let strMsg = "Hi Agency, I want to purchase pickzon cheer coins. \nPrice: \(objCoinDetail.currencySymbol)\(objCoinDetail.amount) \nCheer Coins (\(objCoinDetail.coin)) \nMy Pickzon Id:- \(Themes.sharedInstance.getPickzonId())"
+        let strMsg = "Hi Agency, I want to purchase pickzon cheer stars. \nPrice: \(objCoinDetail.currencySymbol)\(objCoinDetail.amount) \nCheer Stars (\(objCoinDetail.coin)) \nMy Pickzon Id:- \(Themes.sharedInstance.getPickzonId())"
         let settingsVC:FeedChatVC = StoryBoard.chat.instantiateViewController(withIdentifier: "FeedChatVC") as! FeedChatVC
         settingsVC.toChat = objCoinDetail.agencyId
         settingsVC.fromName = objCoinDetail.agencyName
@@ -67,7 +67,7 @@ class AgencyOrderPreviewVC: UIViewController {
     }
     
     func openWhatsapp() {
-        let strMsg = "Hi Agency, I want to purchase pickzon cheer coins. \nPrice: \(objCoinDetail.currencySymbol)\(objCoinDetail.amount) \nCheer Coins (\(objCoinDetail.coin)) \nMy Pickzon Id:- \(Themes.sharedInstance.getPickzonId())"
+        let strMsg = "Hi Agency, I want to purchase pickzon cheer stars. \nPrice: \(objCoinDetail.currencySymbol)\(objCoinDetail.amount) \nCheer Stars (\(objCoinDetail.coin)) \nMy Pickzon Id:- \(Themes.sharedInstance.getPickzonId())"
 
         
         let appURLString = "https://api.whatsapp.com/send?phone=\(objCoinDetail.businessPhone)&text=\(strMsg)".addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? ""
@@ -78,9 +78,14 @@ class AgencyOrderPreviewVC: UIViewController {
         let webURL = URL(string: webURLString)!
         
         if UIApplication.shared.canOpenURL(appURL) {
-            UIApplication.shared.openURL(appURL)
+            UIApplication.shared.open(appURL, options: [:], completionHandler: nil)
+
+           // UIApplication.shared.openURL(appURL)
         } else {
-            UIApplication.shared.openURL(webURL)
+          //  UIApplication.shared.openURL(webURL)
+            UIApplication.shared.open(webURL, options: [:], completionHandler: nil)
+
+            
         }
     }
     

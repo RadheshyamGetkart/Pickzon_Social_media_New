@@ -55,7 +55,7 @@ class RetailerVerifyOtpVC: UIViewController {
         txtFdPass4.layer.borderColor = UIColor.darkGray.cgColor
         txtFdPass4.clipsToBounds = true
         
-        lblSuccessMsg.text = "Congratulations!\n You have been successfully transferred cheer coins"
+        lblSuccessMsg.text = "Congratulations!\n You have been successfully transferred cheer stars"
         
        
         if emailId.count > 0 && mobileNo.count > 0 {

@@ -91,7 +91,10 @@ class ShareProfileVC: UIViewController {
                 let settingsUrl = NSURL(string:UIApplication.openSettingsURLString)
                 if let url = settingsUrl {
                     DispatchQueue.main.async {
-                        UIApplication.shared.openURL(url as URL)
+                      //  UIApplication.shared.openURL(url as URL)
+                        
+                        UIApplication.shared.open(url as URL, options: [:], completionHandler: nil)
+
                     }
                     
                 }

@@ -155,6 +155,8 @@ class FeedChatVC: SwiftBaseViewController {
         }
         
         self.emitChatHistory()
+        
+        SocketIOManager.sharedInstance.emitChatAndNotificationCount(userId: Themes.sharedInstance.Getuser_id())
     }
     
     override func viewWillAppear(_ animated: Bool) {

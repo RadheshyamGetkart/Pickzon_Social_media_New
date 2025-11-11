@@ -84,9 +84,9 @@ class SendGiftVC: UIViewController {
           
             if totalCoins < ((Int(obj.amount) ?? 0) * numbers[selectedGiftTimes]) {
                 
-                let msg1 = "You need \(((Int(obj.amount) ?? 0) * numbers[selectedGiftTimes])-totalCoins) coins to send gift \(obj.label)"
+                let msg1 = "You need \(((Int(obj.amount) ?? 0) * numbers[selectedGiftTimes])-totalCoins) stars to send gift \(obj.label)"
                 
-                AlertView.sharedManager.presentAlertWith(title: "", msg: msg1 as NSString , buttonTitles: ["Buy Cheer Coins","Cancel"], onController: AppDelegate.sharedInstance.navigationController!) { title, index in
+                AlertView.sharedManager.presentAlertWith(title: "", msg: msg1 as NSString , buttonTitles: ["Buy Cheer Stars","Cancel"], onController: AppDelegate.sharedInstance.navigationController!) { title, index in
                     if index == 0{
                         
                          self.delegate?.cheerCoinClickedOnAvailableTokens()

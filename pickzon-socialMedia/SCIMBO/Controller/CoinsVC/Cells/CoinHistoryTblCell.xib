@@ -21,8 +21,8 @@
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Hrx-Ug-e39">
                         <rect key="frame" x="5" y="2.6666666666666643" width="310" height="70"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Purchased coins" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="q7u-u8-kUR" customClass="ExpandableLabel" customModule="PickZon" customModuleProvider="target">
-                                <rect key="frame" x="49.999999999999993" y="14" width="113.33333333333331" height="20"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Purchased stars" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="q7u-u8-kUR" customClass="ExpandableLabel" customModule="PickZon" customModuleProvider="target">
+                                <rect key="frame" x="50.000000000000007" y="14" width="110.66666666666669" height="20"/>
                                 <constraints>
                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="20" id="tYy-9r-Axd"/>
                                 </constraints>
@@ -49,7 +49,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="+105" textAlignment="right" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7mP-4l-j7u">
-                                <rect key="frame" x="173.33333333333334" y="15" width="101.66666666666666" height="20"/>
+                                <rect key="frame" x="170.66666666666666" y="15" width="104.33333333333334" height="20"/>
                                 <constraints>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="50" id="cM1-nF-TYY"/>
                                     <constraint firstAttribute="height" constant="20" id="dcM-BP-2fT"/>

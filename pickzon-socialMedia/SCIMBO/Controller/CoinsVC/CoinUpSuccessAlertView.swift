@@ -22,7 +22,7 @@ class CoinUpSuccessAlertView: UIView {
     func initializeMethods(frame:CGRect,message:String,icon:String)  {
         self.removeFromSuperview()
         self.frame = CGRect(x: 0, y: 0, width: UIScreen.main.bounds.size.width, height: UIScreen.main.bounds.size.height)
-        lblMessage.text = "CoinUp \(message)"
+        lblMessage.text = "StarUp \(message)"
        // imgVwCoin.kf.setImage(with: URL(string: icon),placeholder: UIImage(named: "starCoin"))
         UIView.animate(withDuration: 0.1) {
 

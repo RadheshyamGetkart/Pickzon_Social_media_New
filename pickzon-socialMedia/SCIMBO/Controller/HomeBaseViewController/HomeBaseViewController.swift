@@ -75,13 +75,15 @@ class HomeBaseViewController: SwiftBaseViewController{
     
 func badgeCountUpdateInTabBar(){
 
-    /*  for item  in  controller.animatedTab.containerView.subviews{
+    for item  in  controller.animatedTab.containerView.subviews{
         
         if let  itemss = item as? AnimatedTabItem{
-            if  itemss.tag == 11002 &&  Constant.sharedinstance.notificationCount > 0 {
-                itemss.badgebtn.badgeString = "\(Constant.sharedinstance.notificationCount)"
+            if  itemss.tag == 11002 &&  Constant.sharedinstance.feedChatCount > 0 {
+                itemss.badgebtn.badgeString =  "●"//"\(Constant.sharedinstance.notificationCount)"
                 controller.updateViewConstraints()
-                itemss.badgebtn.edgeInsetLeft = 5
+                itemss.badgebtn.badgeBackgroundColor = .clear
+                 itemss.badgebtn.badgeLabel.textColor = .red
+                itemss.badgebtn.edgeInsetLeft = 1 //5
                 itemss.badgebtn.edgeInsetRight = 25
                 itemss.badgebtn.edgeInsetBottom = 15
             }else{
@@ -90,7 +92,7 @@ func badgeCountUpdateInTabBar(){
             }
         }
     }
-    */
+    
 }
 
 
@@ -542,7 +544,7 @@ final class MyWindow: UIWindow {
      
  func badgeCountUpdateInTabBar(){
 
-     /*  for item  in  controller.animatedTab.containerView.subviews{
+      for item  in  controller.animatedTab.containerView.subviews{
          
          if let  itemss = item as? AnimatedTabItem{
              if  itemss.tag == 11002 &&  Constant.sharedinstance.notificationCount > 0 {
@@ -557,7 +559,7 @@ final class MyWindow: UIWindow {
              }
          }
      }
-     */
+     
  }
 
 

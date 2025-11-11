@@ -188,7 +188,7 @@ class PhoneEmailSignUpVC: UIViewController {
                 print(responseObject ?? "response")
                 let result = responseObject! as NSDictionary
                 let status = result["status"] as? Int ?? 0
-                let message = result["message"]
+                let message = result["message"] as? String ?? ""
                 
                 if status == 1{
                     let payload = result["payload"] as? NSDictionary ?? [:]
@@ -207,12 +207,24 @@ class PhoneEmailSignUpVC: UIViewController {
                     
                     self.randomNumber = payload["randomNumber"] as? Int64 ?? 0
                     
-                    self.view.makeToast(message: message as! String , duration: 3, position: HRToastActivityPositionDefault)
+                    self.view.makeToast(message: message , duration: 3, position: HRToastActivityPositionDefault)
                     self.navigateToVerifyOTPVC()
+               
+                }else if status == 100{
+                    
+                     AlertView.sharedManager.presentAlertWith(title: "Pickzon", msg: message as! NSString, buttonTitles: ["Dismiss","Forgot Password"], onController: self, dismissBlock: { title, index in
+                         
+                         if index == 1{
+                             let forgotPasswordVC = StoryBoard.prelogin.instantiateViewController(withIdentifier:"ForgotPasswordVC" ) as! ForgotPasswordVC
+                             self.navigationController?.pushViewController(forgotPasswordVC, animated: true)
+                         }
+                     })
                 }else{
-                    self.view.makeToast(message: message as! String , duration: 3, position: HRToastActivityPositionDefault)
+                    
+                    self.view.makeToast(message: message , duration: 3, position: HRToastActivityPositionDefault)
+                    
+               
                 }
-                
             }
         }
     

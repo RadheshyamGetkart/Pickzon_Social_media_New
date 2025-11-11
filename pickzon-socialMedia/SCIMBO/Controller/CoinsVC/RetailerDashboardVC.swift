@@ -87,11 +87,11 @@ class RetailerDashboardVC: UIViewController {
         }else if isVerified == false {
             Themes.sharedInstance.ShowNotification("Please verify pickzon Id.", false)
         }else if (txtFdCoin.text?.trimmingLeadingAndTrailingSpaces().length ?? 0) <= 0 {
-            Themes.sharedInstance.ShowNotification("Please enter coins to transfer.", true)
+            Themes.sharedInstance.ShowNotification("Please enter stars to transfer.", true)
             
         }else{
             
-            AlertView.sharedManager.presentAlertWith(title: "PickZon", msg: "Do you want to transfer coins to \(txtFdPickzonId.text ?? "") ?" as NSString, buttonTitles: ["Cancel","Confirm"], onController: self) { title, index in
+            AlertView.sharedManager.presentAlertWith(title: "PickZon", msg: "Do you want to transfer stars to \(txtFdPickzonId.text ?? "") ?" as NSString, buttonTitles: ["Cancel","Confirm"], onController: self) { title, index in
                 
                 if index == 1{
                     self.sendOtpApi()

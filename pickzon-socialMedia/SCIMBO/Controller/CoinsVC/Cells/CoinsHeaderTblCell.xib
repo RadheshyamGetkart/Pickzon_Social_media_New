@@ -27,8 +27,8 @@
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="rectangleBlue" translatesAutoresizingMaskIntoConstraints="NO" id="NZz-BR-qI3">
                                         <rect key="frame" x="0.0" y="0.0" width="310" height="173"/>
                                     </imageView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Available Coins" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="o6x-ec-u2f">
-                                        <rect key="frame" x="10" y="10" width="106.33333333333333" height="30"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Available Stars" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="o6x-ec-u2f">
+                                        <rect key="frame" x="10" y="10" width="103.33333333333333" height="30"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="30" id="fIG-tP-W66"/>
                                         </constraints>

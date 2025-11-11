@@ -52,8 +52,8 @@ public class AnimatedTabItem: ShadowView {
         imageView.contentMode =  .center
         containerView.addArrangedSubview(stackContainerView)
         badgebtn.isUserInteractionEnabled = false
-        badgebtn.badgeBackgroundColor = .red
-        badgebtn.badgeTextColor = .white
+        badgebtn.badgeBackgroundColor = .clear //.red
+        badgebtn.badgeTextColor = .red // .white
        // badgebtn.badgeString = ""
        // badgebtn.edgeInsetLeft = 20
     }

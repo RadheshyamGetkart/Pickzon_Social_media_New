@@ -610,7 +610,7 @@ class FeedsViewController: MyViewController, UITableViewDelegate, UITableViewDat
                 viewAlertCenter?.addSubview(lblMsg)
                 
                 let btnSuccess = UIButton(frame: CGRect(x: 0, y: viewAlertCenter!.frame.height - 60, width: viewAlertCenter!.frame.width, height: 60))
-                btnSuccess.setTitle("Get the coins", for: .normal)
+                btnSuccess.setTitle("Get the stars", for: .normal)
                 btnSuccess.titleLabel?.textColor = UIColor.white
                 btnSuccess.titleLabel?.font = UIFont.boldSystemFont(ofSize: 18)
                 btnSuccess.titleLabel?.numberOfLines = 0

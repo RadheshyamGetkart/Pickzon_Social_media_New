@@ -175,11 +175,11 @@ import UIKit
         v.flipButton.setImage(YPConfig.icons.loopIcon, for: .normal)
         v.shotButton.setImage(YPConfig.icons.captureVideoImage, for: .normal)
         v.filterButton.setImage(YPConfig.icons.filterImage, for: .normal)
-        if AppDelegate.sharedInstance.soundInfoSelected.name.length > 0 {
+     /*   if AppDelegate.sharedInstance.soundInfoSelected.name.length > 0 {
             v.addSongButton.setTitle(AppDelegate.sharedInstance.soundInfoSelected.name, for: .normal)
         }else {
             v.addSongButton.setTitle("Add Song", for: .normal)
-        }
+        }*/
     }
     
     private func linkButtons() {
@@ -187,7 +187,8 @@ import UIKit
         v.shotButton.addTarget(self, action: #selector(shotButtonTapped), for: .touchUpInside)
         v.flipButton.addTarget(self, action: #selector(flipButtonTapped), for: .touchUpInside)
         v.filterButton.addTarget(self, action: #selector(filterButtonTapped), for: .touchUpInside)
-        v.addSongButton.addTarget(self, action: #selector(addSongButtonTapped), for: .touchUpInside)
+      //by me
+        //v.addSongButton.addTarget(self, action: #selector(addSongButtonTapped), for: .touchUpInside)
     }
     
     

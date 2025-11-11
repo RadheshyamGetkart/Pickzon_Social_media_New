@@ -8,6 +8,7 @@
 
 import UIKit
 import SVGAPlayer
+import Kingfisher
 
 class ImageWithSvgaFrame: UIView {
     
@@ -56,7 +57,10 @@ class ImageWithSvgaFrame: UIView {
     
     @objc func setImgView(profilePic:String,remoteSVGAUrl:String,changeValue:Int = 12){
         
-        self.imgVwProfile?.kf.setImage(with: URL(string: profilePic), placeholder: PZImages.avatar , options: nil, progressBlock: nil, completionHandler: { response in        })
+        
+        let processor = CroppingImageProcessor(size: CGSize(width: self.frame.width, height: self.frame.height), anchor: CGPoint(x: 0.5, y: 0.5))
+
+        self.imgVwProfile?.kf.setImage(with: URL(string: profilePic), placeholder: PZImages.avatar , options: [.processor(processor)], progressBlock: nil, completionHandler: { response in        })
         
         if remoteSVGAUrl.length > 0{
             self.updateFrame(changeValue: changeValue)
@@ -81,4 +85,20 @@ class ImageWithSvgaFrame: UIView {
         }
     }
     
+}
+
+
+
+extension UIImage {
+    func centerCropped(to size: CGSize) -> UIImage? {
+        let scale = max(size.width / self.size.width, size.height / self.size.height)
+        let width = size.width / scale
+        let height = size.height / scale
+        let x = (self.size.width - width) / 2.0
+        let y = (self.size.height - height) / 2.0
+        let cropRect = CGRect(x: x, y: y, width: width, height: height)
+
+        guard let cgImage = self.cgImage?.cropping(to: cropRect) else { return nil }
+        return UIImage(cgImage: cgImage, scale: self.scale, orientation: self.imageOrientation)
+    }
 }

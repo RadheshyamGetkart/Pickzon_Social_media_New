@@ -29,7 +29,7 @@ class CheerCoinVC: UIViewController {
         super.viewDidLoad()
         getAvailableCoinList()
         let navLabel = UILabel()
-        let navTitle = NSMutableAttributedString(string: "Cheer Coins for", attributes:[
+        let navTitle = NSMutableAttributedString(string: "Send Stars for", attributes:[
             NSAttributedString.Key.foregroundColor: UIColor.label,
             NSAttributedString.Key.font: UIFont.systemFont(ofSize: 17.0, weight: UIFont.Weight.light)])
         navTitle.append(NSMutableAttributedString(string: " @\(pickzonId)", attributes:[
@@ -211,9 +211,9 @@ extension CheerCoinVC:UITableViewDelegate,UITableViewDataSource,CoinUpTblCellDel
     func coinGiven(obj: CoinModel, index: Int) {
         if totalCoins < Int(obj.amount) ?? 0{
             
-            let msg1 = "You need \((Int(obj.amount) ?? 0)-totalCoins) coins to CoinUp \(obj.label)"
+            let msg1 = "You need \((Int(obj.amount) ?? 0)-totalCoins) stars to StarUp \(obj.label)"
         
-            AlertView.sharedManager.presentAlertWith(title: "", msg: msg1 as NSString , buttonTitles: ["Buy Cheer Coins","Cancel"], onController: AppDelegate.sharedInstance.navigationController!) { title, index in
+            AlertView.sharedManager.presentAlertWith(title: "", msg: msg1 as NSString , buttonTitles: ["Buy Cheer Stars","Cancel"], onController: AppDelegate.sharedInstance.navigationController!) { title, index in
                 if index == 0{
                     self.delegate?.cheerCoinClickedOnAvailableTokens()
                     if self.sheetViewController?.options.useInlineMode == true {

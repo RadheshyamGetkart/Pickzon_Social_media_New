@@ -291,7 +291,7 @@ extension  CreateBoostVC : UITableViewDelegate,UITableViewDataSource,WalletDeleg
             cell.lblVIewCount.isHidden = true
             cell.cnstrntLeadingClipImg.constant = -35
             cell.lblCoin.text = "\(availableCoin)"
-            cell.lblTitle.text = "Ad Coin Balance"
+            cell.lblTitle.text = "Ad Star Balance"
             cell.lblRecommended.isHidden = true
             cell.lblCoin.textColor = ( self.availableCoin == 0 ) ? .red : .systemGreen
             cell.lblTitle.font = UIFont.systemFont(ofSize: 16.0, weight: .medium)/*UIFont(name: "Roboto-Medium", size: 16.0)*/

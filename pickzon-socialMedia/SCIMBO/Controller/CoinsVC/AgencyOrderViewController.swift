@@ -67,7 +67,7 @@ class AgencyOrderViewController: UIViewController {
     }
     
     @IBAction func contactAgencyBtnAction(_ sender: UIButton) {
-        let strMsg = "Hi Agency, I want to purchase pickzon cheer coins. \nPrice: \(objCoinDetail.currencySymbol)\(objConiSelected.amount) \nCheer Coins (\(objConiSelected.coins)) \nMy Pickzon Id:- \(Themes.sharedInstance.getPickzonId())"
+        let strMsg = "Hi Agency, I want to purchase pickzon cheer stars. \nPrice: \(objCoinDetail.currencySymbol)\(objConiSelected.amount) \nCheer Stars (\(objConiSelected.coins)) \nMy Pickzon Id:- \(Themes.sharedInstance.getPickzonId())"
         if objAgencyDetail.businessPhone.length == 0 {
             let settingsVC:FeedChatVC = StoryBoard.chat.instantiateViewController(withIdentifier: "FeedChatVC") as! FeedChatVC
             settingsVC.toChat = objAgencyDetail.id
@@ -82,7 +82,7 @@ class AgencyOrderViewController: UIViewController {
     }
     
     func openWhatsapp() {
-        let strMsg = "Hi Agency, I want to purchase pickzon cheer coins. \nPrice: \(objCoinDetail.currencySymbol)\(objConiSelected.amount) \nCheer Coins (\(objConiSelected.coins)) \nMy Pickzon Id:- \(Themes.sharedInstance.getPickzonId())"
+        let strMsg = "Hi Agency, I want to purchase pickzon cheer stars. \nPrice: \(objCoinDetail.currencySymbol)\(objConiSelected.amount) \nCheer Stars (\(objConiSelected.coins)) \nMy Pickzon Id:- \(Themes.sharedInstance.getPickzonId())"
         
         let appURLString = "https://api.whatsapp.com/send?phone=\(objAgencyDetail.businessPhone)&text=\(strMsg)".addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? ""
         
@@ -92,9 +92,12 @@ class AgencyOrderViewController: UIViewController {
         let webURL = URL(string: webURLString)!
         
         if UIApplication.shared.canOpenURL(appURL) {
-            UIApplication.shared.openURL(appURL)
+          //  UIApplication.shared.openURL(appURL)
+            
+            UIApplication.shared.open(appURL, options: [:], completionHandler: nil)
+
         } else {
-            UIApplication.shared.openURL(webURL)
+           // UIApplication.shared.openURL(webURL)
         }
     }
     

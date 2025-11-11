@@ -153,7 +153,12 @@ extension SearchSuggestionVC:UITableViewDelegate,UITableViewDataSource{
                 cell.bgViewImg.isHidden = true
                 cell.lblCount.text = "\(respDict["pickzonId"] as? String ?? "")"
                 cell.imgvwProfile.isHidden = false
-                cell.imgvwProfile.kf.setImage(with: URL(string: "\(respDict["profilePic"] as? String ?? "")"),placeholder: PZImages.avatar)
+                let processor = CroppingImageProcessor(size: CGSize(width:  cell.imgvwProfile.frame.width, height:  cell.imgvwProfile.frame.height), anchor: CGPoint(x: 0.5, y: 0.5))
+
+//                cell.imgvwProfile.kf.setImage(with: URL(string: "\(respDict["profilePic"] as? String ?? "")"),placeholder: PZImages.avatar,options: [.processor(processor),)
+//
+                cell.imgvwProfile?.kf.setImage(with: URL(string: "\(respDict["profilePic"] as? String ?? "")"), placeholder: PZImages.avatar , options: [.processor(processor)], progressBlock: nil, completionHandler: { response in        })
+
                /* cell.imgvwProfile.setImgView(profilePic:"\(respDict["profilePic"] as? String ?? "")", frameImg: "\(respDict["avatar"] as? String ?? "")",changeValue: ("\(respDict["avatar"] as? String ?? "")".count > 0) ? 8 : 5)*/
 
                 break

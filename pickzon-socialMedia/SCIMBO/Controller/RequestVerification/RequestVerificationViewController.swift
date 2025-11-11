@@ -972,7 +972,10 @@ extension RequestVerificationViewController: UIImagePickerControllerDelegate, UI
                 let settingsUrl = NSURL(string:UIApplication.openSettingsURLString)
                 if let url = settingsUrl {
                     DispatchQueue.main.async {
-                        UIApplication.shared.openURL(url as URL)
+                       // UIApplication.shared.openURL(url as URL)
+                        
+                        UIApplication.shared.open(url as URL, options: [:], completionHandler: nil)
+
                     }
                     
                 }
@@ -1009,7 +1012,6 @@ extension RequestVerificationViewController: UIImagePickerControllerDelegate, UI
         picker.dismissView(animated: true, completion: nil)
 
       //  picker.dismiss(animated: true, completion: nil)
-        
 //        let zoomCtrl = VKImageZoom()
 //        zoomCtrl.image = mergedDocumentImage
 //        //zoomCtrl.image = sender.currentImage
@@ -1026,6 +1028,7 @@ extension RequestVerificationViewController: UIImagePickerControllerDelegate, UI
 
 
 extension RequestVerificationViewController:VerifyEmailPhoneDelegate {
+    
     func verifyEmailPhoneSuccess(isEmail:Bool, strEmailPhone:String) {
         
         if isEmail == true {

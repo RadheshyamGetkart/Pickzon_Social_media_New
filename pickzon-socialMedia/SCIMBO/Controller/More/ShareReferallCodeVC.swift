@@ -128,7 +128,7 @@ class ShareReferallCodeVC: UIViewController {
     @IBAction func howToEarnbTnAction(_ sender: UIButton) {
         
         let destVC:PrivacyPolicyViewController = StoryBoard.main.instantiateViewController(withIdentifier: "PrivacyPolicyViewController") as! PrivacyPolicyViewController
-        destVC.strTitle = "How To Earn Coins"
+        destVC.strTitle = "How To Earn Stars"
         destVC.strURl = howToEarnUrl
         self.navigationController?.pushView(destVC, animated: true)
         

@@ -649,7 +649,7 @@ class FeedsCell: UITableViewCell, OptionDelegate {
             controller.pickzonId = self.objWallPost.userInfo?.pickzonId ?? ""
             controller.type = 0
             let useInlineMode = view != nil
-            controller.title = "Cheer Coins"
+            controller.title = "Cheer Stars"
             controller.delegate = self
             let nav = UINavigationController(rootViewController: controller)
         

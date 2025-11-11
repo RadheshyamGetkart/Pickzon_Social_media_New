@@ -54,8 +54,8 @@ class AnimatedTab: UIView {
         for (index,option) in options.options.enumerated() {
             let item = AnimatedTabItem(frame: .zero)
             item.tag = 11000 + index
-            item.badgebtn.badgeBackgroundColor = .red
-            item.badgebtn.badgeTextColor = .white
+            item.badgebtn.badgeBackgroundColor =  .clear //.red
+            item.badgebtn.badgeTextColor =  .red //.white
             item.configure(with: option, animationType: options.animationOptions.tabSelectionAnimationType)
             item.onTap = { [weak delegate] in
                 guard let delegate = delegate else {

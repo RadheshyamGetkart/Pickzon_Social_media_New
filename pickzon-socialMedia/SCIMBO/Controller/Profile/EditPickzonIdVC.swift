@@ -41,7 +41,7 @@ class EditPickzonIdVC: UIViewController {
         self.lblErrorMsg.isHidden = true
         self.lblErrorMsg.text = "This PickZon Id is taken"
         
-        self.lblTItle.text = "Change your PickZon Id for just \(Settings.sharedInstance.pickzonIdChangeCharge) cheer coins"
+        self.lblTItle.text = "Change your PickZon Id for just \(Settings.sharedInstance.pickzonIdChangeCharge) cheer stars"
         self.btnSubmit.layer.cornerRadius = 5.0
         self.btnSubmit.clipsToBounds = true
         self.txtFdPickzonId.text = pickzonId

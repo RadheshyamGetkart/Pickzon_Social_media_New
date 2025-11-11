@@ -693,7 +693,15 @@ extension  ChatListVC: UITextFieldDelegate{
         
         if textField.text?.count ?? 0 > 0{
             searchFeedChatArray.removeAll()
-            searchFeedChatArray = chatListArray.filter {$0.userInfo?.name.lowercased().range(of: textField.text!.lowercased(), options: .caseInsensitive) != nil
+//            searchFeedChatArray = chatListArray.filter {$0.userInfo?.name.lowercased().range(of: textField.text!.lowercased(), options: .caseInsensitive) != nil
+//            }
+//            
+            let searchText = textField.text?.lowercased() ?? ""
+
+            searchFeedChatArray = chatListArray.filter { chat in
+                let nameMatch = chat.userInfo?.name.lowercased().contains(searchText) ?? false
+                let idMatch = chat.userInfo?.pickzonId.lowercased().contains(searchText) ?? false
+                return nameMatch || idMatch
             }
             self.isSearching = true
             tblView.reloadData()
@@ -716,8 +724,17 @@ extension  ChatListVC: UITextFieldDelegate{
        
         searchFeedChatArray.removeAll()
         
-        searchFeedChatArray = chatListArray.filter {$0.userInfo?.name.lowercased().range(of: searchedText.lowercased(), options: .caseInsensitive) != nil
+//        searchFeedChatArray = chatListArray.filter {$0.userInfo?.name.lowercased().range(of: searchedText.lowercased(), options: .caseInsensitive) != nil
+//        }
+        
+        let searchText = textField.text?.lowercased() ?? ""
+
+        searchFeedChatArray = chatListArray.filter { chat in
+            let nameMatch = chat.userInfo?.name.lowercased().contains(searchText) ?? false
+            let idMatch = chat.userInfo?.pickzonId.lowercased().contains(searchText) ?? false
+            return nameMatch || idMatch
         }
+        
         if  searchedText.length > 0{
             self.isSearching = true
         }else{

@@ -56,12 +56,12 @@ class PanCardInfoVC: UIViewController {
                 let value = exchangeLimit + 500 * i
                 coinArray.append("\(value)")
             }
-            txtFdPanCard.setAttributedPlaceHolder(text: "Enter Gift Coins", color: .lightGray)
+            txtFdPanCard.setAttributedPlaceHolder(text: "Enter Gift Stars", color: .lightGray)
             btnNext.setTitle("Exchange", for: .normal)
             btnCheckBox.isHidden = true
-            lblTile.text = "Exchange gift coins to cheer coins"
+            lblTile.text = "Exchange gift stars to cheer stars"
             lblSubTitle.text = ""
-            lblExchnahgeCoinLimit.text = "Minimum \(exchangeLimit) gift coins can be exchanged"
+            lblExchnahgeCoinLimit.text = "Minimum \(exchangeLimit) gift stars can be exchanged"
             cnstrntHtMainVw.constant = 330
             bgVwCollection.isHidden = false
             lblCheckBoxTitle.isHidden = true
@@ -99,13 +99,13 @@ class PanCardInfoVC: UIViewController {
         }else{
            //Exchange
             if (Int(txtFdPanCard.text!) ?? 0 == 0 || Int(txtFdPanCard.text!) ?? 0 < 0) {
-                AlertView.sharedManager.displayMessageWithAlert(title: "", msg: "Please enter valid coins")
+                AlertView.sharedManager.displayMessageWithAlert(title: "", msg: "Please enter valid stars")
 
 
             }else if  Int(txtFdPanCard.text!) ?? 0 < exchangeLimit{
-                AlertView.sharedManager.displayMessageWithAlert(title: "", msg: "You cannot exchange gift coins less than exchange limit.")
+                AlertView.sharedManager.displayMessageWithAlert(title: "", msg: "You cannot exchange gift stars less than exchange limit.")
              }else if  Int(txtFdPanCard.text!) ?? 0 > giftedCoin{
-                 AlertView.sharedManager.displayMessageWithAlert(title: "", msg: "You have no sufficient gift coins.")
+                 AlertView.sharedManager.displayMessageWithAlert(title: "", msg: "You have no sufficient gift stars.")
 
               }else{
                  self.dismiss(animated: false, completion: nil)

@@ -120,14 +120,14 @@ class YPCameraView: UIView { //}, UIGestureRecognizerDelegate {
         addSongButton.centerHorizontally()
         addSongButton.Top == previewViewContainer.Top
         
-        if AppDelegate.sharedInstance.soundInfoSelected.name.length > 0 {
+       /* if AppDelegate.sharedInstance.soundInfoSelected.name.length > 0 {
             addSongButton.setTitle(AppDelegate.sharedInstance.soundInfoSelected.name, for: .normal)
         }else {
             addSongButton.setTitle("Add Song", for: .normal)
         }
         
         addSongButton.titleLabel?.textAlignment = .center
-        
+        */
         
         
         filterButton.size(42)-(15+sideMargin)-|

@@ -516,7 +516,8 @@ class FeedsVideoViewCell:UITableViewCell, OptionDelegate {
         if isClipVideo == true {
             self.btnCoinUp.isHidden = true
             self.bgVwCoinUpClip.isHidden = (objWallPost.isCoinUp == 0 || Themes.sharedInstance.Getuser_id() == objWallPost.userInfo?.id ?? "") ? true : false
-
+           // on 10th nov 25 added
+            self.btnOption.isHidden = true
             
         }else {
             self.btnCoinUp.isHidden = (objWallPost.isCoinUp == 0 || Themes.sharedInstance.Getuser_id() == objWallPost.userInfo?.id ?? "") ? true : false
@@ -594,7 +595,7 @@ extension FeedsVideoViewCell {
           controller.type = 0
           
           let useInlineMode = view != nil
-          controller.title = "Cheer Coins"
+          controller.title = "Cheer Stars"
           controller.delegate = self
           let nav = UINavigationController(rootViewController: controller)
       

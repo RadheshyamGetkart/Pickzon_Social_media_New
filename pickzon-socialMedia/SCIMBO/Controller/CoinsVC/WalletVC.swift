@@ -71,7 +71,7 @@ class WalletVC: SwiftBaseViewController {
             self.viewSeperator.isHidden = true
             self.isCheerSelected = true
             self.btnCheerCoins.contentHorizontalAlignment = .left
-            self.btnCheerCoins.setTitle(" Cheer Coins", for: .normal)
+            self.btnCheerCoins.setTitle(" Cheer Stars", for: .normal)
             
 
             coinAgencyRetailerPlanOffersListApi()
@@ -600,7 +600,7 @@ extension WalletVC:UITableViewDelegate,UITableViewDataSource{
             let cell = tblView.dequeueReusableCell(withIdentifier: "CheerCoinTblCell") as! CheerCoinTblCell
             cell.isAgencyCell = false
             cell.coinOfferArray = coinOfferArrayAgency
-            cell.lblTitle.text = (coinOfferArrayAgency.count > 0) ? "Buy Cheer Coins" : ""
+            cell.lblTitle.text = (coinOfferArrayAgency.count > 0) ? "Buy Cheer Stars" : ""
             cell.collectioVwCheerCoin.reloadData()
             cell.delegate = self
             return cell
@@ -618,7 +618,7 @@ extension WalletVC:UITableViewDelegate,UITableViewDataSource{
                 //let imageName = isReadMoreSelected ? "down-arrow 1-3" : "right-arrow 1"
                 //cell.btnReadMore.setImage(UIImage(named: imageName), for: .normal)
                 //cell.bgViewUpgradePremium.isHidden = false
-                cell.lblTitleCoins.text = "Available Coins"
+                cell.lblTitleCoins.text = "Available Stars"
                 if Settings.sharedInstance.isAgency == 1{
                     cell.btnHistory.setTitle("Transaction History", for: .normal)
                 }else{
@@ -690,7 +690,7 @@ extension WalletVC:UITableViewDelegate,UITableViewDataSource{
             if coinOfferArray.count == 0 {
                 cell.lblTitle.text = ""
             }else {
-                cell.lblTitle.text = "Buy Cheer Coins"
+                cell.lblTitle.text = "Buy Cheer Stars"
             }
             cell.collectioVwCheerCoin.reloadData()
             cell.delegate = self
@@ -764,7 +764,7 @@ extension WalletVC:UITableViewDelegate,UITableViewDataSource{
             //Exchange
             
             if giftedCoins < exchangeLimit{
-                AlertView.sharedManager.displayMessageWithAlert(title: "", msg: "You need minimum \(exchangeLimit) gifted coins for exchange to cheer coins.")
+                AlertView.sharedManager.displayMessageWithAlert(title: "", msg: "You need minimum \(exchangeLimit) gifted stars for exchange to cheer stars.")
             }else{
                 let vc = StoryBoard.feeds.instantiateViewController(withIdentifier: "PanCardInfoVC") as! PanCardInfoVC
                 vc.modalPresentationStyle = .overCurrentContext
@@ -783,7 +783,7 @@ extension WalletVC:UITableViewDelegate,UITableViewDataSource{
     @objc func withdrawBtnAction(_ sender : UIButton){
         
         if giftedCoins < withdrawalLimit{
-            AlertView.sharedManager.displayMessageWithAlert(title: "", msg: "You need minimum \(withdrawalLimit) gifted coins for withdraw.")
+            AlertView.sharedManager.displayMessageWithAlert(title: "", msg: "You need minimum \(withdrawalLimit) gifted stars for withdraw.")
         }else{
             let vc = StoryBoard.feeds.instantiateViewController(withIdentifier: "PanCardInfoVC") as! PanCardInfoVC
             vc.modalPresentationStyle = .overCurrentContext
@@ -807,7 +807,7 @@ extension WalletVC:UITableViewDelegate,UITableViewDataSource{
     @objc func exchangeGiftedCoinsBtnAction(_ sender : UIButton){
         
         if giftedCoins < exchangeLimit{
-            AlertView.sharedManager.displayMessageWithAlert(title: "", msg: "You need minimum \(exchangeLimit) gifted coins for exchange to cheer coins.")
+            AlertView.sharedManager.displayMessageWithAlert(title: "", msg: "You need minimum \(exchangeLimit) gifted stars for exchange to cheer stars.")
         }else{
             let vc = StoryBoard.feeds.instantiateViewController(withIdentifier: "PanCardInfoVC") as! PanCardInfoVC
             vc.modalPresentationStyle = .overCurrentContext
@@ -833,7 +833,7 @@ extension WalletVC:UITableViewDelegate,UITableViewDataSource{
     @objc func withdrawGiftedCoinsBtnAction(_ sender : UIButton){
        
         if giftedCoins < withdrawalLimit{
-            AlertView.sharedManager.displayMessageWithAlert(title: "", msg: "You need minimum \(withdrawalLimit) gifted coins for withdraw.")
+            AlertView.sharedManager.displayMessageWithAlert(title: "", msg: "You need minimum \(withdrawalLimit) gifted stars for withdraw.")
         }else{
             let vc = StoryBoard.feeds.instantiateViewController(withIdentifier: "PanCardInfoVC") as! PanCardInfoVC
             vc.modalPresentationStyle = .overCurrentContext

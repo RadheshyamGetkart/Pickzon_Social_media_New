@@ -42,7 +42,7 @@ class WithdrawVC: UIViewController {
     func updateData(){
         lblName.text = accountInfo.acccountHolderName
         lblAccountNo.text = accountInfo.accountNo
-        lblLimitTitle.text = "Minimum \(accountInfo.withdrawalLimit) coins can be withdrawal."
+        lblLimitTitle.text = "Minimum \(accountInfo.withdrawalLimit) stars can be withdrawal."
         lblAvailableCoin.text = "\(accountInfo.availableGiftCoin)"
     }
     
@@ -69,13 +69,13 @@ class WithdrawVC: UIViewController {
     @IBAction func withdrawButtonAction(_ sender: UIButton) {
         self.view.endEditing(true)
         if (Int(txtFdCoin.text!) ?? 0 == 0 || Int(txtFdCoin.text!) ?? 0 < 0) {
-            AlertView.sharedManager.displayMessageWithAlert(title: "", msg: "Please enter valid coins.")
+            AlertView.sharedManager.displayMessageWithAlert(title: "", msg: "Please enter valid stars.")
             
         }else if  Int(txtFdCoin.text!) ?? 0 < accountInfo.withdrawalLimit{
-            AlertView.sharedManager.displayMessageWithAlert(title: "", msg: "You cannot withdraw coins less than limit.")
+            AlertView.sharedManager.displayMessageWithAlert(title: "", msg: "You cannot withdraw stars less than limit.")
             
         }else if  Int(txtFdCoin.text!) ?? 0 > accountInfo.availableGiftCoin{
-            AlertView.sharedManager.displayMessageWithAlert(title: "", msg: "You have no sufficient available coins.")
+            AlertView.sharedManager.displayMessageWithAlert(title: "", msg: "You have no sufficient available stars.")
             
         }else{
             if imageBank != nil {

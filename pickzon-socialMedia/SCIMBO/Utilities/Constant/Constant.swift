@@ -15,12 +15,12 @@ enum DevEnvironment {
 }
 
 var ISDEBUG = true
-var devEnvironment: DevEnvironment = .staging
+var devEnvironment: DevEnvironment = .live
 
 var BaseURLArray :Array<String> {
     get {
         if devEnvironment == .live {
-            return ["https://app.pickzon.com"]
+            return  ["https://apps.pickzon.com"] //["https://app.pickzon.com"]
         }else if devEnvironment == .staging {
             return  ["https://app.gupsup.com"]//["https://getkart.ca"]
         }else{
@@ -60,7 +60,7 @@ var ImgUrl : String {
 var SocketCreateRoomUrl : String {
     get {
         if devEnvironment == .live {
-            return "https://chat.pickzon.com"
+            return  "https://chats.pickzon.com" //"https://chat.pickzon.com"
         }else if devEnvironment == .staging {
             return  "https://app-chat.gupsup.com" //"https://chat.getkart.ca"
         }else  {
