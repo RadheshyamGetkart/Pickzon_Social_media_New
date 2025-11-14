@@ -1649,6 +1649,29 @@ import Kingfisher
     }
     
     
+    func userTagColor() ->UIColor{
+        
+        return UIColor(named: "themeColor")!
+
+       // return self.colorWithHexString(hex: "#1F2232")
+    }
+    
+    func hashTagColor() ->UIColor{
+        return UIColor(named: "themeColor")!
+
+       // return self.colorWithHexString(hex: "#053C43")
+    }
+    
+    func linkColor() ->UIColor{
+        /*
+         #tag color code:  #053C43 And
+         @tag color code: #1F2232
+         */
+        return .systemBlue
+       // return self.colorWithHexString(hex: "#0a66c2")
+     //   return UIColor(named: "themeColor")!
+    }
+    
  
     
     func seeMoreColor() ->UIColor{

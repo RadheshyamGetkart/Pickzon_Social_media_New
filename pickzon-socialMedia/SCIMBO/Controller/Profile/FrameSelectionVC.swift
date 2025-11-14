@@ -351,7 +351,7 @@ extension FrameSelectionVC: UICollectionViewDelegate,UICollectionViewDataSource,
         
         let nameAttr = NSMutableAttributedString(string: "", attributes:[
             NSAttributedString.Key.foregroundColor: color,
-            NSAttributedString.Key.font: UIFont(name:"Roboto-Regular", size: fontSize)!])
+            NSAttributedString.Key.font: UIFont(name:"Inter-Regular", size: fontSize)!])
         
         if isImageAttached == false{
             
@@ -366,7 +366,7 @@ extension FrameSelectionVC: UICollectionViewDelegate,UICollectionViewDataSource,
         
         let nameAttr1 = NSMutableAttributedString(string: name, attributes:[
             NSAttributedString.Key.foregroundColor: color,
-            NSAttributedString.Key.font: UIFont(name:"Roboto-Regular", size: fontSize)!])
+            NSAttributedString.Key.font: UIFont(name:"Inter-Regular", size: fontSize)!])
         nameAttr.append(nameAttr1)
         return nameAttr
     }

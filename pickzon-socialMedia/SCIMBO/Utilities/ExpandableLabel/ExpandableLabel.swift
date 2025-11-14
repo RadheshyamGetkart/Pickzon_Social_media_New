@@ -348,7 +348,7 @@ open class ExpandableLabel: UILabel,VSWordDetectorDelegate {
             return self.attributedText?.string
         }
     }
-    
+   /*
     open override var attributedText: NSAttributedString? {
         set(attributedText) {
             if let attributedText = attributedText?.copyWithAddedFontAttribute(font).copyWithParagraphAttribute(font), attributedText.length > 0 {
@@ -365,6 +365,47 @@ open class ExpandableLabel: UILabel,VSWordDetectorDelegate {
             return super.attributedText
         }
     }
+    */
+    open override var attributedText: NSAttributedString? {
+        set(newValue) {
+            guard var attributedText = newValue, attributedText.length > 0 else {
+                self.expandedText = nil
+                self.collapsedText = nil
+                super.attributedText = nil
+                return
+            }
+
+            // ✅ Only add font attribute if the incoming text doesn't already have one
+            if !attributedText.hasFontAttribute() {
+                attributedText = attributedText.copyWithAddedFontAttribute(font)
+            }
+
+            // ✅ Always keep paragraph style for proper spacing
+            attributedText = attributedText.copyWithParagraphAttribute(font)
+
+            self.collapsedText = getCollapsedText(
+                for: attributedText,
+                link: (linkHighlighted)
+                    ? collapsedAttributedLink.copyWithHighlightedColor()
+                    : collapsedAttributedLink
+            )
+
+            self.expandedText = getExpandedText(
+                for: attributedText,
+                link: (linkHighlighted)
+                    ? expandedAttributedLink?.copyWithHighlightedColor()
+                    : expandedAttributedLink
+            )
+
+            // ✅ Keeps correct “Read more” and “Read less” handling
+            super.attributedText = (collapsed) ? collapsedText : expandedText
+        }
+
+        get {
+            return super.attributedText
+        }
+    }
+
     
     open override func layoutSubviews() {
         super.layoutSubviews()

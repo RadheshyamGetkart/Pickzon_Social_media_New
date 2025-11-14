@@ -372,7 +372,7 @@ extension AgencyTransactionHistoryVC:ExpandableLabelDelegate{
     func convertAttributtedColorText(text:String) -> NSAttributedString{
         
         let  originalStr = text
-        let myAttribute = [NSAttributedString.Key.font: UIFont(name: "Roboto-Regular", size: 16.0)!]
+        let myAttribute = [NSAttributedString.Key.font: UIFont(name: "Inter-Regular", size: 16.0)!]
        
         let att = NSMutableAttributedString(string: originalStr, attributes: myAttribute)
         
@@ -388,7 +388,7 @@ extension AgencyTransactionHistoryVC:ExpandableLabelDelegate{
                 let matchResult = originalStr[range1]
                 
                 if matchResult.count > 0  {
-                    att.addAttributes([NSAttributedString.Key.foregroundColor:Themes.sharedInstance.tagAndLinkColor(),NSAttributedString.Key.font: UIFont(name: "Roboto-Regular", size: 16.0)!], range: result.range)
+                    att.addAttributes([NSAttributedString.Key.foregroundColor:Themes.sharedInstance.userTagColor(),NSAttributedString.Key.font: UIFont(name: "Inter-Medium", size: 16.0)!], range: result.range)
                 }
                // print("result: \(matchResult), range: \(result.range)")
             }
@@ -404,7 +404,7 @@ extension AgencyTransactionHistoryVC:ExpandableLabelDelegate{
                 let matchResult = originalStr[range1]
                 
                 if matchResult.count > 0  {
-                    att.addAttributes([NSAttributedString.Key.foregroundColor:Themes.sharedInstance.tagAndLinkColor(),NSAttributedString.Key.font: UIFont(name: "Roboto-Regular", size: 16.0)!], range: result.range)
+                    att.addAttributes([NSAttributedString.Key.foregroundColor:Themes.sharedInstance.hashTagColor(),NSAttributedString.Key.font: UIFont(name: "Inter-Regular", size: 16.0)!], range: result.range)
                 }
                // print("result: \(matchResult), range: \(result.range)")
             }
@@ -419,7 +419,7 @@ extension AgencyTransactionHistoryVC:ExpandableLabelDelegate{
                     let matchResult = originalStr[range1]
                     
                     if matchResult.count > 0  {
-                        att.addAttributes([NSAttributedString.Key.foregroundColor:Themes.sharedInstance.tagAndLinkColor(),NSAttributedString.Key.font: UIFont(name: "Roboto-Regular", size: 16.0)!], range: result.range)
+                        att.addAttributes([NSAttributedString.Key.foregroundColor:Themes.sharedInstance.tagAndLinkColor(),NSAttributedString.Key.font: UIFont(name: "Inter-Regular", size: 16.0)!], range: result.range)
                     }
                    // print("result: \(matchResult), range: \(result.range)")
                 }

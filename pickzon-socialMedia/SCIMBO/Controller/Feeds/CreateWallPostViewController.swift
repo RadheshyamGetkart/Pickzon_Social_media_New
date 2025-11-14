@@ -161,7 +161,7 @@ class CreateWallPostViewController: UIViewController,GrowingTextViewDelegate {
             self.locationString = objPost?.place ?? ""
             self.latitude = objPost?.latitude ?? 0.0
             self.longitude = objPost?.longitude ?? 0.0
-            self.lblTaggedItems.attributedText =  NSAttributedString(string: (objPost?.taggedPeople ?? ""), attributes: [ NSAttributedString.Key.foregroundColor: Themes.sharedInstance.tagAndLinkColor()])
+            self.lblTaggedItems.attributedText =  NSAttributedString(string: (objPost?.taggedPeople ?? ""), attributes: [ NSAttributedString.Key.foregroundColor: Themes.sharedInstance.userTagColor()])
             
             for str in (objPost?.taggedPeople ?? "").components(separatedBy: " ") {
                 if str.count > 0 {
@@ -1216,7 +1216,7 @@ class CreateWallPostViewController: UIViewController,GrowingTextViewDelegate {
         if str.length > 0 {
             str = str + "\n"
         }
-        var myAttribute = [ NSAttributedString.Key.foregroundColor: Themes.sharedInstance.tagAndLinkColor() ]
+        var myAttribute = [ NSAttributedString.Key.foregroundColor: Themes.sharedInstance.userTagColor() ]
         var myAttrString = NSAttributedString(string: str, attributes: myAttribute)
         attributedString.append(myAttrString)
         

@@ -92,7 +92,7 @@ class ChangePasswordVC: UIViewController {
         
         let nameAttr = NSMutableAttributedString(string: name, attributes:[
             NSAttributedString.Key.foregroundColor: color,
-            NSAttributedString.Key.font: UIFont(name:"Roboto-Regular", size: fontSize)!])
+            NSAttributedString.Key.font: UIFont(name:"Inter-Regular", size: fontSize)!])
         
         let attachment:NSTextAttachment = NSTextAttachment()
         attachment.bounds = CGRect(x: 0, y: -1.0, width: 15, height: 15)

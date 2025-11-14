@@ -109,6 +109,11 @@ class FeedsCell: UITableViewCell, OptionDelegate {
         
         if objWallPost.userInfo?.id == Themes.sharedInstance.Getuser_id() {
             self.bgVwBoost.isHidden = false
+           
+            self.bgVwSendGift.isHidden = true
+            self.btnCoinUp.isHidden = true
+            self.btnCoinUpText.isHidden = true
+            
             /*
              0 default
             1 pending boost post
@@ -215,14 +220,17 @@ class FeedsCell: UITableViewCell, OptionDelegate {
         }else {
             self.btnPromote.isHidden = true
         }
-                 
-        if objWallPost.payload.count == 0 && txtFeeling.count == 0 && objWallPost.taggedPeople.count == 0 && objWallPost.taggedPeople.count == 0{
-            self.lblDescription.attributedText = NSAttributedString(string: "")
-        }else{
-            self.lblDescription.attributedText =  convertAttributtedColorText(text: objWallPost.payload + " " + txtFeeling + ((objWallPost.taggedPeople.count > 0) ? "\n \(objWallPost.taggedPeople)" : ""))
-        }
-                
-        
+            
+          //  self.lblDescription.attributedText = nil
+            
+            if objWallPost.payload.count == 0 && txtFeeling.count == 0 && objWallPost.taggedPeople.count == 0 && objWallPost.taggedPeople.count == 0{
+                self.lblDescription.attributedText = NSAttributedString(string: "")
+            }else{
+                self.lblDescription.attributedText =  self.convertAttributtedColorText(text: objWallPost.payload + " " + txtFeeling + ((objWallPost.taggedPeople.count > 0) ? "\n \(objWallPost.taggedPeople)" : ""))
+            }
+            
+           // self.lblDescription.sizeToFit()
+
         self.btnFolow.setTitle("Follow", for: .normal)
         self.btnFolow.setImage(PZImages.followPlus, for: .normal)
             
@@ -387,12 +395,15 @@ class FeedsCell: UITableViewCell, OptionDelegate {
         self.lblLocation.text = "Shared a post " +  objWallPost.feedTime
         self.lblPostDate.text =  objWallPost.sharedWallData.feedTime
         self.lblLocationShared.text = objWallPost.sharedWallData.place
-        
+        self.lblDescription.attributedText = nil
+
         if objWallPost.sharedWallData.payload.count == 0 && sharedTxtFeeling.count == 0 && objWallPost.sharedWallData.taggedPeople.count == 0 && objWallPost.sharedWallData.taggedPeople.count == 0{
             self.lblDescription.attributedText = NSAttributedString(string: "")
         }else{
             self.lblDescription.attributedText =  convertAttributtedColorText(text: objWallPost.sharedWallData.payload + " " + sharedTxtFeeling + ((objWallPost.sharedWallData.taggedPeople.count > 0) ? "\n\(objWallPost.sharedWallData.taggedPeople)" : ""))
         }
+        self.lblDescription.sizeToFit()
+
         self.urlArray = objWallPost.sharedWallData.urlArray
         if self.urlArray.count > 0 {
             self.lblMediaCount.text = "\(1)/\(self.urlArray.count)"
@@ -1393,6 +1404,13 @@ extension FeedsCell{
         
         let  originalStr = text
         let att = NSMutableAttributedString(string: originalStr);
+        
+        // ✅ 1. Apply default color and font to entire string
+        att.addAttributes([
+            .foregroundColor: UIColor.label,
+            .font: UIFont(name: "Inter-Regular", size: 16)!
+        ], range: NSMakeRange(0, att.length))
+
         let detectorType: NSTextCheckingResult.CheckingType = [.link, .phoneNumber]
         
         let mentionPattern = "\\B@[A-Za-z0-9_.]+"
@@ -1406,7 +1424,7 @@ extension FeedsCell{
                 
                 if matchResult.count > 0  {
                     //                  att.addAttributes([NSAttributedString.Key.foregroundColor:Themes.sharedInstance.tagAndLinkColor(),NSAttributedString.Key.font:UIFont.boldSystemFont(ofSize: 18.0)], range: result.range)
-                    att.addAttributes([NSAttributedString.Key.foregroundColor:Themes.sharedInstance.tagAndLinkColor()], range: result.range)
+                    att.addAttributes([NSAttributedString.Key.foregroundColor:Themes.sharedInstance.userTagColor(),NSAttributedString.Key.font: UIFont(name: "Inter-Medium", size: 16.0)!], range: result.range)
                 }
             }
         }
@@ -1420,7 +1438,7 @@ extension FeedsCell{
                 let matchResult = originalStr[range1]
                 
                 if matchResult.count > 0  {
-                    att.addAttributes([NSAttributedString.Key.foregroundColor:Themes.sharedInstance.tagAndLinkColor()], range: result.range)
+                    att.addAttributes([NSAttributedString.Key.foregroundColor:Themes.sharedInstance.hashTagColor(),NSAttributedString.Key.font: UIFont(name: "Inter-Medium", size: 16.0)!], range: result.range)
                 }
             }
         }
@@ -1434,7 +1452,7 @@ extension FeedsCell{
                     let matchResult = originalStr[range1]
                     
                     if matchResult.count > 0  {
-                        att.addAttributes([NSAttributedString.Key.foregroundColor:Themes.sharedInstance.tagAndLinkColor()], range: result.range)
+                        att.addAttributes([NSAttributedString.Key.foregroundColor:Themes.sharedInstance.linkColor()], range: result.range)
                     }
                 }
             }

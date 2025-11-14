@@ -155,7 +155,7 @@ class ShareFeedPostViewController: UIViewController{
             self.locationStringShared = objPost?.sharedWallData.place ?? ""
             }
            
-            self.lblTaggedItemsShared.attributedText =  NSAttributedString(string: (objPost?.taggedPeople ?? ""), attributes: [ NSAttributedString.Key.foregroundColor:Themes.sharedInstance.tagAndLinkColor()])
+            self.lblTaggedItemsShared.attributedText =  NSAttributedString(string: (objPost?.taggedPeople ?? ""), attributes: [ NSAttributedString.Key.foregroundColor:Themes.sharedInstance.userTagColor()])
             if objPost!.sharedWallData == nil {
             for str in (objPost?.taggedPeople ?? "").components(separatedBy: " ") {
                 if str.count > 0 {
@@ -445,7 +445,7 @@ class ShareFeedPostViewController: UIViewController{
         if str.length > 0{
             str = str + "\n"
         }
-        var myAttribute = [ NSAttributedString.Key.foregroundColor: Themes.sharedInstance.tagAndLinkColor()]
+        var myAttribute = [ NSAttributedString.Key.foregroundColor: Themes.sharedInstance.userTagColor()]
         var myAttrString = NSAttributedString(string: str, attributes: myAttribute)
         attributedString.append(myAttrString)
         

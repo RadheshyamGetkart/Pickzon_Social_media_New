@@ -268,8 +268,8 @@ extension PostInsightsVC: UITableViewDelegate,UITableViewDataSource{
         cell.rightImgVwIcon.isHidden = true
         cell.cnstrntWidthClipImg.constant = 25
         cell.cnstrntHeightClipImg.constant = 25
-        cell.lblCoin.font = UIFont(name: "Roboto-Regular", size: 15.0)
-        cell.lblTitle.font = UIFont(name: "Roboto-Regular", size: 15.0)
+        cell.lblCoin.font = UIFont(name: "Inter-Regular", size: 15.0)
+        cell.lblTitle.font = UIFont(name: "Inter-Regular", size: 15.0)
 
         if indexPath.section ==  0{
             cell.cnstrntLeadingClipImg.constant = -25

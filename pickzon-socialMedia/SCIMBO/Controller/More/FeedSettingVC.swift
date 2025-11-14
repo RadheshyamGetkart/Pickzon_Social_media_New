@@ -135,7 +135,7 @@ extension FeedSettingVC:UITableViewDelegate,UITableViewDataSource{
             cell.btnCheckBox.isHidden = true
             cell.lblSeperator.isHidden = true
             let enumVal = UserDefaults.standard.value(forKey: autoPlaySettingType) as? Int ?? 0
-            cell.lblTitle.font =  UIFont(name: "Roboto-Regular", size: 17.0)
+            cell.lblTitle.font =  UIFont(name: "Inter-Regular", size: 17.0)
             cell.lblTitle.text = "Auto-play videos"
             cell.switchOption.tag = 99
             if enumVal != FeedSettingEnum.neverAutoPlay.rawValue {
@@ -171,7 +171,7 @@ extension FeedSettingVC:UITableViewDelegate,UITableViewDataSource{
 
             let cell = tblView.dequeueReusableCell(withIdentifier: "FeedSettingTblCellId") as! FeedSettingTblCell
             cell.switchOption.onTintColor = UIColor.lightGray
-            cell.lblTitle.font =  UIFont(name: "Roboto-Regular", size: 15.0)
+            cell.lblTitle.font =  UIFont(name: "Inter-Regular", size: 15.0)
             cell.lblTitle.text = autoPlayArray[indexPath.row]
            // cell.leftConstraintTitle?.constant = 20
             let enumVal = UserDefaults.standard.value(forKey: autoPlaySettingType) as? Int ?? 0
@@ -205,7 +205,7 @@ extension FeedSettingVC:UITableViewDelegate,UITableViewDataSource{
         }else if indexPath.section == 2{
             let cell = tblView.dequeueReusableCell(withIdentifier: "FeedSettingTblCellId") as! FeedSettingTblCell
             cell.switchOption.onTintColor = UIColor.lightGray
-            cell.lblTitle.font =  UIFont(name: "Roboto-Regular", size: 17.0)
+            cell.lblTitle.font =  UIFont(name: "Inter-Regular", size: 17.0)
           //  cell.leftConstraintTitle?.constant = 5
            // cell.lblTitle.font =  UIFont(name: "Roboto-Bold", size: 17.0)
             cell.switchOption.setOn(false, animated: false)
@@ -230,7 +230,7 @@ extension FeedSettingVC:UITableViewDelegate,UITableViewDataSource{
         }else if indexPath.section == 3{
             let cell = tblView.dequeueReusableCell(withIdentifier: "FeedSettingTblCellId") as! FeedSettingTblCell
             cell.switchOption.onTintColor = UIColor.lightGray
-            cell.lblTitle.font =  UIFont(name: "Roboto-Regular", size: 17.0)
+            cell.lblTitle.font =  UIFont(name: "Inter-Regular", size: 17.0)
            // cell.leftConstraintTitle?.constant = 5
             cell.switchOption.setOn(false, animated: false)
             cell.btnCheckBox.isHidden = true

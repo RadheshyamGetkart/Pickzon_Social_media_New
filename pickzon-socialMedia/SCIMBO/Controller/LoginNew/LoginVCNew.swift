@@ -19,7 +19,6 @@ class LoginVCNew: UIViewController {
     
     
     @IBOutlet weak var bgViewForWelcome: UIView!
-
     @IBOutlet weak var lblCountrycode: UILabel!
     @IBOutlet weak var viewEmail:UIView!
     @IBOutlet weak var txtEmail: UITextField!
@@ -37,7 +36,6 @@ class LoginVCNew: UIViewController {
     @IBOutlet weak var segmentControl:UISegmentedControl!
     
     @IBOutlet weak var btnPrivacyPolicy:UIButton!
-
     @IBOutlet weak var bgViewSegmentControl:UIView!
     @IBOutlet weak var imgVwDDIcon:UIImageView!
     @IBOutlet weak var btnForgotPassword:UIButton!
@@ -289,6 +287,7 @@ class LoginVCNew: UIViewController {
         */
         
         GIDSignIn.sharedInstance.signIn(with: signInConfig, presenting: self) { user, error in
+            print(user)
             guard error == nil else {
                 print("Error: ",error?.localizedDescription ?? "")
                 return }

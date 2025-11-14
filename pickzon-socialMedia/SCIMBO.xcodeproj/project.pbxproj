@@ -9190,7 +9190,7 @@
 				CODE_SIGN_ENTITLEMENTS = SCIMBO/SCIMBO.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2.0;
+				CURRENT_PROJECT_VERSION = 1.91;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				DEVELOPMENT_TEAM = NHBQDLLJN4;
 				ENABLE_BITCODE = NO;
@@ -9226,7 +9226,7 @@
 					"$(PROJECT_DIR)/SCIMBO/Utilities/OtherResources/VoiceLib",
 					"${SDKROOT}/usr/include/libxml2",
 				);
-				MARKETING_VERSION = 2.0;
+				MARKETING_VERSION = 1.91;
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-ObjC",
@@ -9462,7 +9462,7 @@
 				CODE_SIGN_ENTITLEMENTS = SCIMBO/SCIMBO.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2.0;
+				CURRENT_PROJECT_VERSION = 1.91;
 				DEVELOPMENT_TEAM = NHBQDLLJN4;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -9499,7 +9499,7 @@
 					"$(PROJECT_DIR)/SCIMBO/Utilities/OtherResources/VoiceLib",
 					"${SDKROOT}/usr/include/libxml2",
 				);
-				MARKETING_VERSION = 2.0;
+				MARKETING_VERSION = 1.91;
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-ObjC",

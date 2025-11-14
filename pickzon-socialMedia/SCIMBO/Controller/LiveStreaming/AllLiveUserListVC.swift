@@ -665,7 +665,7 @@ extension AllLiveUserListVC:UITextFieldDelegate,UICollectionViewDelegate, UIColl
         
         let nameAttr = NSMutableAttributedString(string: name, attributes:[
             NSAttributedString.Key.foregroundColor: color,
-            NSAttributedString.Key.font: UIFont(name:"Roboto-Regular", size: fontSize)!])
+            NSAttributedString.Key.font: UIFont(name:"Inter-Regular", size: fontSize)!])
         
         if verifiedImage == nil{
             

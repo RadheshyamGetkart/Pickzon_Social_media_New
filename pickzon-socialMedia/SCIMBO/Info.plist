@@ -133,7 +133,7 @@
 	<key>NSCameraUsageDescription</key>
 	<string>Enable your camera access to take pictures and videos to be uploaded in Feeds and Clips etc.</string>
 	<key>NSContactsUsageDescription</key>
-	<string>Sync your contacts to connect conveniently with your friends. Your contacts will be securely stored on Pickzon&apos;s servers.</string>
+	<string>Sync your contacts to connect conveniently with your friends. Your contacts will be securely stored on Pickzon's servers.</string>
 	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
 	<string>Enable your location to get the best results based on your location.</string>
 	<key>NSLocationAlwaysUsageDescription</key>

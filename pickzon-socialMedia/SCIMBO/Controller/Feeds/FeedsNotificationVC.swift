@@ -836,7 +836,7 @@ extension FeedsNotificationVC:ExpandableLabelDelegate{
                 if let range1 = Range(result.range, in: originalStr) {
                     let matchResult = originalStr[range1]
                     if matchResult.count > 0 {
-                        att.addAttributes([NSAttributedString.Key.foregroundColor:Themes.sharedInstance.tagAndLinkColor()], range: result.range)
+                        att.addAttributes([NSAttributedString.Key.foregroundColor:Themes.sharedInstance.linkColor()], range: result.range)
                     }
                     //print("result: \(matchResult), range: \(result.range)")
                 }

@@ -28,6 +28,7 @@ import Kingfisher
 import FirebaseCore
 import FirebaseAnalytics
 import GooglePlaces
+import GoogleSignIn
 
 var languageHandler = Languagehandler()
 var filter_ContactRec = NSMutableArray()
@@ -463,10 +464,23 @@ var backgroundTask: UIBackgroundTaskIdentifier = UIBackgroundTaskIdentifier.inva
     }
     
    
-    
+//    func application(  _ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any] = [:]  ) -> Bool {
+//        let handled: Bool = GIDSignIn.sharedInstance.handle(url)
+//        if handled {
+//            return true
+//        }
+//        return false
+//    }
    
     func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -> Bool {
         print(url)
+        
+        
+//        // --- GOOGLE SIGN-IN callback first ---
+            if GIDSignIn.sharedInstance.handle(url) {
+                return true
+            }
+        
         if url == URL.init(string: "pickzon://") {
             var CheckLogin = false
             if(Themes.sharedInstance.Getuser_id() != "")
