@@ -116,6 +116,7 @@ extension YPSelectionsGalleryVC: UICollectionViewDelegate {
         case .video(let video):
             if YPConfig.showsVideoTrimmer {
                 mediaFilterVC = YPVideoFiltersVC.initWith(video: video, isFromSelectionVC: true)
+                
             }
         }
         

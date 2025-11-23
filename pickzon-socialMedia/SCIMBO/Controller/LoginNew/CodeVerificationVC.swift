@@ -45,15 +45,18 @@ class CodeVerificationVC: UIViewController {
 //        otpFeilds[3].delegate = self
 //        otpFeilds[0].becomeFirstResponder()
         
-        for field in otpFeilds {
-            field.delegate = self
-            field.borderStyle = .none   // very important
-            field.layer.borderWidth = 1
-            field.layer.borderColor = UIColor.lightGray.cgColor
-            field.layer.cornerRadius = 18
-            field.clipsToBounds = true
+      
+        
+        otpFeilds.forEach {
+            $0.textContentType = .oneTimeCode
+            $0.keyboardType = .numberPad
+            $0.delegate = self
+            $0.borderStyle = .none   // very important
+            $0.layer.borderWidth = 1
+            $0.layer.borderColor = UIColor.lightGray.cgColor
+            $0.layer.cornerRadius = 18
+            $0.clipsToBounds = true
         }
-
       //  otpFeilds[0].becomeFirstResponder()
 
         let str = isEmail ? "email" : "mobile"

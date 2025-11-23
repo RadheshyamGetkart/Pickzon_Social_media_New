@@ -287,7 +287,7 @@ class LoginVCNew: UIViewController {
         */
         
         GIDSignIn.sharedInstance.signIn(with: signInConfig, presenting: self) { user, error in
-            print(user)
+
             guard error == nil else {
                 print("Error: ",error?.localizedDescription ?? "")
                 return }

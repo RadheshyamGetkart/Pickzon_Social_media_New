@@ -145,12 +145,12 @@ class ReferalsViewController: UIViewController {
     }
     
     @objc func shareBtnAction(){
-        let appStoreLink = "Hey, Your friend just made Rs. 1000/- Join now and get a chance to earn a maximum joining bonus for free… Use this code during signup (Referal Code: \(strReferralCode)) to claim your bonus instantly.\nDownload PickZon app & stay entertained! \nIOS App: https://apps.apple.com/in/app/pickzon/id1560097730 \n Android App: https://play.google.com/store/apps/details?id=com.chat.pickzon"
+        let appStoreLink = "Hey, Your friend just made Rs. 1000/- Join now and get a chance to earn a maximum joining bonus for free… Use this code during signup (Referal Code: \(strReferralCode)) to claim your bonus instantly.\nDownload Pickzon app & stay entertained! \nIOS App: https://apps.apple.com/in/app/pickzon/id1560097730 \n Android App: https://play.google.com/store/apps/details?id=com.chat.pickzon"
         
         let objectsToShare = [appStoreLink]
         let activityVC = UIActivityViewController(activityItems: objectsToShare, applicationActivities: nil)
         
-        activityVC.setValue("PickZon App", forKey: "subject")
+        activityVC.setValue("Pickzon App", forKey: "subject")
         activityVC.completionWithItemsHandler = { activity, success, items, error in
             if success == true {
                 print("Success")

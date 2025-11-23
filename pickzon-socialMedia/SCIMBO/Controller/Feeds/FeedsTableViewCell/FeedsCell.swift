@@ -64,17 +64,24 @@ class FeedsCell: UITableViewCell, OptionDelegate {
     @IBOutlet weak var btnViewCount: UIButton!
     @IBOutlet weak var btnView: UIButton!
     @IBOutlet weak var lblMediaCount: UILabelX!
-    @IBOutlet weak var bgVwViewCount: UIView!
+  //  @IBOutlet weak var bgVwViewCount: UIView!
     @IBOutlet weak var bgVwComment: UIView!
     @IBOutlet weak var bgVwLike: UIView!
     @IBOutlet weak var bgVwShare: UIView!
     @IBOutlet weak var btnLikedCount: UIButton!
     @IBOutlet weak var btnCoinUp: UIButton!
     @IBOutlet weak var btnCoinUpText: UIButton!
-    @IBOutlet weak var lblViewCount: UILabel!
-    @IBOutlet weak var btnViewsCount:UIButton!
+//    @IBOutlet weak var lblViewCount: UILabel!
+//    @IBOutlet weak var btnViewsCount:UIButton!
     
     @IBOutlet weak var bgViewCell:UIView!
+    
+    
+    
+    @IBOutlet weak var lblShareCount: UILabel!
+    @IBOutlet weak var lblCommentCount: UILabel!
+    @IBOutlet weak var lblLikeCount: UILabel!
+
 
     
     var urlArray:Array<String> = Array<String>()
@@ -252,8 +259,8 @@ class FeedsCell: UITableViewCell, OptionDelegate {
         self.profilePicView.setImgView(profilePic: objWallPost.userInfo!.profilePic, frameImg: objWallPost.userInfo!.avatar,changeValue: (objWallPost.userInfo!.avatar.count > 0) ? 9 : 5)
         self.btnSavePost.isHidden = (objWallPost.clnViewHeight > 0.0) ? false : true
       
-        self.btnViewsCount.setTitle(objWallPost.viewCount > 0 ? objWallPost.viewCount.asFormatted_k_String : "0", for: .normal)
-        self.bgVwViewCount.isHidden =  true //(objWallPost.isCoinUp == 0 || Themes.sharedInstance.Getuser_id() == objWallPost.userInfo?.id ?? "") ? true : false
+//        self.btnViewsCount.setTitle(objWallPost.viewCount > 0 ? objWallPost.viewCount.asFormatted_k_String : "0", for: .normal)
+//        self.bgVwViewCount.isHidden =  true //(objWallPost.isCoinUp == 0 || Themes.sharedInstance.Getuser_id() == objWallPost.userInfo?.id ?? "") ? true : false
         self.updatedCommentLikeAndShareCount(objwallpost: objWallPost)
         self.lblDescription.textReplacementType = .word
         self.lblDescription.shouldCollapse = objWallPost.isExpanded
@@ -270,8 +277,14 @@ class FeedsCell: UITableViewCell, OptionDelegate {
         self.bgVwSendGift.tag = indexPath.row
         self.btnComment.tag = indexPath.row
         self.btnOption.tag = indexPath.row
-        self.btnLikedCount.tag = indexPath.row
+//       self.btnLikedCount.tag = indexPath.row
+        self.lblLikeCount.tag = indexPath.row
+        self.lblShareCount.tag = indexPath.row
+        self.lblCommentCount.tag = indexPath.row
+        
         self.btnBoost.tag = indexPath.row
+
+
     }
     
     
@@ -437,8 +450,8 @@ class FeedsCell: UITableViewCell, OptionDelegate {
         self.lblDescription.textReplacementType = .word
         self.lblDescription.shouldCollapse = objWallPost.isExpanded
         self.lblDescription.numberOfLines = 4
-        self.btnViewsCount.setTitle(objWallPost.viewCount > 0 ? objWallPost.viewCount.asFormatted_k_String : "0", for: .normal)
-        self.bgVwViewCount.isHidden = true // (objWallPost.isCoinUp == 0 || Themes.sharedInstance.Getuser_id() == objWallPost.userInfo?.id ?? "") ? true : false
+//        self.btnViewsCount.setTitle(objWallPost.viewCount > 0 ? objWallPost.viewCount.asFormatted_k_String : "0", for: .normal)
+//        self.bgVwViewCount.isHidden = true // (objWallPost.isCoinUp == 0 || Themes.sharedInstance.Getuser_id() == objWallPost.userInfo?.id ?? "") ? true : false
         
         self.updatedCommentLikeAndShareCount(objwallpost: objWallPost)
         
@@ -461,7 +474,14 @@ class FeedsCell: UITableViewCell, OptionDelegate {
         self.btnComment.tag = indexPath.row
         self.btnOption.tag = indexPath.row
         self.btnUserNameShared.tag = indexPath.row
-        self.btnLikedCount.tag = indexPath.row
+      //  self.btnLikedCount.tag = indexPath.row
+        
+        self.lblLikeCount.tag = indexPath.row
+        self.lblShareCount.tag = indexPath.row
+        self.lblCommentCount.tag = indexPath.row
+
+        //hide by me
+        self.btnSharedFollow.isHidden = true
         
     }
     
@@ -470,21 +490,32 @@ class FeedsCell: UITableViewCell, OptionDelegate {
     func updatedCommentLikeAndShareCount(objwallpost:WallPostModel) {
        
         if objWallPost.totalLike > 0 {
-            self.btnLikedCount.setTitle(objWallPost.totalLike.asFormatted_k_String, for: .normal)
+           // self.btnLikedCount.setTitle(objWallPost.totalLike.asFormatted_k_String, for: .normal)
+            self.lblLikeCount.text = objWallPost.totalLike.asFormatted_k_String
+
         }else {
-            self.btnLikedCount.setTitle("", for: .normal)
+           // self.btnLikedCount.setTitle("", for: .normal)
+            self.lblLikeCount.text = ""
         }
         if objWallPost.totalComment > 0 {
-            self.btnComment.setTitle( objWallPost.totalComment.asFormatted_k_String, for: .normal)
+            self.lblCommentCount.text =  objWallPost.totalComment.asFormatted_k_String
+
+           // self.btnComment.setTitle( objWallPost.totalComment.asFormatted_k_String, for: .normal)
         }else {
-            self.btnComment.setTitle("", for: .normal)
+          //  self.btnComment.setTitle("", for: .normal)
+            self.lblCommentCount.text = ""
         }
         
         if objWallPost.totalShared > 0 {
-            self.btnShare.setTitle( objWallPost.totalShared.asFormatted_k_String, for: .normal)
+            self.lblShareCount.text =  objWallPost.totalShared.asFormatted_k_String
+
+           // self.btnShare.setTitle( objWallPost.totalShared.asFormatted_k_String, for: .normal)
         }else {
-            self.btnShare.setTitle( "", for: .normal)
+           // self.btnShare.setTitle( "", for: .normal)
+            self.lblShareCount.text = ""
+
         }
+        
     }
     
    
@@ -535,10 +566,18 @@ class FeedsCell: UITableViewCell, OptionDelegate {
                                                                       action:#selector(self.handleProfilePicTap(_:))))
      
         btnComment.addTarget(self, action: #selector(self.openComments(sender:)), for: .touchUpInside)
+        
+        
+//        self.lblShareCount.addGestureRecognizer(UITapGestureRecognizer(target: self,
+//                                                                        action:#selector(self.sharePostThirdPartMedia(_:))))
+//        self.lblCommentCount.addGestureRecognizer(UITapGestureRecognizer(target: self,
+//                                                                         action:#selector(self.openComments(_:))))
+//        
         btnSavePost.addTarget(self, action: #selector(self.savePostAPI), for: .touchUpInside)
         
-        btnLikedCount.addTarget(self, action: #selector(self.likedCountBtnAction), for: .touchUpInside)
-        
+       // btnLikedCount.addTarget(self, action: #selector(self.likedCountBtnAction), for: .touchUpInside)
+        lblLikeCount?.addGestureRecognizer(UITapGestureRecognizer(target: self,
+                                                                        action:#selector(self.likedCountBtnAction(_:))))
         btnBoost.addTarget(self, action: #selector(self.boostPostBtnAction), for: .touchUpInside)
 
 
@@ -635,7 +674,9 @@ class FeedsCell: UITableViewCell, OptionDelegate {
         }
     }
 
-    @objc func likedCountBtnAction() {
+    
+    
+    @objc func likedCountBtnAction(_ sender: UITapGestureRecognizer? = nil){
         let profileVC:LikeUsersVC = StoryBoard.main.instantiateViewController(withIdentifier: "LikeUsersVC") as! LikeUsersVC
         
         profileVC.postId = objWallPost.sharedWallData == nil ? objWallPost.id : objWallPost.sharedWallData.id
@@ -857,6 +898,8 @@ class FeedsCell: UITableViewCell, OptionDelegate {
         profileVC.controllerType = .feedLikeList
         (AppDelegate.sharedInstance.navigationController?.topViewController)!.pushView(profileVC, animated: true)
     }
+    
+  
     
     @objc func openComments(sender:UIButton)
     {

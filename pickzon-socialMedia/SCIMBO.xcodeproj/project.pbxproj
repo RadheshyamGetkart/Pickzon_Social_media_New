@@ -339,6 +339,8 @@
 		29914BEB2B8C956B00405289 /* ImageWithSvgaFrame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29914BEA2B8C956B00405289 /* ImageWithSvgaFrame.swift */; };
 		299192312B0DE06400CA6AA4 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 299192302B0DE06400CA6AA4 /* StoreKit.framework */; };
 		2994A00C2B26DAE700F91AE6 /* animatedLine.gif in Resources */ = {isa = PBXBuildFile; fileRef = 2994A00B2B26DAE600F91AE6 /* animatedLine.gif */; };
+		2994D9D22ECAD6A2009ECFE0 /* StoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2994D9D12ECAD6A2009ECFE0 /* StoryViewController.swift */; };
+		2994D9D32ECAD6A2009ECFE0 /* StoryPageViewVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2994D9D02ECAD6A2009ECFE0 /* StoryPageViewVC.swift */; };
 		299554E328928CE70013BB19 /* CommentCVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 299554E128928CE70013BB19 /* CommentCVCell.swift */; };
 		299554E428928CE70013BB19 /* CommentCVCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 299554E228928CE70013BB19 /* CommentCVCell.xib */; };
 		29959D8F2E8A38C500A693A9 /* WelcomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29959D8E2E8A38C500A693A9 /* WelcomeVC.swift */; };
@@ -425,8 +427,6 @@
 		29D40587295DF58B003B0B9E /* ListViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29D40585295DF58A003B0B9E /* ListViewCell.swift */; };
 		29D40588295DF58B003B0B9E /* ListViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 29D40586295DF58A003B0B9E /* ListViewCell.xib */; };
 		29D618C32A0BA0B7007042A5 /* CompressNew.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29D618C22A0BA0B7007042A5 /* CompressNew.swift */; };
-		29D7D59F2A25AB550036DCC0 /* StoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29D7D59C2A25AB540036DCC0 /* StoryViewController.swift */; };
-		29D7D5A12A25AB550036DCC0 /* StoryPageViewVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29D7D59E2A25AB550036DCC0 /* StoryPageViewVC.swift */; };
 		29D7D5A92A25ABBD0036DCC0 /* OptionCollectionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 29D7D5A32A25ABB70036DCC0 /* OptionCollectionCell.xib */; };
 		29D7D5AA2A25ABBD0036DCC0 /* StoryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29D7D5A42A25ABB90036DCC0 /* StoryCollectionViewCell.swift */; };
 		29D7D5AB2A25ABBD0036DCC0 /* StoryCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 29D7D5A52A25ABBA0036DCC0 /* StoryCollectionViewCell.xib */; };
@@ -1722,6 +1722,8 @@
 		29914BEA2B8C956B00405289 /* ImageWithSvgaFrame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageWithSvgaFrame.swift; sourceTree = "<group>"; };
 		299192302B0DE06400CA6AA4 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		2994A00B2B26DAE600F91AE6 /* animatedLine.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = animatedLine.gif; sourceTree = "<group>"; };
+		2994D9D02ECAD6A2009ECFE0 /* StoryPageViewVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryPageViewVC.swift; sourceTree = "<group>"; };
+		2994D9D12ECAD6A2009ECFE0 /* StoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryViewController.swift; sourceTree = "<group>"; };
 		299554E128928CE70013BB19 /* CommentCVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentCVCell.swift; sourceTree = "<group>"; };
 		299554E228928CE70013BB19 /* CommentCVCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CommentCVCell.xib; sourceTree = "<group>"; };
 		29959D8E2E8A38C500A693A9 /* WelcomeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeVC.swift; sourceTree = "<group>"; };
@@ -1812,8 +1814,6 @@
 		29D40585295DF58A003B0B9E /* ListViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListViewCell.swift; sourceTree = "<group>"; };
 		29D40586295DF58A003B0B9E /* ListViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ListViewCell.xib; sourceTree = "<group>"; };
 		29D618C22A0BA0B7007042A5 /* CompressNew.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompressNew.swift; sourceTree = "<group>"; };
-		29D7D59C2A25AB540036DCC0 /* StoryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StoryViewController.swift; sourceTree = "<group>"; };
-		29D7D59E2A25AB550036DCC0 /* StoryPageViewVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StoryPageViewVC.swift; sourceTree = "<group>"; };
 		29D7D5A32A25ABB70036DCC0 /* OptionCollectionCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OptionCollectionCell.xib; sourceTree = "<group>"; };
 		29D7D5A42A25ABB90036DCC0 /* StoryCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StoryCollectionViewCell.swift; sourceTree = "<group>"; };
 		29D7D5A52A25ABBA0036DCC0 /* StoryCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = StoryCollectionViewCell.xib; sourceTree = "<group>"; };
@@ -3675,9 +3675,9 @@
 		298FD1692A1B25BF0049C918 /* StoryVC */ = {
 			isa = PBXGroup;
 			children = (
+				2994D9D02ECAD6A2009ECFE0 /* StoryPageViewVC.swift */,
+				2994D9D12ECAD6A2009ECFE0 /* StoryViewController.swift */,
 				29D7D5A22A25AB9D0036DCC0 /* StoryCell */,
-				29D7D59C2A25AB540036DCC0 /* StoryViewController.swift */,
-				29D7D59E2A25AB550036DCC0 /* StoryPageViewVC.swift */,
 				29F8911C2A1CC23300923D10 /* VideoGenertor */,
 				29C2096F2A27B4E2006E4344 /* GenerateVideo.swift */,
 			);
@@ -8027,7 +8027,6 @@
 				18234FA325920E1500307910 /* VideoResponse.swift in Sources */,
 				F0E8D7E62BD6431300A3AAC5 /* PurchaseAvatarFrameVC.swift in Sources */,
 				F000D46E28C0ADA9004B424D /* SPCategoryCell.swift in Sources */,
-				29D7D59F2A25AB550036DCC0 /* StoryViewController.swift in Sources */,
 				C54C05761E3B59A800E1BE7D /* UUImageAvatarBrowser.m in Sources */,
 				29E0FA7D2B4538830059F233 /* LiveStreamingTblCell.swift in Sources */,
 				2921E5C22A3C37EF0008BBB2 /* CoinCollectionCell.swift in Sources */,
@@ -8040,6 +8039,8 @@
 				F000D47128C0B051004B424D /* SPCategoriesAllViewController.swift in Sources */,
 				F09EEC1027E1F86100E5FFD9 /* YPImagePickerConfiguration.swift in Sources */,
 				2974E4C62BC4FD3900C5CF2F /* LoadingCell.swift in Sources */,
+				2994D9D22ECAD6A2009ECFE0 /* StoryViewController.swift in Sources */,
+				2994D9D32ECAD6A2009ECFE0 /* StoryPageViewVC.swift in Sources */,
 				2912DDC32A6553BD00D76DB8 /* FeedsCell.swift in Sources */,
 				F09EEC0A27E1F86100E5FFD9 /* YPFiltersView.swift in Sources */,
 				F09EEC4727E1F86200E5FFD9 /* UIColor+Extensions.swift in Sources */,
@@ -8075,7 +8076,6 @@
 				F09EEC2F27E1F86100E5FFD9 /* LibraryMediaManager.swift in Sources */,
 				F09EEC4127E1F86100E5FFD9 /* Array+Extensions.swift in Sources */,
 				1808346924C6F8DB00814B75 /* UITextFieldX.swift in Sources */,
-				29D7D5A12A25AB550036DCC0 /* StoryPageViewVC.swift in Sources */,
 				290722472B6CA9EE004345E7 /* GiftBannerTblCell.swift in Sources */,
 				F09EEC5A27E1F86200E5FFD9 /* YPPhotoSaver.swift in Sources */,
 				F09F272E29B2FE9400FB7225 /* GenderCell.swift in Sources */,
@@ -9190,7 +9190,7 @@
 				CODE_SIGN_ENTITLEMENTS = SCIMBO/SCIMBO.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1.91;
+				CURRENT_PROJECT_VERSION = 2.0;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				DEVELOPMENT_TEAM = NHBQDLLJN4;
 				ENABLE_BITCODE = NO;
@@ -9226,7 +9226,7 @@
 					"$(PROJECT_DIR)/SCIMBO/Utilities/OtherResources/VoiceLib",
 					"${SDKROOT}/usr/include/libxml2",
 				);
-				MARKETING_VERSION = 1.91;
+				MARKETING_VERSION = 2.0;
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-ObjC",
@@ -9462,7 +9462,7 @@
 				CODE_SIGN_ENTITLEMENTS = SCIMBO/SCIMBO.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1.91;
+				CURRENT_PROJECT_VERSION = 2.0;
 				DEVELOPMENT_TEAM = NHBQDLLJN4;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -9499,7 +9499,7 @@
 					"$(PROJECT_DIR)/SCIMBO/Utilities/OtherResources/VoiceLib",
 					"${SDKROOT}/usr/include/libxml2",
 				);
-				MARKETING_VERSION = 1.91;
+				MARKETING_VERSION = 2.0;
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-ObjC",

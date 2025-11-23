@@ -11,6 +11,8 @@ import Photos
 import PryntTrimmerView
 import Stevia
 
+
+
 public final class YPVideoFiltersVC: UIViewController, IsMediaFilterVC {
 
     /// Designated initializer
@@ -34,7 +36,7 @@ public final class YPVideoFiltersVC: UIViewController, IsMediaFilterVC {
     private var playbackTimeCheckerTimer: Timer?
     private var imageGenerator: AVAssetImageGenerator?
     private var isFromSelectionVC = false
-
+    public var isfromFeedPost = true
     private let trimmerContainerView: UIView = {
         let v = UIView()
         return v
@@ -70,6 +72,7 @@ public final class YPVideoFiltersVC: UIViewController, IsMediaFilterVC {
         let v = YPMenuItem()
         v.textLabel.text = "Edit"
         v.button.addTarget(self, action: #selector(editVideo), for: .touchUpInside)
+        v.button.setTitleColor(CustomColor.sharedInstance.newThemeColor, for: .normal)
         return v
     }()
      let coverBottomItem: YPMenuItem = {
@@ -203,7 +206,7 @@ public final class YPVideoFiltersVC: UIViewController, IsMediaFilterVC {
         
         view.sv(
             trimBottomItem,
-            coverBottomItem,
+          //  coverBottomItem,
             videoView,
             coverImageView,
             trimmerContainerView.sv(
@@ -214,10 +217,10 @@ public final class YPVideoFiltersVC: UIViewController, IsMediaFilterVC {
 
         trimBottomItem.leading(0).height(40)
         trimBottomItem.Bottom == view.safeAreaLayoutGuide.Bottom
-        trimBottomItem.Trailing == coverBottomItem.Leading
-        coverBottomItem.Bottom == view.safeAreaLayoutGuide.Bottom
-        coverBottomItem.trailing(0)
-        equal(sizes: trimBottomItem, coverBottomItem)
+        trimBottomItem.Trailing ==  20 //coverBottomItem.Leading
+//        coverBottomItem.Bottom == view.safeAreaLayoutGuide.Bottom
+//        coverBottomItem.trailing(0)
+//        equal(sizes: trimBottomItem, coverBottomItem)
 
         
        // videoView.heightEqualsWidth().fillHorizontally().top(0)
@@ -243,7 +246,7 @@ public final class YPVideoFiltersVC: UIViewController, IsMediaFilterVC {
 
     // MARK: - Actions
 
-    @objc private func save() {
+   /* @objc private func save() {
         guard let didSave = didSave else {
             return ypLog("Don't have saveCallback")
         }
@@ -295,7 +298,76 @@ public final class YPVideoFiltersVC: UIViewController, IsMediaFilterVC {
             ypLog("Error: \(error)")
         }
     }
+    */
     
+    @objc private func save() {
+   
+
+        do {
+            let asset = AVURLAsset(url: inputVideo.url)
+            let trimmedAsset = try asset
+                .assetByTrimming(startTime: trimmerView.startTime ?? CMTime.zero,
+                                 endTime: trimmerView.endTime ?? inputAsset.duration)
+            
+            
+            if isfromFeedPost{
+                if asset.duration.seconds > Settings.sharedInstance.feedVideoDuration{
+                    AlertView.sharedManager.displayMessageWithAlert(title: "", msg: "Maximum video durtion is \(Settings.sharedInstance.feedVideoDuration) second. Please trim/edit video")
+                    return
+                }
+            }else{
+                if asset.duration.seconds > Settings.sharedInstance.statusDuration{
+                    AlertView.sharedManager.displayMessageWithAlert(title: "", msg: "Maximum video durtion is \(Settings.sharedInstance.statusDuration) second. Please trim/edit video")
+                    return
+                }
+            }
+          
+            guard let didSave = didSave else {
+                return ypLog("Don't have saveCallback")
+            }
+
+            navigationItem.rightBarButtonItem = YPLoaders.defaultLoader
+            
+            let destinationURL = URL(fileURLWithPath: NSTemporaryDirectory())
+                .appendingUniquePathComponent(pathExtension: YPConfig.video.fileType.fileExtension)
+            
+            _ = trimmedAsset.export(to: destinationURL) { [weak self] session in
+                switch session.status {
+                case .completed:
+                    DispatchQueue.main.async {
+                        if let coverImage = self?.coverImageView.image {
+                            let resultVideo = YPMediaVideo(thumbnail: coverImage,
+                                                           videoURL: destinationURL,
+                                                           asset: self?.inputVideo.asset)
+                            didSave(YPMediaItem.video(v: resultVideo))
+                            self?.setupRightBarButtonItem()
+                        } else {
+                            ypLog("Don't have coverImage.")
+                        }
+                    }
+                case .failed:
+                    ypLog("Export of the video failed. Reason: \(String(describing: session.error))")
+                    
+                    if let coverImage = self?.coverImageView.image {
+                        let resultVideo = YPMediaVideo(thumbnail: coverImage,
+                                                       videoURL: self?.inputVideo.url ?? URL(fileURLWithPath: ""),
+                                                       asset: self?.inputVideo.asset)
+                        didSave(YPMediaItem.video(v: resultVideo))
+                        self?.setupRightBarButtonItem()
+                    } else {
+                        ypLog("Don't have coverImage.")
+                    }
+                    
+                default:
+                    ypLog("Export session completed with \(session.status) status. Not handled")
+                }
+            }
+        } catch let error {
+            ypLog("Error: \(error)")
+        }
+    }
+    
+
     @objc private func cancel() {
         didCancel?()
     }

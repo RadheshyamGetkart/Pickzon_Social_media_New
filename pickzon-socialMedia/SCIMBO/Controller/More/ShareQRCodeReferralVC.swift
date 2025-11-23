@@ -60,7 +60,7 @@ class ShareQRCodeReferralVC: UIViewController {
     
     @IBAction func shareLinkButtonAction(sender:UIButton){
         
-        // let appStoreLink = "Use this code during signup (Referal Code: \(strReferralCode)) to claim your bonus instantly.\nDownload PickZon app & stay entertained! \nhttps://www.pickzon.com/apps"
+        // let appStoreLink = "Use this code during signup (Referal Code: \(strReferralCode)) to claim your bonus instantly.\nDownload Pickzon app & stay entertained! \nhttps://www.pickzon.com/apps"
         
         if let img = self.imgVwQrCode.image {
 

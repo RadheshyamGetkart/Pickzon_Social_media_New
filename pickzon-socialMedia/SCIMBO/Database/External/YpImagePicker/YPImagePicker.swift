@@ -31,6 +31,7 @@ open class YPImagePicker: UINavigationController {
         self.init(configuration: YPImagePickerConfiguration.shared)
     }
 
+    open var isFromFeedPost = false
     /// Get a YPImagePicker with the specified configuration.
     public required init(configuration: YPImagePickerConfiguration) {
         YPImagePickerConfiguration.shared = configuration
@@ -163,8 +164,9 @@ open class YPImagePicker: UINavigationController {
                 }else  if YPConfig.showsVideoTrimmer {
                     DispatchQueue.main.async {
                         self?.picker.videoVC?.videoHelper.removeLoader()
-                        let videoFiltersVC = YPVideoFiltersVC.initWith(video: video,
+                        var videoFiltersVC = YPVideoFiltersVC.initWith(video: video,
                                                                        isFromSelectionVC: false)
+                        videoFiltersVC.isfromFeedPost = self?.isFromFeedPost ?? false
                         videoFiltersVC.coverBottomItem.isHidden(value: false)
                         
                         videoFiltersVC.didSave = { [weak self] outputMedia in

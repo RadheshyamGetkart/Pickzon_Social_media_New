@@ -95,13 +95,23 @@ class StoryPageViewVC: UIPageViewController {
         swipeDown.cancelsTouchesInView = false
         self.view.addGestureRecognizer(swipeDown)
         
+                    if let controller =  pages[currentStatusIndex] as? StoryViewController {
+                        controller.viewIsDisplayed()
+        
+                    }
+        
     }
     
-    override func viewDidAppear(_ animated: Bool) {
+   override func viewDidAppear(_ animated: Bool) {
         statusBarHidden = false
         //To play when come back
         if pages.count > currentStatusIndex && isFirst == false{
             pages[currentStatusIndex].viewWillAppear(true)
+            
+//            if let controller =  pages[currentStatusIndex] as? StoryViewController {
+//                controller.viewIsDisplayed()
+//
+//            }
         }else{
             self.isFirst = false
         }
@@ -116,9 +126,19 @@ class StoryPageViewVC: UIPageViewController {
         }
     }
     
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        
+        if let controller =  pages[currentStatusIndex] as? StoryViewController {
+            controller.videoView.player?.pause()
+        }
+    }
+    
     deinit {
         self.wallStatusArray.removeAll()
-        pages[currentStatusIndex].viewDidAppear(true)
+//        pages[currentStatusIndex].viewDidAppear(true)
+        pages[currentStatusIndex].viewWillDisappear(true)
+
         print("Deinit PAgeView")
     }
 
@@ -203,7 +223,15 @@ extension StoryPageViewVC:StoryViewControllerDelegate{
             return
         }
         currentStatusIndex = currentStatusIndex+1
-        setViewControllers([pages[currentStatusIndex]], direction: .forward, animated: true, completion: nil)
+      //  setViewControllers([pages[currentStatusIndex]], direction: .forward, animated: true, completion: nil)
+        
+        
+        setViewControllers([pages[currentStatusIndex]], direction: .forward, animated: true) { _ in
+//            if let controller =  pages[currentStatusIndex] as? StoryViewController {
+//                controller.viewIsDisplayed()
+//
+//            }
+        }
     }
     
     func backButtonClicked() {

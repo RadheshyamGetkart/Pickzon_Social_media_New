@@ -1782,7 +1782,7 @@ extension FeedChatVC: CustomTableViewCellDelegate,MFMessageComposeViewController
         
         if (MFMessageComposeViewController.canSendText()) {
             let controller = MFMessageComposeViewController()
-            controller.body = "Download PickZon app & stay entertained! \nIOS App: https://apps.apple.com/in/app/pickzon/id1560097730 \n Android App: https://play.google.com/store/apps/details?id=com.chat.pickzon"
+            controller.body = "Download Pickzon app & stay entertained! \nIOS App: https://apps.apple.com/in/app/pickzon/id1560097730 \n Android App: https://play.google.com/store/apps/details?id=com.chat.pickzon"
             controller.recipients = [cellItem.messageFrame.message.contact_phone]
             controller.messageComposeDelegate = self
             self.present(controller, animated: true, completion: nil)

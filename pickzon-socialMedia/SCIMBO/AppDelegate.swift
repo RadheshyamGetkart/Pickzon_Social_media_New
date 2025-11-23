@@ -477,9 +477,8 @@ var backgroundTask: UIBackgroundTaskIdentifier = UIBackgroundTaskIdentifier.inva
         
         
 //        // --- GOOGLE SIGN-IN callback first ---
-            if GIDSignIn.sharedInstance.handle(url) {
-                return true
-            }
+//
+        
         
         if url == URL.init(string: "pickzon://") {
             var CheckLogin = false

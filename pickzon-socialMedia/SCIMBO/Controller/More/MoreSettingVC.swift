@@ -628,7 +628,7 @@ extension MoreSettingVC:UITableViewDelegate,UITableViewDataSource{
         
 //  let appStoreLink = "Download PickZon app & stay entertained! \nIOS App: https://apps.apple.com/in/app/pickzon/id1560097730 \n Android App: https://play.google.com/store/apps/details?id=com.chat.pickzon"
         
-        let appStoreLink = "Download PickZon app & stay entertained! \n https://www.pickzon.com/apps"
+        let appStoreLink = "Download Pickzon app & stay entertained! \n https://www.pickzon.com/apps"
         let objectsToShare = [appStoreLink, ActionExtensionBlockerItem()] as [Any]
         let activityVC = UIActivityViewController(activityItems: objectsToShare, applicationActivities: nil)
         activityVC.setValue("PickZon App", forKey: "subject")

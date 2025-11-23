@@ -29,6 +29,7 @@ protocol StoryViewControllerDelegate : AnyObject {
 
 class StoryViewController:  UIViewController,SegmentedProgressBarDelegate, ContentSheetDelegate, UIScrollViewDelegate{
   
+    
     @IBOutlet weak var lblMarquee: MarqueeLabel!
     @IBOutlet weak var imgVwSong: UIImageView!
     @IBOutlet weak var btnRepostYourTag: UIButton!
@@ -185,9 +186,9 @@ class StoryViewController:  UIViewController,SegmentedProgressBarDelegate, Conte
       
         if(isFromView)
         {
-            DispatchQueue.main.asyncAfter(deadline: .now() + 1.0, execute: {
+           // DispatchQueue.main.asyncAfter(deadline: .now() + 1.0, execute: {
                 self.replayViewShower()
-            })
+           // })
         }
         
         bgViewCount.isHidden = true
@@ -219,7 +220,7 @@ class StoryViewController:  UIViewController,SegmentedProgressBarDelegate, Conte
         
         self.view.insertSubview(videoView, belowSubview: self.topView)
        
-        self.viewIsDisplayed()
+   //   self.viewIsDisplayed()
 
 
     }
@@ -227,17 +228,19 @@ class StoryViewController:  UIViewController,SegmentedProgressBarDelegate, Conte
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         print("UIViewController: StoryViewController")
-        //        if !fromBottomView{
-        //            viewIsDisplayed()
-        //        }
+        IQKeyboardManager.shared().isEnabled = false
+
+                if !fromBottomView{
+                   // viewIsDisplayed()
+                }
         
-        self.viewIsDisplayed()
+       self.viewIsDisplayed()
     }
     
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        IQKeyboardManager.shared().isEnabled = true
+        IQKeyboardManager.shared().isEnabled = false
         IQKeyboardManager.shared().keyboardDistanceFromTextField = (UIDevice().hasNotch)  ? 0 : 5
 
         if !fromBottomView{
@@ -265,6 +268,8 @@ class StoryViewController:  UIViewController,SegmentedProgressBarDelegate, Conte
   
     override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
+        self.videoView.player?.pause()
+
         if !fromBottomView{
             viewIsHiding()
         }
@@ -357,18 +362,19 @@ class StoryViewController:  UIViewController,SegmentedProgressBarDelegate, Conte
         }
                 
         isViewDisplayed = true
-        videoView.player?.play()
-//        if(startIndex < self.wallStatusObj.statusArray.count){
-//            
-//            let messageFrame = self.wallStatusObj.statusArray[startIndex]
-//            
-//            if checkMediaTypes(strUrl: messageFrame.media) == 1{
-//                
-//            }else{
-//                videoView.player?.play()
-//                
-//            }
-//        }
+       // videoView.player?.play()
+        
+        if(startIndex < self.wallStatusObj.statusArray.count){
+            
+            let messageFrame = self.wallStatusObj.statusArray[startIndex]
+            
+            if checkMediaTypes(strUrl: messageFrame.media) == 1{
+                
+            }else{
+                videoView.player?.play()
+                
+            }
+        }
     }
     
     func viewIsHiding(){
@@ -401,6 +407,7 @@ class StoryViewController:  UIViewController,SegmentedProgressBarDelegate, Conte
     }
     
     @objc func playerEnd(){
+        print("xzzsczxcx")
        // progressBar.skip()
     }
     
@@ -788,6 +795,7 @@ class StoryViewController:  UIViewController,SegmentedProgressBarDelegate, Conte
   
 
     @IBAction func backButtonDidTapped(_ sender: UIButton) {
+        self.videoView.player?.pause()
         delegate?.backButtonClicked()
     }
     
@@ -805,21 +813,33 @@ class StoryViewController:  UIViewController,SegmentedProgressBarDelegate, Conte
             
         }else{
          //   replayViewSetter()
-            blureView.isHidden = false
-            self.view.sendSubviewToBack(videoView)
+                self.blureView.isHidden = false
+                self.view.sendSubviewToBack(self.videoView)
+                self.view.bringSubviewToFront(self.blureView)
+                self.messageTextField.isHidden = false
+                self.messageButton.isHidden = false
+                self.viewBackTxtMSG.isHidden = false
             
-            self.view.bringSubviewToFront(blureView)
-            messageTextField.isHidden = false
-            messageButton.isHidden = false
-            viewBackTxtMSG.isHidden = false
-            self.messageTextField.becomeFirstResponder()
+
+           
+          //  DispatchQueue.main.async {
+                self.messageTextField.becomeFirstResponder()
+          //  }
+                
+                if (self.messageTextField.text?.count ?? 0) == 0 {
+                    let objStoryStatus = self.wallStatusObj.statusArray[ self.progressBar.currentAnimationIndex]
+                    self.messageButton.setImage((objStoryStatus.isLike == 1) ? PZImages.heart_Filled :  PZImages.heartWhite_blank, for: .normal)
+                }else {
+                    self.messageButton.setImage(UIImage(named: "send"), for: .normal)
+                }
             
-            if (messageTextField.text?.count ?? 0) == 0 {
-                let objStoryStatus = self.wallStatusObj.statusArray[ self.progressBar.currentAnimationIndex]
-                self.messageButton.setImage((objStoryStatus.isLike == 1) ? PZImages.heart_Filled :  PZImages.heartWhite_blank, for: .normal)
-            }else {
-                messageButton.setImage(UIImage(named: "send"), for: .normal)
-            }
+            
+//            DispatchQueue.main.asyncAfter(deadline: .now() + 0.5, execute: {
+//                self.messageTextField.becomeFirstResponder()
+//
+//            })
+
+           
         }
     }
     
@@ -829,12 +849,10 @@ class StoryViewController:  UIViewController,SegmentedProgressBarDelegate, Conte
         progressBar.skip()
     }
     
-    @objc fileprivate func swipeUpButtonTapped() {
-        replayViewShower()
-    }
-    
+  
     @IBAction func swipUpButtonDidTapped(_ sender: UIButton) {
-        swipeUpButtonTapped()
+        
+        replayViewShower()
     }
     
     private func deallocPlayer() {
@@ -995,6 +1013,18 @@ class StoryViewController:  UIViewController,SegmentedProgressBarDelegate, Conte
             guard let weak = self else { return }
             weak.appEnterForeground()
         }
+        
+        
+        NotificationCenter.default.addObserver(self,
+            selector: #selector(keyboardWillShow),
+            name: UIResponder.keyboardWillShowNotification,
+            object: nil)
+
+        NotificationCenter.default.addObserver(self,
+            selector: #selector(keyboardWillHide),
+            name: UIResponder.keyboardWillHideNotification,
+            object: nil)
+
     }
     
     func removeNotificationListener() {
@@ -1017,7 +1047,31 @@ class StoryViewController:  UIViewController,SegmentedProgressBarDelegate, Conte
             self.removeNotificationListener()
         }
     }
+    
+    //MARK: Keyboard observers
+    @objc func keyboardWillShow(_ notification: Notification) {
+        if let keyboardFrame = notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? CGRect {
+            let height = keyboardFrame.height
+
+            UIView.animate(withDuration: 0.3) {
+                self.bottomViewbottomConstraint.constant = height
+                self.view.layoutIfNeeded()
+
+            }
+        }
+    }
+
+    @objc func keyboardWillHide(_ notification: Notification) {
+        UIView.animate(withDuration: 0.3) {
+            self.bottomViewbottomConstraint.constant = 0
+                   self.view.layoutIfNeeded()
+
+        }
+    }
+
 }
+
+
 
 
 //extension StoryViewController : PersonViewedStatusViewDelegate {
@@ -1055,7 +1109,7 @@ extension StoryViewController : UITextFieldDelegate,OnlyPicturesDataSource,OnlyP
     
     func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
                 
-        IQKeyboardManager.shared().keyboardDistanceFromTextField = (UIDevice().hasNotch)  ? 0 : 5
+      //  IQKeyboardManager.shared().keyboardDistanceFromTextField = (UIDevice().hasNotch)  ? 0 : 5
         return true
     }
     

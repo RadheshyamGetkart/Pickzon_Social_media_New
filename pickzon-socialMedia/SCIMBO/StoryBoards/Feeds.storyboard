@@ -9452,7 +9452,7 @@
                                                     <constraint firstAttribute="width" constant="150" id="GFp-88-8Gs"/>
                                                     <constraint firstAttribute="height" constant="44" id="Utx-eT-j0A"/>
                                                 </constraints>
-                                                <fontDescription key="fontDescription" name="ProximaNova-Bold" family="Proxima Nova" pointSize="18"/>
+                                                <fontDescription key="fontDescription" name="ProximaNova-Bold" family="Proxima Nova" pointSize="17"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
@@ -9562,7 +9562,7 @@
         <image name="done" width="106" height="106"/>
         <image name="down-arrow" width="12" height="12"/>
         <image name="down-arrow 1-3" width="24" height="24"/>
-        <image name="dummy" width="266.5" height="195"/>
+        <image name="dummy" width="800" height="585"/>
         <image name="fluent_copy-20-filled" width="50" height="50"/>
         <image name="fluent_copy-20-filled 1" width="50" height="50"/>
         <image name="frameBG.jpg" width="750" height="1624"/>

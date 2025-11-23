@@ -20,9 +20,9 @@
 - (HXPhotoManager *)twoManager {
     if (!_twoManager) {
         _twoManager = [[HXPhotoManager alloc] initWithType:HXPhotoManagerSelectedTypeVideo];
-        _twoManager.configuration.videoMaximumDuration = 10.f;
-        _twoManager.configuration.videoMaxNum = 10;
-        _twoManager.configuration.maxNum = 10;
+        _twoManager.configuration.videoMaximumDuration = 5.f;
+        _twoManager.configuration.videoMaxNum = 2;
+        _twoManager.configuration.maxNum = 2;
     }
     return _twoManager;
 }

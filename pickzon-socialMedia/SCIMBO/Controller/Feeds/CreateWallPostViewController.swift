@@ -1455,7 +1455,9 @@ extension CreateWallPostViewController:YPImagePickerDelegate {
         config.gallery.hidesRemoveButton = false
         config.video.fileType = .mp4
         
-        config.video.trimmerMaxDuration = Settings.sharedInstance.feedVideoDuration
+//        config.video.automaticTrimToTrimmerMaxDuration = true
+//        
+//        config.video.trimmerMaxDuration = Settings.sharedInstance.feedVideoDuration
         config.video.trimmerMinDuration = 3.0
         /* Defines the time limit for videos from the library.
          Defaults to 60 seconds. */
@@ -1467,7 +1469,7 @@ extension CreateWallPostViewController:YPImagePickerDelegate {
         
         let picker = YPImagePicker(configuration: config)
         picker.imagePickerDelegate = self
-        
+        picker.isFromFeedPost = true
         picker.didFinishPicking { [weak picker] items, cancelled in
             
             if cancelled {

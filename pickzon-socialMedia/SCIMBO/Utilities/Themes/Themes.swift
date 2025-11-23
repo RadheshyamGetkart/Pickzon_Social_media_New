@@ -1651,15 +1651,15 @@ import Kingfisher
     
     func userTagColor() ->UIColor{
         
-        return UIColor(named: "themeColor")!
+        return  UIColor.label // UIColor(named: "themeColor")!
 
        // return self.colorWithHexString(hex: "#1F2232")
     }
     
     func hashTagColor() ->UIColor{
-        return UIColor(named: "themeColor")!
+    //    return UIColor(named: "themeColor")!
 
-       // return self.colorWithHexString(hex: "#053C43")
+        return self.colorWithHexString(hex: "#00A69A")
     }
     
     func linkColor() ->UIColor{

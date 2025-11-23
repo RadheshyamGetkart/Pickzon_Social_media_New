@@ -67,7 +67,8 @@ target 'SCIMBO' do
   pod 'Firebase/DynamicLinks'
   pod 'ShimmerView'
   pod 'NSFWDetector'
-  pod 'GoogleSignIn'
+ # pod 'GoogleSignIn'
+  pod 'GoogleSignIn', '~> 7.0'
   pod 'SVGAPlayer'
   pod 'GooglePlaces'
   

@@ -88,12 +88,12 @@ class ShareReferallCodeVC: UIViewController {
     
     @IBAction func shareBtnAction(_ sender: UIButton){
         
-        let appStoreLink = "Use this code during signup (Referal Code: \(strReferralCode)) to claim your bonus instantly.\nDownload PickZon app & stay entertained! \nhttps://www.pickzon.com/apps"
+        let appStoreLink = "Use this code during signup (Referal Code: \(strReferralCode)) to claim your bonus instantly.\nDownload Pickzon app & stay entertained! \nhttps://www.pickzon.com/apps"
         
         let objectsToShare = [appStoreLink]
         let activityVC = UIActivityViewController(activityItems: objectsToShare, applicationActivities: nil)
         
-        activityVC.setValue("PickZon App", forKey: "subject")
+        activityVC.setValue("Pickzon App", forKey: "subject")
         activityVC.completionWithItemsHandler = { activity, success, items, error in
             if success == true {
                 print("Success")

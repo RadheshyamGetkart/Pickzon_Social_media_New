@@ -545,7 +545,7 @@ extension CreateWallStatusVC:YPImagePickerDelegate {
 
         /* Defines the time limit for videos from the library.
            Defaults to 60 seconds. */
-        config.video.libraryTimeLimit = 600.0
+        config.video.libraryTimeLimit =  600.0
         config.showsVideoTrimmer = true
         config.video.trimmerMaxDuration = Settings.sharedInstance.statusDuration
         
@@ -583,6 +583,8 @@ extension CreateWallStatusVC:YPImagePickerDelegate {
         config.gallery.hidesRemoveButton = false
         config.video.fileType = .mp4
         config.video.compression = AVAssetExportPresetPassthrough
+//        config.video.automaticTrimToTrimmerMaxDuration = true
+//        config.video.trimmerMaxDuration = Settings.sharedInstance.statusDuration
         
        // config.video = 30.0
 
@@ -622,7 +624,7 @@ extension CreateWallStatusVC:YPImagePickerDelegate {
 
         let picker = YPImagePicker(configuration: config)
         picker.imagePickerDelegate = self
-        
+        picker.isFromFeedPost = false
 
         /* Change configuration directly */
         // YPImagePickerConfiguration.shared.wordings.libraryTitle = "Gallery2"
