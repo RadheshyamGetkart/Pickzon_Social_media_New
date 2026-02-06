@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="23504" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="23727" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="dark"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="23506"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="23721"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -243,13 +243,13 @@
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="OUs-6F-Ffn">
-                                        <rect key="frame" x="163" y="5" width="168" height="30"/>
+                                        <rect key="frame" x="133" y="5" width="198" height="30"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ejQ-YK-cD5">
-                                                <rect key="frame" x="0.0" y="0.0" width="75" height="30"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="85" height="30"/>
                                                 <subviews>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Kut-OT-sOq">
-                                                        <rect key="frame" x="0.0" y="0.0" width="75" height="30"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="85" height="30"/>
                                                         <color key="backgroundColor" red="0.0" green="0.74117647060000003" blue="0.69019607839999997" alpha="1" colorSpace="calibratedRGB"/>
                                                         <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="11"/>
                                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
@@ -259,7 +259,7 @@
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
                                                     <constraint firstItem="Kut-OT-sOq" firstAttribute="leading" secondItem="ejQ-YK-cD5" secondAttribute="leading" id="ceq-wt-Ukp"/>
-                                                    <constraint firstAttribute="width" constant="75" id="h3o-NC-g6g"/>
+                                                    <constraint firstAttribute="width" constant="85" id="h3o-NC-g6g"/>
                                                     <constraint firstAttribute="trailing" secondItem="Kut-OT-sOq" secondAttribute="trailing" id="jdo-9R-5rZ"/>
                                                     <constraint firstAttribute="height" constant="30" id="m2K-9L-ebQ"/>
                                                     <constraint firstItem="Kut-OT-sOq" firstAttribute="top" secondItem="ejQ-YK-cD5" secondAttribute="top" id="mOZ-gb-3Ib"/>
@@ -267,9 +267,9 @@
                                                 </constraints>
                                             </view>
                                             <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hQK-Yx-3eY" customClass="UIViewX" customModule="PickZon" customModuleProvider="target">
-                                                <rect key="frame" x="83" y="0.0" width="85" height="30"/>
+                                                <rect key="frame" x="93" y="0.0" width="105" height="30"/>
                                                 <subviews>
-                                                    <button opaque="NO" clipsSubviews="YES" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jyl-b6-QoO">
+                                                    <button opaque="NO" clipsSubviews="YES" contentMode="scaleAspectFit" contentHorizontalAlignment="right" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jyl-b6-QoO">
                                                         <rect key="frame" x="6" y="5" width="20" height="20"/>
                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <constraints>
@@ -283,8 +283,8 @@
                                                             <color key="titleShadowColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         </state>
                                                     </button>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pTn-Jk-sF9">
-                                                        <rect key="frame" x="27" y="5" width="52" height="20"/>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="pTn-Jk-sF9">
+                                                        <rect key="frame" x="27" y="5" width="72" height="20"/>
                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="11"/>
                                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
@@ -301,7 +301,7 @@
                                                     <constraint firstItem="jyl-b6-QoO" firstAttribute="leading" secondItem="hQK-Yx-3eY" secondAttribute="leading" constant="6" id="FWg-kA-oho"/>
                                                     <constraint firstAttribute="bottom" secondItem="pTn-Jk-sF9" secondAttribute="bottom" constant="5" id="Qp2-AR-GCT"/>
                                                     <constraint firstAttribute="trailing" secondItem="pTn-Jk-sF9" secondAttribute="trailing" constant="6" id="dwm-tg-x4v"/>
-                                                    <constraint firstAttribute="width" constant="85" id="khM-yw-LyI"/>
+                                                    <constraint firstAttribute="width" constant="105" id="khM-yw-LyI"/>
                                                     <constraint firstItem="pTn-Jk-sF9" firstAttribute="leading" secondItem="jyl-b6-QoO" secondAttribute="trailing" constant="1" id="m0s-5N-Kgv"/>
                                                     <constraint firstItem="pTn-Jk-sF9" firstAttribute="top" secondItem="hQK-Yx-3eY" secondAttribute="top" constant="5" id="zMc-UB-A11"/>
                                                 </constraints>
@@ -502,10 +502,10 @@
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
         <systemColor name="linkColor">
-            <color red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemBlueColor">
-            <color red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

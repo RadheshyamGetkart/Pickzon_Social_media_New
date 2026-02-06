@@ -325,13 +325,25 @@
     void (^finishImage)(UIImage *) = ^(UIImage *image){
         dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
             if (data) {
+                // Create LFPhotoEdit on background thread
                 photoEdit = [[LFPhotoEdit alloc] initWithEditImage:weakSelf.editImage previewImage:image data:data];
             }
             dispatch_async(dispatch_get_main_queue(), ^{
-                if ([weakSelf.delegate respondsToSelector:@selector(lf_PhotoEditingController:didFinishPhotoEdit:)]) {
-                    [weakSelf.delegate lf_PhotoEditingController:self didFinishPhotoEdit:photoEdit];
+                // Promote weakSelf to strongSelf to ensure it stays alive during delegate call
+                __strong typeof(weakSelf) strongSelf = weakSelf;
+                if (!strongSelf) {
+                    // controller was deallocated — nothing to do, just hide HUD if needed
+                    [self hideProgressHUD]; // or avoid calling 'self' if you prefer
+                    return;
                 }
-                [weakSelf hideProgressHUD];
+                
+                id delegate = strongSelf.delegate;
+                if (delegate && [delegate respondsToSelector:@selector(lf_PhotoEditingController:didFinishPhotoEdit:)]) {
+                    // Use strongSelf (not self) as the controller parameter
+                    [delegate lf_PhotoEditingController:strongSelf didFinishPhotoEdit:photoEdit];
+                }
+                
+                [strongSelf hideProgressHUD];
             });
         });
     };
@@ -345,6 +357,41 @@
     }
 }
 
+
+//- (void)finishButtonClick
+//{
+//    [self showProgressHUD];
+//    /** 取消贴图激活 */
+//    [_EditingView stickerDeactivated];
+//    
+//    /** 处理编辑图片 */
+//    __block LFPhotoEdit *photoEdit = nil;
+//    NSDictionary *data = [_EditingView photoEditData];
+//    __weak typeof(self) weakSelf = self;
+//    
+//    void (^finishImage)(UIImage *) = ^(UIImage *image){
+//        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+//            if (data) {
+//                photoEdit = [[LFPhotoEdit alloc] initWithEditImage:weakSelf.editImage previewImage:image data:data];
+//            }
+//            dispatch_async(dispatch_get_main_queue(), ^{
+//                if ([weakSelf.delegate respondsToSelector:@selector(lf_PhotoEditingController:didFinishPhotoEdit:)]) {
+//                    [weakSelf.delegate lf_PhotoEditingController:self didFinishPhotoEdit:photoEdit];
+//                }
+//                [weakSelf hideProgressHUD];
+//            });
+//        });
+//    };
+//    
+//    if (data) {
+//        [_EditingView createEditImage:^(UIImage *editImage) {
+//            finishImage(editImage);
+//        }];
+//    } else {
+//        finishImage(nil);
+//    }
+//}
+//
 #pragma mark - UIGestureRecognizerDelegate
 - (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldReceiveTouch:(UITouch *)touch
 {

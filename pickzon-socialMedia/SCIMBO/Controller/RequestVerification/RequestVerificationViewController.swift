@@ -722,6 +722,10 @@ extension RequestVerificationViewController:UITextFieldDelegate,PickzonIdDelegat
          }
          
          if textField == txtFullName || textField == txtFatherName{
+             let previousText:NSString = textField.text! as NSString
+             let updatedText = previousText.replacingCharacters(in: range, with: string)
+             guard updatedText.count <= 40 else { return false }
+
              return string.isValidName()
          }
          

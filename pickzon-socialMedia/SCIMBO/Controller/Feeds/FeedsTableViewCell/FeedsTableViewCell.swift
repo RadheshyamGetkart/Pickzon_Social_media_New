@@ -30,7 +30,7 @@ class FeedsTableViewCell: FeedsCell, UICollectionViewDelegate, UICollectionViewD
         self.lblMediaCount.layer.cornerRadius = lblMediaCount.frame.size.height/2.0
         self.lblMediaCount.clipsToBounds = true
         btnFolow.backgroundColor = CustomColor.sharedInstance.newThemeColor
-        btnFolow.layer.cornerRadius = btnFolow.frame.size.height/2.0
+        btnFolow.layer.cornerRadius = 5.0 // btnFolow.frame.size.height/2.0
         btnPromote.layer.cornerRadius = btnPromote.frame.size.height/2.0
         btnPromote.backgroundColor = CustomColor.sharedInstance.newThemeColor
         self.separatorInset = .zero

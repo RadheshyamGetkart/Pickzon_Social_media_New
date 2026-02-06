@@ -8,7 +8,7 @@
 
 import Foundation
 
-
+/*
 final class FeedSeenManager {
     static let shared = FeedSeenManager()
     
@@ -66,5 +66,70 @@ final class FeedSeenManager {
     func flushOnAppTerminate() {
         // Force immediate call without waiting for threshold
         updateFeedsSeenArray()
+    }
+}
+
+*/
+
+final class FeedSeenManager {
+
+    static let shared = FeedSeenManager()
+
+    private var seenSet = Set<String>()
+    private var isUpdating = false
+
+    private let queue = DispatchQueue(
+        label: "com.app.feedSeenQueue",
+        qos: .utility
+    )
+
+    private init() {}
+
+    // MARK: - Public
+    func addSeenFeedId(_ id: String) {
+        queue.async {
+            let inserted = self.seenSet.insert(id).inserted
+            guard inserted else { return }
+
+            if self.seenSet.count >= 10 {
+                self.triggerUpdate()
+            }
+        }
+    }
+
+    private func triggerUpdate() {
+        queue.async {
+            guard !self.isUpdating else { return }
+            self.isUpdating = true
+
+            let feedsToSend = Array(self.seenSet)
+
+            // 🔥 NETWORK CHECK + API MUST BE ON MAIN THREAD
+            DispatchQueue.main.async {
+                let params = ["seenFeeds": feedsToSend] as NSDictionary
+
+                URLhandler.sharedinstance.makeCall(
+                    url: Constant.sharedinstance.updateFeedSeenURL,
+                    param: params
+                ) { response, error in
+
+                    self.queue.async {
+                        if error == nil,
+                           (response as? NSDictionary)?["status"] as? Int16 == 1 {
+                            self.seenSet.subtract(feedsToSend)
+                        }
+                        self.isUpdating = false
+                    }
+                }
+            }
+        }
+    }
+
+    // MARK: - App Background / Terminate
+    func flushOnAppTerminate() {
+        queue.async {
+            guard !self.seenSet.isEmpty, !self.isUpdating else { return }
+            self.triggerUpdate()
+        }
     }
 }

@@ -1046,6 +1046,9 @@ extension ProfileEditVC:UITableViewDelegate,UITableViewDataSource,UITextFieldDel
             if string.isEmpty {
                 return true
             }
+            
+            guard updatedText.count <= 40 else { return false }
+
             return string.isValidName()
 
 //            let alphaNumericRegEx = #"[a-zA-Z\s]"#

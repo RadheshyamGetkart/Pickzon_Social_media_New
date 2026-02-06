@@ -12,6 +12,7 @@ extension String{
     
     
     func isValidName() -> Bool {
+
         let alphaNumericRegEx = #"[a-zA-Z\s]"#
         let predicate = NSPredicate(format:"SELF MATCHES %@", alphaNumericRegEx)
         return predicate.evaluate(with: self)

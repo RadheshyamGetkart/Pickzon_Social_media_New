@@ -82,22 +82,22 @@ extension YPPhotoCaptureHelper {
     
     func shoot(completion: @escaping (Data) -> Void) {
         block = completion
-       /*
+    
         // Set current device orientation
         setCurrentOrienation()
         
         let settings = photoCaptureSettings()
         photoOutput.capturePhoto(with: settings, delegate: self)
-        */
-        didTapRecordActionButton()
+        
+       // didTapRecordActionButton()
     }
     
     func start(with previewView: UIView, completion: @escaping () -> Void) {
         self.previewView = previewView
        
-        setupDeepARAndCamera()
+     //   setupDeepARAndCamera()
         
-       /* sessionQueue.async { [weak self] in
+       sessionQueue.async { [weak self] in
             guard let self = self else { return }
             
             if !self.isCaptureSessionSetup {
@@ -106,24 +106,24 @@ extension YPPhotoCaptureHelper {
             self.startCamera {
                 completion()
             }
-        }*/
+        }
     }
     
     func stopCamera() {
-        cameraController?.deepAR?.pause()
+  /*      cameraController?.deepAR?.pause()
         deepAR?.pause()
         deepAR?.shutdown()
         cameraController?.deepAR?.shutdown()
         deepAR = nil
         cameraController = nil
         self.deepARView?.removeFromSuperview()
-
+*/
        // deepAR.shutdown()
-//        if session.isRunning {
-//            sessionQueue.async { [weak self] in
-//                self?.session.stopRunning()
-//            }
-//        }
+        if session.isRunning {
+            sessionQueue.async { [weak self] in
+                self?.session.stopRunning()
+            }
+        }
     }
     
     func zoom(began: Bool, scale: CGFloat) {
@@ -159,18 +159,19 @@ extension YPPhotoCaptureHelper {
     }
     
     func flipCamera(completion: @escaping () -> Void) {
-       /* sessionQueue.async { [weak self] in
+       sessionQueue.async { [weak self] in
             self?.flip()
             DispatchQueue.main.async {
                 completion()
             }
-        }*/
+        }
         
-        if cameraController?.position == .front {
+      /*  if cameraController?.position == .front {
             cameraController?.position = .back
         }else {
             cameraController?.position = .front
         }
+        */
     }
     
     func focus(on point: CGPoint) {
@@ -330,10 +331,10 @@ extension YPPhotoCaptureHelper: DeepARDelegate {
     @objc
     private func didTapRecordActionButton() {
         currentRecordingMode = .photo
-        if (currentRecordingMode == RecordingMode.photo) {
+       /* if (currentRecordingMode == RecordingMode.photo) {
             deepAR!.takeScreenshot()
             return
-        }
+        }*/
         
     }
   

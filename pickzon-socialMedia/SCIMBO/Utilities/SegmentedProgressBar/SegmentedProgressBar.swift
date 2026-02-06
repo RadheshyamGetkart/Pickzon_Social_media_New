@@ -6,6 +6,15 @@
 //  Copyright © 2017 Dylan Marriott. All rights reserved.
 //
 
+//
+//  SegmentedProgressBar.swift
+//  SegmentedProgressBar
+//
+//  Created by Dylan Marriott on 04.03.17.
+//  Modified by ChatGPT on 2025-11-25.
+//  Copyright © 2017 Dylan Marriott. All rights reserved.
+//
+
 import Foundation
 import UIKit
 
@@ -34,19 +43,24 @@ class SegmentedProgressBar: UIView {
             if isPaused {
                 for segment in segments {
                     let layer = segment.topSegmentView.layer
+                    // pause
                     let pausedTime = layer.convertTime(CACurrentMediaTime(), from: nil)
                     layer.speed = 0.0
                     layer.timeOffset = pausedTime
                 }
             } else {
-                let segment = segments[currentAnimationIndex]
-                let layer = segment.topSegmentView.layer
-                let pausedTime = layer.timeOffset
-                layer.speed = 1.0
-                layer.timeOffset = 0.0
-                layer.beginTime = 0.0
-                let timeSincePause = layer.convertTime(CACurrentMediaTime(), from: nil) - pausedTime
-                layer.beginTime = timeSincePause
+                // resume all layers correctly (accounts for possible multiple paused layers)
+                for segment in segments {
+                    let layer = segment.topSegmentView.layer
+                    if layer.timeOffset > 0 {
+                        let pausedTime = layer.timeOffset
+                        layer.speed = 1.0
+                        layer.timeOffset = 0.0
+                        layer.beginTime = 0.0
+                        let timeSincePause = layer.convertTime(CACurrentMediaTime(), from: nil) - pausedTime
+                        layer.beginTime = timeSincePause
+                    }
+                }
             }
         }
     }
@@ -98,15 +112,18 @@ class SegmentedProgressBar: UIView {
     }
     
     private func animate(animationIndex: Int = 0) {
+        guard segments.count > 0, animationIndex < segments.count else {
+            delegate?.segmentedProgressBarFinished()
+            return
+        }
         let nextSegment = segments[animationIndex]
         currentAnimationIndex = animationIndex
-        self.isPaused = false // no idea why we have to do this here, but it fixes everything :D
-        UIView.animate(withDuration: duration[animationIndex], delay: 0.0, options: .curveEaseInOut, animations: {
+        self.isPaused = false // ensure layers are running
+        // Use linear animation for ripple-like smoothness
+        UIView.animate(withDuration: duration[animationIndex], delay: 0.0, options: .curveLinear, animations: {
             nextSegment.topSegmentView.frame.size.width = nextSegment.bottomSegmentView.frame.width
         }) { (finished) in
-            if !finished {
-                return
-            }
+            if !finished { return }
             self.next()
         }
     }
@@ -128,25 +145,17 @@ class SegmentedProgressBar: UIView {
         }
     }
     
-    
-//    private func previous() {
-//        let newIndex = self.currentAnimationIndex - 1
-//        if newIndex < self.segments.count {
-//            self.animate(animationIndex: newIndex)
-//            self.delegate?.segmentedProgressBarChangedIndex(index: newIndex)
-//        } else {
-//            self.delegate?.segmentedProgressBarFinished()
-//        }
-//    }
-    
     func skip() {
+        guard segments.count > currentAnimationIndex else { return }
         let currentSegment = segments[currentAnimationIndex]
         currentSegment.topSegmentView.frame.size.width = currentSegment.bottomSegmentView.frame.width
         currentSegment.topSegmentView.layer.removeAllAnimations()
+        // move to next
         self.next()
     }
     
     func rewind() {
+        guard segments.count > 0 else { return }
         let currentSegment = segments[currentAnimationIndex]
         currentSegment.topSegmentView.layer.removeAllAnimations()
         currentSegment.topSegmentView.frame.size.width = 0
@@ -157,28 +166,23 @@ class SegmentedProgressBar: UIView {
         self.delegate?.segmentedProgressBarChangedIndex(index: newIndex)
     }
     
-    
     func reAnimate() {
+        guard segments.count > 0 else { return }
         let currentSegment = segments[currentAnimationIndex]
         currentSegment.topSegmentView.layer.removeAllAnimations()
         currentSegment.topSegmentView.frame.size.width = 0
         let newIndex = max(currentAnimationIndex - 1, 0)
         let prevSegment = segments[newIndex]
         prevSegment.topSegmentView.frame.size.width = 0
-        // self.animate(animationIndex: newIndex)
-        // self.delegate?.segmentedProgressBarChangedIndex(index: newIndex)
         let nextSegment = segments[newIndex]
-        self.isPaused = false // no idea why we have to do this here, but it fixes everything :D
+        self.isPaused = false
         UIView.animate(withDuration: duration[currentAnimationIndex], delay: 0.5, options: .curveLinear, animations: {
             nextSegment.topSegmentView.frame.size.width = nextSegment.bottomSegmentView.frame.width
         }) { (finished) in
-            if !finished {
-                return
-            }
+            if !finished { return }
         }
     }
 }
-
 
 fileprivate class Segment {
     let bottomSegmentView = UIView()

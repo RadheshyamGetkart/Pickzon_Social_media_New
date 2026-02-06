@@ -16,6 +16,8 @@ class YPFiltersView: UIView {
     var filtersLoader: UIActivityIndicatorView!
     fileprivate let collectionViewContainer: UIView = UIView()
     let customCropButton = UIButton()
+    
+    
 
     convenience init() {
         self.init(frame: CGRect.zero)

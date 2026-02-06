@@ -458,6 +458,7 @@
 		29E6B07C27983BED002F0B5C /* BusinessTblCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 29E6B07A27983BED002F0B5C /* BusinessTblCell.xib */; };
 		29E7E8DE2A9483DA00C7BCE6 /* GiftTblCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29E7E8DC2A9483DA00C7BCE6 /* GiftTblCell.swift */; };
 		29E7E8DF2A9483DA00C7BCE6 /* GiftTblCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 29E7E8DD2A9483DA00C7BCE6 /* GiftTblCell.xib */; };
+		29E985792F20EA0700000590 /* AddPhotosPopupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29E985782F20EA0700000590 /* AddPhotosPopupView.swift */; };
 		29EB2E632678904500528EEE /* PhotoPreviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29EB2E622678904500528EEE /* PhotoPreviewViewController.swift */; };
 		29EC90E62AF37585008715F4 /* AngelListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29EC90E52AF37585008715F4 /* AngelListVC.swift */; };
 		29EF053B2BBD189E00908DCE /* VideoExporter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29EF05382BBD189E00908DCE /* VideoExporter.swift */; };
@@ -1845,6 +1846,7 @@
 		29E6B07A27983BED002F0B5C /* BusinessTblCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BusinessTblCell.xib; sourceTree = "<group>"; };
 		29E7E8DC2A9483DA00C7BCE6 /* GiftTblCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GiftTblCell.swift; sourceTree = "<group>"; };
 		29E7E8DD2A9483DA00C7BCE6 /* GiftTblCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GiftTblCell.xib; sourceTree = "<group>"; };
+		29E985782F20EA0700000590 /* AddPhotosPopupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPhotosPopupView.swift; sourceTree = "<group>"; };
 		29EB2E622678904500528EEE /* PhotoPreviewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoPreviewViewController.swift; sourceTree = "<group>"; };
 		29EC90E52AF37585008715F4 /* AngelListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AngelListVC.swift; sourceTree = "<group>"; };
 		29EF05382BBD189E00908DCE /* VideoExporter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VideoExporter.swift; sourceTree = "<group>"; };
@@ -3811,6 +3813,7 @@
 				29CD5A4228EE963A005A3D8F /* FeedsApi.swift */,
 				293D04252A38444E00DBB277 /* SettingsApi.swift */,
 				29712CDA2EAB7D120006671C /* FeedSeenManager.swift */,
+				29E985782F20EA0700000590 /* AddPhotosPopupView.swift */,
 			);
 			path = Feed;
 			sourceTree = "<group>";
@@ -8237,6 +8240,7 @@
 				F02CE3CA2C41452F007C07EC /* HXPhotoPersentInteractiveTransition.m in Sources */,
 				2915CDDD2A49400000209F1C /* CoinUpSuccessAlertView.swift in Sources */,
 				F02CE3DF2C41452F007C07EC /* HXPhotoViewController.m in Sources */,
+				29E985792F20EA0700000590 /* AddPhotosPopupView.swift in Sources */,
 				299554E328928CE70013BB19 /* CommentCVCell.swift in Sources */,
 				C5493E9F20505B9200EA3886 /* DataCompression.swift in Sources */,
 				C54C057A1E3B59A800E1BE7D /* UUMessageContentButton.m in Sources */,
@@ -9190,7 +9194,7 @@
 				CODE_SIGN_ENTITLEMENTS = SCIMBO/SCIMBO.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2.0;
+				CURRENT_PROJECT_VERSION = 2.2;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				DEVELOPMENT_TEAM = NHBQDLLJN4;
 				ENABLE_BITCODE = NO;
@@ -9226,7 +9230,7 @@
 					"$(PROJECT_DIR)/SCIMBO/Utilities/OtherResources/VoiceLib",
 					"${SDKROOT}/usr/include/libxml2",
 				);
-				MARKETING_VERSION = 2.0;
+				MARKETING_VERSION = 2.2;
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-ObjC",
@@ -9462,7 +9466,7 @@
 				CODE_SIGN_ENTITLEMENTS = SCIMBO/SCIMBO.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2.0;
+				CURRENT_PROJECT_VERSION = 2.2;
 				DEVELOPMENT_TEAM = NHBQDLLJN4;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -9499,7 +9503,7 @@
 					"$(PROJECT_DIR)/SCIMBO/Utilities/OtherResources/VoiceLib",
 					"${SDKROOT}/usr/include/libxml2",
 				);
-				MARKETING_VERSION = 2.0;
+				MARKETING_VERSION = 2.2;
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-ObjC",

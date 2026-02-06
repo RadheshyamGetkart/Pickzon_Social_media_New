@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import SwiftUI
 
 extension FeedsViewController{
     
@@ -41,7 +42,37 @@ extension FeedsViewController{
     
     
     
-    
+    func presentAddPhotosPopup(url:String) {
+
+        let popupView = AddPhotosPopupView(
+            onPostNow: {
+                print("Post Now tapped")
+                self.dismiss(animated: false)
+                
+                PlayerHelper.shared.pause()
+                let viewController:CreateWallPostViewController = StoryBoard.feeds.instantiateViewController(withIdentifier: "CreateWallPostViewController") as! CreateWallPostViewController
+                viewController.fromType = .feedPost
+                viewController.uploadDelegate = self
+                self.navigationController?.pushView(viewController, animated: true)
+            },
+            onPostLater: {
+                print("Post Later tapped")
+                self.dismiss(animated: false)
+            },
+            onClose: {
+                self.dismiss(animated: false)
+            },
+            imgUrl: url
+        )
+        
+        let hostingVC = UIHostingController(rootView: popupView)
+        hostingVC.modalPresentationStyle = .overFullScreen
+        hostingVC.view.backgroundColor = .clear
+        present(hostingVC, animated: false)
+        
+        self.pauseAllVisiblePlayers()
+
+    }
     
     
     
@@ -75,7 +106,8 @@ extension FeedsViewController{
 
         }
     }
-    
+    //                       self.presentAddPhotosPopup(url: "https://dev-pickzon.s3.ap-south-1.amazonaws.com/popupcoin/2026/01/Pop_up-1768905136707.png")
+
     func getClipSettingApi(){
         
         URLhandler.sharedinstance.makeGetAPICall(url: Constant.sharedinstance.getClipSetting, param: [:]) {(responseObject, error) ->  () in
@@ -119,9 +151,16 @@ extension FeedsViewController{
                             if url.length > 0 {
                                 self.popupType = dictPopUp["type"] as? Int ?? 0
                                 self.popUpID = dictPopUp["id"] as? String ?? ""
-                                self.showpopUp(url: url)
+
+                              if self.popupType == 5{
+                                    //With two button new
+                                    self.presentAddPhotosPopup(url: url)
+                                }else{
+                                    self.showpopUp(url: url)
+                                }
                             }
                         }
+
                         
                        let showVerifyEmailPopup =  UserDefaults.standard.value(forKey: "showVerifyEmailPopup") as? Bool ?? true
                         
@@ -526,10 +565,15 @@ extension FeedsViewController{
                     }
                     
                     if self.indexClipSuggestion != -1 {
-                        self.arrwallPost[self.indexClipSuggestion] = ClipSuggestionModel(arrWallPostModel: Themes.sharedInstance.arrFeedsVideo)
-                        self.tblFeeds.reloadRows(at: [IndexPath(row: self.indexClipSuggestion, section: self.feedSectionNo)], with: .none)
-                        self.indexClipSuggestion = -1
-                        self.preBufferNextRandomVideos()
+                        
+                        if self.arrwallPost.count < self.indexClipSuggestion{
+                            print("self.arrwallPost.count ==\(self.arrwallPost.count) self.indexClipSuggestion = \(self.indexClipSuggestion)")
+                        }else{
+                            self.arrwallPost[self.indexClipSuggestion] = ClipSuggestionModel(arrWallPostModel: Themes.sharedInstance.arrFeedsVideo)
+                            self.tblFeeds.reloadRows(at: [IndexPath(row: self.indexClipSuggestion, section: self.feedSectionNo)], with: .none)
+                            self.indexClipSuggestion = -1
+                            self.preBufferNextRandomVideos()
+                        }
                     }
                     
                 } else {

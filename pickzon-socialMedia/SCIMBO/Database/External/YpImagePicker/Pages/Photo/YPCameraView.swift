@@ -171,6 +171,9 @@ class YPCameraView: UIView { //}, UIGestureRecognizerDelegate {
         shotButton.setImage(YPConfig.icons.capturePhotoImage, for: .normal)
         filterButton.setImage(YPConfig.icons.filterImage, for: .normal)
         filterCollectionView.backgroundColor = .clear
+        
+        //BY me because commenting deepar
+        filterButton.isHidden = true
     }
 }
 

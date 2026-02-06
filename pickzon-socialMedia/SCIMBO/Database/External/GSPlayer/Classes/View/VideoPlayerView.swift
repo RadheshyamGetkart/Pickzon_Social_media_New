@@ -5,6 +5,8 @@
 //  Created by Gesen on 2019/4/20.
 //  Copyright © 2019 Gesen. All rights reserved.
 //
+
+
 #if !os(macOS)
 import UIKit
 import AVFoundation
@@ -538,6 +540,13 @@ private extension VideoPlayerView {
                     print("Error in Video Player : \(self.playerURL?.absoluteString ?? "nil") : \(error)")
                 }
                 
+                // 🚫 Stop retry if internet is gone
+                guard AppDelegate.sharedInstance.IsInternetconnected else {
+                            if ISDEBUG {
+                                print("Network unavailable — stopping retries")
+                            }
+                            return
+                        }
                 // Retry only a few times if duration == 0
                 if (player?.currentItem?.currentDuration ?? 0) == 0,
                    let url = self.playerURL,
@@ -631,3 +640,387 @@ extension VideoPlayerView.State: Equatable {
     
 }
 #endif
+
+
+
+//==== new ======
+
+//
+//  VideoPlayerView.swift
+//  GSPlayer
+//
+//  Fixed & Stabilized
+//
+/*
+#if !os(macOS)
+import UIKit
+import AVFoundation
+
+open class VideoPlayerView: UIView {
+
+    // MARK: - State
+
+    public enum State {
+        case none
+        case loading
+        case playing
+        case paused(playProgress: Double, bufferProgress: Double)
+        case error(NSError)
+    }
+
+    public enum PausedReason: Int {
+        case hidden
+        case userInteraction
+        case waitingKeepUp
+    }
+
+    // MARK: - Public Properties
+
+    public let playerLayer = AVPlayerLayer()
+
+    public var player: AVPlayer? {
+        get { playerLayer.player }
+        set { playerLayer.player = newValue }
+    }
+
+    public private(set) var playerURL: URL?
+    public private(set) var replayCount: Int = 0
+
+    public var pausedReason: PausedReason = .waitingKeepUp
+    public var isAutoReplay: Bool = true
+    public var isMuted: Bool { get { player?.isMuted ?? false } set { player?.isMuted = newValue } }
+    public var volume: Double { get { player?.volume.double ?? 0 } set { player?.volume = newValue.float } }
+
+    public var playToEndTime: (() -> Void)?
+    public var stateDidChanged: ((State) -> Void)?
+    public var replay: (() -> Void)?
+
+    public var isEndPlaying = false
+    public var isCancelled = false
+
+    // MARK: - Progress
+
+    public var playProgress: Double { isLoaded ? player?.playProgress ?? 0 : 0 }
+    public var bufferProgress: Double { isLoaded ? player?.bufferProgress ?? 0 : 0 }
+    public var currentDuration: Double { isLoaded ? player?.currentDuration ?? 0 : 0 }
+    public var currentBufferDuration: Double { isLoaded ? player?.currentBufferDuration ?? 0 : 0 }
+    public var totalDuration: Double { isLoaded ? player?.totalDuration ?? 0 : 0 }
+
+    // MARK: - Private
+
+    private var isLoaded = false
+    private var isReplay = false
+    private var retryPlayVideoCount = 0
+    var isClipVideo = false
+
+    private var timeObserver: Any?
+    private var bufferObservation: NSKeyValueObservation?
+    private var statusObservation: NSKeyValueObservation?
+    private var keepUpObservation: NSKeyValueObservation?
+    private var readyObservation: NSKeyValueObservation?
+    private var controlObservation: NSKeyValueObservation?
+
+    public private(set) var state: State = .none {
+        didSet { if oldValue != state { handleStateChange(from: oldValue, to: state) } }
+    }
+
+    // MARK: - Init
+
+    public init() {
+        super.init(frame: .zero)
+        setup()
+    }
+
+    required public init?(coder: NSCoder) {
+        super.init(coder: coder)
+        setup()
+    }
+
+    deinit {
+        cleanObservers()
+        NotificationCenter.default.removeObserver(self)
+    }
+
+    // MARK: - Layout
+
+    open override func layoutSubviews() {
+        super.layoutSubviews()
+        CATransaction.begin()
+        CATransaction.setDisableActions(true)
+        playerLayer.frame = bounds
+        CATransaction.commit()
+    }
+    
+    open override var contentMode: UIView.ContentMode {
+        didSet {
+            switch contentMode {
+            case .scaleAspectFill:
+                playerLayer.videoGravity = .resizeAspectFill
+            case .scaleAspectFit:
+                playerLayer.videoGravity = .resizeAspect
+            default:
+                playerLayer.videoGravity = .resize
+            }
+        }
+    }
+
+}
+
+// MARK: - Public Controls
+
+@objc extension VideoPlayerView {
+
+    open func setURLToPlay(for url: URL) {
+        play(for: url)
+    }
+
+    open func play(for url: URL) {
+        if playerURL == url {
+            pausedReason = .waitingKeepUp
+            player?.play()
+            return
+        }
+
+        resetPlayer()
+
+        let player = AVPlayer()
+        player.automaticallyWaitsToMinimizeStalling = false
+
+        let item = AVPlayerItem(loader: url)
+        item.preferredForwardBufferDuration = 2
+
+        self.player = player
+        self.playerURL = url
+        self.state = .loading
+
+        player.replaceCurrentItem(with: item)
+
+        observe(player: player)
+        observe(playerItem: item)
+
+        player.play()
+    }
+
+    open func replay(resetCount: Bool = false) {
+        replayCount = resetCount ? 0 : replayCount + 1
+        isReplay = true
+        player?.seek(to: .zero)
+        resume()
+    }
+
+    open func resume() {
+        pausedReason = .waitingKeepUp
+        player?.play()
+    }
+
+    open func pause() {
+        pausedReason = .userInteraction
+        player?.pause()
+    }
+
+    open func seek(to time: CMTime, completion: ((Bool) -> Void)? = nil) {
+        player?.seek(to: time) { completion?($0) }
+    }
+
+    public func destroy() {
+        resetPlayer()
+        removeFromSuperview()
+    }
+}
+
+// MARK: - Setup & Observers
+
+private extension VideoPlayerView {
+
+    func setup() {
+        isHidden = true
+        layer.addSublayer(playerLayer)
+
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(didReachEnd),
+            name: .AVPlayerItemDidPlayToEndTime,
+            object: nil
+        )
+    }
+
+    func resetPlayer() {
+        cleanObservers()
+        player?.pause()
+        player?.replaceCurrentItem(with: nil)
+        player = nil
+        isLoaded = false
+        isReplay = false
+        retryPlayVideoCount = 0
+    }
+
+    func cleanObservers() {
+        if let t = timeObserver {
+            player?.removeTimeObserver(t)
+            timeObserver = nil
+        }
+        bufferObservation = nil
+        statusObservation = nil
+        keepUpObservation = nil
+        readyObservation = nil
+        controlObservation = nil
+    }
+
+    func observe(player: AVPlayer) {
+
+        timeObserver = player.addPeriodicTimeObserver(
+            forInterval: CMTime(seconds: 0.5, preferredTimescale: 600),
+            queue: .main
+        ) { [weak self] _ in
+            guard let self else { return }
+            if self.state == .playing {
+                self.stateDidChanged?(.playing)
+            }
+        }
+
+        controlObservation = player.observe(\.timeControlStatus, options: [.new]) { [weak self] player, _ in
+            guard let self else { return }
+            switch player.timeControlStatus {
+            case .playing:
+                self.state = .playing
+            case .paused:
+                self.state = .paused(
+                    playProgress: self.playProgress,
+                    bufferProgress: self.bufferProgress
+                )
+            default: break
+            }
+        }
+
+        readyObservation = playerLayer.observe(\.isReadyForDisplay) { [weak self] layer, _ in
+            guard let self else { return }
+            if layer.isReadyForDisplay {
+                self.isLoaded = true
+            }
+        }
+    }
+
+    func observe(playerItem: AVPlayerItem) {
+
+        bufferObservation = playerItem.observe(\.loadedTimeRanges) { [weak self] _, _ in
+            guard let self else { return }
+            if case .paused = self.state {
+                self.state = .paused(
+                    playProgress: self.playProgress,
+                    bufferProgress: self.bufferProgress
+                )
+            }
+        }
+
+        statusObservation = playerItem.observe(\.status) { [weak self] item, _ in
+            guard let self else { return }
+            if item.status == .failed, let error = item.error as NSError? {
+                self.state = .error(error)
+            }
+        }
+
+        keepUpObservation = playerItem.observe(\.isPlaybackLikelyToKeepUp) { [weak self] item, _ in
+            guard let self else { return }
+            if item.isPlaybackLikelyToKeepUp, self.pausedReason == .waitingKeepUp {
+                self.player?.play()
+            }
+        }
+    }
+
+    func handleStateChange(from old: State, to new: State) {
+        switch new {
+        case .playing, .paused:
+            isHidden = false
+        default:
+            isHidden = true
+        }
+        stateDidChanged?(new)
+    }
+
+    @objc func didReachEnd() {
+        isEndPlaying = true
+        playToEndTime?()
+
+        guard isAutoReplay else { return }
+
+        replayCount += 1
+        player?.seek(to: .zero)
+        player?.play()
+    }
+}
+
+public extension VideoPlayerView {
+
+    /// Pause video with a specific reason
+    func pause(reason: PausedReason) {
+        pausedReason = reason
+        pause()
+    }
+}
+
+public extension VideoPlayerView {
+
+    /// Requests invocation of a block during playback to report changing time.
+    @discardableResult
+    func addPeriodicTimeObserver(
+        forInterval interval: CMTime,
+        queue: DispatchQueue? = nil,
+        using: @escaping (CMTime) -> Void
+    ) -> Any? {
+        return player?.addPeriodicTimeObserver(
+            forInterval: interval,
+            queue: queue,
+            using: using
+        )
+    }
+
+    /// Requests invocation of a block when specified times are traversed.
+    @discardableResult
+    func addBoundaryTimeObserver(
+        forTimes times: [CMTime],
+        queue: DispatchQueue? = nil,
+        using: @escaping () -> Void
+    ) -> Any? {
+        return player?.addBoundaryTimeObserver(
+            forTimes: times.map { NSValue(time: $0) },
+            queue: queue,
+            using: using
+        )
+    }
+
+    /// Cancels a previously registered time observer.
+    func removeTimeObserver(_ observer: Any) {
+        player?.removeTimeObserver(observer)
+    }
+}
+
+// MARK: - Equatable
+
+extension VideoPlayerView.State: Equatable {
+
+    public static func == (
+        lhs: VideoPlayerView.State,
+        rhs: VideoPlayerView.State
+    ) -> Bool {
+
+        switch (lhs, rhs) {
+        case (.none, .none),
+             (.loading, .loading),
+             (.playing, .playing):
+            return true
+
+        case let (.paused(p1, b1), .paused(p2, b2)):
+            return p1 == p2 && b1 == b2
+
+        case let (.error(e1), .error(e2)):
+            return e1 == e2
+
+        default:
+            return false
+        }
+    }
+}
+
+#endif
+
+*/

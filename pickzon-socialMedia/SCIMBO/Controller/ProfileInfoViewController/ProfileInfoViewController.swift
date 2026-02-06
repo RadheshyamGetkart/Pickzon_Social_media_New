@@ -1126,6 +1126,11 @@ extension ProfileInfoViewController:UITableViewDelegate,UITableViewDataSource,UI
             if string.isEmpty {
                 return true
             }
+            
+            let previousText:NSString = textField.text! as NSString
+            let updatedText = previousText.replacingCharacters(in: range, with: string)
+            guard updatedText.count <= 40 else { return false }
+
             let alphaNumericRegEx = #"[a-zA-Z\s]"#
             let predicate = NSPredicate(format:"SELF MATCHES %@", alphaNumericRegEx)
             return predicate.evaluate(with: string)

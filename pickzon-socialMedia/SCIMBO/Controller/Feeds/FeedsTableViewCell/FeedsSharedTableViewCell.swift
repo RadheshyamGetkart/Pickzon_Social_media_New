@@ -21,9 +21,9 @@ class FeedsSharedTableViewCell: FeedsCell, UICollectionViewDelegate, UICollectio
         self.cvFeedsPost.layer.cornerRadius = 0.0
         self.cvFeedsPost.clipsToBounds = true
         btnFolow.backgroundColor = CustomColor.sharedInstance.newThemeColor
-        btnFolow.layer.cornerRadius = btnFolow.frame.size.height/2.0
+        btnFolow.layer.cornerRadius = 5.0 //btnFolow.frame.size.height/2.0
         btnSharedFollow.backgroundColor = CustomColor.sharedInstance.newThemeColor
-        btnSharedFollow.layer.cornerRadius = btnSharedFollow.frame.size.height/2.0
+        btnSharedFollow.layer.cornerRadius = 5.0 //btnSharedFollow.frame.size.height/2.0
 
         self.lblMediaCount.layer.cornerRadius = lblMediaCount.frame.size.height/2.0
         lblMediaCount.clipsToBounds = true

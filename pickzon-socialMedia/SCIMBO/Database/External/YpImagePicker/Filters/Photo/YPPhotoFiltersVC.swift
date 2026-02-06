@@ -146,6 +146,22 @@ open class YPPhotoFiltersVC: UIViewController, IsMediaFilterVC, UIGestureRecogni
     // MARK: - Actions 🥂
     @objc func customCropButtonTapped() {
         
+//        DispatchQueue.main.async { [weak self] in
+//            guard let self = self else { return }
+//
+//            let editor = LFPhotoEditingController()
+//            editor.delegate = self
+//
+//            let nav = UINavigationController(rootViewController: editor)
+//            nav.modalPresentationStyle = .fullScreen
+//            nav.setNavigationBarHidden(true, animated: false)
+//
+//            self.present(nav, animated: true)
+//        }
+
+        editPhoto()
+      /*  return
+        
         guard let selectedAssetImage =  v.imageView.image  else {
             // If no selected asset, than the squareCropButton is not visible
             //  squareCropButton.isHidden = true
@@ -155,6 +171,9 @@ open class YPPhotoFiltersVC: UIViewController, IsMediaFilterVC, UIGestureRecogni
         cropViewController.delegate = self
         cropViewController.modalTransitionStyle = .crossDissolve
         cropViewController.isPresented = true
+        
+        
+        
        // cropViewController.definesPresentationContext = true
      //   AppDelegate.sharedInstance.navigationController?.presentView(cropViewController, animated: true)
       //  self.navigationController?.presentView(cropViewController, animated: true)
@@ -167,10 +186,14 @@ open class YPPhotoFiltersVC: UIViewController, IsMediaFilterVC, UIGestureRecogni
                 
         // Present View "Modally"
         self.present(navigationController, animated: true, completion: nil)
+        
+        */
 
     }
     @objc func cancel() {
         didCancel?()
+        
+     
     }
     
     @objc func save() {
@@ -195,7 +218,142 @@ open class YPPhotoFiltersVC: UIViewController, IsMediaFilterVC, UIGestureRecogni
             }
         }
     }
+    
+    
+//    
+//    open override func viewWillAppear(_ animated: Bool) {
+//        self.navigationController?.isNavigationBarHidden = false
+//
+//    }
+//    
+    
+//    open override func viewDidAppear(_ animated: Bool) {
+//        super.viewDidAppear(animated)
+//
+//        if let top = self.presentedViewController as? UINavigationController,
+//           let editor = top.viewControllers.first as? LFPhotoEditingController {
+//            editor.delegate = self
+//            print("Reassigned delegate inside viewDidAppear")
+//        }
+//    }
+
+    @objc private func editPhoto() {
+            
+        
+        DispatchQueue.main.async { [weak self] in
+            guard let self = self else { return }
+
+            let editor = LFPhotoEditingController()
+            editor.delegate = self                      // must be set
+            editor.editImage = self.inputPhoto.originalImage
+
+            // UI customization
+            editor.menuBackColor = CustomColor.sharedInstance.newThemeColor
+            editor.headerBackColor = CustomColor.sharedInstance.newThemeColor
+            editor.cancelButtonTitleColorNormal = .label
+            editor.oKButtonTitleColorNormal = .label
+            editor.headerTitle = "Photo Editing"
+            editor.titleTextColor = .label
+
+            // Wrap INSIDE UINavigationController (mandatory)
+            let nav = UINavigationController(rootViewController: editor)
+            nav.modalPresentationStyle = .fullScreen
+
+            // Hide navigation bar because it blocks the editor's own header buttons
+            nav.setNavigationBarHidden(true, animated: false)
+
+            self.present(nav, animated: true)
+        }
+
+     /*   DispatchQueue.main.async {
+            let lfPhotoEditVC = LFPhotoEditingController()
+            lfPhotoEditVC.delegate = self;
+            
+           // lfPhotoEditVC.minClippingDuration = 5.0;
+            lfPhotoEditVC.menuBackColor = CustomColor.sharedInstance.newThemeColor //systemBackground
+            lfPhotoEditVC.headerBackColor = CustomColor.sharedInstance.newThemeColor //UIColor.systemBackground
+            lfPhotoEditVC.cancelButtonTitleColorNormal = UIColor.label
+            lfPhotoEditVC.oKButtonTitleColorNormal = UIColor.label
+            lfPhotoEditVC.headerTitle = "Photo Editing"
+            lfPhotoEditVC.titleTextColor = UIColor.label
+            //lfVideoEditVC.hedaderFont =  [UIFont fontWithName:FONT_BOLD size:18];
+            lfPhotoEditVC.editImage = self.inputPhoto.originalImage
+            
+           // lfPhotoEditVC.setVideoURL(self.inputPhoto.url, placeholderImage: self.inputPhoto.image)
+            self.navigationController?.isNavigationBarHidden = true
+          self.navigationController?.pushViewController(lfPhotoEditVC, animated: true)
+            
+           // self.navigationController?.isNavigationBarHidden = true
+//            let navigationController = UINavigationController(rootViewController: lfPhotoEditVC)
+//            navigationController.modalPresentationStyle = .fullScreen
+//            navigationController.setNavigationBarHidden(true, animated: true)
+//            // Present View "Modally"
+//            self.present(navigationController, animated: true, completion: nil)
+            
+        }
+        */
+    }
 }
+
+
+extension YPPhotoFiltersVC:LFPhotoEditingControllerDelegate{
+   
+    public func lf_PhotoEditingController(_ photoEditingVC: LFPhotoEditingController!, didCancel photoEdit: LFPhotoEdit!) {
+        
+        photoEditingVC.dismiss(animated: true, completion: nil)
+    }
+    
+    public func lf_PhotoEditingController(_ photoEditingVC: LFPhotoEditingController!, didFinish photoEdit: LFPhotoEdit!) {
+
+        // Always dismiss safely
+               photoEditingVC.dismiss(animated: true)
+
+               // If photoEdit is nil → user didn’t modify anything
+               guard let edit = photoEdit else {
+                   print("No edits applied, photoEdit is nil")
+                   return
+               }
+
+               // Now safely access editedImage
+               if let editedImage = edit.editPreviewImage {
+                   print("Received edited image")
+                   // Use editedImage
+                   self.inputPhoto.originalImage = editedImage
+                   self.v.imageView.image = editedImage
+                   self.v.imageView.currentImage = editedImage
+                   self.inputPhoto.modifiedImage  = editedImage
+                   self.currentlySelectedImageThumbnail = editedImage
+               } else {
+                   print("Edited image missing")
+               }
+
+    }
+    
+    
+    
+}
+/*extension YPPhotoFiltersVC: LFPhotoEditingControllerDelegate {
+
+    public func lf_PhotoEditingController(_ photoEditingVC: LFPhotoEditingController!, didCancel photoEdit: LFPhotoEdit!) {
+        // Handle Cancel
+        photoEditingVC.dismiss(animated: true, completion: nil)
+    }
+
+    public func lf_PhotoEditingController(_ photoEditingVC: LFPhotoEditingController!, didFinish photoEdit: LFPhotoEdit!) {
+        // Handle Finished Edited Image
+        
+        if let editedImage = photoEdit.editImage {
+            // Use your edited image here
+            print("Edited Image Received")
+            self.v.imageView.image = editedImage
+
+        }
+
+        photoEditingVC.dismiss(animated: true, completion: nil)
+    }
+}
+
+*/
 
 extension YPPhotoFiltersVC: UICollectionViewDataSource {
     public func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {

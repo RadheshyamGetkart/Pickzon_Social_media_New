@@ -14,8 +14,9 @@ enum DevEnvironment {
     case live
 }
 
-var ISDEBUG = false
-var devEnvironment: DevEnvironment = .staging
+
+var ISDEBUG = true
+var devEnvironment: DevEnvironment = .live
 
 var BaseURLArray :Array<String> {
     get {

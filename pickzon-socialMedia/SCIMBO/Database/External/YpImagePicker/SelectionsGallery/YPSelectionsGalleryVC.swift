@@ -11,7 +11,7 @@ import UIKit
 public class YPSelectionsGalleryVC: UIViewController, YPSelectionsGalleryCellDelegate {
     
     override public var prefersStatusBarHidden: Bool { return YPConfig.hidesStatusBar }
-    
+    private var selectedCurrentImageIndex:Int?
     public var items: [YPMediaItem] = []
     public var didFinishHandler: ((_ gallery: YPSelectionsGalleryVC, _ items: [YPMediaItem]) -> Void)?
     private var lastContentOffsetX: CGFloat = 0
@@ -110,8 +110,11 @@ extension YPSelectionsGalleryVC: UICollectionViewDelegate {
         var mediaFilterVC: IsMediaFilterVC?
         switch item {
         case .photo(let photo):
+            selectedCurrentImageIndex = indexPath.row
             if !YPConfig.filters.isEmpty, YPConfig.showsPhotoFilters {
-                mediaFilterVC = YPPhotoFiltersVC(inputPhoto: photo, isFromSelectionVC: true)
+                editPhoto(image: photo.originalImage)
+                return
+           //    mediaFilterVC = YPPhotoFiltersVC(inputPhoto: photo, isFromSelectionVC: true)
             }
         case .video(let video):
             if YPConfig.showsVideoTrimmer {
@@ -142,8 +145,90 @@ extension YPSelectionsGalleryVC: UICollectionViewDelegate {
     public func scrollViewDidScroll(_ scrollView: UIScrollView) {
         let isScrollingBackwards = scrollView.contentOffset.x < lastContentOffsetX
         scrollView.decelerationRate = isScrollingBackwards
-            ? UIScrollView.DecelerationRate.fast
-            : UIScrollView.DecelerationRate.normal
+        ? UIScrollView.DecelerationRate.fast
+        : UIScrollView.DecelerationRate.normal
         lastContentOffsetX = scrollView.contentOffset.x
     }
+    
+    
+   
+}
+
+
+extension YPSelectionsGalleryVC:LFPhotoEditingControllerDelegate{
+  
+    @objc private func editPhoto(image:UIImage) {
+        
+        
+        DispatchQueue.main.async { [weak self] in
+            guard let self = self else { return }
+            
+            let editor = LFPhotoEditingController()
+            editor.delegate = self                      // must be set
+            editor.editImage = image
+            
+            // UI customization
+            editor.menuBackColor = CustomColor.sharedInstance.newThemeColor
+            editor.headerBackColor = CustomColor.sharedInstance.newThemeColor
+            editor.cancelButtonTitleColorNormal = .label
+            editor.oKButtonTitleColorNormal = .label
+            editor.headerTitle = "Photo Editing"
+            editor.titleTextColor = .label
+            
+            // Wrap INSIDE UINavigationController (mandatory)
+            let nav = UINavigationController(rootViewController: editor)
+            nav.modalPresentationStyle = .fullScreen
+            
+            // Hide navigation bar because it blocks the editor's own header buttons
+            nav.setNavigationBarHidden(true, animated: false)
+            
+            self.present(nav, animated: true)
+        }
+    }
+    public func lf_PhotoEditingController(_ photoEditingVC: LFPhotoEditingController!, didCancel photoEdit: LFPhotoEdit!) {
+        
+        photoEditingVC.dismiss(animated: true, completion: nil)
+    }
+    
+    public func lf_PhotoEditingController(_ photoEditingVC: LFPhotoEditingController!, didFinish photoEdit: LFPhotoEdit!) {
+
+        // Always dismiss safely
+               photoEditingVC.dismiss(animated: true)
+
+               // If photoEdit is nil → user didn’t modify anything
+               guard let edit = photoEdit else {
+                   print("No edits applied, photoEdit is nil")
+                   return
+               }
+
+               // Now safely access editedImage
+               if let editedImage = edit.editPreviewImage {
+                   print("Received edited image")
+                   // Use editedImage
+                   
+                   if let index = selectedCurrentImageIndex{
+                     
+                       var item = items[index]         // take out
+                         
+                         switch item {
+                         case .photo(let photoObj):
+                             photoObj.modifiedImage = editedImage
+                             photoObj.originalImage = editedImage    // assign edited image
+// assign edited image
+                             items[index] = .photo(p: photoObj)         // write back to array
+                             
+                         case .video:
+                             print("Video, ignoring edited image")
+                         }
+                       v.collectionView.reloadData()
+                   }
+            
+               } else {
+                   print("Edited image missing")
+               }
+
+    }
+    
+    
+    
 }

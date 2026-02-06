@@ -31,6 +31,8 @@ open class YPImagePicker: UINavigationController {
         self.init(configuration: YPImagePickerConfiguration.shared)
     }
 
+    private var selectedPhoto:YPMediaItem?
+    
     open var isFromFeedPost = false
     /// Get a YPImagePicker with the specified configuration.
     public required init(configuration: YPImagePickerConfiguration) {
@@ -133,7 +135,7 @@ open class YPImagePicker: UINavigationController {
                     }
                 }
                 
-                if YPConfig.showsPhotoFilters {
+              /*  if YPConfig.showsPhotoFilters {
                     let filterVC = YPPhotoFiltersVC(inputPhoto: photo,
                                                     isFromSelectionVC: false)
                     // Show filters and then crop
@@ -146,6 +148,11 @@ open class YPImagePicker: UINavigationController {
                 } else {
                     showCropVC(photo: photo, completion: completion)
                 }
+                */
+                self?.selectedPhoto = item
+                self?.editPhoto(image:  photo.image)
+                
+                
             case .video(let video):
                 let asset = AVAsset(url: video.url)
                 let seconds = CMTimeGetSeconds(asset.duration)
@@ -211,3 +218,113 @@ extension YPImagePicker: YPPickerVCDelegate {
         
     }
 }
+
+
+
+extension YPImagePicker:LFPhotoEditingControllerDelegate{
+    
+    @objc private func editPhoto(image:UIImage) {
+        
+        
+        DispatchQueue.main.async { [weak self] in
+            guard let self = self else { return }
+            
+            let editor = LFPhotoEditingController()
+            editor.delegate = self                      // must be set
+            editor.editImage = image
+            
+            // UI customization
+            editor.menuBackColor = CustomColor.sharedInstance.newThemeColor
+            editor.headerBackColor = CustomColor.sharedInstance.newThemeColor
+            editor.cancelButtonTitleColorNormal = .label
+            editor.oKButtonTitleColorNormal = .label
+            editor.headerTitle = "Photo Editing"
+            editor.titleTextColor = .label
+            
+            // Wrap INSIDE UINavigationController (mandatory)
+            let nav = UINavigationController(rootViewController: editor)
+            nav.modalPresentationStyle = .fullScreen
+            
+            // Hide navigation bar because it blocks the editor's own header buttons
+            nav.setNavigationBarHidden(true, animated: false)
+            
+            self.present(nav, animated: true)
+        }
+    }
+    public func lf_PhotoEditingController(_ photoEditingVC: LFPhotoEditingController!, didCancel photoEdit: LFPhotoEdit!) {
+        
+        photoEditingVC.dismiss(animated: true, completion: nil)
+    }
+    
+    public func lf_PhotoEditingController(_ photoEditingVC: LFPhotoEditingController!, didFinish photoEdit: LFPhotoEdit!) {
+        
+        // Always dismiss safely
+        photoEditingVC.dismiss(animated: false) {
+            
+            // If photoEdit is nil → user didn’t modify anything
+            guard let edit = photoEdit else {
+                print("No edits applied, photoEdit is nil")
+                
+                if let item = self.selectedPhoto{
+                    
+                    switch item {
+                    case .photo(let selectedPhoto):
+                        // assign edited image
+                        
+                        // After updating → trigger YP callback
+                        // Wrap back into YPMediaItem
+                              let updatedMediaItem = YPMediaItem.photo(p: selectedPhoto)
+                              
+                              // Send it back to picker flow
+                              self.didSelect(items: [updatedMediaItem])
+
+                        
+                    case .video:
+                        print("Video, ignoring edited image")
+                    }
+                }
+
+                return
+            }
+            
+            // Now safely access editedImage
+            if let editedImage = edit.editPreviewImage {
+                print("Received edited image")
+                // Use editedImage
+                
+                
+                if let item = self.selectedPhoto{
+                    
+                    switch item {
+                    case .photo(let selectedPhoto):
+                        // assign edited image
+                        
+                        selectedPhoto.modifiedImage = editedImage
+                        selectedPhoto.originalImage = editedImage
+                        
+                        // After updating → trigger YP callback
+                        // Wrap back into YPMediaItem
+                              let updatedMediaItem = YPMediaItem.photo(p: selectedPhoto)
+                              
+                              // Send it back to picker flow
+                              self.didSelect(items: [updatedMediaItem])
+
+                        
+                    case .video:
+                        print("Video, ignoring edited image")
+                    }
+                }       // take out
+                
+                
+            } else {
+                print("Edited image missing")
+            }
+            
+        }
+
+      //  photoEditingVC.dismiss(animated: true)
+
+    }
+    
+}
+

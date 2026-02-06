@@ -15,8 +15,8 @@ import DeepAR
 /// Abstracts Low Level AVFoudation details.
 class YPVideoCaptureHelper: NSObject {
     public var isRecording: Bool {
-       // return videoOutput.isRecording
-        return isVideoRecording
+       return videoOutput.isRecording
+       // return isVideoRecording
     }
     public var didCaptureVideo: ((URL) -> Void)?
     public var videoRecordingProgress: ((Float, TimeInterval) -> Void)?
@@ -68,9 +68,9 @@ class YPVideoCaptureHelper: NSObject {
     
     private func updateRecordingModeAppearance() {
         
-       // buttonRecordingModePairs.forEach { (button, recordingMode) in
-          //  button.isSelected = recordingMode == currentRecordingMode
-       // }
+//        buttonRecordingModePairs.forEach { (button, recordingMode) in
+//            button.isSelected = recordingMode == currentRecordingMode
+//        }
     }
     //
     
@@ -93,10 +93,10 @@ class YPVideoCaptureHelper: NSObject {
            YPConfig.video.recordingSizeLimit != nil {
             videoOutput.movieFragmentInterval = .invalid // Allows audio for MP4s over 10 seconds.
         }
-        self.setupDeepARAndCamera()
+      //  self.setupDeepARAndCamera()
         //
         
-       /* sessionQueue.async { [weak self] in
+        sessionQueue.async { [weak self] in
             guard let strongSelf = self else {
                 return
             }
@@ -107,7 +107,7 @@ class YPVideoCaptureHelper: NSObject {
                 completion()
             })
         }
-        */
+        
         
     }
     
@@ -147,7 +147,7 @@ class YPVideoCaptureHelper: NSObject {
     // MARK: - Flip Camera
     
     public func flipCamera(completion: @escaping () -> Void) {
-       /* sessionQueue.async { [weak self] in
+        sessionQueue.async { [weak self] in
             guard let strongSelf = self else {
                 return
             }
@@ -177,13 +177,13 @@ class YPVideoCaptureHelper: NSObject {
                 completion()
             }
         }
-        */
         
-        if cameraController?.position == .front {
-            cameraController?.position = .back
-        }else {
-            cameraController?.position = .front
-        }
+        
+//        if cameraController?.position == .front {
+//            cameraController?.position = .back
+//        }else {
+//            cameraController?.position = .front
+//        }
     }
     
     // MARK: - Focus
@@ -233,20 +233,20 @@ class YPVideoCaptureHelper: NSObject {
     public func stopCamera() {
         
     
-        cameraController?.deepAR?.pause()
+      /*  cameraController?.deepAR?.pause()
         deepAR?.pause()
         deepAR?.shutdown()
         cameraController?.deepAR?.shutdown()
         deepAR = nil
         cameraController = nil
-        self.deepARView?.removeFromSuperview()
-//        guard session.isRunning else {
-//            return
-//        }
-//
-//        sessionQueue.async { [weak self] in
-//            self?.session.stopRunning()
-//        }
+        self.deepARView?.removeFromSuperview()*/
+        guard session.isRunning else {
+            return
+        }
+
+        sessionQueue.async { [weak self] in
+            self?.session.stopRunning()
+        }
     }
     
     // MARK: - Torch
@@ -272,7 +272,7 @@ class YPVideoCaptureHelper: NSObject {
     // MARK: - Recording
     
     public func startRecording() {
-      /*  let outputURL = YPVideoProcessor.makeVideoPathURL(temporaryFolder: true, fileName: "recordedVideoRAW")
+        let outputURL = YPVideoProcessor.makeVideoPathURL(temporaryFolder: true, fileName: "recordedVideoRAW")
 
         checkOrientation { [weak self] orientation in
             guard let strongSelf = self else {
@@ -288,8 +288,8 @@ class YPVideoCaptureHelper: NSObject {
                 strongSelf.videoOutput.startRecording(to: outputURL, recordingDelegate: strongSelf)
             }
         }
-        */
-        didTapRecordActionButton()
+        
+      //  didTapRecordActionButton()
     }
     
     public func stopRecording() {
@@ -407,19 +407,19 @@ extension YPVideoCaptureHelper: AVCaptureFileOutputRecordingDelegate {
     public func fileOutput(_ captureOutput: AVCaptureFileOutput,
                            didStartRecordingTo fileURL: URL,
                            from connections: [AVCaptureConnection]) {
-      /*  timer = Timer.scheduledTimer(timeInterval: 1,
+        timer = Timer.scheduledTimer(timeInterval: 1,
                                      target: self,
                                      selector: #selector(tick),
                                      userInfo: nil,
                                      repeats: true)
-        dateVideoStarted = Date()*/
+        dateVideoStarted = Date()
     }
     
     public func fileOutput(_ captureOutput: AVCaptureFileOutput,
                            didFinishRecordingTo outputFileURL: URL,
                            from connections: [AVCaptureConnection],
                            error: Error?) {
-       /* if let error = error {
+        if let error = error {
             ypLog("Error: \(error)")
         }
 
@@ -431,7 +431,7 @@ extension YPVideoCaptureHelper: AVCaptureFileOutputRecordingDelegate {
         } else {
             self.didCaptureVideo?(outputFileURL)
         }
-        timer.invalidate()*/
+        timer.invalidate()
     }
 }
 
@@ -450,25 +450,26 @@ extension YPVideoCaptureHelper: DeepARDelegate {
 //        }
 
     
-        if (isVideoRecording) {
+       /* if (isVideoRecording) {
             deepAR?.finishVideoRecording()
             isVideoRecording = false
             Themes.sharedInstance.activityView(View: self.previewView)
             return
-        }
+        }*/
         
         
-        let width: Int32 = Int32(deepAR?.renderingResolution.width ?? 0)
-        let height: Int32 =  Int32(deepAR?.renderingResolution.height ?? 0)
+//        let width: Int32 = Int32(deepAR?.renderingResolution.width ?? 0)
+//        let height: Int32 =  Int32(deepAR?.renderingResolution.height ?? 0)
         
         if (currentRecordingMode == RecordingMode.video) {
-            if(deepAR!.videoRecordingWarmupEnabled) {
+           /* if(deepAR!.videoRecordingWarmupEnabled) {
                 deepAR!.resumeVideoRecording()
             } else {
                 deepAR!.startVideoRecording(withOutputWidth: width, outputHeight: height)
             }
             deepAR!.delegate = self
            // isRecordingInProcess = true
+            */
             self.isVideoRecording = true
             
 
@@ -476,7 +477,7 @@ extension YPVideoCaptureHelper: DeepARDelegate {
         }
         
         if (currentRecordingMode == RecordingMode.lowQualityVideo) {
-            if(deepAR!.videoRecordingWarmupEnabled) {
+           /* if(deepAR!.videoRecordingWarmupEnabled) {
                 NSLog("Can't change video recording settings when video recording warmap enabled")
                 return
             }
@@ -490,6 +491,7 @@ extension YPVideoCaptureHelper: DeepARDelegate {
             let frame = CGRect(x: 0, y: 0, width: 1, height: 1)
             
             deepAR!.startVideoRecording(withOutputWidth: width, outputHeight: height, subframe: frame, videoCompressionProperties: videoSettings, recordAudio: true)
+            */
             isVideoRecording = true
         }
         

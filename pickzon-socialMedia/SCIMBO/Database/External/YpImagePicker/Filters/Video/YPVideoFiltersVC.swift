@@ -311,12 +311,12 @@ public final class YPVideoFiltersVC: UIViewController, IsMediaFilterVC {
             
             
             if isfromFeedPost{
-                if asset.duration.seconds > Settings.sharedInstance.feedVideoDuration{
+                if Int(asset.duration.seconds) > Int(Settings.sharedInstance.feedVideoDuration){
                     AlertView.sharedManager.displayMessageWithAlert(title: "", msg: "Maximum video durtion is \(Settings.sharedInstance.feedVideoDuration) second. Please trim/edit video")
                     return
                 }
             }else{
-                if asset.duration.seconds > Settings.sharedInstance.statusDuration{
+                if Int(asset.duration.seconds) > Int(Settings.sharedInstance.statusDuration){
                     AlertView.sharedManager.displayMessageWithAlert(title: "", msg: "Maximum video durtion is \(Settings.sharedInstance.statusDuration) second. Please trim/edit video")
                     return
                 }
@@ -402,9 +402,11 @@ public final class YPVideoFiltersVC: UIViewController, IsMediaFilterVC {
         stopPlaybackTimeChecker()
         videoView.stop()
     }
+
     //MARK : Here is the color
     @objc private func editVideo() {
         DispatchQueue.main.async {
+
         let lfVideoEditVC = LFVideoEditingController()
         lfVideoEditVC.delegate = self;
         lfVideoEditVC.minClippingDuration = 5.0;

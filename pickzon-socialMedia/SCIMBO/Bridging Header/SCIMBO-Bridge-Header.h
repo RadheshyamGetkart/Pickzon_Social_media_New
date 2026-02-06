@@ -43,5 +43,6 @@
 #import "LFVideoEditingController.h"
 #import "MergeVideoVC.h"
 #import "BaseViewController.h"
+#import "LFPhotoEditingController.h"
 
 #endif /* SCIMBO_Bridge_Header_h */

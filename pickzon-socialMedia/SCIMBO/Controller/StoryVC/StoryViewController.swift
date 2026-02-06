@@ -3,6 +3,7 @@
 //  SCIMBO
 //
 //  Created by Getkart on 04/08/21.
+//  Updated by ChatGPT on 2025-11-25.
 //  Copyright © 2021 Radheshyam Yadav. All rights reserved.
 //
 
@@ -26,10 +27,8 @@ protocol StoryViewControllerDelegate : AnyObject {
     func previewPreviousStory()
 }
 
-
 class StoryViewController:  UIViewController,SegmentedProgressBarDelegate, ContentSheetDelegate, UIScrollViewDelegate{
   
-    
     @IBOutlet weak var lblMarquee: MarqueeLabel!
     @IBOutlet weak var imgVwSong: UIImageView!
     @IBOutlet weak var btnRepostYourTag: UIButton!
@@ -186,9 +185,7 @@ class StoryViewController:  UIViewController,SegmentedProgressBarDelegate, Conte
       
         if(isFromView)
         {
-           // DispatchQueue.main.asyncAfter(deadline: .now() + 1.0, execute: {
-                self.replayViewShower()
-           // })
+            self.replayViewShower()
         }
         
         bgViewCount.isHidden = true
@@ -219,10 +216,6 @@ class StoryViewController:  UIViewController,SegmentedProgressBarDelegate, Conte
         
         
         self.view.insertSubview(videoView, belowSubview: self.topView)
-       
-   //   self.viewIsDisplayed()
-
-
     }
         
     override func viewWillAppear(_ animated: Bool) {
@@ -230,11 +223,10 @@ class StoryViewController:  UIViewController,SegmentedProgressBarDelegate, Conte
         print("UIViewController: StoryViewController")
         IQKeyboardManager.shared().isEnabled = false
 
-                if !fromBottomView{
-                   // viewIsDisplayed()
-                }
-        
-       self.viewIsDisplayed()
+        if !fromBottomView{
+            // viewIsDisplayed()
+        }
+        self.viewIsDisplayed()
     }
     
     
@@ -246,7 +238,6 @@ class StoryViewController:  UIViewController,SegmentedProgressBarDelegate, Conte
         if !fromBottomView{
             initialFrame = bottomView.frame
         }
-
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -265,7 +256,6 @@ class StoryViewController:  UIViewController,SegmentedProgressBarDelegate, Conte
         }
     }
    
-  
     override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
         self.videoView.player?.pause()
@@ -342,9 +332,6 @@ class StoryViewController:  UIViewController,SegmentedProgressBarDelegate, Conte
     func refreshItemswhenBack(){
         print("refreshItemswhenBack startIndex===\(startIndex)")
         self.progressBar.isPaused = true
-//        if  self.startIndex > 0 {
-//            self.startIndex = self.startIndex - 1
-//        }
         updateImage(index: startIndex)
     }
     
@@ -362,17 +349,13 @@ class StoryViewController:  UIViewController,SegmentedProgressBarDelegate, Conte
         }
                 
         isViewDisplayed = true
-       // videoView.player?.play()
         
         if(startIndex < self.wallStatusObj.statusArray.count){
-            
             let messageFrame = self.wallStatusObj.statusArray[startIndex]
-            
             if checkMediaTypes(strUrl: messageFrame.media) == 1{
-                
+                // image, nothing to auto-play
             }else{
                 videoView.player?.play()
-                
             }
         }
     }
@@ -399,7 +382,6 @@ class StoryViewController:  UIViewController,SegmentedProgressBarDelegate, Conte
         if(self.startIndex > index)
         {
             self.progressBar.skip()
-
         }else
         {
             updateImage(index: index)
@@ -407,47 +389,57 @@ class StoryViewController:  UIViewController,SegmentedProgressBarDelegate, Conte
     }
     
     @objc func playerEnd(){
-        print("xzzsczxcx")
-       // progressBar.skip()
-    }
-    
-   
-    @objc func viewDidTapped(_ sender: UIGestureRecognizer) {
-      // statusImgView.image = nil
-        let point = sender.location(ofTouch: 0, in: view)
-         progressBar.isPaused = !progressBar.isPaused
-        if (point.x) < self.view.bounds.width/2{
-            if startIndex == 0{
-                self.progressBar.isPaused = true
-                self.startIndex = 0
-                self.delegate?.previewPreviousStory()
-            }else{
-                self.startIndex = self.startIndex - 1
-                self.progressBar.isPaused = false
-                progressBar.rewind()
-            }
-            
-        }else{
-            
-            if(self.startIndex == self.progressBar.currentAnimationIndex)
-            {
-                self.startIndex = self.startIndex + 1
-            }
-            progressBar.skip()
-
+        // When player ends, skip to next progress segment
+        DispatchQueue.main.async { [weak self] in
+            self?.progressBar.skip()
         }
     }
     
+    // MARK: — Tap / Press handling (fixed index sync)
+    @objc func viewDidTapped(_ sender: UIGestureRecognizer) {
+        let point = sender.location(ofTouch: 0, in: view)
+        // toggle pause
+        progressBar.isPaused = !progressBar.isPaused
+        
+        if (point.x) < self.view.bounds.width/2 {
+            goToPreviousItem()
+        } else {
+            goToNextItem()
+        }
+    }
+    
+    private func goToNextItem() {
+        // If at last, notify delegate
+        if startIndex >= wallStatusObj.statusArray.count - 1 {
+            // finish story
+            delegate?.currentStoryEnded()
+            return
+        }
+        // increment index then skip progress — progressBar.skip will animate next segment
+        startIndex += 1
+        progressBar.skip()
+    }
+    
+    private func goToPreviousItem() {
+        if startIndex == 0 {
+            // preview previous user's story
+            progressBar.isPaused = true
+            delegate?.previewPreviousStory()
+            return
+        }
+        startIndex -= 1
+        // rewind will animate previous segment
+        progressBar.rewind()
+    }
+    
     @objc func viewDidPressed(_ sender: UIGestureRecognizer) {
-       
         if sender.state == .ended {
             videoView.player?.play()
             progressBar.isPaused = false
             topView.isHidden = false
             bottomView.isHidden = false
             statusGifView.startAnimatingGif()
-       
-        }else if sender.state == .began {
+        } else if sender.state == .began {
             progressBar.isPaused = true
             self.videoView.player?.pause()
             topView.isHidden = true
@@ -456,15 +448,11 @@ class StoryViewController:  UIViewController,SegmentedProgressBarDelegate, Conte
         }
     }
     
-    
-   
-    
     @objc func viewSwipedDown(){
         self.pop(animated: true)
     }
     
     @objc func appEnterBackGround(){
-        
         if isViewDisplayed && isAppInForeground{
             isAppInForeground = false
             self.videoView.player?.pause()
@@ -473,17 +461,8 @@ class StoryViewController:  UIViewController,SegmentedProgressBarDelegate, Conte
     }
     
     @objc func appEnterForeground(){
-        
-//        if isViewDisplayed && !isAppInForeground{
-//            isAppInForeground = true
-////            if player != nil{
-////                player?.play()
-////            }
-//            progressBar.isPaused = false
-//        }
+        // Keep paused until user interacts — don't auto-resume
     }
-    
-    
     
     @objc @IBAction func blurGestureTapped(_ sender : UITapGestureRecognizer)
     {
@@ -493,12 +472,10 @@ class StoryViewController:  UIViewController,SegmentedProgressBarDelegate, Conte
     }
     
     @objc func blureViewTapped(){
-       
         videoView.player?.play()
         progressBar.isPaused = false
         blureView.isHidden = true
         self.messageTextField.text = ""
-        //messageButton.isEnabled = false
         messageTextField.resignFirstResponder()
     }
     
@@ -512,25 +489,29 @@ class StoryViewController:  UIViewController,SegmentedProgressBarDelegate, Conte
     
     
     func playVideo(videoStrUrl : String){
-        
+        // Clean previous observers/time observers
         self.spinner.isHidden = true
         progressBar.isPaused = true
-        
-        //videoView.player?.isMuted = !UserDefaults.standard.bool(forKey: videosStartWithSound)
         
         videoView.contentMode = .scaleAspectFit
         videoView.pausedReason = .userInteraction
         if videoStrUrl.length > 0 {
+            // safe remove previous observers
+            if let observer = timeObserver {
+                if let player = videoView.player {
+                    player.removeTimeObserver(observer)
+                }
+                timeObserver = nil
+            }
+            NotificationCenter.default.removeObserver(self, name: .AVPlayerItemDidPlayToEndTime, object: nil)
+            
             videoView.setURLToPlay(for: URL(string:videoStrUrl)!)
             videoView.player?.play()
         }
         videoView.isHidden = false
         videoView.frame = self.view.bounds
-        
         videoView.backgroundColor = UIColor.clear
         
-//        self.view.insertSubview(videoView, belowSubview: self.topView)
-      
         NotificationCenter.default.addObserver(
             self,
             selector: #selector(self.playerEnd),
@@ -539,38 +520,30 @@ class StoryViewController:  UIViewController,SegmentedProgressBarDelegate, Conte
         )
         
         playerLayerReadyForDisplayObservation = nil
-        playerLayerReadyForDisplayObservation = videoView.playerLayer.observe(\.isReadyForDisplay) { [unowned self, unowned player = videoView.player] playerLayer, _ in
-            if playerLayer.isReadyForDisplay, videoView.player?.rate ?? 0.0 > 0 {
-//              self.statusImgView.isHidden = true
-//               self.statusImgView.image = nil
-
+        playerLayerReadyForDisplayObservation = videoView.playerLayer.observe(\.isReadyForDisplay) { [weak self] playerLayer, _ in
+            guard let self = self else { return }
+            if playerLayer.isReadyForDisplay, self.videoView.player?.rate ?? 0.0 > 0 {
+                // ready to display; can hide placeholders if needed
             }
         }
         
-        timeObserver = nil
+        // periodic observer to unpause progress when video actually has content
         timeObserver = videoView.player?.addPeriodicTimeObserver(forInterval: CMTimeMakeWithSeconds(1, preferredTimescale: 1), queue: DispatchQueue.main) {[weak self] (timer) in
-            
+            guard let self = self else { return }
             var playerCurrentTime = 0.0
-            if(self?.videoView.player?.currentItem != nil)
-            {
-                playerCurrentTime = Double((self?.videoView.player?.currentItem?.currentTime().seconds)!)
-               // print(playerCurrentTime)
+            if self.videoView.player?.currentItem != nil {
+                playerCurrentTime = Double((self.videoView.player?.currentItem?.currentTime().seconds) ?? 0.0)
             }
-            
-         if playerCurrentTime > 0 {
-                if self?.videoView.player?.isPlaying == true , self?.progressBar.isPaused == true
-                {
-                      self?.progressBar.isPaused = false
-                    /* self?.statusImgView.isHidden = true*/
+            if playerCurrentTime > 0 {
+                if self.videoView.player?.isPlaying == true , self.progressBar.isPaused == true {
+                    self.progressBar.isPaused = false
                 }
-             /*  self?.viewImgs.isHidden = true
-                self?.videoView.isHidden = false
-            */
-                self?.spinner.isHidden = true
+                self.spinner.isHidden = true
             }
         }
         
-        videoView.stateDidChanged = { state in
+        videoView.stateDidChanged = { [weak self] state in
+            guard let self = self else { return }
             switch state {
             case .none:
                 print("none")
@@ -591,64 +564,51 @@ class StoryViewController:  UIViewController,SegmentedProgressBarDelegate, Conte
         
     }
     
-    
-    
     override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
         if object is AVPlayerItem {
             switch keyPath {
             case "playbackBufferEmpty"?:
                 print("buffer")
                 break
-                // Show loader
-                
             case "playbackLikelyToKeepUp"?:
                 print("buffer hide")
                 statusImgView.isHidden = true
                 break
-                // Hide loader
-                
             case "playbackBufferFull"?:
                 print("buffer hide")
                 statusImgView.isHidden = true
                 break
-            // Hide loader
             default :
-                //print("\(String(describing: player?.status))")
                 break
             }
         }
         
         if keyPath == "status" {
-           // print("\(String(describing: player?.status))")
+           // print status if needed
         }
     }
     
-    
-
-    
 //MARK: UIBUtton Action Methods
     @IBAction func menuButtonDidTapped(_ sender: UIButton) {
-        
         self.videoView.player?.pause()
-        
         progressBar.isPaused = true
         
         if(Themes.sharedInstance.Getuser_id() == self.wallStatusObj.userInfo?.id)
         {
-            
             let alertController = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
             
             let DeleteAction = UIAlertAction(title: "Delete", style: .destructive) {[weak self] (alert: UIAlertAction) in
-                
-                if( (self?.progressBar.currentAnimationIndex ?? 0) < (self?.wallStatusObj.statusArray.count ?? 0))
+                guard let self = self else { return }
+                if (self.progressBar.currentAnimationIndex < self.wallStatusObj.statusArray.count)
                 {
-                    self?.delegate?.didClickDelete(self?.wallStatusObj.statusArray[self?.progressBar.currentAnimationIndex ?? 0] ?? WallStatus.StoryStaus(statusDict: [:]))
-                    self?.delegate = nil
+                    self.delegate?.didClickDelete(self.wallStatusObj.statusArray[self.progressBar.currentAnimationIndex])
+                    self.delegate = nil
                 }
             }
             let CancelAction = UIAlertAction(title: "Cancel", style: .cancel) {[weak self] (alert: UIAlertAction) in
-                if !(self?.fromBottomView ?? false){
-                    self?.viewIsDisplayed()
+                guard let self = self else { return }
+                if !(self.fromBottomView){
+                    self.viewIsDisplayed()
                 }
             }
             alertController.addAction(DeleteAction)
@@ -657,9 +617,7 @@ class StoryViewController:  UIViewController,SegmentedProgressBarDelegate, Conte
         }
     }
     
-   
     @IBAction func messageButtonDidTapped(_ sender: Any) {
-        
         let objStoryStatus = self.wallStatusObj.statusArray[self.progressBar.currentAnimationIndex]
         let message = self.messageTextField.text!
       
@@ -669,8 +627,7 @@ class StoryViewController:  UIViewController,SegmentedProgressBarDelegate, Conte
                 sendMediaToSocket(mainUrl: objStoryStatus.media, thumbUrl: objStoryStatus.thumbnail, caption: message, duration: "\(objStoryStatus.durationTime ?? 0.0)")
                 self.blureViewTapped()
             }
-        }else {
-            //Like the status
+        } else {
             messageTextField.isHidden = false
             messageButton.isHidden = false
             viewBackTxtMSG.isHidden = false
@@ -678,13 +635,10 @@ class StoryViewController:  UIViewController,SegmentedProgressBarDelegate, Conte
         }
     }
     
- 
     @IBAction func repostStoryButtonTapped(_ sender: UIButton) {
-        
         repostTaggedStoryApi()
     }
 
-     
     //MARK: Emit Socket
     func sendMediaToSocket(mainUrl:String,thumbUrl:String,caption:String,duration:String){
         
@@ -696,7 +650,6 @@ class StoryViewController:  UIViewController,SegmentedProgressBarDelegate, Conte
         let timeStamp = Date.timeStamp*1000
         let docId = "\(Themes.sharedInstance.Getuser_id())-\(self.wallStatusObj.userInfo?.id ?? "")-\(timeStamp)"
         params["messageDocId"] = docId
-        /* 0-Text, 1-Media (Image,video,GIF, Document), 2-Link, 3-Contact, 4-Location,*/
         params["payload"] = caption.trimmingCharacters(in: .whitespaces)
         params["type"] = 7
         params["storyId"] = self.wallStatusObj.statusArray[ self.progressBar.currentAnimationIndex].statusId
@@ -704,17 +657,12 @@ class StoryViewController:  UIViewController,SegmentedProgressBarDelegate, Conte
         SocketIOManager.sharedInstance.emitChaWithCallBack(params: params as NSDictionary, eventName: Constant.sharedinstance.sio_feed_send_chat_message)
     }
     
-    
     //MARK: Like Api
-        
     func repostTaggedStoryApi(){
         let objStoryStatus = self.wallStatusObj.statusArray[ self.progressBar.currentAnimationIndex]
        
         let param:NSDictionary = ["storyId":objStoryStatus.statusId,"tagStory":[]]
-        // Themes.sharedInstance.activityView(View: self.view)
-     
         URLhandler.sharedinstance.makeCall(url:Constant.sharedinstance.repostTaggedStory as String, param: param, completionHandler: {[weak self] (responseObject, error) ->  () in
-            //  Themes.sharedInstance.RemoveactivityView(View: self.view)
             if(error != nil)
             {
                 self?.view.makeToast(message: Constant.sharedinstance.ErrorMessage , duration: 3, position: HRToastActivityPositionDefault)
@@ -728,9 +676,7 @@ class StoryViewController:  UIViewController,SegmentedProgressBarDelegate, Conte
         })
     }
     
-    
     func likeStoryAPIAction() {
-        
         var objStoryStatus = self.wallStatusObj.statusArray[ self.progressBar.currentAnimationIndex]
         let isLike = (objStoryStatus.isLike == 1 ? 0 : 1)
         if isLike == 1 {
@@ -738,10 +684,7 @@ class StoryViewController:  UIViewController,SegmentedProgressBarDelegate, Conte
         }
         
         let param:NSDictionary = ["wallStatusId":objStoryStatus.statusId,"action":"\(isLike)"]
-        // Themes.sharedInstance.activityView(View: self.view)
-        
         URLhandler.sharedinstance.makeCall(url:Constant.sharedinstance.wallStatusLikeDislikeURL as String, param: param, completionHandler: {[weak self](responseObject, error) ->  () in
-            //  Themes.sharedInstance.RemoveactivityView(View: self.view)
             if(error != nil)
             {
                 self?.view.makeToast(message: Constant.sharedinstance.ErrorMessage , duration: 3, position: HRToastActivityPositionDefault)
@@ -752,12 +695,8 @@ class StoryViewController:  UIViewController,SegmentedProgressBarDelegate, Conte
                 let message = result["message"] as? String ?? ""
                 
                 if status == 1{
-                    
                     objStoryStatus.isLike = isLike
                     self?.wallStatusObj.statusArray[self?.progressBar.currentAnimationIndex ?? 0] = objStoryStatus
-                   /* if isLike == 1 {
-                        self.showEmitterHeartView()
-                    }*/
                     self?.messageButton.setImage((objStoryStatus.isLike == 1) ? PZImages.heart_Filled :  PZImages.heartWhite_blank, for: .normal)
                 }else
                 {
@@ -786,60 +725,37 @@ class StoryViewController:  UIViewController,SegmentedProgressBarDelegate, Conte
 
     @IBAction func profilePicButtonDidTapped(_ sender: UIButton) {
         self.videoView.player?.pause()
-        
         progressBar.isPaused = true
         let profileVC:ProfileVC = StoryBoard.main.instantiateViewController(withIdentifier: "ProfileVC") as! ProfileVC
         profileVC.otherMsIsdn = self.wallStatusObj.userInfo?.id ?? ""
         self.navigationController?.pushViewController(profileVC, animated: true)
     }
   
-
     @IBAction func backButtonDidTapped(_ sender: UIButton) {
         self.videoView.player?.pause()
         delegate?.backButtonClicked()
     }
     
-    
     //MARK: TEXTFIELD COMMENT
     
     fileprivate func replayViewShower() {
-        
         self.videoView.player?.pause()
-        
         progressBar.isPaused = true
         if isMyStatus{
-        
-        
-            
         }else{
-         //   replayViewSetter()
-                self.blureView.isHidden = false
-                self.view.sendSubviewToBack(self.videoView)
-                self.view.bringSubviewToFront(self.blureView)
-                self.messageTextField.isHidden = false
-                self.messageButton.isHidden = false
-                self.viewBackTxtMSG.isHidden = false
-            
-
-           
-          //  DispatchQueue.main.async {
-                self.messageTextField.becomeFirstResponder()
-          //  }
-                
-                if (self.messageTextField.text?.count ?? 0) == 0 {
-                    let objStoryStatus = self.wallStatusObj.statusArray[ self.progressBar.currentAnimationIndex]
-                    self.messageButton.setImage((objStoryStatus.isLike == 1) ? PZImages.heart_Filled :  PZImages.heartWhite_blank, for: .normal)
-                }else {
-                    self.messageButton.setImage(UIImage(named: "send"), for: .normal)
-                }
-            
-            
-//            DispatchQueue.main.asyncAfter(deadline: .now() + 0.5, execute: {
-//                self.messageTextField.becomeFirstResponder()
-//
-//            })
-
-           
+            self.blureView.isHidden = false
+            self.view.sendSubviewToBack(self.videoView)
+            self.view.bringSubviewToFront(self.blureView)
+            self.messageTextField.isHidden = false
+            self.messageButton.isHidden = false
+            self.viewBackTxtMSG.isHidden = false
+            self.messageTextField.becomeFirstResponder()
+            if (self.messageTextField.text?.count ?? 0) == 0 {
+                let objStoryStatus = self.wallStatusObj.statusArray[ self.progressBar.currentAnimationIndex]
+                self.messageButton.setImage((objStoryStatus.isLike == 1) ? PZImages.heart_Filled :  PZImages.heartWhite_blank, for: .normal)
+            }else {
+                self.messageButton.setImage(UIImage(named: "send"), for: .normal)
+            }
         }
     }
     
@@ -848,28 +764,27 @@ class StoryViewController:  UIViewController,SegmentedProgressBarDelegate, Conte
         blureViewTapped()
         progressBar.skip()
     }
-    
   
     @IBAction func swipUpButtonDidTapped(_ sender: UIButton) {
-        
         replayViewShower()
     }
     
     private func deallocPlayer() {
         self.videoView.player?.pause()
-        // self.videoView.player = nil
+        if let observer = timeObserver {
+            if let player = videoView.player {
+                player.removeTimeObserver(observer)
+            }
+            timeObserver = nil
+        }
+        NotificationCenter.default.removeObserver(self, name: .AVPlayerItemDidPlayToEndTime, object: nil)
+        playerLayerReadyForDisplayObservation = nil
         self.videoView.isHidden = true
-        // self.videoView.removeFromSuperview()
-        //        NotificationCenter.default.removeObserver(NSNotification.Name.AVPlayerItemDidPlayToEndTime)
-        //        timeObserver = nil
-        //        playerLayerReadyForDisplayObservation = nil
     }
     
     
     private func updateImage(index: Int) {
-        
-         print("Next! == \(index)")
-       // statusImgView.image = nil
+        print("Next! == \(index)")
         deallocPlayer()
         spinner.isHidden = true
         messageTextField.text = ""
@@ -882,11 +797,10 @@ class StoryViewController:  UIViewController,SegmentedProgressBarDelegate, Conte
         }
          
         if(index < self.wallStatusObj.statusArray.count){
-            
             let messageFrame = self.wallStatusObj.statusArray[index]
             textStatusLabel.isHidden = true
             self.view.bringSubviewToFront(textStatusLabel)
-            textStatusLabel.text = "" //messageFrame.message.payload!
+            textStatusLabel.text = ""
             self.view.backgroundColor = UIColor.black
             self.moreButton.isHidden = true
             self.btnRepostYourTag.isHidden = (messageFrame.taggedStoryStatus == 1) ? false : true
@@ -894,7 +808,6 @@ class StoryViewController:  UIViewController,SegmentedProgressBarDelegate, Conte
             self.imgVwSong.isHidden = true
 
             if (messageFrame.soundTitle.length > 0 || messageFrame.soundThumbUrl.length > 0){
-              
                 self.lblMarquee.text = messageFrame.soundTitle
                 self.lblMarquee.isHidden = false
                 self.imgVwSong.isHidden = false
@@ -921,9 +834,7 @@ class StoryViewController:  UIViewController,SegmentedProgressBarDelegate, Conte
                 }
                 replyLbl.isHidden = true
                 swipeUpbutton.isHidden = true
-           
             }else{
-                
                 self.currentUserName.text = self.wallStatusObj.userInfo?.pickzonId ?? ""
                 self.CaptionViewline.isHidden = false
                 self.view.sendSubviewToBack(bgViewCount)
@@ -944,38 +855,33 @@ class StoryViewController:  UIViewController,SegmentedProgressBarDelegate, Conte
                 imgVwCelebrity.image = PZImages.blueVerification
             }
             self.currentTimeLabel.text = messageFrame.statusTime
-             //self.statusImgView.image = nil
+
             if checkMediaTypes(strUrl: messageFrame.media) == 1{
-                
+                // image
                 statusImgView.isHidden = false
                 statusGifView.isHidden = true
                 self.viewImgs.isHidden = false
-                self.statusImgView.kf.setImage(with: URL(string:  messageFrame.media),  options: nil, progressBlock: nil) { response in
-                }
+                self.statusImgView.kf.setImage(with: URL(string:  messageFrame.media),  options: nil, progressBlock: nil) { response in }
+                // ensure progress index is correct
+                self.progressBar.currentAnimationIndex = index
                 self.progressBar.isPaused = false
-                self.videoView.isHidden = true
-
             }else {
+                // video
                 self.videoView.isHidden = false
                 statusImgView.isHidden = false
                 statusGifView.isHidden = true
                 self.viewImgs.isHidden = false
-                statusImgView.kf.setImage(with: URL(string:  messageFrame.thumbnail), options:nil, progressBlock: nil) { response in
-                }
+                statusImgView.kf.setImage(with: URL(string:  messageFrame.thumbnail), options:nil, progressBlock: nil) { response in }
+                // ensure progress matches
+                self.progressBar.currentAnimationIndex = index
+                // Start spinner then load/play video
                 self.progressBar.isPaused = false
                 DispatchQueue.main.async {
                     self.spinner.isHidden = false
                     self.playVideo(videoStrUrl: messageFrame.media)
                 }
             }
-            
-           // self.videoView.backgroundColor = .red
-           // self.statusImgView.backgroundColor = .green
-           /* var str:String = ""
-            if messageFrame.taggedUserPickzonId.count > 0{
-                str =  "@" + messageFrame.taggedUserPickzonId.joined(separator:  " @") + "\n"
-            }*/
-      
+
             if messageFrame.statusMessage.count > 0{
                 self.CaptionLbl.attributedText = (messageFrame.statusMessage + "\n").convertAttributtedColorText(isCenter: true,linkAndMentionColor:.white)
                 self.CaptionLbl.isHidden = false
@@ -984,7 +890,7 @@ class StoryViewController:  UIViewController,SegmentedProgressBarDelegate, Conte
             }
             self.CaptionLbl.textAlignment = .center
         }
- }
+    }
     
     func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
         if (scrollView.panGestureRecognizer.translation(in: scrollView.superview).y >= 0) {
@@ -1014,7 +920,6 @@ class StoryViewController:  UIViewController,SegmentedProgressBarDelegate, Conte
             weak.appEnterForeground()
         }
         
-        
         NotificationCenter.default.addObserver(self,
             selector: #selector(keyboardWillShow),
             name: UIResponder.keyboardWillShowNotification,
@@ -1024,7 +929,6 @@ class StoryViewController:  UIViewController,SegmentedProgressBarDelegate, Conte
             selector: #selector(keyboardWillHide),
             name: UIResponder.keyboardWillHideNotification,
             object: nil)
-
     }
     
     func removeNotificationListener() {
@@ -1036,12 +940,6 @@ class StoryViewController:  UIViewController,SegmentedProgressBarDelegate, Conte
     deinit {
         print("Deinit Storyviewcontroller")
         DispatchQueue.main.async {
-            /*self.player = nil
-            self.playerLayer = nil
-            self.playerIteam = nil
-            if self.player != nil{
-                self.deallocPlayer()
-            }*/
             self.deallocPlayer()
             self.progressBar.isPaused = true
             self.removeNotificationListener()
@@ -1052,110 +950,54 @@ class StoryViewController:  UIViewController,SegmentedProgressBarDelegate, Conte
     @objc func keyboardWillShow(_ notification: Notification) {
         if let keyboardFrame = notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? CGRect {
             let height = keyboardFrame.height
-
             UIView.animate(withDuration: 0.3) {
                 self.bottomViewbottomConstraint.constant = height
                 self.view.layoutIfNeeded()
-
             }
+            // pause while keyboard visible
+            self.videoView.player?.pause()
+            self.progressBar.isPaused = true
         }
     }
 
     @objc func keyboardWillHide(_ notification: Notification) {
         UIView.animate(withDuration: 0.3) {
             self.bottomViewbottomConstraint.constant = 0
-                   self.view.layoutIfNeeded()
-
+            self.view.layoutIfNeeded()
         }
     }
-
 }
 
-
-
-
-//extension StoryViewController : PersonViewedStatusViewDelegate {
-//
-//    func delete() {
-//        if(self.progressBar.currentAnimationIndex < self.wallStatusObj.statusArray.count)
-//        {
-//            self.delegate?.backButtonClicked()
-//           // self.delegate?.backButtonClicked()
-//            // self.delegate?.DidClickDelete(self.statusArray.object(at: self.progressBar.currentAnimationIndex) as! UUMessageFrame)
-//            self.delegate = nil
-//        }
-//    }
-//
-//    func forward() {
-//        if(self.progressBar.currentAnimationIndex < self.wallStatusObj.statusArray.count)
-//        {
-//            self.delegate?.backButtonClicked()
-//          //  self.delegate?.backButtonClicked()
-//            // self.delegate?.DidClickForward(self.statusArray.object(at: self.progressBar.currentAnimationIndex) as! UUMessageFrame)
-//            self.delegate = nil
-//        }
-//    }
-//
-//    func passSelectedPerson(data: NSDictionary) {
-//
-//    }
-//
-//    func closeContentSheed() {
-//
-//    }
-//}
-
+// Extensions for delegates remain the same, only minor behavior preserved below:
 extension StoryViewController : UITextFieldDelegate,OnlyPicturesDataSource,OnlyPicturesDelegate {
-    
     func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
-                
-      //  IQKeyboardManager.shared().keyboardDistanceFromTextField = (UIDevice().hasNotch)  ? 0 : 5
         return true
     }
-    
-    func textFieldDidBeginEditing(_ textField: UITextField) {
-        print("textFieldDidBeginEditing")
-    }
-    
-    func textFieldDidEndEditing(_ textField: UITextField) {
-        print("textFieldDidEndEditing")
-        self.blureViewTapped()
-    }
-    
+    func textFieldDidBeginEditing(_ textField: UITextField) {}
+    func textFieldDidEndEditing(_ textField: UITextField) { self.blureViewTapped() }
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-        print("shouldChangeCharactersIn")
         if  (wallStatusObj.userInfo?.isFollowBack ?? 0) == 0{
-           
             self.view.makeToast(message: "You have to follow each other to send comments." , duration: 3, position: HRToastPositionCenter)
             return false
         }
-        
         if let text = textField.text,
            let textRange = Range(range, in: text) {
-            let updatedText = text.replacingCharacters(in: textRange,
-                                                       with: string)
-            if updatedText.count > 50{
-                return false
-            }
-            
+            let updatedText = text.replacingCharacters(in: textRange, with: string)
+            if updatedText.count > 50 { return false }
             if updatedText.trim().count == 0 {
                 let objStoryStatus = self.wallStatusObj.statusArray[ self.progressBar.currentAnimationIndex]
                 messageButton.setImage((objStoryStatus.isLike == 1) ? PZImages.heart_Filled :  PZImages.heartWhite_blank, for: .normal)
-            }else {
+            } else {
                 messageButton.setImage(UIImage(named: "send"), for: .normal)
             }
         }
-        
         return true
     }
-    
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        print("textFieldShouldReturn")
         if textField.text?.count == 0 {
             let objStoryStatus = self.wallStatusObj.statusArray[ self.progressBar.currentAnimationIndex]
             messageButton.setImage((objStoryStatus.isLike == 1) ? PZImages.heart_Filled :  PZImages.heartWhite_blank, for: .normal)
-
-        }else {
+        } else {
             messageButton.setImage(UIImage(named: "send"), for: .normal)
         }
         self.blureViewTapped()
@@ -1164,7 +1006,6 @@ extension StoryViewController : UITextFieldDelegate,OnlyPicturesDataSource,OnlyP
 
     //MARK: PhotoView Delegate
     func initializeHorizontalPhoto(){
-        
         bgViewCount.backgroundColor = UIColor.clear
         onlyPictures.backgroundColor = UIColor.clear
         onlyPictures.layer.cornerRadius = 0.0
@@ -1176,7 +1017,6 @@ extension StoryViewController : UITextFieldDelegate,OnlyPicturesDataSource,OnlyP
         onlyPictures.alignment = .center
         onlyPictures.countPosition = .right
         onlyPictures.contentMode = .bottomRight
-        //onlyPictures.recentAt = .right
         onlyPictures.spacingColor = UIColor.white
         onlyPictures.backgroundColorForCount = .blue
         onlyPictures.gap = 35
@@ -1194,11 +1034,9 @@ extension StoryViewController : UITextFieldDelegate,OnlyPicturesDataSource,OnlyP
     }
    
     func visiblePictures(onlyPictureView: OnlyPictures) -> Int {
-        
         return  self.wallStatusObj.statusArray[self.progressBar.currentAnimationIndex].seenUserInfoArray.count
     }
     
-   
     func pictureViews(_ imageView: UIImageView, index: Int){
         if self.wallStatusObj.statusArray[self.progressBar.currentAnimationIndex].seenUserInfoArray.count > index {
             let url = URL(string: self.wallStatusObj.statusArray[self.progressBar.currentAnimationIndex].seenUserInfoArray[index].profilePic)
@@ -1208,7 +1046,6 @@ extension StoryViewController : UITextFieldDelegate,OnlyPicturesDataSource,OnlyP
     
     func pictureView(_ imageView: UIImageView, didSelectAt index: Int) {
         if  self.wallStatusObj.statusArray[self.progressBar.currentAnimationIndex].viewCount > 0 {
-            
             self.videoView.player?.pause()
             progressBar.isPaused = true
             let messageFrame  = self.wallStatusObj.statusArray[ self.progressBar.currentAnimationIndex]
@@ -1221,81 +1058,39 @@ extension StoryViewController : UITextFieldDelegate,OnlyPicturesDataSource,OnlyP
    
     func pictureViewCountDidSelect() {
         if  self.wallStatusObj.statusArray[self.progressBar.currentAnimationIndex].viewCount > 0 {
-            
             self.videoView.player?.pause()
-            
             progressBar.isPaused = true
-            let messageFrame  = self.wallStatusObj.statusArray[ self.progressBar.currentAnimationIndex]
-            
+            let messageFrame  = self.wallStatusObj.statusArray[self.progressBar.currentAnimationIndex]
             let profileVC:LikeUsersVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "LikeUsersVC") as! LikeUsersVC
             profileVC.controllerType = .storyView
             profileVC.postId = messageFrame.statusId
             self.pushView(profileVC, animated: true)
-            //        self.delegate?.didClickViewStatusUsers(statusId: messageFrame.statusId)
-            //        self.delegate = nil
         }
     }
 }
 
 extension StoryViewController:ExpandableLabelDelegate{
-    // MARK: ExpandableLabel Delegate
-
     func numberTextClicked(_ label: ExpandableLabel, number: String) {
         self.videoView.player?.pause()
-        
         progressBar.isPaused = true
-        if let url = URL(string: "tel://\(number)"),
-           UIApplication.shared.canOpenURL(url) {
+        if let url = URL(string: "tel://\(number)"), UIApplication.shared.canOpenURL(url) {
             UIApplication.shared.open(url, options: [:], completionHandler: nil)
         }
     }
-    
     func hashTagTextClicked(_ label: ExpandableLabel, hashTag: String) {
         self.videoView.player?.pause()
-        
         progressBar.isPaused = true
         let destVc:WallPostViewVC = StoryBoard.main.instantiateViewController(withIdentifier: "WallPostViewVC") as! WallPostViewVC
         destVc.controllerType = .hashTag
         destVc.hashTag = hashTag
         AppDelegate.sharedInstance.navigationController?.pushViewController(destVc, animated: true)
     }
-    
-    func willExpandLabel(_ label: ExpandableLabel) {
-        //tblFeeds.beginUpdates()
-    }
-    
-    func didExpandLabel(_ label: ExpandableLabel) {
-        //        let point = label.convert(CGPoint.zero, to: tblFeeds)
-        //        if let indexPath = tblFeeds.indexPathForRow(at: point) as IndexPath? {
-        //            states[indexPath.row] = false
-        //            DispatchQueue.main.async { [weak self] in
-        //                //  self?.tblFeeds.scrollToRow(at: indexPath, at: .none, animated: false)
-        //            }
-        //        }
-        //        tblFeeds.endUpdates()
-    }
-    
-    
-    func willCollapseLabel(_ label: ExpandableLabel) {
-        //tblFeeds.beginUpdates()
-    }
-    
-    func didCollapseLabel(_ label: ExpandableLabel) {
-        //        let point = label.convert(CGPoint.zero, to: tblFeeds)
-        //        if let indexPath = tblFeeds.indexPathForRow(at: point) as IndexPath? {
-        //            states[indexPath.row] = true
-        //            DispatchQueue.main.async { [weak self] in
-        //                self?.tblFeeds.reloadRows(at: [indexPath], with: .none)
-        //                // self?.tblFeeds.scrollToRow(at: indexPath, at: .bottom, animated: false)
-        //            }
-        //        }
-        //        tblFeeds.endUpdates()
-    }
-    
+    func willExpandLabel(_ label: ExpandableLabel) {}
+    func didExpandLabel(_ label: ExpandableLabel) {}
+    func willCollapseLabel(_ label: ExpandableLabel) {}
+    func didCollapseLabel(_ label: ExpandableLabel) {}
     func mentionTextClicked(_ label: ExpandableLabel,mentionText:String){
-        print("mentionTextClicked \(mentionText)")
         self.videoView.player?.pause()
-        
         progressBar.isPaused = true
         let viewController:ProfileVC = StoryBoard.main.instantiateViewController(withIdentifier: "ProfileVC") as! ProfileVC
         let mention:String = String(mentionText.dropFirst())
@@ -1305,14 +1100,11 @@ extension StoryViewController:ExpandableLabelDelegate{
         viewController.otherMsIsdn = self.wallStatusObj.statusArray[ self.progressBar.currentAnimationIndex].taggedUserId[index]
         self.navigationController?.pushView(viewController, animated: true)
     }
-    
     func urlTextClicked(_ label: ExpandableLabel,strURL:String) {
         self.videoView.player?.pause()
-        
         progressBar.isPaused = true
         let vc = StoryBoard.feeds.instantiateViewController(withIdentifier: "WebviewVC") as! WebviewVC
         vc.urlString = strURL
         AppDelegate.sharedInstance.navigationController?.pushViewController(vc, animated: true)
     }
 }
-

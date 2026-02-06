@@ -16,7 +16,6 @@ import FittedSheets
 class ChatListVC: SwiftBaseViewController,OptionDelegate {
     
     @IBOutlet weak var  lblChatCount:UILabel!
-
     @IBOutlet weak var txtFdSearch: UITextField!
     @IBOutlet weak var searchTxtFdBgVw:UIView!
     @IBOutlet weak var tblView:UITableView!
@@ -608,9 +607,12 @@ extension ChatListVC:UITableViewDelegate,UITableViewDataSource{
         
         if let index = sender?.view?.tag{
             var opponentId = ""
+           
             if isSearching {
+                if searchFeedChatArray.count < index { return }
                 opponentId = searchFeedChatArray[index].userInfo?.userId ?? ""
             }else{
+                if chatListArray.count < index { return }
                 opponentId = chatListArray[index].userInfo?.userId ?? ""
             }
             let profileVC:ProfileVC = StoryBoard.main.instantiateViewController(withIdentifier: "ProfileVC") as! ProfileVC

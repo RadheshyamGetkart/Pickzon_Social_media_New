@@ -3,19 +3,17 @@
 //  SCIMBO
 //
 //  Created by Getkart on 04/08/21.
+//  Updated by ChatGPT on 2025-11-25.
 //  Copyright © 2021 Radheshyam Yadav. All rights reserved.
 //
 
 import UIKit
 
-
 protocol StoryPageViewControllerDelegate : AnyObject{
-    
     func DidDismiss()
     func didClickDelete(_ messageFrame : WallStatus.StoryStaus)
     func didclickedViewCount()
 }
-
 
 class StoryPageViewVC: UIPageViewController {
     
@@ -30,7 +28,6 @@ class StoryPageViewVC: UIPageViewController {
     var isFirst = true
     
     fileprivate lazy var pages: [UIViewController] = {
-        
         var views = [UIViewController]()
         self.wallStatusArray.forEach({ wallObj in
             var i = 0
@@ -40,7 +37,6 @@ class StoryPageViewVC: UIPageViewController {
            
             var urlArray:Array<URL> = Array()
             wallObj.statusArray.forEach({ obj in
-                
                 if checkMediaTypes(strUrl: obj.media) == 3{
                     if let url = URL(string:  obj.media){
                         urlArray.append(url)
@@ -88,18 +84,18 @@ class StoryPageViewVC: UIPageViewController {
         self.delegate   = self
         print("pages[currentStatusIndex] = \(currentStatusIndex) ===\(pages.count)")
         if pages.count > currentStatusIndex {
-            setViewControllers([pages[currentStatusIndex]], direction: .forward, animated: true, completion: nil)
+            setViewControllers([pages[currentStatusIndex]], direction: .forward, animated: true, completion: { _ in
+                // ensure only current plays
+                self.stopAllOtherStories(except: self.currentStatusIndex)
+                if let controller =  self.pages[self.currentStatusIndex] as? StoryViewController {
+                    controller.viewIsDisplayed()
+                }
+            })
         }
         let swipeDown = UISwipeGestureRecognizer(target: self, action: #selector(self.handleGesture(gesture:)))
         swipeDown.direction = .down
         swipeDown.cancelsTouchesInView = false
         self.view.addGestureRecognizer(swipeDown)
-        
-                    if let controller =  pages[currentStatusIndex] as? StoryViewController {
-                        controller.viewIsDisplayed()
-        
-                    }
-        
     }
     
    override func viewDidAppear(_ animated: Bool) {
@@ -107,15 +103,9 @@ class StoryPageViewVC: UIPageViewController {
         //To play when come back
         if pages.count > currentStatusIndex && isFirst == false{
             pages[currentStatusIndex].viewWillAppear(true)
-            
-//            if let controller =  pages[currentStatusIndex] as? StoryViewController {
-//                controller.viewIsDisplayed()
-//
-//            }
         }else{
             self.isFirst = false
         }
-        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -131,14 +121,13 @@ class StoryPageViewVC: UIPageViewController {
         
         if let controller =  pages[currentStatusIndex] as? StoryViewController {
             controller.videoView.player?.pause()
+            pages[currentStatusIndex].viewWillDisappear(true)
         }
     }
     
     deinit {
         self.wallStatusArray.removeAll()
-//        pages[currentStatusIndex].viewDidAppear(true)
         pages[currentStatusIndex].viewWillDisappear(true)
-
         print("Deinit PAgeView")
     }
 
@@ -148,10 +137,8 @@ class StoryPageViewVC: UIPageViewController {
         }
         else if gesture.direction == UISwipeGestureRecognizer.Direction.left {
             print("Swipe Left")
-            
         }else if gesture.direction == UISwipeGestureRecognizer.Direction.up {
             print("Swipe Up")
-            
         }
         else if gesture.direction == UISwipeGestureRecognizer.Direction.down {
             print("Swipe Down")
@@ -160,7 +147,16 @@ class StoryPageViewVC: UIPageViewController {
             customDelegate?.DidDismiss()
             self.dismissView(animated: true, completion: nil)
             self.navigationController?.popViewController(animated: true)
-            
+        }
+    }
+    
+    // Pause all other stories except index
+    private func stopAllOtherStories(except index: Int) {
+        for (i, vc) in pages.enumerated() {
+            if i != index, let storyVC = vc as? StoryViewController {
+                storyVC.videoView.player?.pause()
+                storyVC.progressBar.isPaused = true
+            }
         }
     }
 }
@@ -186,6 +182,9 @@ extension StoryPageViewVC:StoryViewControllerDelegate{
         guard currentStatusIndex-1 < pages.count && currentStatusIndex-1 >= 0  else {
             PlayerHelper.shared.pause()
             isHidden = false
+            if let controller =  pages[currentStatusIndex] as? StoryViewController {
+                controller.videoView.player?.pause()
+            }
             setNeedsStatusBarAppearanceUpdate()
             customDelegate?.DidDismiss()
             self.dismissView(animated: true, completion: nil)
@@ -193,18 +192,21 @@ extension StoryPageViewVC:StoryViewControllerDelegate{
             return
         }
         currentStatusIndex = currentStatusIndex-1
-        setViewControllers([pages[currentStatusIndex]], direction: .reverse, animated: true, completion: nil)
-        if let controller =  pages[currentStatusIndex] as? StoryViewController {
-            controller.refreshItemswhenBack()
-            
+        setViewControllers([pages[currentStatusIndex]], direction: .reverse, animated: true) { _ in
+            self.stopAllOtherStories(except: self.currentStatusIndex)
+            if let controller =  self.pages[self.currentStatusIndex] as? StoryViewController {
+                controller.refreshItemswhenBack()
+            }
         }
-      
     }
     
     
     func currentStoryEnded() {
         guard currentStatusIndex+1 < pages.count  else {
             PlayerHelper.shared.pause()
+            if let controller =  pages[currentStatusIndex] as? StoryViewController {
+                controller.videoView.player?.pause()
+            }
             isHidden = false
             setNeedsStatusBarAppearanceUpdate()
             customDelegate?.DidDismiss()
@@ -215,22 +217,18 @@ extension StoryPageViewVC:StoryViewControllerDelegate{
         
         guard pages.count > currentStatusIndex+1 else {
             isHidden = false
+            if let controller =  pages[currentStatusIndex] as? StoryViewController {
+                controller.videoView.player?.pause()
+            }
             setNeedsStatusBarAppearanceUpdate()
             customDelegate?.DidDismiss()
             self.dismissView(animated: true, completion: nil)
             self.navigationController?.popViewController(animated: true)
-
             return
         }
         currentStatusIndex = currentStatusIndex+1
-      //  setViewControllers([pages[currentStatusIndex]], direction: .forward, animated: true, completion: nil)
-        
-        
         setViewControllers([pages[currentStatusIndex]], direction: .forward, animated: true) { _ in
-//            if let controller =  pages[currentStatusIndex] as? StoryViewController {
-//                controller.viewIsDisplayed()
-//
-//            }
+            self.stopAllOtherStories(except: self.currentStatusIndex)
         }
     }
     
@@ -296,16 +294,34 @@ extension StoryPageViewVC: UIPageViewControllerDataSource
     }
     
     func pageViewController(_ pageViewController: UIPageViewController, didFinishAnimating finished: Bool, previousViewControllers: [UIViewController], transitionCompleted completed: Bool) {
-        print("New animation")
+        // keep behavior if needed
         
+        if completed, let vc = pageViewController.viewControllers?.first,
+           let index = pages.firstIndex(of: vc) {
+
+            currentStatusIndex = index
+            stopAllOtherStories(except: index)
+
+            if let storyVC = vc as? StoryViewController {
+                storyVC.viewIsDisplayed()
+            }
+        }
+
     }
-    
-   
 }
 
+extension StoryPageViewVC: UIPageViewControllerDelegate {
+    
+    func pageViewController(_ pageViewController: UIPageViewController,
+                            willTransitionTo pendingViewControllers: [UIViewController]) {
+        
+        // Pause ALL current playing stories immediately
+        for vc in pages {
+            if let storyVC = vc as? StoryViewController {
+                storyVC.videoView.player?.pause()
+                storyVC.progressBar.isPaused = true
+            }
+        }
+    }
 
-
-extension StoryPageViewVC: UIPageViewControllerDelegate { }
-
-
-
+}

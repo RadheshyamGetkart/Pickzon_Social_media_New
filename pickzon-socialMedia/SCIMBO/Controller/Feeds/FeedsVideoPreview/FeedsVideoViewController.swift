@@ -535,7 +535,6 @@ extension FeedsVideoViewController: UITableViewDelegate, UITableViewDataSource  
         return tblVideos.frame.height
     }
     
-    
 
     //MARK: - UITableviewDelegate
     

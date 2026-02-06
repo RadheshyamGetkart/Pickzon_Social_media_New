@@ -1316,7 +1316,6 @@ class CreateWallPostViewController: UIViewController,GrowingTextViewDelegate {
                         self.showAlertForNudity()
                         
                     }
-                    
                 }
             }
         }

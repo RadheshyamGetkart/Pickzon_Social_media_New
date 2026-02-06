@@ -403,7 +403,7 @@ class FeedsViewController: MyViewController, UITableViewDelegate, UITableViewDat
          viewAlertCenter.clipsToBounds = true
          */
         
-        btnCloseAlert = UIButton(frame: CGRect(x: (viewAlertCenter?.frame.width ?? 0) - 30, y: 0, width: 30, height: 30))
+        btnCloseAlert = UIButton(frame: CGRect(x: (viewAlertCenter?.frame.width ?? 0) - 35, y: 0, width: 30, height: 30))
         btnCloseAlert?.setBackgroundImage(UIImage(named: "crossCircle"), for: .normal)
         btnCloseAlert?.addTarget(self, action: #selector(closePopup), for: .touchUpInside)
         viewAlertCenter?.addSubview(btnCloseAlert!)
@@ -683,6 +683,7 @@ class FeedsViewController: MyViewController, UITableViewDelegate, UITableViewDat
     //MARK: Pull to refresh
     @objc func handlePullDownRefresh(_ refreshControl: UIRefreshControl){
         if !isDataLoading{
+            FeedSeenManager.shared.flushOnAppTerminate()
             self.isDataLoading = true
             pageNo = 1
             feedSectionNo = 1
